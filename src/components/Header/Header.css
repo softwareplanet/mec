@@ -1,12 +1,29 @@
 .header {
     display: flex;
-    align-items: baseline;
-    position: absolute;
-    left: 50%;
-    margin-right: -50%;
+    flex-direction: column;
+    gap: 25px;
     margin-top: 33px;
-    transform: translate(-50%, -50%)
+    justify-content: flex-start;
+}
 
+.head {
+    display: flex;
+    align-items: baseline;
+}
+
+input {
+    border: 1px solid #E4E4E4;
+    background-image: url("../../images/lookup.svg");
+    background-repeat: no-repeat;
+    background-position-x: 13px;
+    background-position-y: 50%;
+    border-radius: 4px;
+    width: 260px;
+    height: 40px;
+}
+
+input::placeholder {
+    padding-left: 36px;
 }
 
 h1 {
@@ -21,4 +38,10 @@ h1 {
     width: 42px;
     height: 17px;
     margin-right: 12px;
+}
+
+.lookup {
+    display: flex;
+    align-self: flex-start;
+    gap: 18px
 }
