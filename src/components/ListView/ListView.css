@@ -1,0 +1,40 @@
+.change-display {
+    display: flex;
+    gap: 18px;
+    margin-left: 18px;
+}
+
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 50px;
+    margin: 0 20px;
+}
+
+.military-equipment {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    height: 73px;
+    align-items: center;
+}
+
+h2 {
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+}
+
+.vector-img {
+    margin-left: 12px;
+    width: 70px;
+    height: 50px;
+}
+
+.hide {
+    display: none
+}
