@@ -28,9 +28,10 @@
     font-family: sans-serif;
     color: #ffffff;
     position: absolute;
-    bottom: 3px;
+    bottom: 4px;
     padding-bottom: 12px;
     padding-left: 16px;
     font-size: 14px;
     margin: 0;
+    border-radius: 4px;
 }
