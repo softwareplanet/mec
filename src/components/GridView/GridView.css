@@ -6,7 +6,7 @@
 .inline-view {
     display: flex;
     gap: 15px;
-    margin-bottom: 9px;
+    margin-top: 9px;
 }
 
 .png-img {
