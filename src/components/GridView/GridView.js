@@ -15,7 +15,7 @@ import sheep from "../../images/sheep.png"
 
 let GridView = () => {
     return (
-        <div className="grid-view ">
+        <div className="grid-view hide">
             <div className="inline-view">
                 <div className="military-equipment-grid">
                     <img className="png-img" src={airplane} alt="" />

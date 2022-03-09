@@ -8,15 +8,14 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding-top: 50px;
-    margin: 0 20px;
+    padding-top: 15px;
 }
 
 .military-equipment {
     display: flex;
     gap: 20px;
     background-color: #ffffff;
-    border: 1px solid #ffffff;
+    border: 1px solid #E4E4E4;
     border-radius: 4px;
     height: 73px;
     align-items: center;
