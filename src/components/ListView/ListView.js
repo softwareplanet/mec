@@ -11,7 +11,7 @@ import gun from "../../images/gun.svg"
 
 let ListView = () => {
     return (
-        <div className="list-view ">
+        <div className="list-view hide">
             <div className="military-equipment">
                 <img className="vector-img" src={airplane} alt="" />
                 <h2>Літаки</h2>
