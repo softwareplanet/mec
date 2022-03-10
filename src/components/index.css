@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
 body {
     background-color:  #F5F5F5;
     margin: 0 20px;
+}
+
+.hide {
+    display: none;
 }
