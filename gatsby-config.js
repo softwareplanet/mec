@@ -26,11 +26,6 @@ module.exports = {
       },
       __key: "pages"
     },
-    `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/`,
-      },
-    },]
-};
+    "gatsby-transformer-remark"
+  ]
+}
