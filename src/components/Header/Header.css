@@ -26,8 +26,17 @@ input::placeholder {
     padding-left: 36px;
 }
 
+input:focus::placeholder {
+    color: transparent;
+}
+
+input:focus {
+    background-image: none;
+    outline-color: #ebe9e9;
+    font-size: 20px;
+}
+
 h1 {
-    font-family: sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 30px;

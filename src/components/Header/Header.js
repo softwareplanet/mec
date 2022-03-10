@@ -12,7 +12,7 @@ let Header = () => {
                 <h1>Військова техніка</h1>
             </div>
             <div className="lookup">
-                <input type="search" placeholder="Пошук..."/>
+                <input type="search" placeholder="Пошук..." autoComplete="off"/>
                 <img src={gridView} alt="" />
                 <img className="active" src={listView} alt="" />
             </div>
