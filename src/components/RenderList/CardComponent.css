@@ -1,0 +1,79 @@
+/* grid  */
+
+.categories{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+
+    margin-top: 20px;
+
+}
+
+
+.grid .inline-view {
+    display: flex;
+    gap: 1em;
+    margin-top: 9px;
+}
+.grid .png-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 4px;
+}
+.grid .military-equipment {
+    position: relative;
+    margin: 4px;
+}
+
+.grid .military-equipment h2 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 94.9%);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    color: #ffffff;
+    position: absolute;
+    bottom: 4px;
+    padding: 0 16px 12px;
+    font-size: 14px;
+    margin: 0;
+    border-radius: 4px;
+}
+
+/* list  */
+
+.list .change-display {
+    display: flex;
+    gap: 18px;
+    margin-left: 18px;
+}
+
+.list .list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 15px;
+}
+
+.list .military-equipment {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    border: 1px solid #E4E4E4;
+    border-radius: 4px;
+    height: 73px;
+    align-items: center;
+}
+
+.list h2 {
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+}
+
+.list .vector-img {
+    margin-left: 12px;
+    width: 70px;
+    height: 50px;
+}
+
