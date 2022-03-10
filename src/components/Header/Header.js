@@ -1,8 +1,8 @@
 import "./Header.css"
 import React from "react";
 import tank from "../../images/tank_img.png"
-import gridView from "../../images/gridView.svg"
-import listView from "../../images/listView.svg"
+import Switcher from "../Switcher/Switcher";
+
 
 let Header = () => {
     return (
@@ -13,8 +13,7 @@ let Header = () => {
             </div>
             <div className="lookup">
                 <input type="search" placeholder="Пошук..." autoComplete="off"/>
-                <img src={gridView} alt="" />
-                <img className="active" src={listView} alt="" />
+                <Switcher />
             </div>
         </div>
     )

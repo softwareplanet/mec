@@ -56,11 +56,6 @@ h1 {
     gap: 0.8rem;
 }
 
-img {
-    height: 1.5em;
-    width: 1.5em;
-    align-self: center;
-}
 
 @media screen and (max-width: 370px) {
     input:focus {
