@@ -105,7 +105,7 @@ let RenderList = () => {
         }
     ]
 
-    let grid = false
+    let grid = true
 
     return (
         <div className={grid ? 'categories grid' : 'categories list'}>
