@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./CardComponent.css"
+import "./RenderList.css"
 
 import airplane from "../../images/airplane.png"
 import helicopter from "../../images/helicopter.png"
@@ -27,6 +27,7 @@ import automobileSvg from "../../images/automobile.png"
 import tankerSvg from "../../images/tanker.png"
 import bayraktarSvg from "../../images/bayraktar.png"
 import sheepSvg from "../../images/sheep.png"
+import CardComponent from '../CardComponent/CardComponent'
 
 let RenderList = () => {
 
@@ -111,10 +112,7 @@ let RenderList = () => {
         <div className={grid ? 'categories grid' : 'categories list'}>
             {
             categoryList.map(element => 
-                <div  key={element.name} className="military-equipment">
-                    <img className="png-img" src={grid ? element.GridImage:element.ListImage} alt="" />
-                    <h2>{element.title}</h2>
-                </div>)
+                <CardComponent  key={element.name} image={grid ? element.GridImage:element.ListImage} title={element.title}/>)
             }
         </div>
     )
