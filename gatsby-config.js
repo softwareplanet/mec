@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-      title: ``,
+    title: ``,
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: ["gatsby-plugin-image", {
@@ -8,19 +8,29 @@ module.exports = {
     options: {
       "icon": "src/images/icon.png"
     }
-  }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+  },
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp", {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "images",
+        "path": "./src/images/"
+      },
+      __key: "images"
+    }, {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "pages",
+        "path": "./src/pages/"
+      },
+      __key: "pages"
     },
-    __key: "images"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
-    },
-    __key: "pages"
-  }]
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/`,
+      },
+    },]
 };
