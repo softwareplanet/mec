@@ -38,12 +38,12 @@
   title: Цистерни
   grid_img: tanker.png
   list_img: tanker.svg
-- name: bayraktars
+- name: UAVs
   title: Безпілотні літальні апарати
-  grid_img: bayraktar.png
-  list_img: bayraktar.svg
-- name: sheeps
+  grid_img: uav.png
+  list_img: uav.svg
+- name: ships
   title: Кораблі/катери
-  grid_img: sheep.png
-  list_img: sheep.svg
+  grid_img: ship.png
+  list_img: ship.svg
    

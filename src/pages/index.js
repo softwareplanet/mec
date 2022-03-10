@@ -13,8 +13,8 @@ import grad from "../images/grad.png"
 import gun from "../images/gun.png"
 import automobile from "../images/automobile.png"
 import tanker from "../images/tanker.png"
-import bayraktar from "../images/bayraktar.png"
-import sheep from "../images/sheep.png"
+import uav from "../images/uav.png"
+import ship from "../images/ship.png"
 import airplaneSvg from "../images/airplane.svg"
 import helicopterSvg from "../images/helicopter.svg"
 import tankSvg from "../images/tank.svg"
@@ -25,8 +25,8 @@ import gradSvg from "../images/grad.svg"
 import gunSvg from "../images/gun.svg"
 import automobileSvg from "../images/automobile.png"
 import tankerSvg from "../images/tanker.png"
-import bayraktarSvg from "../images/bayraktar.png"
-import sheepSvg from "../images/sheep.png"
+import uavSvg from "../images/uav.png"
+import shipSvg from "../images/ship.png"
 
 let FirstPage = () => {
 
@@ -95,14 +95,14 @@ let FirstPage = () => {
         {
             name: "bayraktar",
             title: "Безпілотний літальний апарат",
-            GridImage: bayraktar ,
-            ListImage: bayraktarSvg
+            GridImage: uav ,
+            ListImage: uavSvg
         },
         {
             name: "sheep",
             title: "Кораблі/катери",
-            GridImage: sheep ,
-            ListImage: sheepSvg
+            GridImage: ship ,
+            ListImage: shipSvg
         }
     ]
 
