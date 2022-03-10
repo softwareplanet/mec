@@ -7,5 +7,5 @@
 
 body {
     background-color:  #F5F5F5;
-    margin: 0 20px;
+    margin: 33px calc(100vw - 95vw) 0;
 }
