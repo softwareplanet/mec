@@ -15,77 +15,104 @@ import tanker from "../../images/tanker.png"
 import bayraktar from "../../images/bayraktar.png"
 import sheep from "../../images/sheep.png"
 
+import airplaneSvg from "../../images/airplane.svg"
+import helicopterSvg from "../../images/helicopter.svg"
+import tankSvg from "../../images/tank.svg"
+import bbmSvg from "../../images/bbm.svg"
+import bukSvg from "../../images/buk.svg"
+import projectileSvg from "../../images/projectile.svg"
+import gradSvg from "../../images/grad.svg"
+import gunSvg from "../../images/gun.svg"
+import automobileSvg from "../../images/automobile.png"
+import tankerSvg from "../../images/tanker.png"
+import bayraktarSvg from "../../images/bayraktar.png"
+import sheepSvg from "../../images/sheep.png"
+
 let RenderList = () => {
 
     let categoryList = [
         {
             name: "airplane",
             title: "Літаки",
-            image: airplane ,
+            GridImage: airplane ,
+            ListImage: airplaneSvg
         },
         {
             name: "helicopter",
             title: "Гелікоптери",
-            image: helicopter ,
+            GridImage: helicopter ,
+            ListImage: helicopterSvg
         },
         {
             name: "tanks",
             title: "Танки",
-            image: tank ,
+            GridImage: tank ,
+            ListImage: tankSvg
         },
         {
             name: "bbm",
             title: "Бойові броньовані машини (ББМ)",
-            image: bbm ,
+            GridImage: bbm ,
+            ListImage: bbmSvg
         },
         {
             name: "buk",
             title: `ЗРК "Бук"`,
-            image: buk ,
+            GridImage: buk ,
+            ListImage:bukSvg
         },
         {
             name: "projectile",
             title: "Снаряди",
-            image: projectile ,
+            GridImage: projectile ,
+            ListImage: projectileSvg
         },
         {
             name: "grad",
             title: `РСЗВ "Град"`,
-            image: grad ,
+            GridImage: grad ,
+            ListImage: gradSvg
         },
         {
             name: "gun",
             title: "Гармати",
-            image: gun ,
+            GridImage: gun ,
+            ListImage: gunSvg
         },
         {
             name: "automobile",
             title: "Автомобільна техніка",
-            image: automobile ,
+            GridImage: automobile ,
+            ListImage: automobileSvg
         },
         {
             name: "tanker",
             title: "Цистерни",
-            image: tanker ,
+            GridImage: tanker ,
+            ListImage: tankerSvg
         },
         {
             name: "bayraktar",
             title: "Безпілотний літальний апарат",
-            image: bayraktar ,
+            GridImage: bayraktar ,
+            ListImage: bayraktarSvg
         },
         {
             name: "sheep",
             title: "Кораблі/катери",
-            image: sheep ,
+            GridImage: sheep ,
+            ListImage: sheepSvg
         }
     ]
 
+    let grid = false
+
     return (
-        <div className='categories grid'>
+        <div className={grid ? 'categories grid' : 'categories list'}>
             {
             categoryList.map(element => 
                 <div  key={element.name} className="military-equipment">
-                    <img className="png-img" src={element.image} alt="" />
+                    <img className="png-img" src={grid ? element.GridImage:element.ListImage} alt="" />
                     <h2>{element.title}</h2>
                 </div>)
             }
