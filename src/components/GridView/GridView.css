@@ -1,11 +1,11 @@
 .inline-view {
     display: flex;
-    gap: 15px;
+    gap: 1em;
     margin-top: 9px;
 }
 
 .png-img {
-    width: 42.5vw;
+    width: calc((90vw - 1em)/2);
     height: 20vh;
     border-radius: 4px;
 }
