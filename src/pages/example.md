@@ -1,4 +1,4 @@
 ---
 title: Т-90 «Владімір»
-cathegory: tank
+category: tank
 ---
