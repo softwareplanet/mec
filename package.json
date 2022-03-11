@@ -18,6 +18,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.9.3",
+    "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.9.0",
     "gatsby-plugin-manifest": "^4.9.0",
     "gatsby-plugin-mdx": "^3.9.0",
@@ -27,9 +28,17 @@
     "gatsby-transformer-sharp": "^4.9.0",
     "gatsby-transformer-yaml": "^4.9.0",
     "js-yaml": "^4.1.0",
+    "path": "^0.12.7",
+    "process": "^0.11.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11"
   }
 }

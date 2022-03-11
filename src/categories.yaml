@@ -1,49 +1,49 @@
 - name: airplanes
   title: Літаки
-  grid_img: airplane.png
-  list_img: airplane.svg
+  grid_img: ../images/airplane.png
+  list_img: ../images/airplane.svg
 - name: helicopters
   title: Гелікоптери
-  grid_img: helicopter.png
-  list_img: helicopter.svg
+  grid_img: ../images/helicopter.png
+  list_img: ../images/helicopter.svg
 - name: tanks
   title: Танки
-  grid_img: tank.png
-  list_img: tank.svg
+  grid_img: ../images/tank.png
+  list_img: ../images/tank.svg
 - name: bbms
   title: Бойові броньовані машини (ББМ)
-  grid_img: bbm.png
-  list_img: bbm.svg
+  grid_img: ../images/bbm.png
+  list_img: ../images/bbm.svg
 - name: buks
   title: ЗРК (Бук)
-  grid_img: buk.png
-  list_img: buk.svg
+  grid_img: ../images/buk.png
+  list_img: ../images/buk.svg
 - name: projectiles
   title: Снаряди
-  grid_img: projectile.png
-  list_img: projectile.svg
+  grid_img: ../images/projectile.png
+  list_img: ../images/projectile.svg
 - name: grads
   title: РСЗВ "Град"
-  grid_img: grad.png
-  list_img: grad.svg
+  grid_img: ../images/grad.png
+  list_img: ../images/grad.svg
 - name: guns
   title: Гармати
-  grid_img: gun.png
-  list_img: gun.svg
+  grid_img: ../images/gun.png
+  list_img: ../images/gun.svg
 - name: automobiles
   title: Автомобільна техніка
-  grid_img: automobile.png
-  list_img: automobile.svg
+  grid_img: ../images/automobile.png
+  list_img: ../images/automobile.png
 - name: tankers
   title: Цистерни
-  grid_img: tanker.png
-  list_img: tanker.svg
+  grid_img: ../images/tanker.png
+  list_img: ../images/tanker.png
 - name: UAVs
   title: Безпілотні літальні апарати
-  grid_img: uav.png
-  list_img: uav.svg
+  grid_img: ../images/uav.png
+  list_img: ../images/uav.png
 - name: ships
   title: Кораблі/катери
-  grid_img: ship.png
-  list_img: ship.svg
+  grid_img: ../images/ship.png
+  list_img: ../images/ship.png
    
