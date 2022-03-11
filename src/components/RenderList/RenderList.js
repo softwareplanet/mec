@@ -5,7 +5,7 @@ import CardComponent from '../CardComponent/CardComponent'
 let RenderList = ({ data }) => {
     let grid = true
     return (
-        <div className={grid ? 'categories grid' : 'categories list'}>
+        <div className={grid ? 'grid':'list'}>
             {
                 data.map(element =>
                     <CardComponent
