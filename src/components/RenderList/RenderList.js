@@ -3,14 +3,14 @@ import "./RenderList.css"
 import CardComponent from '../CardComponent/CardComponent'
 
 let RenderList = ({ data }) => {
-    let grid = true
+    let grid = false
     return (
         <div className={grid ? 'grid':'list'}>
             {
                 data.map(element =>
                     <CardComponent
                         key={element.name}
-                        image={grid ? element.grid_img : element.list_img}
+                        image={grid ? element.grid_img.childImageSharp : element.list_img.childImageSharp}
                         title={element.title}
                     />)
             }

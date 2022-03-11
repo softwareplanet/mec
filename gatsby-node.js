@@ -1,18 +1,30 @@
-const path = require("path")
-
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
     const data = await graphql(`
         {
             allCategoriesYaml {
-                edges {
-                    node {
-                        name
-                        title
-                        grid_img
-                        list_img
+                nodes {
+                    name
+                    title
+                    grid_img {
+                        childImageSharp {
+                            fluid {
+                                src
+                            }
+                            fixed {
+                                src
+                            }
+                        }
+                    }
+                    list_img {
+                        childImageSharp {
+                            fluid {
+                                src
+                            }
+                        }
                     }
                 }
             }
+            
         }
     `)
 
@@ -23,11 +35,11 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
     const HomePage = require.resolve("./src/pages/index.js")
 
-    data.data.allCategoriesYaml.edges.forEach(edge => {
+    data.data.allCategoriesYaml.nodes.forEach(node => {
         createPage({
             path: "/",
             component: HomePage,
-            context: {name: edge.node.name}
+            context: { name: node.name }
         })
     })
 

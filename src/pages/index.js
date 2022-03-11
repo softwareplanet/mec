@@ -10,8 +10,23 @@ export const query = graphql`
       nodes {
         name
         title
-        grid_img
-        list_img
+        grid_img {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+            fixed {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        list_img {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     } 
   }

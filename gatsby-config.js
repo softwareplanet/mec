@@ -8,17 +8,17 @@ module.exports = {
     options: {
       "icon": "src/images/icon.png"
     }
+  }, "gatsby-plugin-image", {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: "images",
+      path: `${__dirname}/src/images`
+    }
   },
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp", {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "images",
-        "path": "./src/images/"
-      },
-      __key: "images"
-    }, {
+    "gatsby-transformer-sharp", 
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "pages",
