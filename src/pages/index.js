@@ -12,19 +12,12 @@ export const query = graphql`
         title
         grid_img {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-            fixed {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData
           }
         }
         list_img {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }

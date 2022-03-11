@@ -7,19 +7,12 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                     title
                     grid_img {
                         childImageSharp {
-                            fluid {
-                                src
-                            }
-                            fixed {
-                                src
-                            }
+                            gatsbyImageData
                         }
                     }
                     list_img {
                         childImageSharp {
-                            fluid {
-                                src
-                            }
+                            gatsbyImageData 
                         }
                     }
                 }
