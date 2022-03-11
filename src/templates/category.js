@@ -10,7 +10,7 @@ export const query = graphql`
         nodes {
           frontmatter {
             category
-            img
+            image
             title
           }
         }
