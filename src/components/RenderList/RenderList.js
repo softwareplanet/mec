@@ -3,7 +3,7 @@ import "./RenderList.css"
 import CardComponent from '../CardComponent/CardComponent'
 
 let RenderList = ({ data }) => {
-    let grid = false
+    let grid = true
     return (
         <div className={grid ? 'grid':'list'}>
             {

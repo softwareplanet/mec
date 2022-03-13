@@ -12,7 +12,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                     }
                     list_img {
                         childImageSharp {
-                            gatsbyImageData 
+                            gatsbyImageData (sizes: "(min-width: none)")
                         }
                     }
                 }

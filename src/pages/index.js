@@ -13,12 +13,12 @@ export const query = graphql`
         title
         grid_img {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData (width: 160)
           }
         }
         list_img {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData (height: 50)
           }
         }
       }

@@ -6,7 +6,9 @@ import "./CardComponent.css"
 let CardComponent = ({title, image}) => {
     return (
         <div className="military-equipment">
-            <GatsbyImage className="png-img" image={getImage(image)} alt={title} />
+            <div className="img-container">
+                <GatsbyImage imgClassName="png-img" image={getImage(image)} alt={title} />
+            </div>
             <h2>{title}</h2>
         </div>
   )
