@@ -4,9 +4,9 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import "./CardComponent.css"
 import { Link } from 'gatsby'
 
-let CardComponent = ({key, title, image}) => {
+let CardComponent = ({name, title, image}) => {
     return (
-        <Link to={`/${key}`} className="link-view">
+        <Link to={`/${name}`} className="link-view">
             <div className="military-equipment">
                 <div className="img-container">
                     <GatsbyImage imgClassName="png-img" image={getImage(image)} alt={title} />
