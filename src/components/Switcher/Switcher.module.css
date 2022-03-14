@@ -1,4 +1,4 @@
-.switch {
+.switcher {
     display: flex;
     gap: 1em;
 }
@@ -12,12 +12,12 @@
     padding: 0;
 }
 
-.icon svg {
+.svgIcon {
     width: 120%;
     height: 120%;
     color: gray;
 }
 
-.icon.active svg{
+.active {
     color: black;  
 }
