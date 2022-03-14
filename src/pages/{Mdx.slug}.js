@@ -1,6 +1,7 @@
 import React from "react";
 //import styles from "./InfoPage.css";
 import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export const query = graphql`
         query ($slug: String) {
@@ -8,6 +9,7 @@ export const query = graphql`
                 frontmatter{
                     title
                 }
+                body
             }
         }
     `;
@@ -16,9 +18,8 @@ const InfoPage = (props) => {
     
     return (
         <div className="infoPage">
-            {JSON.stringify(props)}
-            <h1>{props.data.mdx.frontmatter.title}</h1>
-            {/* <MDXRenderer title="My Stuff!">{}</MDXRenderer> */}
+            <h1>{props.data.mdx.frontmatter.title}</h1>            
+            <MDXRenderer title="My Stuff!">{props.data.mdx.body}</MDXRenderer>
         </div >
     );
 }
