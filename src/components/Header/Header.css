@@ -1,39 +1,8 @@
-.header {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    justify-content: flex-start;
-}
-
 .head {
     width: 90vw;
     display: flex;
     align-items: baseline;
-}
-
-input {
-    border: 1px solid #E4E4E4;
-    border-radius: 4px;
-    height: 40px;
-    width: 1%;
-    flex-grow: 1;
-    padding-left: 36px;
-    font-size: 1.2em;
-}
-
-.lookup img {
-    position: absolute;
-    margin: 15px 0 0 13px;
-}
-
-input:focus::placeholder {
-    color: transparent;
-}
-
-input:focus {
-    background-image: none;
-    outline-color: #ebe9e9;
-    font-size: 1.2em;
+    margin-bottom: 25px;
 }
 
 h1 {
@@ -47,22 +16,4 @@ h1 {
     width: 42px;
     height: 17px;
     margin-right: 12px;
-}
-
-.lookup {
-    width: 90vw;
-    display: flex;
-    align-self: flex-start;
-    gap: 0.8rem;
-}
-
-
-@media screen and (max-width: 370px) {
-    input {
-        font-size: 1em;
-    }
-
-    input:focus {
-        font-size: 1em;
-    }
 }
