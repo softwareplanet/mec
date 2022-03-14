@@ -1,5 +1,6 @@
 ---
 title: T-80
 category: tanks
-image: ./image/t-80.png
+categoryTitle: Танки
+image: ./images/t-80.png
 ---
