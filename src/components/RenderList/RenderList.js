@@ -5,30 +5,23 @@ import Switcher from "../Switcher/Switcher";
 import "./RenderList.css"
 
 let RenderList = ({ data }) => {
-    let [grid, setGrid] = useState(true)
-
-    let gridChangeHandler = view => {
-        if (view === "grid") {
-            setGrid(true)
-        } else {
-            setGrid(false)
-        }
-    }
+    let [view, setView] = useState('grid')
 
     return (
         <>
             <div className="toolbar">
                 <img src={lookup} alt="" />
                 <input type="search" placeholder="Пошук..." autoComplete="off" />
-                <Switcher onViewChange={gridChangeHandler} />
+                <Switcher onViewChange={setView} />
             </div>
-            <div className={grid ? "grid" : "list"}>
+            <div className={view}>
                 {
                     data.map(element =>
                         <CardComponent
-                            key={element.name}
-                            image={grid ? element.grid_img.childImageSharp : element.list_img.childImageSharp}
+                            key={element.name}                            
+                            image={element[view + '_img'].childImageSharp}
                             title={element.title}
+                            variant={view}
                         />)
                 }
             </div>

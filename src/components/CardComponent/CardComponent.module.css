@@ -1,13 +1,12 @@
-
 .grid .png-img {
     border-radius: 4px;
 }
-.grid .military-equipment {
+.grid.military-equipment {
     position: relative;
     margin: 4px;
 }
 
-.grid .military-equipment h2 {
+.grid.military-equipment h2 {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 94.9%);
     width: 100%;
     height: 80px;
@@ -23,7 +22,7 @@
 }
 
 
-.list .military-equipment {
+.list.military-equipment {
     display: flex;
     margin-bottom: 8px;
     column-gap: 20px;
@@ -34,7 +33,7 @@
     align-items: center;
 }
 
-.list a {
+.link-view {
     font-size: 18px;
     line-height: 23px;
     font-weight: 600;
