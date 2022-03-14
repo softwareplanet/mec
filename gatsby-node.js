@@ -1,5 +1,5 @@
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
-    const data = await graphql(`
+    const {data} = await graphql(`
         {
             allCategoriesYaml {
                 nodes {
@@ -17,10 +17,10 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                     }
                 }
             }
-            
         }
     `)
-
+    
+    
     if (data.errors) {
         console.log("Errors", data.errors)
         return
@@ -28,12 +28,11 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
     const HomePage = require.resolve("./src/pages/index.js")
 
-    data.data.allCategoriesYaml.nodes.forEach(node => {
+    data.allCategoriesYaml.nodes.forEach(node => {
         createPage({
             path: "/",
             component: HomePage,
             context: { name: node.name }
         })
     })
-
 }
