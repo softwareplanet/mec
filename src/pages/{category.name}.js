@@ -5,8 +5,8 @@ import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby"
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(filter: {frontmatter: {category: {eq: "tanks"}}}) {
+  query ($name: String){
+    allMarkdownRemark(filter: {frontmatter: {category: {eq: $name}}}) {
         nodes {
           frontmatter {
             category
