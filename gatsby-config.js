@@ -8,16 +8,17 @@ module.exports = {
     options: {
       "icon": "src/images/icon.png"
     }
-  }, "gatsby-plugin-image", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      name: "images",
-      path: `${__dirname}/src/images`
-    }
   },
+    "gatsby-plugin-image",
     "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp", 
+    "gatsby-transformer-sharp",
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -31,7 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/`,
+        path: `./src/equipment/`,
+        name: 'equipments'
       },
     }
   ]
