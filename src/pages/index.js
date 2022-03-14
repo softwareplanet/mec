@@ -1,3 +1,4 @@
+import "../components/reset.css"
 import "../components/index.css"
 import React from "react";
 import Header from "../components/Header/Header"
@@ -12,19 +13,12 @@ export const query = graphql`
         title
         grid_img {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-            fixed {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData (width: 160)
           }
         }
         list_img {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData (height: 50)
           }
         }
       }

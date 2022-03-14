@@ -1,12 +1,14 @@
 import React from 'react'
-import Image  from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import "./CardComponent.css"
 
 let CardComponent = ({title, image}) => {
     return (
         <div className="military-equipment">
-            <Image className="png-img" fluid={image.fluid} fixed={image.fixed} alt={title} />
+            <div className="img-container">
+                <GatsbyImage imgClassName="png-img" image={getImage(image)} alt={title} />
+            </div>
             <h2>{title}</h2>
         </div>
   )

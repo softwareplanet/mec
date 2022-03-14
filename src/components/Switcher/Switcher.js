@@ -1,13 +1,18 @@
 import React from "react";
 import "./Switcher.css"
-import gridView from "../../images/gridView.svg"
-import listView from "../../images/listView.svg"
+import {CgMenuGridR} from "react-icons/cg"
+import {VscListFlat} from "react-icons/vsc"
 
-let Switcher = () => {
+let Switcher = (props) => {
+
+    let changeClass = event => {
+        props.onClick(event.target.parentElement)
+    }
+
     return (
-        <div className="switch">
-            <img src={gridView} alt="" />
-            <img className="active" src={listView} alt="" />
+        <div className="switch" onClick={changeClass}>
+            <button className="icon"><CgMenuGridR /></button>
+            <button className="icon active"><VscListFlat /></button>
         </div>
     )
 }

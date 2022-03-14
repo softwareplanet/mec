@@ -1,7 +1,5 @@
 
 .grid .png-img {
-    width: 160px;
-    height: 160px;
     border-radius: 4px;
 }
 .grid .military-equipment {
@@ -28,7 +26,7 @@
 .list .military-equipment {
     display: flex;
     margin-bottom: 8px;
-    gap: 20px;
+    column-gap: 20px;
     background-color: #ffffff;
     border: 1px solid #E4E4E4;
     border-radius: 4px;
@@ -42,9 +40,10 @@
     font-weight: 600;
 }
 
-.list .png-img {
-    margin-left: 12px;
-    width: 70px;
+.list .img-container {
+    display: flex;
+    align-items: center;
+    width: 80px;
     height: 50px;
+    margin: 20px 0 14px 12px;
 }
-

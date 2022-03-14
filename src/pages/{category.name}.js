@@ -10,7 +10,11 @@ export const query = graphql`
         nodes {
           frontmatter {
             category
-            image
+            image {
+              childrenImageSharp {
+                gatsbyImageData
+              }
+            }
             title
           }
         }
