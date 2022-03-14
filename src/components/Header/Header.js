@@ -1,6 +1,7 @@
 import "./Header.css"
 import React, { useState, useEffect } from "react";
 import tank from "../../images/tank_img.png"
+import lookup from "../../images/lookup.svg"
 import Switcher from "../Switcher/Switcher";
 
 
@@ -28,6 +29,7 @@ let Header = () => {
                 <h1>Військова техніка</h1>
             </div>
             <div className="lookup">
+                <img src={lookup} alt=""/>
                 <input type="search" placeholder="Пошук..." autoComplete="off"/>
                 <Switcher onClick={clickHandler}/>
             </div>

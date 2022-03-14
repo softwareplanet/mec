@@ -13,17 +13,17 @@
 
 input {
     border: 1px solid #E4E4E4;
-    background-image: url("../../images/lookup.svg");
-    background-repeat: no-repeat;
-    background-position-x: 13px;
-    background-position-y: 50%;
     border-radius: 4px;
     height: 40px;
-    width: 80vw;
+    width: 1%;
+    flex-grow: 1;
+    padding-left: 36px;
+    font-size: 1.2em;
 }
 
-input::placeholder {
-    padding-left: 36px;
+.lookup img {
+    position: absolute;
+    margin: 15px 0 0 13px;
 }
 
 input:focus::placeholder {
@@ -58,6 +58,10 @@ h1 {
 
 
 @media screen and (max-width: 370px) {
+    input {
+        font-size: 1em;
+    }
+
     input:focus {
         font-size: 1em;
     }
