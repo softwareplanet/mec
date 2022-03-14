@@ -2,8 +2,6 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #F5F5F5;
-    margin: 0 0px;
 }
 
 .infoPage {
@@ -15,7 +13,7 @@ body {
 }
 
 .infoPageBody {
-    margin: 12px 20px 10px;    
+    margin: 12px 20px 10px;
 }
 
 h1 {
@@ -48,4 +46,8 @@ table {
     font-weight: 400;
     line-height: 15px;
     margin-top: 0px;
+}
+
+iframe {
+    padding-top: 12px;
 }
