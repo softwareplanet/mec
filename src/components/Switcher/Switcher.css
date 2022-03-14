@@ -3,8 +3,21 @@
     gap: 1em;
 }
 
-img {
-    height: 1.5em;
+.icon {
     width: 1.5em;
+    height: 1.5em;
     align-self: center;
+    background-color: #F5F5F5;
+    border: none;
+    padding: 0;
+}
+
+.icon svg {
+    width: 120%;
+    height: 120%;
+    color: gray;
+}
+
+.icon.active svg{
+    color: black;  
 }
