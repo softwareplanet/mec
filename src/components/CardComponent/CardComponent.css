@@ -34,10 +34,12 @@
     align-items: center;
 }
 
-.list h2 {
+.list a {
     font-size: 18px;
     line-height: 23px;
     font-weight: 600;
+    color: black;
+    text-decoration: none;
 }
 
 .list .img-container {
