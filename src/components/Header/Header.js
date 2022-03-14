@@ -1,38 +1,13 @@
-import "./Header.css"
-import React, { useState, useEffect } from "react";
+import React from "react";
 import tank from "../../images/tank_img.png"
-import lookup from "../../images/lookup.svg"
-import Switcher from "../Switcher/Switcher";
+import "./Header.css"
 
 
 let Header = () => {
-
-    let [change, setChange] = useState(false)
-
-    let clickHandler = (className) => {
-        // if (!change) {
-        //     setChange(!change)
-        //     className = "icon active"
-        //     console.log(className)
-        // }
-        // else {
-            // setChange(!change)
-            // className = "icon"
-            console.log(className)
-        // }
-    }
-
     return (
-        <div className="header">
-            <div className="head">
-                <img src={tank} alt="" className="logo" />
-                <h1>Військова техніка</h1>
-            </div>
-            <div className="lookup">
-                <img src={lookup} alt=""/>
-                <input type="search" placeholder="Пошук..." autoComplete="off"/>
-                <Switcher onClick={clickHandler}/>
-            </div>
+        <div className="head">
+            <img src={tank} alt="" className="logo" />
+            <h1>Військова техніка</h1>
         </div>
     )
 }
