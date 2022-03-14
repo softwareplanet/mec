@@ -38,7 +38,7 @@
   title: Цистерни
   grid_img: ./images/tanker.png
   list_img: ./images/tanker.png
-- name: UAVs
+- name: uav
   title: Безпілотні літальні апарати
   grid_img: ./images/uav.png
   list_img: ./images/uav.png
