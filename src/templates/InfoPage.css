@@ -1,19 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;       
+    margin: 0px 0vw 0;    
+}
+
+.header{
+    background-color: #F5F5F5;
+}
+.header h1{    
+    padding: 50px 30px;
+}
+
+.header img{
+    width: 100%;
+    
 }
 
 .infoPage {
-    margin-top: 10px;
-}
-
-.infoPage img {
-    width: 100%;
-}
-
-.infoPageBody {
-    margin: 12px 20px 10px;
+    margin: 12px 20px;
 }
 
 h1 {
@@ -50,4 +55,7 @@ table {
 
 iframe {
     padding-top: 12px;
+    width: 100%;
+    max-width: 335px;
+    height: 185px;
 }
