@@ -2,7 +2,7 @@ import React from "react";
 import * as styles from "../components/InfoPage.module.css";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import tank from "../equipment/tanks/T-90/images/t-90.png"
+import tank from "../equipment/tanks/t-90/images/t-90.png"
 
 export const query = graphql`
         query ($slug: String) {
@@ -10,7 +10,6 @@ export const query = graphql`
                 frontmatter{
                     title
                     category
-                    
                 }
                 body
             }
