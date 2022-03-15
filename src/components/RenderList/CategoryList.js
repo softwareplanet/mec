@@ -17,9 +17,9 @@ let CategoryList = ({ data }) => {
               <div className={styles[view]}>
               {
                   
-                  data.map(element =>
+                  data.map((element, i)=>
                       <CardComponent
-                          key={element.frontmatter.name}
+                          key={i}
                           path={element.fields.slug}
                           image={element.frontmatter.image.childImageSharp}
                           title={element.frontmatter.title}
