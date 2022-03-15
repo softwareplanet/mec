@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../templates/InfoPage.css";
+import * as styles from "../templates/InfoPage.module.css";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import tank from "../equipment/tanks/T-90/images/t-90.png"
@@ -19,11 +19,12 @@ const InfoPage = (props) => {
 
     return (
         <>
-            <div className="header">
+            <div className={styles.header}>
                 <h1>❮ Taнки</h1>
                 <img src={tank} /> {/* Slider component */}
             </div>
-            <div className="infoPage">
+            <div className={styles.infoPage}
+            >
                 <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
             </div >
         </>
