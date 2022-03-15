@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../templates/InfoPage.module.css";
+import * as styles from "../components/InfoPage.module.css";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import tank from "../equipment/tanks/T-90/images/t-90.png"
