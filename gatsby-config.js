@@ -4,12 +4,15 @@ module.exports = {
     siteUrl: `https://stop-orda.netlify.app/`
   },
   plugins: [
-    "gatsby-plugin-image", 
+    "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        remarkPlugins: [
+          [require('remark-oembed'), { syncWidget: true}]
+        ]
       },
     },
     "gatsby-plugin-sharp",
@@ -22,7 +25,6 @@ module.exports = {
       },
       __key: "pages"
     },
-    "gatsby-transformer-remark",
     `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -53,7 +55,7 @@ module.exports = {
         precachePages: [`/*/*`],
         workboxConfig: {
           globPatterns: ['**/src/images/icon.png*']
-       }
+        }
       },
     }
   ]
