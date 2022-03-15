@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Stop orda`,
-    siteUrl: `https://stop-orda.netlify.app/`
+    // siteUrl: `https://stop-orda.netlify.app`
   },
   plugins: [
-    "gatsby-plugin-image", 
+    "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     {
       resolve: `gatsby-plugin-mdx`,
@@ -41,7 +41,6 @@ module.exports = {
         theme_color: `#F5F5F5`,
         display: `standalone`,
         icon: `src/images/icon.png`,
-        cache_busting_mode: 'none',
         icon_options: {
           purpose: `any maskable`,
         },
@@ -53,8 +52,8 @@ module.exports = {
         precachePages: [`/*/*`],
         workboxConfig: {
           globPatterns: ['**/src/images/icon.png*']
-       }
-      },
+        },
+      }
     }
   ]
 }
