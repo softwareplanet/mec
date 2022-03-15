@@ -20,7 +20,7 @@ let CategoryList = ({ data }) => {
                   data.map((element, i)=>
                       <CardComponent
                           key={i}
-                          path={element.fields.slug}
+                          path={element.slug}
                           image={element.frontmatter.image.childImageSharp}
                           title={element.frontmatter.title}
                           variant={view}

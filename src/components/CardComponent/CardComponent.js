@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 
 let CardComponent = ({path, title, image, variant}) => {
     return (
-        <Link to={`${path}`} className={styles.linkView}>
+        <Link to={`/${path}`} className={styles.linkView}>
             <div className={clsx(styles[variant], styles.militaryEquipment)}>
                 <div className={styles.imgContainer}>
                     <GatsbyImage imgClassName={styles.pngImg} image={getImage(image)} alt={title} />

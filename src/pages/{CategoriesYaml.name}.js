@@ -9,7 +9,7 @@ export const query = graphql`
     categoriesYaml (name: {eq: $name}) {
       title
     }
-    allMarkdownRemark(filter: {frontmatter: {category: {eq: $name}}}) {
+    allMdx(filter: {frontmatter: {category: {eq: $name}}}) {
         nodes {
           frontmatter {
             category
@@ -20,9 +20,7 @@ export const query = graphql`
             }
             title
           }
-          fields {
-            slug
-          }
+          slug
         }
     }
   }
@@ -34,7 +32,7 @@ let CategoryPage = ({ data }) => {
   return (
     <div className={styles.addMargins}>
       <Header name={category.title} backPath="/"/>
-      <CategoryList data={data.allMarkdownRemark.nodes}/>
+      <CategoryList data={data.allMdx.nodes}/>
     </div>
   )
 }
