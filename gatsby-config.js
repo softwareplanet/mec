@@ -1,15 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: ``,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Stop orda`,
+    siteUrl: `https://stop-orda.netlify.app/`
   },
-  plugins: ["gatsby-plugin-image", {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-    }
-  },
-    "gatsby-plugin-image",
+  plugins: [
+    "gatsby-plugin-image", 
     "gatsby-plugin-mdx",
     {
       resolve: `gatsby-plugin-mdx`,
