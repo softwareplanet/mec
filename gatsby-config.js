@@ -35,6 +35,21 @@ module.exports = {
         path: `./src/equipment/`,
         name: 'equipments'
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `stop-orda`,
+        short_name: `stop-orda`,
+        start_url: `/`,
+        background_color: `#F5F5F5`,
+        theme_color: `#F5F5F5`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
+      },
+    },
   ]
 }
