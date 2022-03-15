@@ -1,8 +1,6 @@
 import * as styles from "../components/index.module.css"
 import React, {useState} from "react";
-import CardComponent from "../components/CardComponent/CardComponent.js"
 import { graphql } from "gatsby";
-import icon from '../images/icon.png';
 import Header from "../components/Header/Header";
 import CategoryList from "../components/RenderList/CategoryList";
 
@@ -33,22 +31,11 @@ export const query = graphql`
 let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
   let [view, setView] = useState('grid')
-  // let grid = false;
   return (
     <div className={styles.addMargins}>
-      <Header name={category.title} />
+      <Header name={category.title} backPath="/"/>
       <CategoryList data={data.allMarkdownRemark.nodes}/>
     </div>
-
-    // <>
-    //   <div className={styles.header}>
-    //     <div className={styles.head}>
-    //       <img src={icon} alt="" className={styles.logo} />
-    //       <h1>{category.title}</h1>
-    //     </div>
-    //   </div>
-    
-    // </>
   )
 }
 
