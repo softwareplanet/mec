@@ -13,7 +13,7 @@ export const query = graphql`
                     category
                     image {                        
                         childImageSharp {
-                          gatsbyImageData (width: 375, height:232 )
+                          gatsbyImageData 
                         }
                       }
                 }
@@ -28,7 +28,7 @@ const InfoPage = (props) => {
         <>
             <div className={styles.header}>
                 <Link to={`/${props.data.mdx.frontmatter.category}`}><h1>❮ titleOfCategory</h1></Link>                
-                <GatsbyImage image={getImage(props.data.mdx.frontmatter.image.childImageSharp)} alt="" /> {/* Slider component */}
+                <GatsbyImage layout="fullWidth" image={getImage(props.data.mdx.frontmatter.image.childImageSharp)} alt="" /> {/* Slider component */}
             </div>
             <div className={styles.infoPage}
             >
