@@ -2,6 +2,7 @@ import React from "react";
 import * as styles from "../components/InfoPage.module.css";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import tank from "../equipment/tanks/t-90/images/t-90.png"
 
 export const query = graphql`
@@ -10,6 +11,11 @@ export const query = graphql`
                 frontmatter{
                     title
                     category
+                    image {                        
+                        childImageSharp {
+                          gatsbyImageData (width: 375, height:232 )
+                        }
+                      }
                 }
                 body
             }
@@ -22,7 +28,7 @@ const InfoPage = (props) => {
         <>
             <div className={styles.header}>
                 <Link to={`/${props.data.mdx.frontmatter.category}`}><h1>❮ titleOfCategory</h1></Link>                
-                <img src={tank} alt=""/> {/* Slider component */}
+                <GatsbyImage image={getImage(props.data.mdx.frontmatter.image.childImageSharp)} alt="" /> {/* Slider component */}
             </div>
             <div className={styles.infoPage}
             >
