@@ -1,7 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-
 import * as styles from "./CardComponent.module.css"
 import { Link } from 'gatsby'
 

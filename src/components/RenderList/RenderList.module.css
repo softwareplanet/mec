@@ -21,7 +21,7 @@ input {
     font-size: 1.2em;
 }
 
-.toolbar img {
+.lookup {
     position: absolute;
     margin: 15px 0 0 13px;
 }
