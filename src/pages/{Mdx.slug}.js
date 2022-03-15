@@ -21,7 +21,7 @@ const InfoPage = (props) => {
         <>
             <div className={styles.header}>
                 <h1>❮ Taнки</h1>
-                <img src={tank} /> {/* Slider component */}
+                <img src={tank} alt=""/> {/* Slider component */}
             </div>
             <div className={styles.infoPage}
             >
