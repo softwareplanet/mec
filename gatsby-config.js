@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Stop orda`,
-    // siteUrl: `https://stop-orda.netlify.app`
+    siteUrl: `https://stop-orda.netlify.app`
   },
   plugins: [
     "gatsby-plugin-image",
