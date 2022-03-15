@@ -3,7 +3,7 @@ import React from "react";
 import CardComponent from "../components/CardComponent/CardComponent.js"
 import { graphql } from "gatsby";
 import icon from '../images/icon.png';
-// import "./Header.css"
+import Header from "../components/Header/Header";
 
 export const query = graphql`
   query ($name: String){
@@ -28,16 +28,21 @@ export const query = graphql`
 
 let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
-  let grid = false;
+  // let grid = false;
   return (
-    <>
-      <div className={styles.header}>
-        <div className={styles.head}>
-          <img src={icon} alt="" className={styles.logo} />
-          <h1>{category.title}</h1>
-        </div>
-      </div>
-      {/* <div className={grid ? 'grid':'list'}>
+    <div className={styles.addMargins}>
+      <Header name={category.title} />
+      <img src={icon} alt="" className={styles.logo} />
+    </div>
+
+    // <>
+    //   <div className={styles.header}>
+    //     <div className={styles.head}>
+    //       <img src={icon} alt="" className={styles.logo} />
+    //       <h1>{category.title}</h1>
+    //     </div>
+    //   </div>
+    /* <div className={grid ? 'grid':'list'}>
             {
                 data.allMarkdownRemark.nodes.map(element =>
                     <CardComponent
@@ -47,9 +52,8 @@ let CategoryPage = ({ data }) => {
                         title={element.title}
                     />)
             }
-      </div> */}
-      
-    </>
+      </div> */
+    // </>
   )
 }
 

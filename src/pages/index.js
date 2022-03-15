@@ -29,7 +29,7 @@ export const query = graphql`
 let FirstPage = ({ data }) => {
   return (
     <div className={styles.addMargins}>
-      <Header />
+      <Header name="Військова техніка"/>
       <RenderList data={data.allCategoriesYaml.nodes} />
     </div>
   )
