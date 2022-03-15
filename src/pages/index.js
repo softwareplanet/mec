@@ -1,5 +1,5 @@
 import "../components/reset.css"
-import "../components/index.css"
+import * as styles from "../components/index.module.css"
 import React from "react";
 import Header from "../components/Header/Header"
 import RenderList from "../components/RenderList/RenderList";
@@ -28,10 +28,10 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <>
+    <div className={styles.addMargins}>
       <Header />
       <RenderList data={data.allCategoriesYaml.nodes} />
-    </>
+    </div>
   )
 }
 
