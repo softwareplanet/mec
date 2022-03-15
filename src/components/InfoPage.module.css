@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;       
+    font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
 }
 
-.header{
+.header {
     background-color: #F5F5F5;
 }
-.header h1{    
+
+.header h1 {
     padding: 30px;
+    text-decoration: none;
 }
 
-.header img{
+.header img {
     width: 100%;
-    
 }
 
 .infoPage {
