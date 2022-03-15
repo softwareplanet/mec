@@ -22,6 +22,9 @@ export const query = graphql`
             }
             title
           }
+          fields {
+            slug
+          }
         }
     }
   }

@@ -16,10 +16,11 @@ let CategoryList = ({ data }) => {
               </div>
               <div className={styles[view]}>
               {
+                  
                   data.map(element =>
                       <CardComponent
                           key={element.frontmatter.name}
-                          name={element.frontmatter.name}
+                          path={element.fields.slug}
                           image={element.frontmatter.image.childImageSharp}
                           title={element.frontmatter.title}
                           variant={view}
