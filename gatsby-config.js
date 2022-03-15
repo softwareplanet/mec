@@ -41,7 +41,7 @@ module.exports = {
       options: {
         name: `stop-orda`,
         short_name: `stop-orda`,
-        start_url: `/https://stop-orda.netlify.app/`,
+        start_url: `/`,
         background_color: `#F5F5F5`,
         theme_color: `#F5F5F5`,
         display: `standalone`,
