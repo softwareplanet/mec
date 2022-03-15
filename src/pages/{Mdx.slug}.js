@@ -10,7 +10,7 @@ export const query = graphql`
                 frontmatter{
                     title
                     category
-                    categoryTitle
+                    
                 }
                 body
             }
@@ -22,7 +22,7 @@ const InfoPage = (props) => {
     return (
         <>
             <div className={styles.header}>
-                <Link to={`/${props.data.mdx.frontmatter.category}`}><h1>❮ {props.data.mdx.frontmatter.categoryTitle}</h1></Link>                
+                <Link to={`/${props.data.mdx.frontmatter.category}`}><h1>❮ titleOfCategory</h1></Link>                
                 <img src={tank} alt=""/> {/* Slider component */}
             </div>
             <div className={styles.infoPage}
