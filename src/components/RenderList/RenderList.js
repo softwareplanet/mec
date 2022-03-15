@@ -18,7 +18,8 @@ let RenderList = ({ data }) => {
                 {
                     data.map(element =>
                         <CardComponent
-                            key={element.name}                            
+                            key={element.name}  
+                            name={element.name}                          
                             image={element[view + '_img'].childImageSharp}
                             title={element.title}
                             variant={view}
