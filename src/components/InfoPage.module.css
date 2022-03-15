@@ -10,8 +10,12 @@ body {
 }
 
 .header h1 {
-    padding: 30px;
+    padding: 30px;    
+}
+
+a {
     text-decoration: none;
+    color: black;
 }
 
 .header img {
