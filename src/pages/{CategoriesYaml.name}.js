@@ -1,4 +1,4 @@
-import "../components/index.css"
+import * as styles from "../components/index.module.css"
 import React from "react";
 import CardComponent from "../components/CardComponent/CardComponent.js"
 import { graphql } from "gatsby";
@@ -31,9 +31,9 @@ let CategoryPage = ({ data }) => {
   let grid = false;
   return (
     <>
-      <div className="header">
-        <div className="head">
-          <img src={icon} alt="" className="logo" />
+      <div className={styles.header}>
+        <div className={styles.head}>
+          <img src={icon} alt="" className={styles.logo} />
           <h1>{category.title}</h1>
         </div>
       </div>
