@@ -1,11 +1,11 @@
-.grid{
+.grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
 }
 
-.list{
+.list {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -55,5 +55,6 @@ input:focus {
 
 .list img {
     width: 80px;
-    height: 50px;
+    height: 69px;
+    border-radius: 3px 0px 0px 3px;
 }
