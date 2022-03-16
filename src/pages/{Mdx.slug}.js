@@ -44,7 +44,7 @@ const InfoPage = ({ data }) => {
                 <h1>{data.mdx.frontmatter.title}</h1>
                 <MDXRenderer>{data.mdx.body}</MDXRenderer>
                 <div className={styles.links}>
-                    <a target="_blank" href={data.mdx.frontmatter.wikipedia}>Детальніше</a>
+                    <a target="_blank" href={data.mdx.frontmatter.source}>Детальніше</a>
                 </div>
             </div >
         </>
