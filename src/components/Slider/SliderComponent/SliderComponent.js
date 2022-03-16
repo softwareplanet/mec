@@ -1,5 +1,5 @@
 import React from 'react'
-import * as styles from './Slider.module.css';
+import * as styles from './SliderComponent.module.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -23,12 +23,12 @@ export const query = graphql`
         }
     `;
 
-const ImageSlider = () => {
+const SliderComponent = () => {
 
   const images = [gun, gun, gun];
   const settings = {
-    dots: true,
     speed: 500,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
   }
@@ -37,11 +37,11 @@ const ImageSlider = () => {
     <div className={styles.carousel}>
       <Slider {...settings}>
         {images.map((image, index) => (
-          <SlideElement slideImage={image} key={index} />
+          <SlideElement slideImage={image} key={index} allImages={images.length} currentImage={index + 1} />
         ))}
       </Slider>
     </div>
   )
 }
 
-export default ImageSlider;
+export default SliderComponent;

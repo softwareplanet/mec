@@ -5,7 +5,7 @@ import { graphql, Link } from "gatsby";
 import Header from "../components/Header/Header";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Slider from "../components/Slider/ImageSlider/Slider";
+import SliderComponent from "../components/Slider/SliderComponent/SliderComponent";
 
 export const query = graphql`
         query ($slug: String) {
@@ -38,7 +38,7 @@ const InfoPage = (props) => {
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
             <div className={styles.header}>
-                <Slider />                
+                <SliderComponent />
             </div>
             <div className={styles.infoPage} >
                 <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
