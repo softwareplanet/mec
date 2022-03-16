@@ -48,14 +48,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        // precachePages: [`/*/*`],
-        workboxConfig: {
-          globPatterns: ['**/src/images/icon.png*']
-        },
-      }
-    }
+    `gatsby-plugin-offline`,
   ]
 }
