@@ -6,24 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import SlideElement from '../SlideElement/SlideElement';
 import gun from '../../../equipment/tanks/t-90/images/pic2.png';
 import arrow from './arrow.png'
-import { graphql } from 'gatsby';
-
-export const query = graphql`
-        query ($slug: String) {
-            mdx(slug:{eq:$slug}) {
-                frontmatter{
-                    title                    
-                    image {                        
-                        childImageSharp {
-                          gatsbyImageData 
-                        }
-                      }
-                }
-                body
-            }
-        }
-    `;
-
 
 const NextArrow = (props) => {
   return (
