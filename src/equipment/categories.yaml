@@ -46,4 +46,11 @@
   title: Кораблі/катери
   grid_img: ./images/ship.png
   list_img: ./images/ship.png
-   
+- name: mines
+  title: Міни
+  grid_img: ./images/ship.png
+  list_img: ./images/ship.png
+- name: artillery
+  title: Артилерія
+  grid_img: ./images/ship.png
+  list_img: ./images/ship.png
