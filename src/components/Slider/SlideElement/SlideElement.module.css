@@ -1,5 +1,30 @@
+.SlideElement {
+  position: relative;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
 
 .imageSlide {
   width: 100%;
-  height: 70%;
+  height: 70%;                                
+} 
+
+.countImages {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 20px;
+  bottom: 12px;
+  padding: 5px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
+  opacity: 50%;
+}
+
+.countImages img {
+  margin-right: 5px;
 }
