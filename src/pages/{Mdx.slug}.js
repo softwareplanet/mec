@@ -12,6 +12,7 @@ export const query = graphql`
             mdx(slug:{eq:$slug}) {
                 frontmatter{
                     title
+                    wikipedia
                     category {
                         name
                         title
@@ -27,10 +28,9 @@ export const query = graphql`
         }
     `;
 
-const InfoPage = (props) => {
-    console.log(props.data);
+const InfoPage = ({ data }) => {
 
-    const { category } = props.data.mdx.frontmatter;
+    const { category } = data.mdx.frontmatter;
 
     return (
         <>
@@ -41,9 +41,9 @@ const InfoPage = (props) => {
                 <SliderComponent />
             </div>
             <div className={styles.infoPage} >
-                <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
+                <MDXRenderer>{data.mdx.body}</MDXRenderer>
                 <div className={styles.links}>
-                    <a target="_blank" href="https://uk.wikipedia.org/">Детальніше</a>
+                    <a target="_blank" href={data.mdx.frontmatter.wikipedia}>Детальніше</a>
                 </div>
             </div >
         </>
