@@ -52,11 +52,8 @@ input:focus {
         font-size: 1em;
     }
 }
-.list h2 {
-    padding: 0 0 4px 0;
-}
+
 .list img {
     width: 80px;
     height: 50px;
-    margin-bottom: 8px;
 }
