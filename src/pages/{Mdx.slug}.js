@@ -38,9 +38,10 @@ const InfoPage = ({ data }) => {
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
             <div className={styles.header}>
-                <SliderComponent />
+                <GatsbyImage layout="fullWidth" image={getImage(data.mdx.frontmatter.image.childImageSharp)} alt="" /> {/* Slider component */}
             </div>
             <div className={styles.infoPage} >
+                <h1>{data.mdx.frontmatter.title}</h1>
                 <MDXRenderer>{data.mdx.body}</MDXRenderer>
                 <div className={styles.links}>
                     <a target="_blank" href={data.mdx.frontmatter.wikipedia}>Детальніше</a>
