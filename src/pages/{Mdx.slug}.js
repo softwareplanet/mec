@@ -12,7 +12,7 @@ export const query = graphql`
             mdx(slug:{eq:$slug}) {
                 frontmatter{
                     title
-                    wikipedia
+                    source
                     category {
                         name
                         title

@@ -2,5 +2,5 @@
 title: МІГ-21
 category: airplanes
 image: ./images/mig-21.png
-wikipedia: https://uk.wikipedia.org/
+source: https://uk.wikipedia.org/wiki/%D0%9C%D1%96%D0%93-21
 ---
