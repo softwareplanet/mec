@@ -43,11 +43,15 @@ module.exports = {
         theme_color: `#F5F5F5`,
         display: `standalone`,
         icon: `src/images/icon.png`,
-        icon_options: {
-          purpose: `any maskable`,
-        },
+        crossOrigin: `use-credentials`
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/*`],
+      }
+    }
+    // `gatsby-plugin-offline`
   ]
 }
