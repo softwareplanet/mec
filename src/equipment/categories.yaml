@@ -26,7 +26,7 @@
   title: РСЗВ "Град"
   grid_img: ./images/grad.png
   list_img: ./images/grad_l.png
-- name: guns
+- name: artillery
   title: Гармати
   grid_img: ./images/gun.png
   list_img: ./images/gun_l.png
@@ -48,9 +48,5 @@
   list_img: ./images/ship.png
 - name: mines
   title: Міни
-  grid_img: ./images/ship.png
-  list_img: ./images/ship.png
-- name: artillery
-  title: Артилерія
   grid_img: ./images/ship.png
   list_img: ./images/ship.png
