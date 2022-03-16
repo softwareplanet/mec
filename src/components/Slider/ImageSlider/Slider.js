@@ -4,12 +4,28 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SlideElement from '../SlideElement/SlideElement';
-import gun from "../../../images/gun.png"
-import automobile from "../../../images/automobile.png"
+import gun from '../../../equipment/tanks/t-90/images/pic2.png';
+import { graphql } from 'gatsby';
 
-const images = [gun, automobile];
+export const query = graphql`
+        query ($slug: String) {
+            mdx(slug:{eq:$slug}) {
+                frontmatter{
+                    title                    
+                    image {                        
+                        childImageSharp {
+                          gatsbyImageData 
+                        }
+                      }
+                }
+                body
+            }
+        }
+    `;
 
-export default function ImageSlider() {
+const ImageSlider = () => {
+
+  const images = [gun, gun, gun];
   const settings = {
     dots: true,
     speed: 500,
@@ -27,3 +43,5 @@ export default function ImageSlider() {
     </div>
   )
 }
+
+export default ImageSlider;
