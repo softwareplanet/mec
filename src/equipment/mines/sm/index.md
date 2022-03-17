@@ -2,5 +2,5 @@
 title: СМ
 category: mines
 image: ./images/sm.png
-wikipedia: https://uk.wikipedia.org/
+source: http://saper.isnet.ru/mines/sm.html
 ---

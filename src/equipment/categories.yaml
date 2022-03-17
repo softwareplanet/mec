@@ -14,8 +14,8 @@
   title: Бойові броньовані машини (ББМ)
   grid_img: ./images/bbm.png
   list_img: ./images/bbm_l.png
-- name: buks
-  title: ЗРК (Бук)
+- name: zrk
+  title: ЗРК
   grid_img: ./images/buk.png
   list_img: ./images/buk_l.png
 - name: projectiles
@@ -26,7 +26,7 @@
   title: РСЗВ "Град"
   grid_img: ./images/grad.png
   list_img: ./images/grad_l.png
-- name: guns
+- name: artillery
   title: Гармати
   grid_img: ./images/gun.png
   list_img: ./images/gun_l.png
@@ -48,9 +48,5 @@
   list_img: ./images/ship.png
 - name: mines
   title: Міни
-  grid_img: ./images/ship.png
-  list_img: ./images/ship.png
-- name: artillery
-  title: Артилерія
   grid_img: ./images/ship.png
   list_img: ./images/ship.png
