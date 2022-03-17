@@ -1,14 +1,14 @@
 import React from 'react';
 import * as styles from './SlideElement.module.css';
-import vector from './vector.png'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { BiImages } from 'react-icons/bi';
 
 export default function SlideElement({ slideImage, allImages, currentImage }) {
   return (
     <div className={styles.SlideElement}>
-      <GatsbyImage className={styles.imageSlide} layout="fullWidth" image={slideImage} alt="" />
+      <GatsbyImage className={styles.imageSlide} layout="fullWidth" image={slideImage} alt="Slide image" />
       <div className={styles.countImages}>
-        <img src={vector} alt="vector" />
+        <BiImages className={styles.img} />
         <span>{currentImage} з {allImages}</span>
       </div>
     </div>

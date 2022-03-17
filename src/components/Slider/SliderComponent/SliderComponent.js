@@ -4,15 +4,13 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SlideElement from '../SlideElement/SlideElement';
-import { getImage } from 'gatsby-plugin-image'
-import arrow from './arrow.png'
+import { getImage } from 'gatsby-plugin-image';
+import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
 
 const NextArrow = (props) => {
   return (
     <div className={styles.arrow}>
-      <span className={styles.nextArrow} onClick={props.onClick}>
-        <img src={arrow} alt="nextArrow" />
-      </span>
+      <MdArrowForwardIos className={styles.nextArrow} onClick={props.onClick} />
     </div>
   );
 }
@@ -20,9 +18,7 @@ const NextArrow = (props) => {
 const PrevArrow = (props) => {
   return (
     <div className={styles.arrow}>
-      <span className={styles.prevArrow} onClick={props.onClick}>
-        <img src={arrow} alt="nextArrow" />
-      </span>
+      <MdArrowBackIos className={styles.prevArrow} onClick={props.onClick} />
     </div>
   );
 }
