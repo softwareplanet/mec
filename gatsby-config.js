@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: `https://stop-orda.netlify.app`
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     {
@@ -11,7 +12,7 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         remarkPlugins: [
-          [require('remark-oembed'), { syncWidget: true}]
+          [require('remark-oembed'), { syncWidget: true }]
         ]
       },
     },
@@ -43,14 +44,32 @@ module.exports = {
         theme_color: `#F5F5F5`,
         display: `standalone`,
         icon: `src/images/icon.png`,
-        crossOrigin: `use-credentials`
+        cache_busting_mode: 'none',
+        crossOrigin: `use-credentials`,
+        icons: [
+          {
+            src: "public/icons/icon-144x144.png",
+            sizes: "144x144",
+            type: "image/png",
+            purpose: "any maskable"
+          },
+        //   {
+        //     src: "public/icons/icon-512x512.png",
+        //     sizes: "512x512",
+        //     type: "image/png",
+        //     purpose: "any maskable"
+        //   }
+        ]
       },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`/index.html`, "/**/index.html"],
+        precachePages: ["index.html", "/**/**/index.html"],
+        workboxConfig: {
+          globPatterns: ['**/**/index.html', '**/favicon-32x32.png']
+       }
       }
-    }
+    },
   ]
 }
