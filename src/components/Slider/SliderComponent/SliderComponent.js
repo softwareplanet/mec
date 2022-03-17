@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SlideElement from '../SlideElement/SlideElement';
-import gun from '../../../equipment/tanks/t-90/images/pic2.png';
+import { getImage } from 'gatsby-plugin-image'
 import arrow from './arrow.png'
 
 const NextArrow = (props) => {
@@ -27,9 +27,9 @@ const PrevArrow = (props) => {
   );
 }
 
-const SliderComponent = () => {
+const SliderComponent = (props) => {
 
-  const images = [gun, gun, gun];
+  const images = props.images.map(picture => getImage(picture));
   const settings = {
     speed: 500,
     infinite: false,
