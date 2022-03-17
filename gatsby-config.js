@@ -67,7 +67,7 @@ module.exports = {
       options: {
         precachePages: ["index.html", "/**/**/index.html"],
         workboxConfig: {
-          globPatterns: ['**/**/index.html', '**/favicon-32x32.png']
+          globPatterns: ['**/**/index.html', '**/favicon-32x32.png', '**/*.png', '**/*.jpg', '**/*.webp']
        }
       }
     },
