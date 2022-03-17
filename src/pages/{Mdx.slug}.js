@@ -4,13 +4,12 @@ import * as header from "../components/index.module.css"
 import { graphql, Link } from "gatsby";
 import Header from "../components/Header/Header";
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import SliderComponent from "../components/Slider/SliderComponent/SliderComponent";
+import Slider from "../components/Slider/SliderComponent/SliderComponent";
 
 export const query = graphql`
         query ($slug: String) {
             mdx(slug:{eq:$slug}) {
-                frontmatter{
+                frontmatter {
                     title
                     wikipedia
                     category {
@@ -21,9 +20,14 @@ export const query = graphql`
                         childImageSharp {
                           gatsbyImageData 
                         }
-                      }
+                    }
                 }
                 body
+            }
+            allImageSharp {
+                nodes {
+                  gatsbyImageData                
+                }
             }
         }
     `;
@@ -31,6 +35,10 @@ export const query = graphql`
 const InfoPage = ({ data }) => {
 
     const { category } = data.mdx.frontmatter;
+    const images = filterImagesData(
+        data.mdx.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src,
+        data.allImageSharp.nodes
+    );
 
     return (
         <>
@@ -38,7 +46,7 @@ const InfoPage = ({ data }) => {
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
             <div className={styles.header}>
-                <GatsbyImage layout="fullWidth" image={getImage(data.mdx.frontmatter.image.childImageSharp)} alt="" /> {/* Slider component */}
+                <Slider images={images} />
             </div>
             <div className={styles.infoPage} >
                 <h1>{data.mdx.frontmatter.title}</h1>
@@ -49,6 +57,16 @@ const InfoPage = ({ data }) => {
             </div >
         </>
     );
+}
+
+function filterImagesData(previewImageSrc, allImagesData) {
+    let techniqueTitle = previewImageSrc.split('/').slice(-1).toString().split('.')[0];
+    allImagesData = allImagesData.filter(imageData => {
+        let imageSrc = imageData.gatsbyImageData.images.fallback.src;
+        let imageTitle = imageSrc.split('/').slice(-1).toString().split('.')[0];
+        return imageTitle.includes(techniqueTitle);
+    });
+    return allImagesData;
 }
 
 export default InfoPage;
