@@ -22,10 +22,6 @@
   title: Снаряди
   grid_img: ./images/projectile.png
   list_img: ./images/projectile_l.png
-- name: grads
-  title: РСЗВ "Град"
-  grid_img: ./images/grad.png
-  list_img: ./images/grad_l.png
 - name: artillery
   title: Гармати
   grid_img: ./images/gun.png
@@ -48,5 +44,17 @@
   list_img: ./images/ship.png
 - name: mines
   title: Міни
-  grid_img: ./images/ship.png
-  list_img: ./images/ship.png
+  grid_img: ./images/mines.png
+  list_img: ./images/mines.png
+- name: flamethrowersystem
+  title: Вогнеметні системи
+  grid_img: ./images/flamethrower.png
+  list_img: ./images/flamethrower.png
+- name: bombs
+  title: Авіабомби
+  grid_img: ./images/bombs.png
+  list_img: ./images/bombs.png
+- name: smallarms
+  title: Стрілецька зброя
+  grid_img: ./images/small arms.png
+  list_img: ./images/small arms.png

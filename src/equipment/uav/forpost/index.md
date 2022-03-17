@@ -2,5 +2,5 @@
 title: Форпост
 category: uav
 image: ./images/forpost.png
-wikipedia: https://uk.wikipedia.org/
+source: https://uk.wikipedia.org/wiki/IAI_Searcher
 ---
