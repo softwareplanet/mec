@@ -7,11 +7,6 @@
   line-height: 18px;
 }
 
-.imageSlide {
-  width: 100%;
-  height: 70%;                                
-} 
-
 .countImages {
   display: flex;
   justify-content: space-between;

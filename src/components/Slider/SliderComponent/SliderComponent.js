@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SlideElement from '../SlideElement/SlideElement';
 import { getImage } from 'gatsby-plugin-image';
-import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const NextArrow = (props) => {
   return (
     <div className={styles.arrow}>
-      <MdArrowForwardIos className={styles.nextArrow} onClick={props.onClick} />
+      <IoIosArrowForward className={styles.nextArrow} onClick={props.onClick} />
     </div>
   );
 }
@@ -18,7 +18,7 @@ const NextArrow = (props) => {
 const PrevArrow = (props) => {
   return (
     <div className={styles.arrow}>
-      <MdArrowBackIos className={styles.prevArrow} onClick={props.onClick} />
+      <IoIosArrowBack className={styles.prevArrow} onClick={props.onClick} />
     </div>
   );
 }
@@ -27,6 +27,7 @@ const SliderComponent = (props) => {
 
   const images = props.images.map(picture => getImage(picture));
   const settings = {
+    adaptiveHeight: true,
     speed: 500,
     infinite: false,
     slidesToShow: 1,

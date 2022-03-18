@@ -8,13 +8,13 @@
 .nextArrow {
   position: absolute;
   top: 40%;
-  right: 12px;
+  right: 0;
   z-index: 1;
 }
 
 .prevArrow {
   position: absolute;
   top: 40%;
-  left: 12px;
+  left: 0;
   z-index: 1;
 }

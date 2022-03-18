@@ -18,7 +18,7 @@ export const query = graphql`
                     }
                     image {                        
                         childImageSharp {
-                          gatsbyImageData 
+                          gatsbyImageData
                         }
                     }
                 }
@@ -26,7 +26,12 @@ export const query = graphql`
             }
             allImageSharp {
                 nodes {
-                  gatsbyImageData                
+                  gatsbyImageData(
+                    quality: 100
+                    layout: FULL_WIDTH
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, PNG]
+                  )                
                 }
             }
         }
