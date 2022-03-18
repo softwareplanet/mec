@@ -53,21 +53,21 @@ module.exports = {
             type: "image/png",
             purpose: "any maskable"
           },
-        //   {
-        //     src: "public/icons/icon-512x512.png",
-        //     sizes: "512x512",
-        //     type: "image/png",
-        //     purpose: "any maskable"
-        //   }
+          {
+            src: "public/icons/icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable"
+          }
         ]
       },
     },
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: ["index.html", "/**/**/index.html"],
+        precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
-          globPatterns: ['**/**/index.html', '**/favicon-32x32.png', '**/*.png', '**/*.jpg', '**/*.webp']
+          globPatterns: ['**/**/index.html', '**/favicon-32x32.png', '**/*.png', '**/*.jpg', "**/*.webp"]
        }
       }
     },
