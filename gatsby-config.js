@@ -39,7 +39,7 @@ module.exports = {
       options: {
         name: `stop-orda`,
         short_name: `stop-orda`,
-        start_url: `/index.html`,
+        start_url: `/`,
         background_color: `#F5F5F5`,
         theme_color: `#F5F5F5`,
         display: `standalone`,
