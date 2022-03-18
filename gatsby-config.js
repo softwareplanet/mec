@@ -73,9 +73,12 @@ module.exports = {
       options: {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
-          globPatterns: ['**/**/index.html', '**/favicon-32x32.png', '**/*.png', '**/*.jpg', "**/*.webp"]
-
-       }
+          dontCacheBustURLsMatching: /(\.js$|\.css$|static\/|.*page-data\.json$)/,
+          globPatterns: [
+            'offline-plugin-app-shell-fallback/index.html',
+            'public/icons/*', '**/*.png', '**/*.jpg', "**/*.webp"
+          ]
+        }
       }
     },
   ]
