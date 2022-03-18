@@ -22,4 +22,5 @@ source: https://uk.wikipedia.org/wiki/%D0%91%D0%9C%D0%94-4
 Броня БМД-4М Тип броні: | протикульна
 
 ## Керування технікою
+
 https://youtu.be/EC559U2O1VQ?t=79
