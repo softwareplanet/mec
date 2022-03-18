@@ -39,7 +39,7 @@ module.exports = {
       options: {
         name: `stop-orda`,
         short_name: `stop-orda`,
-        start_url: `/index.html`,
+        start_url: `/`,
         background_color: `#F5F5F5`,
         theme_color: `#F5F5F5`,
         display: `standalone`,
@@ -73,9 +73,12 @@ module.exports = {
       options: {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
-          globPatterns: ['**/**/index.html', '**/favicon-32x32.png', '**/*.png', '**/*.jpg', "**/*.webp"]
-
-       }
+          dontCacheBustURLsMatching: /(\.js$|\.css$|static\/|.*page-data\.json$)/,
+          globPatterns: [
+            'offline-plugin-app-shell-fallback/index.html',
+            'public/icons/*', '**/*.png', '**/*.jpg', "**/*.webp"
+          ]
+        }
       }
     },
   ]

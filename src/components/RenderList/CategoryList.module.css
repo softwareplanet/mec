@@ -55,6 +55,7 @@ input:focus {
 
 .list img {
     width: 80px;
-    height: 69px;
+    height: 76.5%;
+    margin-top: 10.5px;
     border-radius: 3px 0px 0px 3px;
 }
