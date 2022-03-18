@@ -16,6 +16,6 @@ source: https://uk.wikipedia.org/wiki/2%D0%A134
 Обслуга |	4 людини
 Калібр |	120-мм
 
-## Управління технікою
+## Керування технікою
 
 https://youtu.be/7c9HfZ9kBN4

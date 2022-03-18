@@ -25,6 +25,6 @@ source: https://uk.wikipedia.org/wiki/122-%D0%BC%D0%BC_%D0%B3%D0%B0%D1%83%D0%B1%
 Бойова: 5-6 на хвилину
 Прицільна дальність 	15,4 км
 
-## Управління технікою
+## Керування технікою
 
 https://youtu.be/ZmDbX1VgjJA?t=146

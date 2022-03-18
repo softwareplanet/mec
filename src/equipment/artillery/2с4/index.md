@@ -23,6 +23,6 @@ source: https://uk.wikipedia.org/wiki/2%D0%A14_%C2%AB%D0%A2%D1%8E%D0%BB%D1%8C%D0
 Дорожній просвіт | 	450 мм
 Операційна дальність | 500 км
 
-## Управління технікою
+## Керування технікою
 
 https://youtu.be/6YZ_LdKMqcY
