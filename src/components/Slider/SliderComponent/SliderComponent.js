@@ -27,6 +27,7 @@ const SliderComponent = (props) => {
 
   const images = props.images.map(picture => getImage(picture));
   const settings = {
+    adaptiveHeight: true,
     speed: 500,
     infinite: false,
     slidesToShow: 1,
