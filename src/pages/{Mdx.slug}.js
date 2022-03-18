@@ -44,6 +44,7 @@ const InfoPage = ({ data }) => {
         data.mdx.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src,
         data.allImageSharp.nodes
     );
+    let decodedURI = decodeURI(data.mdx.frontmatter.source)
 
     return (
         <>
@@ -56,8 +57,9 @@ const InfoPage = ({ data }) => {
             <div className={styles.infoPage} >
                 <h1>{data.mdx.frontmatter.title}</h1>
                 <MDXRenderer>{data.mdx.body}</MDXRenderer>
-                <div className={styles.links}>
-                    <a target="_blank" href={data.mdx.frontmatter.source}>Детальніше</a>
+                <div>
+                    <h3>Джерело:</h3>
+                    <a className={styles.link} target="_blank" href={data.mdx.frontmatter.source}>{decodedURI}</a>
                 </div>
             </div >
         </>
