@@ -46,10 +46,6 @@
   title: Вогнеметні системи
   grid_img: ./images/flamethrower.jpg
   list_img: ./images/flamethrower.jpg
-- name: bombs
-  title: Авіабомби
-  grid_img: ./images/bombs.jpg
-  list_img: ./images/bombs.jpg
 - name: smallarms
   title: Стрілецька зброя
   grid_img: ./images/small arms.jpg
