@@ -15,12 +15,7 @@ export const query = graphql`
                 category {
                     name
                     title
-                }
-                image {                        
-                    childImageSharp {
-                        gatsbyImageData
-                    }
-                }
+                }                
             }
             body
         }
