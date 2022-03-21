@@ -1,7 +1,7 @@
 ---
 title: 2С31 "Відень"
 category: artillery
-image: ./images/viden.png
+image: ./images/viden.jpg
 source: https://uk.wikipedia.org/wiki/2%D0%A131
 ---
 2С31 «Відень» — російська 120 мм самохідна артилерійська гармата на шасі БМП-3. Розроблена у місті Перм на Мотовиліхинських заводах.

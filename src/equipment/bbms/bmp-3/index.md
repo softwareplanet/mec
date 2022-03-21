@@ -1,7 +1,7 @@
 ---
 title: БМП-3
 category: bbms
-image: ./images/bmp-3.png
+image: ./images/bmp-3.jpg
 source: https://uk.wikipedia.org/wiki/%D0%91%D0%9C%D0%9F-3
 ---
 
