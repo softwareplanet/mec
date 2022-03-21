@@ -52,8 +52,8 @@
   list_img: ./images/bombs.jpg
 - name: smallarms
   title: Стрілецька зброя
-  grid_img: ./images/small arms.png
-  list_img: ./images/small arms.png
+  grid_img: ./images/small arms.jpg
+  list_img: ./images/small arms.jpg
 - name: another
   title: Інша техніка
   grid_img: ./images/tanker.jpg
