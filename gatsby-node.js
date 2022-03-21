@@ -19,24 +19,13 @@ exports.createPages = async ({graphql, actions}) => {
     return
   }
 
+  const equipmentPageTemplate = path.resolve(`src/templates/equipment-page.js`);
   for (let item of data.data.allMdx.nodes) {
     createPage({
       path: item.slug,
-      component: path.resolve(`./src/templates/equipment-page.js`),
+      component: equipmentPageTemplate,
       context: {slug: item.slug, imageDir: item.slug + 'images'}
     });
-  }
-}
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
   }
 }
 
