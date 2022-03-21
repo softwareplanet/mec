@@ -30,10 +30,6 @@
   title: Автомобілі
   grid_img: ./images/automobile.png
   list_img: ./images/automobile.png
-- name: tankers
-  title: Цистерни
-  grid_img: ./images/tanker.png
-  list_img: ./images/tanker.png
 - name: uav
   title: Безпілотні літальні апарати
   grid_img: ./images/uav.png
@@ -58,3 +54,7 @@
   title: Стрілецька зброя
   grid_img: ./images/small arms.png
   list_img: ./images/small arms.png
+- name: another_equipment
+  title: Інша техніка
+  grid_img: ./images/tanker.png
+  list_img: ./images/tanker.png
