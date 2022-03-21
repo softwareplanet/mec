@@ -7,14 +7,18 @@
 
 .nextArrow {
   position: absolute;
-  top: 40%;
+  top: 0;
   right: 0;
   z-index: 1;
+  background-color: rgba(0, 0, 0, .3);
+  height: 100%;
 }
 
 .prevArrow {
   position: absolute;
-  top: 40%;
+  top: 0;
   left: 0;
   z-index: 1;
+  background-color: rgba(0, 0, 0, .3);
+  height: 100%;
 }
