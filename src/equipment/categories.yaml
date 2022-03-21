@@ -1,60 +1,60 @@
 - name: airplanes
   title: Літаки
-  grid_img: ./images/airplane.png
-  list_img: ./images/airplane.png
+  grid_img: ./images/airplane.jpg
+  list_img: ./images/airplane.jpg
 - name: helicopters
   title: Гелікоптери
-  grid_img: ./images/helicopter.png
-  list_img: ./images/helicopter.png
+  grid_img: ./images/helicopter.jpg
+  list_img: ./images/helicopter.jpg
 - name: tanks
   title: Танки
-  grid_img: ./images/tank.png
-  list_img: ./images/tank.png
+  grid_img: ./images/tank.jpg
+  list_img: ./images/tank.jpg
 - name: bbms
   title: Бойові броньовані машини (ББМ)
-  grid_img: ./images/bbm.png
-  list_img: ./images/bbm.png
+  grid_img: ./images/bbm.jpg
+  list_img: ./images/bbm.jpg
 - name: zrk
   title: ЗРК
-  grid_img: ./images/buk.png
-  list_img: ./images/buk.png
+  grid_img: ./images/buk.jpg
+  list_img: ./images/buk.jpg
 - name: projectiles
   title: Снаряди
-  grid_img: ./images/projectile.png
-  list_img: ./images/projectile.png
+  grid_img: ./images/projectile.jpg
+  list_img: ./images/projectile.jpg
 - name: artillery
   title: Гармати
-  grid_img: ./images/gun.png
-  list_img: ./images/gun.png
+  grid_img: ./images/gun.jpg
+  list_img: ./images/gun.jpg
 - name: automobiles
   title: Автомобілі
-  grid_img: ./images/automobile.png
-  list_img: ./images/automobile.png
+  grid_img: ./images/automobile.jpg
+  list_img: ./images/automobile.jpg
 - name: uav
   title: Безпілотні літальні апарати
-  grid_img: ./images/uav.png
-  list_img: ./images/uav.png
+  grid_img: ./images/uav.jpg
+  list_img: ./images/uav.jpg
 - name: ships
   title: Кораблі/катери
-  grid_img: ./images/ship.png
-  list_img: ./images/ship.png
+  grid_img: ./images/ship.jpg
+  list_img: ./images/ship.jpg
 - name: mines
   title: Міни
-  grid_img: ./images/mines.png
-  list_img: ./images/mines.png
+  grid_img: ./images/mines.jpg
+  list_img: ./images/mines.jpg
 - name: flamethrowersystem
   title: Вогнеметні системи
-  grid_img: ./images/flamethrower.png
-  list_img: ./images/flamethrower.png
+  grid_img: ./images/flamethrower.jpg
+  list_img: ./images/flamethrower.jpg
 - name: bombs
   title: Авіабомби
-  grid_img: ./images/bombs.png
-  list_img: ./images/bombs.png
+  grid_img: ./images/bombs.jpg
+  list_img: ./images/bombs.jpg
 - name: smallarms
   title: Стрілецька зброя
   grid_img: ./images/small arms.png
   list_img: ./images/small arms.png
 - name: another
   title: Інша техніка
-  grid_img: ./images/tanker.png
-  list_img: ./images/tanker.png
+  grid_img: ./images/tanker.jpg
+  list_img: ./images/tanker.jpg
