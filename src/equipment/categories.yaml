@@ -1,31 +1,31 @@
 - name: airplanes
   title: Літаки
   grid_img: ./images/airplane.png
-  list_img: ./images/airplane_l.png
+  list_img: ./images/airplane.png
 - name: helicopters
   title: Гелікоптери
   grid_img: ./images/helicopter.png
-  list_img: ./images/helicopter_l.png
+  list_img: ./images/helicopter.png
 - name: tanks
   title: Танки
   grid_img: ./images/tank.png
-  list_img: ./images/tank_l.png
+  list_img: ./images/tank.png
 - name: bbms
   title: Бойові броньовані машини (ББМ)
   grid_img: ./images/bbm.png
-  list_img: ./images/bbm_l.png
+  list_img: ./images/bbm.png
 - name: zrk
   title: ЗРК
   grid_img: ./images/buk.png
-  list_img: ./images/buk_l.png
+  list_img: ./images/buk.png
 - name: projectiles
   title: Снаряди
   grid_img: ./images/projectile.png
-  list_img: ./images/projectile_l.png
+  list_img: ./images/projectile.png
 - name: artillery
   title: Гармати
   grid_img: ./images/gun.png
-  list_img: ./images/gun_l.png
+  list_img: ./images/gun.png
 - name: automobiles
   title: Автомобілі
   grid_img: ./images/automobile.png

@@ -19,7 +19,7 @@ export const query = graphql`
         }
         list_img {
           childImageSharp {
-            gatsbyImageData(height: 50)
+            gatsbyImageData(height: 160)
           }
         }
       }
