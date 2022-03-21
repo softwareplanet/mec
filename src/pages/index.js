@@ -29,13 +29,11 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <layout>
       <div className={styles.addMargins}>
         <Progressbar />
         <Header name="Військова техніка" />
         <RenderList data={data.allCategoriesYaml.nodes} />
       </div>
-    </layout>
   );
 };
 
