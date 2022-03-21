@@ -54,7 +54,7 @@
   title: Стрілецька зброя
   grid_img: ./images/small arms.png
   list_img: ./images/small arms.png
-- name: another_equipment
+- name: another
   title: Інша техніка
   grid_img: ./images/tanker.png
   list_img: ./images/tanker.png
