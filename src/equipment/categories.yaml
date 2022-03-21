@@ -26,10 +26,6 @@
   title: Гармати
   grid_img: ./images/gun.png
   list_img: ./images/gun_l.png
-- name: automobiles
-  title: Автомобільна техніка
-  grid_img: ./images/automobile.png
-  list_img: ./images/automobile.png
 - name: tankers
   title: Цистерни
   grid_img: ./images/tanker.png
@@ -58,3 +54,7 @@
   title: Стрілецька зброя
   grid_img: ./images/small arms.png
   list_img: ./images/small arms.png
+- name: other_equipment
+  title: Інша техніка
+  grid_img: ./images/automobile.png
+  list_img: ./images/automobile.png
