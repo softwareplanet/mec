@@ -80,3 +80,8 @@ h3 {
     font-weight: bold;
     margin: 20px 0 5px;
 }
+
+li{
+    list-style: inside;
+    font-size: 14px;
+}

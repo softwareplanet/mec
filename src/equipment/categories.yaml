@@ -27,7 +27,7 @@
   grid_img: ./images/gun.png
   list_img: ./images/gun_l.png
 - name: automobiles
-  title: Автомобільна техніка
+  title: Автомобілі
   grid_img: ./images/automobile.png
   list_img: ./images/automobile.png
 - name: tankers
