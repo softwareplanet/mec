@@ -8,8 +8,8 @@ export default function SlideElement({ slideImage, allImages, currentImage }) {
     <div className={styles.SlideElement}>
       <GatsbyImage
         image={slideImage}
-        // imgStyle={{ objectFit: 'contain', maxWidth: '100%' }}
-        // style={{ height: '50vh' }}
+        imgStyle={{ maxHeight: '1000px' }}
+        style={{ maxHeight: '70vh' }}
         alt="Slide image"
       />
       <div className={styles.countImages}>
