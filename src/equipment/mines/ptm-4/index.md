@@ -1,7 +1,7 @@
 ---
 title: ПТМ-4
 category: mines
-image: ./images/ptm-4.png
+image: ./images/ptm-4.jpg
 source: http://eragun.org/explosives/ptm-4_mine.html
 ---
 

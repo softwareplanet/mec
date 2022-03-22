@@ -1,7 +1,7 @@
 ---
 title: Форпост-Р
 category: uav
-image: ./images/forpost.png
+image: ./images/forpost.jpg
 source: https://uk.wikipedia.org/wiki/IAI_Searcher
 ---
 

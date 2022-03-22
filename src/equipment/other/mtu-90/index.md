@@ -1,7 +1,7 @@
 ---
 title: МТУ-90
 category: other
-image: ./images/mtu-90.png
+image: ./images/mtu-90.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D0%A2%D0%A3-90
 ---
 
