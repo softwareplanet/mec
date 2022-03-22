@@ -1,8 +1,15 @@
 /* global importScripts, workbox, idbKeyval */
+
+import { NavigationRoute, registerRoute } from 'workbox-routing'
+import { cleanupOutdatedCaches, matchPrecache, precacheAndRoute } from 'workbox-precatching'
+import { clientsClaim } from 'workbox-core'
 importScripts(`%idbKeyValVersioned%`)
 
-const { NavigationRoute } = workbox.routing
-const { matchPrecache } = workbox.precaching
+self.skipWaiting()
+clientsClaim()
+
+cleanupOutdatedCaches()
+precacheAndRoute(self.__WB_MANIFEST)
 
 let lastNavigationRequest = null
 let offlineShellEnabled = true
@@ -117,7 +124,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   return await caches.match(offlineShellWithKey)
 })
 
-workbox.routing.registerRoute(navigationRoute)
+registerRoute(navigationRoute)
 
 // this route is used when performing a non-navigation request (e.g. fetch)
-workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)
+registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)

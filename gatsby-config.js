@@ -73,7 +73,6 @@ module.exports = {
       options: {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
-          dontCacheBustURLsMatching: /(\.js$|\.css$|static\/|.*page-data\.json$)/,
           globPatterns: [
             'offline-plugin-app-shell-fallback/index.html',
             'public/icons/*', '**/*.png', '**/*.jpg', "**/*.webp"
