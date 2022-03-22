@@ -18,6 +18,10 @@
   title: ЗРК
   grid_img: ./images/buk.jpg
   list_img: ./images/buk.jpg
+- name: rls
+  title: РЛС
+  grid_img: ./images/rls.jpg
+  list_img: ./images/rls.jpg
 - name: projectiles
   title: Снаряди
   grid_img: ./images/projectile.jpg
