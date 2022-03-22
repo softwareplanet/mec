@@ -1,13 +1,11 @@
 import React from "react";
-
 import Switcher from "../Switcher/Switcher";
 import Search from "./Search";
-import * as styles from "../RenderList/RenderList.module.css"
-import { graphql } from "gatsby";
+import * as styles from "../RenderList/RenderList.module.css";
 
-
-let ToolBar = ({setView}) => {
-    return  (
+let ToolBar = ({ data, setView }) => {
+    console.log(data);
+    return (
         <div className={styles.toolbar}>
             <Search />
             <Switcher onViewChange={setView} />

@@ -24,6 +24,14 @@ export const query = graphql`
         }
       }
     }
+    allMdx {
+      nodes {
+        slug
+        frontmatter {
+          title
+        }
+      }
+    }
   }
 `;
 
@@ -32,7 +40,7 @@ let FirstPage = ({ data }) => {
       <div className={styles.addMargins}>
         <Progressbar />
         <Header name="Військова техніка" />
-        <RenderList data={data.allCategoriesYaml.nodes} />
+        <RenderList data={data.allCategoriesYaml.nodes} searchData={data.allMdx.nodes}/>
       </div>
   );
 };

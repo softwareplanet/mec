@@ -3,12 +3,12 @@ import CardComponent from '../CardComponent/CardComponent'
 import ToolBar from '../ToolBar/ToolBar';
 import * as styles from "./RenderList.module.css"
 
-let RenderList = ({ data }) => {
+let RenderList = ({ data, searchData }) => {
     let [view, setView] = useState('grid')
     
     return (
         <>
-            <ToolBar setView={setView}/>
+            <ToolBar setView={setView} data={searchData}/>
             <div className={styles[view]}>
                 {
                     data.map(element =>

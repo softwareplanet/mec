@@ -9,7 +9,7 @@ let CategoryList = ({ data }) => {
     
     return (
         <>
-            <div className={styles.toolbar}>
+              <div className={styles.toolbar}>
                   <img className={styles.lookup} src={lookup} alt="" />
                   <input type="search" placeholder="Пошук..." autoComplete="off" />
                   <Switcher onViewChange={setView} />
