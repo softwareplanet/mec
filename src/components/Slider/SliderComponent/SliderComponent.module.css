@@ -22,3 +22,7 @@
   background-color: rgba(0, 0, 0, .3);
   height: 100%;
 }
+
+:global .slick-track {
+  height: 100%!important;
+}

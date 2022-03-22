@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as styles from './SliderComponent.module.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -26,7 +26,8 @@ const PrevArrow = (props) => {
 const SliderComponent = (props) => {
 
   const images = props.images.map(picture => getImage(picture));
-  const settings = {
+  
+  const settingsHorisontal = {
     adaptiveHeight: true,
     speed: 500,
     infinite: false,
@@ -35,12 +36,22 @@ const SliderComponent = (props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   }
+  
+  const settingsVertical = {
+    vertical: true,
+    slidesToShow: images.length,
+    swipe: false,
+  }
+
+  const [mode, setMode] = useState(settingsHorisontal);  
 
   return (
-    <div>
-      <Slider {...settings}>
+    <div id="track">
+      <Slider {...mode}>
         {images.map((image, index) => (
-          <SlideElement slideImage={image} key={index} allImages={images.length} currentImage={index + 1} />
+          <div key={index} onClick={() => console.log(1)}>
+          <SlideElement slideImage={image} allImages={images.length} currentImage={index + 1} />
+            </div>
         ))}
       </Slider>
     </div>
