@@ -4,7 +4,6 @@ import React from "react";
 import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
-import { Progressbar } from "../components/Progressbar/Progressbar";
 
 export const query = graphql`
   query {
@@ -37,11 +36,10 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-      <div className={styles.addMargins}>
-        <Progressbar />
-        <Header name="Військова техніка" />
-        <RenderList data={data.allCategoriesYaml.nodes} searchData={data.allMdx.nodes}/>
-      </div>
+    <div className={styles.addMargins}>
+      <Header name="Військова техніка" />
+      <RenderList data={data.allCategoriesYaml.nodes} />
+    </div>
   );
 };
 
