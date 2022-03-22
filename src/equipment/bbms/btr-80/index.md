@@ -1,7 +1,7 @@
 ---
 title: БТР-80
 category: bbms
-image: ./images/btr-80.jpg
+image: ./btr-80.jpg
 source: https://uk.wikipedia.org/wiki/%D0%91%D0%A2%D0%A0-80
 ---
 

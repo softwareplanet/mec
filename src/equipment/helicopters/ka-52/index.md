@@ -1,7 +1,7 @@
 ---
 title: KA-52
 category: helicopters
-image: ./images/ka-52.jpg
+image: ./ka-52.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9A%D0%B0-52
 ---
 

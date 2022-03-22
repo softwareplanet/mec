@@ -1,7 +1,7 @@
 ---
 title: T-80
 category: tanks
-image: ./images/t-80.jpg
+image: ./t-80.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A2-80
 ---
 

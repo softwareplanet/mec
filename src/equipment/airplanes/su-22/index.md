@@ -1,7 +1,7 @@
 ---
 title: СУ-22
 category: airplanes
-image: ./images/su-22.jpg
+image: ./su-22.jpg
 source: https://avia.pro/blog/suhoy-su-22-istrebitel-bombardirovshchik
 ---
 Су-22 - радянський винищувач-бомбардувальник, розроблений в першій половині 1960-х років. Перший радянський літак з крилом змінної геометрії.

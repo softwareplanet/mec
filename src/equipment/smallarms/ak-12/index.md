@@ -1,7 +1,7 @@
 ---
 title: АК-12
 category: smallarms
-image: ./images/ak-12.jpg
+image: ./ak-12.jpg
 source: https://uk.wikipedia.org/wiki/%D0%90%D0%9A-12
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: МОН-50
 category: mines
-image: ./images/mon-50.jpg
+image: ./mon-50.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D0%9E%D0%9D-50
 ---
 

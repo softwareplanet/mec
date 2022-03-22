@@ -1,7 +1,7 @@
 ---
 title: СУ-34
 category: airplanes
-image: ./images/su-34.jpg
+image: ./su-34.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A1%D1%83-34
 ---
 Су-34 -  радянський/російський всепогодній, двомісний винищувач-бомбардувальник, розроблений в ДКБ Сухого.

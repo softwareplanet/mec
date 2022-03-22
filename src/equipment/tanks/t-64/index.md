@@ -1,7 +1,7 @@
 ---
 title: T-64
 category: tanks
-image: ./images/t-64.jpg
+image: ./t-64.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A2-64
 ---
 

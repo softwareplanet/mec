@@ -1,7 +1,7 @@
 ---
 title: Т-72Б3М
 category: tanks
-image: ./images/t-72b3m.jpg
+image: ./t-72b3m.jpg
 source: https://uk.wikipedia.org/wiki/Т-72Б3
 ---
 

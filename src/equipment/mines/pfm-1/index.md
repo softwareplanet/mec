@@ -1,7 +1,7 @@
 ---
 title: ПФМ-1
 category: mines
-image: ./images/pfm-1.jpg
+image: ./pfm-1.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9F%D0%A4%D0%9C-1
 ---
 

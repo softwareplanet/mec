@@ -1,7 +1,7 @@
 ---
 title: МІГ-29
 category: airplanes
-image: ./images/mig-29.jpg
+image: ./mig-29.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D1%96%D0%93-29
 ---
 

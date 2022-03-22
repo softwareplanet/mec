@@ -1,7 +1,7 @@
 ---
 title: БМД-4
 category: bbms
-image: ./images/bmd-4.jpg
+image: ./bmd-4.jpg
 source: https://uk.wikipedia.org/wiki/%D0%91%D0%9C%D0%94-4
 ---
 

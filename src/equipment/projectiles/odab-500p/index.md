@@ -1,7 +1,7 @@
 ---
 title: ОДАБ-500П
-category: projectiles
-image: ./images/odab-500p.jpg
+category: bombs
+image: ./odab-500p.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9E%D0%94%D0%90%D0%91-500%D0%9F
 ---
 

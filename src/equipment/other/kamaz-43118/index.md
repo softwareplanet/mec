@@ -1,7 +1,7 @@
 ---
 title: Камаз-43118
 category: other
-image: ./images/kamaz-43118.jpg
+image: ./kamaz-43118.jpg
 source: https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BC%D0%90%D0%97-43118
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: СМ
 category: mines
-image: ./images/sm.jpg
+image: ./sm.jpg
 source: http://saper.isnet.ru/mines/sm.html
 ---
 

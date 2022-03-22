@@ -1,7 +1,7 @@
 ---
 title: Т-72 "Урал"
 category: tanks
-image: ./images/t-72.jpg
+image: ./t-72.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A2-72
 ---
 
