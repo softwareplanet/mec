@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import CardComponent from '../CardComponent/CardComponent'
-import lookup from "../../images/lookup.svg"
-import Switcher from "../Switcher/Switcher";
+import ToolBar from '../ToolBar/ToolBar';
 import * as styles from "./RenderList.module.css"
 
 let RenderList = ({ data }) => {
@@ -9,11 +8,7 @@ let RenderList = ({ data }) => {
     
     return (
         <>
-            <div className={styles.toolbar}>
-                <img className={styles.lookup} src={lookup} alt="" />
-                <input type="search" placeholder="Пошук..." autoComplete="off" />
-                <Switcher onViewChange={setView} />
-            </div>
+            <ToolBar setView={setView}/>
             <div className={styles[view]}>
                 {
                     data.map(element =>
