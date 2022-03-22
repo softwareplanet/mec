@@ -68,7 +68,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
+      resolve: `local-offline-plugin`,
       options: {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
