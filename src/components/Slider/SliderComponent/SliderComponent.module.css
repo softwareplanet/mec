@@ -26,3 +26,7 @@
 :global .slick-track {
   height: 100%!important;
 }
+
+:global .vertical .slick-list {
+  height: auto !important;
+}

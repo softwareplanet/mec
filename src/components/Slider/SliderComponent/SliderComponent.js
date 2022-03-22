@@ -26,7 +26,7 @@ const PrevArrow = (props) => {
 const SliderComponent = (props) => {
 
   const images = props.images.map(picture => getImage(picture));
-  
+
   const settingsHorisontal = {
     adaptiveHeight: true,
     speed: 500,
@@ -36,22 +36,23 @@ const SliderComponent = (props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   }
-  
+
   const settingsVertical = {
     vertical: true,
     slidesToShow: images.length,
     swipe: false,
+    adaptiveHeight: false
   }
 
-  const [mode, setMode] = useState(settingsHorisontal);  
+  const [mode, setMode] = useState(settingsHorisontal);
 
   return (
-    <div id="track">
+    <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
       <Slider {...mode}>
         {images.map((image, index) => (
-          <div key={index} onClick={() => console.log(1)}>
-          <SlideElement slideImage={image} allImages={images.length} currentImage={index + 1} />
-            </div>
+          <div key={index} onClick={() => setMode(mode.slidesToShow == 1 ? settingsVertical : settingsHorisontal)}>
+            <SlideElement slideImage={image} allImages={images.length} currentImage={index + 1} />
+          </div>
         ))}
       </Slider>
     </div>
