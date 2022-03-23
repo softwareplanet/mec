@@ -54,9 +54,9 @@ input:focus {
     }
 }
 
-.list img {
-    width: 80px;
-    height: 76.5%;
-    margin-top: 10.5px;
+.list :global .gatsby-image-wrapper img {
     border-radius: 3px 0px 0px 3px;
+    height: 76.5% !important;
+    margin-top: 10.5px !important;
+    width: 80px !important;
 }
