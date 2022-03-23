@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CardComponent from '../CardComponent/CardComponent'
 import lookup from "../../images/lookup.svg"
 import Switcher from "../Switcher/Switcher";
-import * as styles from "./CategoryList.module.css"
+import * as styles from "./listsStyles.module.css"
 import addEmptySpaces  from "./EmptySpaces";
 
 let CategoryList = ({ data }) => {
