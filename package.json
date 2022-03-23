@@ -46,8 +46,10 @@
     "react-icons": "^4.3.1",
     "react-slick": "^0.28.1",
     "remark-oembed": "^1.2.2",
+    "sharp": "^0.30.3",
     "slick-carousel": "^1.8.1",
-    "workbox-build": "^6.5.1"
+    "workbox-build": "^6.5.1",
+    "workbox-core": "^6.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
