@@ -2,6 +2,7 @@
 importScripts(`%idbKeyValVersioned%`)
 
 const { NavigationRoute } = workbox.routing
+const { getCacheKeyForURL } = workbox.precaching
 
 let lastNavigationRequest = null
 let offlineShellEnabled = true
@@ -106,13 +107,13 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     // As soon as we detect a failed resource, fetch the entire page from
     // network - that way we won't risk being in an inconsistent state with
     // some parts of the page failing.
-    if (!(await caches.match(resource))) {
+    if (!(await caches.match(getCacheKeyForURL(resource)))) {
       return await fetch(event.request)
     }
   }
 
   const offlineShell = `%pathPrefix%/offline-plugin-app-shell-fallback/index.html`
-  const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
+  const offlineShellWithKey = getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
 
