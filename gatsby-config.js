@@ -74,7 +74,7 @@ module.exports = {
         workboxConfig: {
           globPatterns: [
             'offline-plugin-app-shell-fallback/index.html',
-            'public/icons/*', "**/*.webp"
+            'public/icons/*', "favicon*.png", "**/*.webp"
           ]
         }
       }
