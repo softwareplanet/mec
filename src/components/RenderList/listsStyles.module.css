@@ -44,6 +44,22 @@ input:focus {
     gap: 0.8rem;
 }
 
+:global .CardComponent-module--link-view--SmCuq {
+    width: 160px;
+    height: 160px;
+}
+
+@media screen and (max-width: 555px) {
+    :global .CardComponent-module--link-view--SmCuq {
+        max-width: 240px;
+        max-height: 240px;
+    }   
+    
+    .grid {
+        justify-content: space-around;    
+    }
+}
+
 @media screen and (max-width: 366px) {
     input {
         font-size: 1em;
@@ -64,9 +80,14 @@ input:focus {
         justify-content: center;
     }
 
-    :global .CardComponent-module--link-view--SmCuq {
+    :global .CardComponent-module--png-img--wV-EX {
         width: 160px;
         height: 160px;
+    }
+
+    :global .CardComponent-module--link-view--SmCuq {
+        width: 240px;
+        height: 240px;
     }
 }
 
