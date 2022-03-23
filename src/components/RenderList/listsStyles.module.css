@@ -44,7 +44,7 @@ input:focus {
     gap: 0.8rem;
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 366px) {
     input {
         font-size: 1em;
     }
@@ -52,6 +52,12 @@ input:focus {
     input:focus {
         font-size: 1em;
     }
+
+    .grid {
+        justify-content: space-around;
+    }
+
+    
 }
 
 .list :global .gatsby-image-wrapper img {
