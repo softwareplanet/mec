@@ -3,6 +3,7 @@ import CardComponent from '../CardComponent/CardComponent'
 import lookup from "../../images/lookup.svg"
 import Switcher from "../Switcher/Switcher";
 import * as styles from "./CategoryList.module.css"
+import addEmptySpaces  from "./EmptySpaces";
 
 let CategoryList = ({ data }) => {
     let [view, setView] = useState('grid')
@@ -26,6 +27,7 @@ let CategoryList = ({ data }) => {
                           variant={view}
                       />)
               }
+              { addEmptySpaces(window.innerWidth, data.length) }
             </div>
         </>
     )
