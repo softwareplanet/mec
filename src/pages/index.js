@@ -23,14 +23,6 @@ export const query = graphql`
         }
       }
     }
-    allMdx {
-      nodes {
-        slug
-        frontmatter {
-          title
-        }
-      }
-    }
   }
 `;
 

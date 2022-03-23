@@ -6,7 +6,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
-    "gatsby-plugin-mdx",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -85,12 +84,14 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`],
+        fields: [`title`, `category`, `slug`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           Mdx: {
-            title: node => node.frontmatter.title
+            title: node => node.frontmatter.title,
+            category: node => node.frontmatter.category,
+            slug: node => node.fileAbsolutePath.split('/').slice(-3,-1).join('/') + '/'
           },
         },
       },
