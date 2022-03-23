@@ -1,7 +1,7 @@
 import React from "react";
 import Switcher from "../Switcher/Switcher";
 import Search from "./Search";
-import * as styles from "../RenderList/RenderList.module.css";
+import * as styles from "../RenderList/listsStyles.module.css";
 
 let ToolBar = ({ data, setView }) => {
     console.log(data);
