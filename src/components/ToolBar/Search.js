@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import * as styles from "../RenderList/RenderList.module.css";
+import * as styles from "../RenderList/listsStyles.module.css";
+
 import lookup from "../../images/lookup.svg";
 import {Index} from 'elasticlunr';
 import { Link } from "gatsby";
