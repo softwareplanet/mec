@@ -26,7 +26,7 @@ export const query = graphql`
                         quality: 100
                         layout: FULL_WIDTH
                         placeholder: BLURRED
-                        formats: [AUTO, WEBP, JPG]
+                        formats: [JPG]
                     )
                 }
             }
