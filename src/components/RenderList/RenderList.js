@@ -1,16 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CardComponent from '../CardComponent/CardComponent'
 import ToolBar from '../ToolBar/ToolBar';
 import * as styles from "./listsStyles.module.css"
-import addEmptySpaces  from "./EmptySpaces";
+import addEmptySpaces from "./EmptySpaces";
+import { fromEvent, throttleTime } from 'rxjs';
 
 let RenderList = ({ data, searchData }) => {
     let [view, setView] = useState('grid')
 
+    let [containerWidth, setWindowWidth] = '';
+    if (typeof window !== `undefined`) {
+        [containerWidth, setWindowWidth] = useState(window.innerWidth)
+        useEffect(
+            () => {
+                const subscribtion = fromEvent(window, 'resize')
+                    .pipe(throttleTime(250))
+                    .subscribe(() => { setWindowWidth(container.current.clientWidth); })
+                return () => subscribtion.unsubscribe()
+            }
+            , []);
+    }
+    const container = useRef();
+
     return (
         <>
             <ToolBar setView={setView} data={searchData} />
-            <div className={styles[view]}>
+            <div ref={container} className={styles[view]}>
                 {
                     data.map(element =>
                         <CardComponent
@@ -21,7 +36,7 @@ let RenderList = ({ data, searchData }) => {
                             variant={view}
                         />)
                 }
-                { typeof window !== `undefined` ? addEmptySpaces(window.innerWidth, data.length) : () => {} }
+                {typeof window !== `undefined` ? addEmptySpaces(containerWidth, data.length) : () => { }}
             </div>
         </>
     )
