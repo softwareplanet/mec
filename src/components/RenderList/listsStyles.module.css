@@ -53,11 +53,21 @@ input:focus {
         font-size: 1em;
     }
 
+    :global .CardComponent-module--link-view--SmCuq {
+        width: 135px;
+        height: 135px;
+    }
+}
+
+@media screen and (max-width: 311px) {
     .grid {
-        justify-content: space-around;
+        justify-content: center;
     }
 
-    
+    :global .CardComponent-module--link-view--SmCuq {
+        width: 160px;
+        height: 160px;
+    }
 }
 
 .list :global .gatsby-image-wrapper img {
