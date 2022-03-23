@@ -21,7 +21,7 @@ let RenderList = ({ data, searchData }) => {
                             variant={view}
                         />)
                 }
-                { addEmptySpaces(window.innerWidth, data.length) }
+                { typeof window !== `undefined` ? addEmptySpaces(window.innerWidth, data.length) : () => {} }
             </div>
         </>
     )
