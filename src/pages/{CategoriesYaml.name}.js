@@ -1,12 +1,12 @@
-import * as styles from "../components/index.module.css"
-import React, {useState} from "react";
+import * as styles from "../components/index.module.css";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
-import CategoryList from "../components/RenderList/CategoryList";
+import RenderList from "../components/RenderList/RenderList";
 
 export const query = graphql`
   query ($name: String) {
-    categoriesYaml (name: {eq: $name}) {
+    categoriesYaml(name: { eq: $name }) {
       title
       equipment {
         frontmatter {
@@ -21,16 +21,16 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
   return (
     <div className={styles.addMargins}>
-      <Header name={category.title} backPath="/"/>
-      <CategoryList data={category.equipment}/>
+      <Header name={category.title} backPath="/" />
+      <RenderList data={category.equipment} />
     </div>
-  )
-}
+  );
+};
 
-export default CategoryPage
+export default CategoryPage;

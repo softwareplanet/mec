@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import * as styles from "../RenderList/listsStyles.module.css";
 
 import lookup from "../../images/lookup.svg";
-import {Index} from 'elasticlunr';
 import { Link } from "gatsby";
-import FlexSearch from 'flexsearch';
 
-let Search = ({searchIndex}) => {
+let Search = () => {
     let [searchState, setSearchState] = useState({
         query: ``,
         results: []
@@ -31,7 +29,6 @@ let Search = ({searchIndex}) => {
           return nodes
         }
     }
-    console.log(searchState.results);
     return (
         <>
             <img className={styles.lookup} src={lookup} alt="" />
