@@ -22,20 +22,63 @@ export const query = graphql`
         allFile(filter: {relativeDirectory: {eq: $imageDir }}) {
             nodes {
                 childImageSharp {
-                    gatsbyImageData (
-                        breakpoints: [800]
-                    )
-                    
+                    fluid(
+                        maxHeight: 600,
+                        maxWidth: 800,
+                        fit: INSIDE,
+                        srcSetBreakpoints: [800]
+                    ) {
+                        base64
+                        srcSetWebp
+                        src
+                        srcSet
+                        sizes,
+                        presentationHeight
+                        presentationWidth
+                    }                    
                 }
             }
         }
     }
 `;
 
+
+// fluid (
+//     maxWidth: 800
+//     maxHeight: 600
+//     cover: INSIDE
+// ) {
+    
+// }
+
+function fluidToFullWidth(fluid) {
+    return {
+        placeholder: {
+            fallback: fluid.base64
+        },
+        layout: "constrained",
+        images: {
+            fallback: {
+                src: fluid.src,
+                srcSet: fluid.srcSet,
+                sizes: fluid.sizes
+            },
+            sources: [
+                {
+                    srcSet: fluid.srcSetWebp,
+                    "type": "image/webp",
+                    sizes: fluid.sizes
+                }
+            ]
+        },
+        width: fluid.presentationWidth,
+        height: fluid.presentationHeight
+     }}
+
 const InfoPage = ({ data }) => {
 
     const { category } = data.mdx.frontmatter;
-    const images = data.allFile.nodes.map(n => n.childImageSharp)
+    const images = data.allFile.nodes.map(n => fluidToFullWidth(n.childImageSharp.fluid))
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
 
     return (

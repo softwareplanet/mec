@@ -25,7 +25,7 @@ const PrevArrow = (props) => {
 
 const SliderComponent = (props) => {
 
-  const images = props.images.map(picture => getImage(picture));
+  const images = props.images; //.map(picture => getImage(picture));
 
   const settingsHorizontal = {
     speed: 500,
