@@ -30,7 +30,7 @@ let FirstPage = ({ data }) => {
   return (
     <div className={styles.addMargins}>
       <Header name="Військова техніка" />
-      <RenderList data={data.allCategoriesYaml.nodes} />
+      <RenderList data={data.allCategoriesYaml.nodes}/>
     </div>
   );
 };
