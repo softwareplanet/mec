@@ -8,18 +8,16 @@ import { fromEvent, throttleTime } from 'rxjs';
 let RenderList = ({ data, searchData }) => {
     let [view, setView] = useState('grid')
 
-    let [containerWidth, setWindowWidth] = '';
-    if (typeof window !== `undefined`) {
-        [containerWidth, setWindowWidth] = useState(window.innerWidth)
-        useEffect(
-            () => {
-                const subscribtion = fromEvent(window, 'resize')
-                    .pipe(throttleTime(250))
-                    .subscribe(() => { setWindowWidth(container.current.clientWidth); })
-                return () => subscribtion.unsubscribe()
-            }
-            , []);
-    }
+    let [containerWidth, setWindowWidth] = useState(typeof window !== `undefined` ? window.innerWidth : 0)
+    useEffect(
+        () => {
+            const subscribtion = fromEvent(window, 'resize')
+                .pipe(throttleTime(250))
+                .subscribe(() => { setWindowWidth(container.current.clientWidth); })
+            return () => subscribtion.unsubscribe()
+        }
+        , []);
+
     const container = useRef();
 
     return (
