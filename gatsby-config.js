@@ -68,14 +68,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
+      resolve: `local-offline-plugin`,
       options: {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
-          dontCacheBustURLsMatching: /(\.js$|\.css$|static\/|.*page-data\.json$)/,
           globPatterns: [
             'offline-plugin-app-shell-fallback/index.html',
-            'public/icons/*', '**/*.png', '**/*.jpg', "**/*.webp"
+            'public/icons/*', "favicon*.png", "**/*.webp"
           ]
         }
       }
