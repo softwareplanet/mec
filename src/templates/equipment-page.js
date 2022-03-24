@@ -53,7 +53,7 @@ const InfoPage = ({ data }) => {
                 <MDXRenderer>{data.mdx.body}</MDXRenderer>
                 <div>
                     <h3>Джерело:</h3>
-                    <a className={styles.link} target="_blank" href={data.mdx.frontmatter.source}>{decodedURI}</a>
+                    <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
                 </div>
             </div >
         </>

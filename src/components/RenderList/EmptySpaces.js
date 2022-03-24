@@ -8,7 +8,7 @@ const addEmptySpaces = (containerWidth, itemsnumber) => {
     let numberOfWhiteSpaces = numberOfItemsInLine - (itemsnumber % numberOfItemsInLine);
     let result = [];
     for (let i = 0; i <= numberOfWhiteSpaces; i++)
-        result.push(<img key={i} width={CARD_WIDTH + "px"} height="0.1px" src={image} />);
+        result.push(<img key={i} width={CARD_WIDTH + "px"} height="0.1px" src={image} alt ="" />);
     return result;
 };
 
