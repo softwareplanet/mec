@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Stop orda`,
@@ -79,21 +81,42 @@ module.exports = {
         }
       }
     },
+    // {
+    //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+    //   options: {
+    //     // Fields to index
+    //     fields: [`title`, `category`, `slug`],
+    //     // How to resolve each field`s value for a supported node type
+    //     resolvers: {
+    //       // For any node of type MarkdownRemark, list how to resolve the fields` values
+    //       Mdx: {
+    //         title: node => node.frontmatter.title,
+    //         category: node => node.frontmatter.category,
+    //         slug: node => node.fileAbsolutePath.split('/').slice(-3,-1).join('/') + '/'
+    //       },
+    //     },
+    //   },
+    // },
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: 'gatsby-plugin-flexsearch',
       options: {
-        // Fields to index
-        fields: [`title`, `category`, `slug`],
-        // How to resolve each field`s value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          Mdx: {
-            title: node => node.frontmatter.title,
-            category: node => node.frontmatter.category,
-            slug: node => node.fileAbsolutePath.split('/').slice(-3,-1).join('/') + '/'
+        languages: ['en'],
+        type: 'Mdx',
+        fields: [
+          {
+            name: 'title',
+            indexed: true, 
+            resolver: 'frontmatter.title',
+            store: true
           },
-        },
-      },
-    },
+          {
+            name: 'slug',
+            indexed: false,
+            resolver: 'fileAbsolutePath',
+            store: true,
+          }
+        ]
+      }
+    }
   ]
 }
