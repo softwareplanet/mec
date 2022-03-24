@@ -22,7 +22,6 @@ let RenderList = ({ data, searchData }) => {
 
   const container = useRef();
 
-
   return (
     <>
       <ToolBar setView={setView} data={searchData} />
@@ -31,18 +30,14 @@ let RenderList = ({ data, searchData }) => {
           <CardComponent
             key={i}
             path={element.name ? element.name : element.slug}
-            image={
-              element[view + "_img"]
-                ? element[view + "_img"].childImageSharp
-                : element.frontmatter.image.childImageSharp
-            }
+            image={!element.frontmatter ? element.image.childImageSharp : element.frontmatter.image.childImageSharp}
             title={element.title ? element.title : element.frontmatter.title}
             variant={view}
           />
         ))}
         {typeof window !== `undefined`
           ? addEmptySpaces(containerWidth, data.length)
-          : () => {}}
+          : () => { }}
       </div>
     </>
   );

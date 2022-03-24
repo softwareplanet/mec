@@ -11,16 +11,11 @@ export const query = graphql`
       nodes {
         name
         title
-        grid_img {
+        image {
           childImageSharp {
             gatsbyImageData(width: 240, height: 240)
           }
-        }
-        list_img {
-          childImageSharp {
-            gatsbyImageData(height: 160)
-          }
-        }
+        }        
       }
     }
   }
