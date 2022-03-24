@@ -29,15 +29,15 @@ let RenderList = ({ data, searchData }) => {
         {data.map((element, i) => (
           <CardComponent
             key={i}
-            path={element.name ? element.name : element.slug}
-            image={!element.frontmatter ? element.image.childImageSharp : element.frontmatter.image.childImageSharp}
-            title={element.title ? element.title : element.frontmatter.title}
+            path={element.path}
+            image={element.image}
+            title={element.title}
             variant={view}
           />
         ))}
         {typeof window !== `undefined`
           ? addEmptySpaces(containerWidth, data.length)
-          : () => { }}
+          : () => {}}
       </div>
     </>
   );

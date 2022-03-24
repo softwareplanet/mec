@@ -15,7 +15,7 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(width: 240, height: 240)
           }
-        }        
+        }
       }
     }
   }
@@ -25,7 +25,13 @@ let FirstPage = ({ data }) => {
   return (
     <div className={styles.addMargins}>
       <Header name="Військова техніка" />
-      <RenderList data={data.allCategoriesYaml.nodes}/>
+      <RenderList
+        data={data.allCategoriesYaml.nodes.map((n) => ({
+          path: n.name,
+          image: n.image.childImageSharp,
+          title: n.title,
+        }))}
+      />
     </div>
   );
 };

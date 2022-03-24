@@ -25,10 +25,17 @@ export const query = graphql`
 
 let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
+
   return (
     <div className={styles.addMargins}>
       <Header name={category.title} backPath="/" />
-      <RenderList data={category.equipment} />
+      <RenderList
+        data={category.equipment.map((n) => ({
+          path: n.slug,
+          image: n.frontmatter.image.childImageSharp,
+          title: n.frontmatter.title,
+        }))}
+      />
     </div>
   );
 };
