@@ -11,7 +11,7 @@
   grid_img: ./images/tank.jpg
   list_img: ./images/tank.jpg
 - name: bbms
-  title: Бойові броньовані машини (ББМ)
+  title: Бойові броньовані машини
   grid_img: ./images/bbm.jpg
   list_img: ./images/bbm.jpg
 - name: zrk
