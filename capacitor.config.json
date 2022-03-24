@@ -2,5 +2,16 @@
   "appId": "in.ua",
   "appName": "Stop orda",
   "webDir": "public",
+<<<<<<< HEAD
   "bundledWebRuntime": false
 }
+=======
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 600,
+      "androidScaleType": "CENTER_CROP"
+    }
+  }
+}
+>>>>>>> 7503e05340cd5885430783ea1608caaf14cd8895

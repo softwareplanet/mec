@@ -20,6 +20,7 @@
     "@capacitor/cli": "^3.4.3",
     "@capacitor/core": "^3.4.3",
     "@capacitor/ios": "^3.4.3",
+    "@capacitor/splash-screen": "^1.2.2",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^3.0.2",
     "@ionic/cli": "^6.19.0",
     "@mdx-js/mdx": "^1.6.22",

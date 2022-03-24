@@ -81,8 +81,8 @@ input:focus {
     }
 
     :global .CardComponent-module--png-img--wV-EX {
-        width: 160px;
-        height: 160px;
+        width: 240px;
+        height: 240px;
     }
 
     .grid :global .CardComponent-module--link-view--SmCuq {
