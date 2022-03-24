@@ -2,6 +2,10 @@
   "appId": "in.ua",
   "appName": "Stop orda",
   "webDir": "public",
+<<<<<<< HEAD
+  "bundledWebRuntime": false
+}
+=======
   "bundledWebRuntime": false,
   "plugins": {
     "SplashScreen": {
@@ -10,3 +14,4 @@
     }
   }
 }
+>>>>>>> 7503e05340cd5885430783ea1608caaf14cd8895
