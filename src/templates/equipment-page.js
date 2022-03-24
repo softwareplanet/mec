@@ -23,12 +23,10 @@ export const query = graphql`
         allFile(filter: {relativeDirectory: {eq: $imageDir }}) {
             nodes {
                 childImageSharp {
-                    gatsbyImageData(
-                        quality: 100
-                        layout: FULL_WIDTH
-                        placeholder: BLURRED
-                        breakpoints: [750]
+                    gatsbyImageData (
+                        breakpoints: [800]
                     )
+                    
                 }
             }
         }

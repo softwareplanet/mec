@@ -27,8 +27,7 @@ const SliderComponent = (props) => {
 
   const images = props.images.map(picture => getImage(picture));
 
-  const settingsHorisontal = {
-    adaptiveHeight: true,
+  const settingsHorizontal = {
     speed: 500,
     infinite: false,
     slidesToShow: 1,
@@ -41,16 +40,15 @@ const SliderComponent = (props) => {
     vertical: true,
     slidesToShow: images.length,
     swipe: false,
-    adaptiveHeight: false
   }
 
-  const [mode, setMode] = useState(settingsHorisontal);
+  const [mode, setMode] = useState(settingsHorizontal);
 
   return (
     <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
       <Slider {...mode}>
         {images.map((image, index) => (
-          <div key={index} onClick={() => setMode(mode.slidesToShow === 1 ? settingsVertical : settingsHorisontal)}>
+          <div key={index} onClick={() => setMode(mode.slidesToShow === 1 ? settingsVertical : settingsHorizontal)}>
             <SlideElement slideImage={image} allImages={images.length} currentImage={index + 1} />
           </div>
         ))}
