@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
     margin-top: 20px;
 }
 
@@ -49,7 +49,7 @@ input:focus {
     height: 160px;
 }
 
-@media screen and (max-width: 555px) {
+@media screen and (max-width: 566px) {
     .grid :global .CardComponent-module--link-view--SmCuq {
         max-width: 240px;
         max-height: 240px;
@@ -60,7 +60,7 @@ input:focus {
     }
 }
 
-@media screen and (max-width: 366px) {
+@media screen and (max-width: 372px) {
     input {
         font-size: 1em;
     }
@@ -75,7 +75,7 @@ input:focus {
     }
 }
 
-@media screen and (max-width: 311px) {
+@media screen and (max-width: 317px) {
     .grid {
         justify-content: center;
     }

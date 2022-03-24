@@ -1,7 +1,7 @@
 import React from 'react';
 import image from "../../equipment/images/space.png";
 
-const GAP = 8;
+const GAP = 15;
 const CARD_WIDTH = 160;
 const addEmptySpaces = (containerWidth, itemsnumber) => {
     let numberOfItemsInLine = parseInt((containerWidth  + GAP) / (CARD_WIDTH + GAP));
