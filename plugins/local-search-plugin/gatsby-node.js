@@ -56,9 +56,7 @@ exports.onPostBootstrap = function (_ref, options) {
           }
         }
 
-        index.values = FlexSearch.create({...attrs, tokenize: function(str){
-          return str.split("");
-        }})
+        index.values = FlexSearch.create({...attrs, tokenize: require('./uk-tokenize')})
       }
 
       getNodes()

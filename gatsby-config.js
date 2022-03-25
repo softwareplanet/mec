@@ -75,7 +75,7 @@ module.exports = {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
           globPatterns: [
-            'offline-plugin-app-shell-fallback/index.html',
+            'offline-plugin-app-shell-fallback/index.html', // flexsearch_index.json
             'public/icons/*', "favicon*.png", "**/*.webp"
           ]
         }
