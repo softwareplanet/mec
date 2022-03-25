@@ -10,6 +10,26 @@ body {
     padding: 30px;
 }
 
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.title a {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #F5F5F5;
+    
+    margin: 5px;
+    padding: 8px 15px;
+    background: rgb(56, 149, 255);
+    border-radius: 45px;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -17,10 +37,6 @@ a {
 
 .infoPage {
     margin: 12px 20px;
-}
-
-h1 {
-    padding-bottom: 12px;
 }
 
 p {
@@ -81,7 +97,7 @@ h3 {
     margin: 20px 0 5px;
 }
 
-li{
+li {
     list-style: inside;
     font-size: 14px;
 }
