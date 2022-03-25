@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as styles from "../RenderList/listsStyles.module.css";
-
 import lookup from "../../images/lookup.svg";
 import { Link } from "gatsby";
 
@@ -10,8 +9,8 @@ let Search = () => {
         results: []
     })
     function getSearchResults(query) {
-        let index = window.__FLEXSEARCH__.en.index
-        let store = window.__FLEXSEARCH__.en.store
+        let index = window.__FLEXSEARCH__.uk.index
+        let store = window.__FLEXSEARCH__.uk.store
         if (!query || !index) {
           return []
         } else {
@@ -36,15 +35,15 @@ let Search = () => {
                     const query = evt.target.value; 
                     setSearchState({
                             query: query,
-                            results: getSearchResults(query)
+                            results: getSearchResults(query.toLowerCase())
                     });
                 }
             }/>
             <ul>
                 {
                     searchState.results
-                    .map(page => (
-                        <li key={page.id}>
+                    .map((page, i) => (
+                        <li key={i}>
                             <Link to={page.slug.split('/').slice(-3,-1).join('/') + '/'}>{page.title}</Link>
                         </li>
                     ))

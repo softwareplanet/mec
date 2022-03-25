@@ -82,14 +82,17 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-flexsearch',
+      resolve: 'local-search-plugin',
       options: {
-        languages: ['en'],
+        languages: ['uk'],
         type: 'Mdx',
         fields: [
           {
             name: 'title',
-            indexed: true, 
+            indexed: true,
+            attributes: {
+              encode: false
+            },
             resolver: 'frontmatter.title',
             store: true
           },
