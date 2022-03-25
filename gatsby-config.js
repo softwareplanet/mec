@@ -75,21 +75,24 @@ module.exports = {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
           globPatterns: [
-            'offline-plugin-app-shell-fallback/index.html',
+            'offline-plugin-app-shell-fallback/index.html', // flexsearch_index.json
             'public/icons/*', "favicon*.png", "**/*.webp"
           ]
         }
       }
     },
     {
-      resolve: 'gatsby-plugin-flexsearch',
+      resolve: 'local-search-plugin',
       options: {
-        languages: ['en'],
+        languages: ['uk'],
         type: 'Mdx',
         fields: [
           {
             name: 'title',
-            indexed: true, 
+            indexed: true,
+            attributes: {
+              encode: false
+            },
             resolver: 'frontmatter.title',
             store: true
           },

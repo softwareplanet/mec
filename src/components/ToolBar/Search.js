@@ -10,8 +10,8 @@ let Search = () => {
     results: [],
   });
   function getSearchResults(query) {
-    let index = window.__FLEXSEARCH__.en.index;
-    let store = window.__FLEXSEARCH__.en.store;
+    let index = window.__FLEXSEARCH__.uk.index;
+    let store = window.__FLEXSEARCH__.uk.store;
     if (!query || !index) {
       return [];
     } else {
@@ -42,7 +42,7 @@ let Search = () => {
           const query = evt.target.value;
           setSearchState({
             query: query,
-            results: getSearchResults(query),
+            results: getSearchResults(query.toLowerCase()),
           });
         }}
       />
@@ -59,3 +59,4 @@ let Search = () => {
   );
 };
 export default Search;
+
