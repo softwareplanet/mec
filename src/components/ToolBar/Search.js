@@ -48,11 +48,12 @@ let Search = () => {
       />
       <ul className={styles.resultUl}>
         {searchState.results.map((page, i) => (
-          <li className={styles.resultLi} key={i}>
-            <Link to={"/" + page.slug.split("/").slice(-3, -1).join("/") + "/"}>
-              {page.title}
+            <Link to={"/" + page.slug.split("/").slice(-3, -1).join("/") + "/"} key={i}>
+                <li className={styles.resultLi} key={i}>
+                    
+                    {page.title}
+                </li>
             </Link>
-          </li>
         ))}
       </ul>
     </div>

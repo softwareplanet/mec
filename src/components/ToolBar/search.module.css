@@ -40,7 +40,9 @@
 
   list-style: none;
 }
-
+.result-li:hover {
+  background-color: #f5f5f5;
+}
 .result-ul:empty {
   display: none;
 }
