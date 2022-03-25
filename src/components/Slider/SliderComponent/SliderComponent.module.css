@@ -11,7 +11,7 @@
   right: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, .3);
-  height: 100%;
+  height: calc(100% - 3px);
 }
 
 .prevArrow {
@@ -20,7 +20,7 @@
   left: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, .3);
-  height: 100%;
+  height: calc(100% - 3px);
 }
 
 :global .slick-track {
