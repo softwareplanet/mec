@@ -20,6 +20,7 @@
     "@capacitor/cli": "^3.4.3",
     "@capacitor/core": "^3.4.3",
     "@capacitor/ios": "^3.4.3",
+    "@capacitor/splash-screen": "^1.2.2",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^3.0.2",
     "@ionic/cli": "^6.19.0",
     "@mdx-js/mdx": "^1.6.22",
@@ -46,6 +47,7 @@
     "idb-keyval": "^3.2.0",
     "js-yaml": "^4.1.0",
     "local-offline-plugin": "file:./plugins/local-offline-plugin",
+
     "lodash": "^4.17.21",
     "path": "^0.12.7",
     "process": "^0.11.10",

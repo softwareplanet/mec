@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Slider from "../components/Slider/SliderComponent/SliderComponent";
+import tg_icon from "../equipment/images/telegram-icon.png";
 
 export const query = graphql`
     query ($slug: String, $imageDir: String) {
@@ -49,11 +50,14 @@ const InfoPage = ({ data }) => {
                 <Slider images={images} />
             </div>
             <div className={styles.infoPage} >
-                <h1>{data.mdx.frontmatter.title}</h1>
+                <div className={styles.title}>
+                    <h1>{data.mdx.frontmatter.title}</h1>
+                    <a className={styles.link} target="_blank" rel="noreferrer" href="https://t.me/evorog_bot"><img height="17px" src={tg_icon} /> єВорог</a>
+                </div>
                 <MDXRenderer>{data.mdx.body}</MDXRenderer>
                 <div>
                     <h3>Джерело:</h3>
-                    <a className={styles.link} target="_blank" href={data.mdx.frontmatter.source}>{decodedURI}</a>
+                    <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
                 </div>
             </div >
         </>

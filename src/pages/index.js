@@ -11,14 +11,9 @@ export const query = graphql`
       nodes {
         name
         title
-        grid_img {
+        image {
           childImageSharp {
             gatsbyImageData(width: 240, height: 240)
-          }
-        }
-        list_img {
-          childImageSharp {
-            gatsbyImageData(height: 160)
           }
         }
       }
@@ -30,7 +25,13 @@ let FirstPage = ({ data }) => {
   return (
     <div className={styles.addMargins}>
       <Header name="Військова техніка" />
-      <RenderList data={data.allCategoriesYaml.nodes} />
+      <RenderList
+        data={data.allCategoriesYaml.nodes.map((n) => ({
+          path: n.name,
+          image: n.image.childImageSharp,
+          title: n.title,
+        }))}
+      />
     </div>
   );
 };

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Base application theme. -->
-<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/ic_launcher_background</item>-->
-<!--    </style>-->
-
 <!--    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">-->
 <!--        <item name="windowActionBar">false</item>-->
 <!--        <item name="windowNoTitle">true</item>-->
-<!--        <item name="android:background">@null</item>-->
+<!--        <item name="android:background">#F5F5F5</item>-->
 <!--    </style>-->
 
 
+<!--    <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">-->
+<!--        <item name="android:background">@drawable/splash</item>-->
+<!--    </style>-->
     <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
         <item name="android:background">@drawable/splash</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>
