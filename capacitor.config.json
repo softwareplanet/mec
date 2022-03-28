@@ -1,6 +1,6 @@
 {
   "appId": "in.ua",
-  "appName": "Stop orda",
+  "appName": "military equipment catalog",
   "webDir": "public",
   "bundledWebRuntime": false,
   "plugins": {

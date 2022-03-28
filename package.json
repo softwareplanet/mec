@@ -1,8 +1,8 @@
 {
-  "name": "stop-orda",
+  "name": "military-equipment-catalog",
   "version": "1.0.0",
   "private": true,
-  "description": "stop-orda",
+  "description": "Military-equipment-catalog",
   "author": "Alexander Kotov",
   "keywords": [
     "gatsby"
