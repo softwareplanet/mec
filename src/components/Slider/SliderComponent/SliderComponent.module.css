@@ -30,3 +30,7 @@
 :global .vertical .slick-list {
   height: auto !important;
 }
+
+:global .slick-vertical .slick-slide {  
+  border: 0px !important;  
+}
