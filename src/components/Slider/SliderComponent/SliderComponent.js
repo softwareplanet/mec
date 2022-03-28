@@ -49,7 +49,9 @@ const SliderComponent = (props) => {
       <Slider {...mode}>
         {images.map((image, index) => (
           <div key={index} onClick={() => setMode(mode.slidesToShow === 1 ? settingsVertical : settingsHorizontal)}>
-            <SlideElement slideImage={image} allImages={images.length} currentImage={index + 1} />
+            <a href="#">
+              <SlideElement slideImage={image} allImages={images.length} currentImage={index + 1} />
+            </a>
           </div>
         ))}
       </Slider>
