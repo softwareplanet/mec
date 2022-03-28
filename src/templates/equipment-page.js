@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "gatsby";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
+import Dropdown from "../components/ToolBar/Dropdown/Dropdown.js"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Slider from "../components/Slider/SliderComponent/SliderComponent";
 import tg_icon from "../equipment/images/telegram-icon.png";
 
 export const query = graphql`
-    query ($slug: String, $imageDir: String) {
+    query ($slug: String, $imageDir: String, $category: String) {
         mdx(slug:{eq:$slug}) {
             frontmatter {
                 title
@@ -30,11 +32,18 @@ export const query = graphql`
                 }
             }
         }
+        allMdx(filter: {frontmatter: {category: {name: {eq: $category}}}}) {
+            nodes {
+              slug
+              frontmatter {
+                title
+              }
+            }
+        }
     }
 `;
 
 const InfoPage = ({ data }) => {
-
     const { category } = data.mdx.frontmatter;
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
@@ -44,6 +53,7 @@ const InfoPage = ({ data }) => {
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx.frontmatter.title}/>
             <div className={styles.header}>
                 <Slider images={images} />
             </div>
