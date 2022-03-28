@@ -49,7 +49,7 @@
 .list .img-container {
     display: flex;
     align-items: center;
-    width: 80px;
+    min-width: 80px;
     height: 50px;
     margin: 0px 0 0px 1px;
 }
