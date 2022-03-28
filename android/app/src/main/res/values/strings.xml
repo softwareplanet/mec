@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">stop-orda</string>
-    <string name="title_activity_main">stop-orda</string>
+    <string name="app_name">Військова техніка</string>
+    <string name="title_activity_main">Військова техніка</string>
     <string name="package_name">in.ua</string>
     <string name="custom_url_scheme">in.ua</string>
 </resources>
