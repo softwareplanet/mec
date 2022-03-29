@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
@@ -6,6 +6,7 @@ import Header from "../components/Header/Header";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Slider from "../components/Slider/SliderComponent/SliderComponent";
 import tg_icon from "../equipment/images/telegram-icon.png";
+import { Network } from "@capacitor/network"
 
 export const query = graphql`
     query ($slug: String, $imageDir: String) {
@@ -33,8 +34,17 @@ export const query = graphql`
     }
 `;
 
-const InfoPage = ({ data }) => {
 
+const InfoPage = ({ data }) => {
+    let status
+    if (typeof window !== `undefined`) {
+        status = navigator.onLine
+    }
+    
+    let [networkStatus, setNetworkStatus] = useState(status)
+    console.log(networkStatus)
+
+    Network.addListener("networkStatusChange", status => setNetworkStatus(status.connected))
     const { category } = data.mdx.frontmatter;
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
@@ -50,9 +60,11 @@ const InfoPage = ({ data }) => {
             <div className={styles.infoPage} >
                 <div className={styles.title}>
                     <h1>{data.mdx.frontmatter.title}</h1>
-                    <a className={styles.link} target="_blank" rel="noreferrer" href="https://t.me/evorog_bot"><img height="17px" src={tg_icon} /> єВорог</a>
+                    <a className={styles.link} target="_blank" rel="noreferrer" href="https://t.me/evorog_bot">
+                        <img height="17px" src={tg_icon} /> єВорог
+                    </a>
                 </div>
-                <MDXRenderer>{data.mdx.body}</MDXRenderer>
+                {networkStatus ? <MDXRenderer>{data.mdx.body}</MDXRenderer> : () => { }}
                 <div>
                     <h3>Джерело:</h3>
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
