@@ -32,7 +32,7 @@
   Інструкції для модераторів контенту
 </h2>
 
-<a href="./ContentModeration.md">Інструкція</a>
+<a href="./CONTRIBUTION.md">Інструкція</a>
 
 <h4 align="center"> 
   Зворотний зв'язок
