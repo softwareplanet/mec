@@ -101,3 +101,17 @@ li {
     list-style: inside;
     font-size: 14px;
 }
+
+.hideVideoPlayer :global .remark-oembed-you-tube {
+    display: none;
+}
+
+.warning {
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hideVideoPlayer .warning {
+    display: unset;
+}

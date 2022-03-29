@@ -40,9 +40,8 @@ const InfoPage = ({ data }) => {
     if (typeof window !== `undefined`) {
         status = navigator.onLine
     }
-    
+
     let [networkStatus, setNetworkStatus] = useState(status)
-    console.log(networkStatus)
 
     Network.addListener("networkStatusChange", status => setNetworkStatus(status.connected))
     const { category } = data.mdx.frontmatter;
@@ -64,7 +63,10 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                {networkStatus ? <MDXRenderer>{data.mdx.body}</MDXRenderer> : () => { }}
+                <div className={networkStatus ? "" : styles.hideVideoPlayer}>
+                    <MDXRenderer>{data.mdx.body}</MDXRenderer>
+                    <p className={styles.warning}>Відео буде доступне після підключення до мережі інтернет!</p>
+                </div>
                 <div>
                     <h3>Джерело:</h3>
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
