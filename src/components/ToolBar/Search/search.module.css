@@ -42,6 +42,9 @@
 .result-li:hover {
   background-color: #f5f5f5;
 }
+.result-li.active {
+  background-color: #f5f5f5;
+}
 .result-ul:empty {
   display: none;
 }

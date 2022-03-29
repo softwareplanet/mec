@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as styles from "./search.module.css";
 
 import lookup from "../../../images/lookup.svg";
-import SearchResults from "./SearchResults"
+import SearchResults from "./DropdownList"
 
 let Search = () => {
   let [searchState, setSearchState] = useState({
@@ -39,17 +39,14 @@ let Search = () => {
         autoComplete="off"
         value={searchState.query}
         onChange={(evt) => {
-          const query = evt.target.value;
+          const query = evt.target.value
           setSearchState({
             query: query,
             results: getSearchResults(query.toLowerCase()),
           });
         }}
       />
-      <SearchResults styles={styles} results={searchState.results.map((r) => ({
-          slug: `${"/" + r.slug.split("/").slice(-3, -1).join("/") + "/"}`,
-          title: r.title,
-        }))}/>
+      <SearchResults styles={styles} results={searchState.results} />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
-import SearchResults from "../Search/SearchResults.js"
+import SearchResults from "../Search/DropdownList.js"
 import * as styles from "../Search/search.module.css";
 import arrow from "../../../images/hideIcon.png";
 
@@ -12,9 +11,9 @@ const Dropdown = ({ data, currEquip }) => {
                 <span>{currEquip}</span>
                 <img src={arrow} style={hidden ? {transform: "rotate(0deg)"} : {transform: "rotate(180deg)"} }/>
             </div>
-            <SearchResults isHidden={hidden ? {display: "none"} : {display: "block"}} styles={styles} results={
+            <SearchResults currEquip={currEquip} isHidden={hidden ? {display: "none"} : {display: "block"}} styles={styles} results={
                 data.map((node) => ({
-                    slug: `${"/" + node.slug}`,
+                    slug: node.slug,
                     title: node.frontmatter.title
                 }))
             }/>

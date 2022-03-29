@@ -32,7 +32,10 @@ export const query = graphql`
                 }
             }
         }
-        allMdx(filter: {frontmatter: {category: {name: {eq: $category}}}}) {
+        allMdx(
+            filter: {frontmatter: {category: {name: {eq: $category}}}}
+            sort: {fields: frontmatter___title}
+        ) {
             nodes {
               slug
               frontmatter {
