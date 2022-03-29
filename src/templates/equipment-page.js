@@ -63,9 +63,8 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                <div className={networkStatus ? "" : styles.hideVideoPlayer}>
+                <div className={networkStatus ? "" : styles.hide}>
                     <MDXRenderer>{data.mdx.body}</MDXRenderer>
-                    <p className={styles.warning}>Відео буде доступне після підключення до мережі інтернет!</p>
                 </div>
                 <div>
                     <h3>Джерело:</h3>

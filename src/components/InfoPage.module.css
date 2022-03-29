@@ -102,16 +102,21 @@ li {
     font-size: 14px;
 }
 
-.hideVideoPlayer :global .remark-oembed-you-tube {
+.hide :global .remark-oembed-inline.remark-oembed-you-tube {
+    padding: 0;
+}
+
+.hide :global .remark-oembed-inline.remark-oembed-you-tube iframe{
     display: none;
 }
 
-.warning {
-    display: none;
+.hide :global .remark-oembed-inline.remark-oembed-you-tube::after {
+    content: "Відео буде доступне після підключення до мережі інтернет!";
+    display: block;
+    text-align: center;
     font-size: 18px;
-    font-weight: bold;
-}
-
-.hideVideoPlayer .warning {
-    display: unset;
+    color: darkgrey;
+    border: 1px dashed;
+    padding: 8px;
+    border-radius: 4px;
 }
