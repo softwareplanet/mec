@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import tank from "../../images/tank_img.png"
+import tank from "../../images/tank_img.svg"
 import * as styles from "./Header.module.css"
 import arrow from "../../equipment/images/arrow-left.png";
 
