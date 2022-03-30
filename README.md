@@ -5,25 +5,11 @@
   Каталог військової техніки
 </h1>
 
-<div style="
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px;
-    padding-bottom: 20px;
-    background: rgba(100, 50, 255, 0.4);
-    border-radius: 45px;    
-    " >    
-    <h3>Завантажити</h3>
-    <div style="
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 30px;
-        ">
-      <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/web.png" width="60" /></a>   
-      <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/android.png" width="60" /></a>
-      <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/ios.png" width="60" /></a>
-    </div>
+<h3 align="center">Завантажити</h3>
+<div align="center"
+  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/web.png" width="60" /></a>   
+  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/android.png" width="60" /></a>
+  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/ios.png" width="60" /></a>
 </div>
 
 <h2 align="center">
