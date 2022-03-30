@@ -20,7 +20,7 @@ export const query = graphql`
     },
     gitCommit(latest: {eq: true}) {
       hash
-      date(formatString: "DD.MM.YYYY")
+      date(formatString: "YYYYMMDDHHmmss")
     },
     gitTag(latest: {eq: true}) {
       name
@@ -29,8 +29,8 @@ export const query = graphql`
 `;
 
 let FirstPage = ({ data }) => {
-  const hashCommit = data.gitCommit.hash;
-  const tagName = data.gitTag.name;
+  const hashCommit = data.gitCommit.hash.substring(0, 7);
+  const tagName = data.gitTag.name.substring(1);
   const dateCommit = data.gitCommit.date;
 
   return (
@@ -44,9 +44,9 @@ let FirstPage = ({ data }) => {
         }))}
       />
       <div className={styles.versionInfo}>
-        <span>v.{tagName}</span>
-        <a href={`https://github.com/softwareplanet/mec/commit/${hashCommit}`} target='_blank' rel="noreferrer">{hashCommit}</a>
-        <span> - {dateCommit}</span>
+        <span>Version {tagName}</span>
+        <a href={`https://github.com/softwareplanet/mec/commit/${hashCommit}`} target='_blank' rel="noreferrer">+sha.{hashCommit}</a>
+        <span>-{dateCommit}</span>
       </div>
     </div>
   );

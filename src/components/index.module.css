@@ -9,6 +9,10 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+a {
+    color: inherit;
+}
+
 .add-margins {
     margin: 33px 5vw 0;
     display: flex;
@@ -17,5 +21,14 @@ body {
 }
 
 .version-info {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
     display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #929292;
 }
