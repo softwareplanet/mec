@@ -40,8 +40,9 @@ let FirstPage = ({ data }) => {
         }))}
       />
       <div className={styles.versionInfo}>
-        <p>{data.gitTag.name} - beta1 - </p>
-        <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`}>{data.gitCommit.hash} - {data.gitCommit.date}</a>
+        <p>v.{data.gitTag.name} - beta1 - </p>
+        <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`} target='_blank' rel="noreferrer">{data.gitCommit.hash}</a>
+        <p> - {data.gitCommit.date}</p>
       </div>
     </div>
   );
