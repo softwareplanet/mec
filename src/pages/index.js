@@ -20,6 +20,7 @@ export const query = graphql`
     },
     gitCommit(latest: {eq: true}) {
       hash
+      date(formatString: "DD.MM.YYYY")
     },
     gitTag(latest: {eq: true}) {
       name
@@ -38,8 +39,10 @@ let FirstPage = ({ data }) => {
           title: n.title,
         }))}
       />
-      <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`}>{data.gitCommit.hash}</a>
-      <p>{data.gitTag.name}</p>
+      <div className={styles.versionInfo}>
+        <p>{data.gitTag.name} - beta1 - </p>
+        <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`}>{data.gitCommit.hash} - {data.gitCommit.date}</a>
+      </div>
     </div>
   );
 };
