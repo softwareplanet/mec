@@ -20,8 +20,11 @@ export const query = graphql`
     },
     gitCommit(latest: {eq: true}) {
       hash
+    },
+    gitTag(latest: {eq: true}) {
+      name
     }
-  }
+   }
 `;
 
 let FirstPage = ({ data }) => {
@@ -36,6 +39,7 @@ let FirstPage = ({ data }) => {
         }))}
       />
       <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`}>{data.gitCommit.hash}</a>
+      <p>{data.gitTag.name}</p>
     </div>
   );
 };
