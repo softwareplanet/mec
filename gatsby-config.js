@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
+    "gatsby-source-local-git",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -75,7 +76,7 @@ module.exports = {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
           globPatterns: [
-            'offline-plugin-app-shell-fallback/index.html', 
+            'offline-plugin-app-shell-fallback/index.html',
             'flexsearch_index.json',
             'public/icons/*', "favicon*.png", "**/*.webp"
           ]
