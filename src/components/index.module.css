@@ -18,8 +18,4 @@ body {
 
 .version-info {
     display: flex;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    padding-bottom: 4px;
 }

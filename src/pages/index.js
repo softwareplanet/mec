@@ -29,6 +29,10 @@ export const query = graphql`
 `;
 
 let FirstPage = ({ data }) => {
+  const hashCommit = data.gitCommit.hash;
+  const tagName = data.gitTag.name;
+  const dateCommit = data.gitCommit.date;
+
   return (
     <div className={styles.addMargins}>
       <Header name="Військова техніка" />
@@ -40,9 +44,9 @@ let FirstPage = ({ data }) => {
         }))}
       />
       <div className={styles.versionInfo}>
-        <p>v.{data.gitTag.name} - beta1 - </p>
-        <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`} target='_blank' rel="noreferrer">{data.gitCommit.hash}</a>
-        <p> - {data.gitCommit.date}</p>
+        <span>v.{tagName}</span>
+        <a href={`https://github.com/softwareplanet/mec/commit/${hashCommit}`} target='_blank' rel="noreferrer">{hashCommit}</a>
+        <span> - {dateCommit}</span>
       </div>
     </div>
   );
