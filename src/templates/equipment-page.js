@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, setState } from "react";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
@@ -36,14 +36,18 @@ export const query = graphql`
 
 
 const InfoPage = ({ data }) => {
-    let status
+    let status = typeof window !== `undefined` ? status = navigator.onLine : true
+
+    let [md, setMd] = useState(<MDXRenderer>{data.mdx.body}</MDXRenderer>)
+    let state = true;
+    const rerender = () => state = !state;
+
     if (typeof window !== `undefined`) {
-        status = navigator.onLine
+        Network.addListener("networkStatusChange", () => {
+            setMd(<MDXRenderer>{data.mdx.body + rerender()}</MDXRenderer>)
+        })
     }
 
-    let [networkStatus, setNetworkStatus] = useState(status)
-
-    Network.addListener("networkStatusChange", status => setNetworkStatus(status.connected))
     const { category } = data.mdx.frontmatter;
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
@@ -63,8 +67,8 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                <div className={networkStatus ? "" : styles.hide}>
-                    <MDXRenderer>{data.mdx.body}</MDXRenderer>
+                <div className={status ? "" : styles.hide}>
+                    {md}
                 </div>
                 <div>
                     <h3>Джерело:</h3>
