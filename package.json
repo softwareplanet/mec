@@ -40,6 +40,7 @@
     "gatsby-plugin-sw": "^1.0.1",
     "gatsby-remark-embed-youtube": "^0.0.7",
     "gatsby-source-filesystem": "^4.9.0",
+    "gatsby-source-local-git": "^1.2.2",
     "gatsby-transformer-remark": "^5.9.1",
     "gatsby-transformer-sharp": "^4.9.0",
     "gatsby-transformer-yaml": "^4.9.0",
@@ -47,7 +48,7 @@
     "idb-keyval": "^3.2.0",
     "js-yaml": "^4.1.0",
     "local-offline-plugin": "file:./plugins/local-offline-plugin",
-
+    "local-search-plugin": "file:./plugins/local-search-plugin",
     "lodash": "^4.17.21",
     "path": "^0.12.7",
     "process": "^0.11.10",
@@ -59,8 +60,7 @@
     "remark-oembed": "^1.2.2",
     "rxjs": "^7.5.5",
     "slick-carousel": "^1.8.1",
-    "workbox-build": "^4.3.1",
-    "local-search-plugin": "file:./plugins/local-search-plugin"
+    "workbox-build": "^4.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
