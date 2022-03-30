@@ -6,7 +6,7 @@
 </h1>
 
 <h3 align="center">Завантажити</h3>
-<div align="center"
+<div align="center">
   <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/web.png" width="60" /></a>   
   <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/android.png" width="60" /></a>
   <a href="https://stop-orda.in.ua/"><img alt="mec" src="./src/images/ios.png" width="60" /></a>
