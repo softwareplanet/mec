@@ -8,10 +8,10 @@ const Dropdown = ({ data, currEquip }) => {
     return (
         <div className={styles.container} onClick={() => setHide(!hidden)}>
             <div className={styles.dropdown}>
-                <span>{currEquip}</span>
+                <span>{currEquip.frontmatter.title}</span>
                 <img src={arrow} style={hidden ? {transform: "rotate(0deg)"} : {transform: "rotate(180deg)"} }/>
             </div>
-            <SearchResults currEquip={currEquip} isHidden={hidden ? {display: "none"} : {display: "block"}} styles={styles} results={
+            <SearchResults currEquip={currEquip.slug} isHidden={hidden ? {display: "none"} : {display: "block"}} styles={styles} results={
                 data.map((node) => ({
                     slug: node.slug,
                     title: node.frontmatter.title

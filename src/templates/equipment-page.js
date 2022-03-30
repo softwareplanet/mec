@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
@@ -20,6 +19,7 @@ export const query = graphql`
                     title
                 }                
             }
+            slug
             body
         }
         allFile(filter: {relativeDirectory: {eq: $imageDir }}) {
@@ -50,13 +50,12 @@ const InfoPage = ({ data }) => {
     const { category } = data.mdx.frontmatter;
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
-
     return (
         <>
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
-            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx.frontmatter.title}/>
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx}/>
             <div className={styles.header}>
                 <Slider images={images} />
             </div>
