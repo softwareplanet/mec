@@ -17,6 +17,9 @@ export const query = graphql`
           }
         }
       }
+    },
+    gitCommit(latest: {eq: true}) {
+      hash
     }
   }
 `;
@@ -32,6 +35,7 @@ let FirstPage = ({ data }) => {
           title: n.title,
         }))}
       />
+      <a href={`https://github.com/softwareplanet/mec/commit/${data.gitCommit.hash}`}>{data.gitCommit.hash}</a>
     </div>
   );
 };
