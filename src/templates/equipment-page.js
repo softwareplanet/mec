@@ -62,7 +62,7 @@ const InfoPage = ({ data }) => {
   return (
     <>
       <div className={header.addMargins}>
-        <div style={{ maxWidth: 900, width: '100%' }}>
+        <div style={{ maxWidth: 900, width: "100%" }}>
           <Header name={category.title} backPath={`/${category.name}`} />
           <Dropdown
             data={data.allMdx.nodes}
