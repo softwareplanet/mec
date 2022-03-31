@@ -1,5 +1,4 @@
 import React from "react";
-import '../components/reset.css';
 import * as styles from '../components/index.module.css';
 import RenderList from "../components/RenderList/RenderList";
 import Layout from '../components/Layout/Layout';
@@ -33,7 +32,7 @@ export const query = graphql`
 let FirstPage = ({ data }) => {
   return (
     <div className={styles.addMargins}>
-      <Layout commitInfo={data.gitCommit} tagInfo={data.gitTag}>
+      <Layout>
         <Header name="Військова техніка" />
         <RenderList
           data={data.allCategoriesYaml.nodes.map((n) => ({
