@@ -9,8 +9,8 @@ export default function Footer({ commit, tag }) {
 
   return (
     <div className={styles.versionInfo}>
-      <span>Version {tagName}+sha.</span>
-      <a href={linkCommit} target='_blank' rel="noreferrer">{hashCommit}</a>
+      <span>Version {tagName}+</span>
+      <a href={linkCommit} target='_blank' rel="noreferrer">sha.{hashCommit}</a>
       <span>-{dateCommit}</span>
     </div>
   )
