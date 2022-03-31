@@ -4,6 +4,7 @@ body {
 
 .header {
   background-color: #f5f5f5;
+  margin: 0 -20px;
 }
 
 .header h1 {
@@ -36,7 +37,7 @@ a {
 }
 
 .infoPage {
-  margin: 12px 20px;
+  margin: 12px 0px;
 }
 
 p {
@@ -99,26 +100,31 @@ h3 {
 }
 
 li {
-    list-style: inside;
-    font-size: 14px;
+  list-style: inside;
+  font-size: 14px;
 }
 
 .hide :global .remark-oembed-inline.remark-oembed-you-tube {
-    padding: 0;
+  padding: 0;
 }
 
-.hide :global .remark-oembed-inline.remark-oembed-you-tube iframe{
-    display: none;
+.hide :global .remark-oembed-inline.remark-oembed-you-tube iframe {
+  display: none;
 }
 
 .hide :global .remark-oembed-inline.remark-oembed-you-tube::after {
-    content: "Відео буде доступне після підключення до мережі інтернет!";
-    display: block;
-    text-align: center;
-    font-size: 18px;
-    color: darkgrey;
-    border: 1px dashed;
-    padding: 8px;
-    border-radius: 4px;
+  content: "Відео буде доступне після підключення до мережі інтернет!";
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: darkgrey;
+  border: 1px dashed;
+  padding: 8px;
+  border-radius: 4px;
 }
 
+@media screen and (min-width: 940px) {
+  .header {
+    margin: 0;
+  }
+}

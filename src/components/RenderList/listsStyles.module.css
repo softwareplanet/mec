@@ -56,7 +56,7 @@ input:focus {
   }
 }
 
-@media screen and (max-width: 372px) {
+@media screen and (max-width: 374px) {
   input {
     font-size: 1em;
   }

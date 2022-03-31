@@ -24,8 +24,7 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <Layout>
-      <Header name="Військова техніка" />
+    <Layout name="Військова техніка">
       <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
           path: n.name,

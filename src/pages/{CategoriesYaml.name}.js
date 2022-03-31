@@ -28,8 +28,7 @@ let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
 
   return (
-    <Layout>
-      <Header name={category.title} backPath="/" />
+    <Layout name={category.title} backPath="/" >
       <RenderList
         data={category.equipment.map((n) => ({
           path: n.slug,
