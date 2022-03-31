@@ -51,11 +51,11 @@ export const query = graphql`
 
 const InfoPage = ({ data }) => {
     const notSsr = typeof window !== 'undefined'
-    let [offline, setOffline] = useState(notSsr ? navigator.onLine : true)
+    let [online, setOnline] = useState(notSsr ? navigator.onLine : true)
 
     if (notSsr) {
         useEffect(() => {
-            const handle = Network.addListener("networkStatusChange", status => setOffline(status.connected))
+            const handle = Network.addListener("networkStatusChange", status => setOnline(status.connected))
             return () => handle.then(h => h.remove())
         }, [])
     }
@@ -64,7 +64,7 @@ const InfoPage = ({ data }) => {
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
     return (
-        <div className={clsx({ [styles.offline]: !offline })}>
+        <div className={clsx({ [styles.offline]: !online })}>
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
@@ -79,7 +79,7 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                <MDXRenderer>{data.mdx.body + offline}</MDXRenderer>
+                <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
                 <div className={styles.source}>
                     <h3>Джерело:</h3>
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
