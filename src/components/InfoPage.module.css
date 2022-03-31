@@ -116,7 +116,7 @@ li {
 }
 
 .hide :global .remark-oembed-inline.remark-oembed-you-tube::after {
-    content: url(../images/wifi.jpg) 'Відео буде доступне після підключення пристрою до мережі';
+    content: url(../images/wifi.svg) 'Відео буде доступне після підключення пристрою до мережі';
     display: block;
     text-align: left;
     font-size: 16px;
