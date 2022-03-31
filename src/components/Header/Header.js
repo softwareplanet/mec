@@ -1,7 +1,8 @@
 import { Link } from "gatsby";
 import React from "react";
 import { FaRegEdit } from 'react-icons/fa';
-import tank from "../../images/tank_img.png"
+import tank from "../../images/tank_img.svg"
+import addContent from "../../images/message.svg"
 import * as styles from "./Header.module.css"
 import arrow from "../../equipment/images/arrow-left.png";
 
@@ -14,7 +15,9 @@ let Header = (props) => {
                     <h1>{props.name}</h1>
                 </div>
             </Link>
-            <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" ><h1><FaRegEdit /></h1></a>
+            <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" >
+                <img src={addContent} width="35px" alt="" />
+            </a>
         </div>
     )
 }
