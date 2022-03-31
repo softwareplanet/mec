@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
@@ -9,6 +8,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Slider from "../components/Slider/SliderComponent/SliderComponent";
 import tg_icon from "../equipment/images/telegram-icon.png";
 import { Network } from "@capacitor/network"
+import clsx from "clsx";
 
 export const query = graphql`
     query ($slug: String, $imageDir: String, $category: String) {
@@ -46,17 +46,18 @@ export const query = graphql`
 
 
 const InfoPage = ({ data }) => {
-    let status = typeof window !== `undefined` ? status = navigator.onLine : true
+    let status
+    if (typeof window !== `undefined`) {
+        status = navigator.onLine
+    }
 
-    let [offlineNetwork, setOfflineNetwork] = useState(status)
-    let [md, setMd] = useState(<MDXRenderer>{data.mdx.body}</MDXRenderer>)
-    let state = true;
-    const rerender = () => state = !state;
+    let [online, setOnline] = useState(status)
+    let [markDown, setMarkDown] = useState(<MDXRenderer>{data.mdx.body}</MDXRenderer>)
 
     if (typeof window !== `undefined`) {
         Network.addListener("networkStatusChange", status => {
-            setOfflineNetwork(status.connected)
-            setMd(<MDXRenderer>{data.mdx.body + rerender()}</MDXRenderer>)
+            setOnline(status.connected)
+            setMarkDown(<MDXRenderer>{data.mdx.body + online}</MDXRenderer>)
         })
     }
 
@@ -65,7 +66,7 @@ const InfoPage = ({ data }) => {
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
 
     return (
-        <>
+        <div className={clsx({[styles.offline]: !online})}>
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
@@ -80,15 +81,13 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                <div className={offlineNetwork ? "" : styles.hide}>
-                    {md}
-                </div>
-                <div>
+                {markDown}
+                <div className={styles.source}>
                     <h3>Джерело:</h3>
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

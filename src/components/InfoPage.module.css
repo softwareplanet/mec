@@ -107,19 +107,22 @@ li {
   display: none;
 }
 
-.hide :global .remark-oembed-inline.remark-oembed-you-tube {
+.offline :global .remark-oembed-inline.remark-oembed-you-tube {
     padding: 0;
 }
 
-.hide :global .remark-oembed-inline.remark-oembed-you-tube iframe{
+.offline :global .remark-oembed-inline.remark-oembed-you-tube iframe{
     display: none;
 }
 
-.hide :global .remark-oembed-inline.remark-oembed-you-tube::after {
-    content: url(../images/wifi.svg) 'Відео буде доступне після підключення пристрою до мережі';
+.offline :global .remark-oembed-inline.remark-oembed-you-tube::after {
+    height: 100%;
+    margin: 76px 57px 76px 29px;
+    background-image: url(../images/wifi.svg);
+    background-repeat: no-repeat;
+    content: 'Відео буде доступне після підключення пристрою до мережі';
     display: block;
     text-align: left;
     font-size: 16px;
-    padding: 20px;
-    border-radius: 4px;
+    padding: 0 20px 10px 40px;
 }
