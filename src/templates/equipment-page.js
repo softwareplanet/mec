@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useState } from "react";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
