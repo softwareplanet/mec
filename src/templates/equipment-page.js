@@ -21,6 +21,7 @@ export const query = graphql`
                     title
                 }                
             }
+            slug
             body
         }
         allFile(filter: {relativeDirectory: {eq: $imageDir }}) {
@@ -33,7 +34,10 @@ export const query = graphql`
                 }
             }
         }
-        allMdx(filter: {frontmatter: {category: {name: {eq: $category}}}}) {
+        allMdx(
+            filter: {frontmatter: {category: {name: {eq: $category}}}}
+            sort: {fields: frontmatter___title}
+        ) {
             nodes {
               slug
               frontmatter {
@@ -64,13 +68,12 @@ const InfoPage = ({ data }) => {
     const { category } = data.mdx.frontmatter;
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
-
     return (
         <div className={clsx({[styles.offline]: !online})}>
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
-            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx.frontmatter.title} />
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx}/>
             <div className={styles.header}>
                 <Slider images={images} />
             </div>
