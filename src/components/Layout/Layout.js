@@ -1,7 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-export const Layout = () => {
+const Layout = ({ children, commitInfo, tagInfo }) => {
   return (
-    <div></div>
+    <>
+      <Header name="Військова техніка" />
+      {children}
+      <Footer commit={commitInfo} tag={tagInfo} />
+    </>
   )
 }
+
+export default Layout;
