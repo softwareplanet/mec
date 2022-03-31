@@ -40,7 +40,7 @@
     "gatsby-plugin-sw": "^1.0.1",
     "gatsby-remark-embed-youtube": "^0.0.7",
     "gatsby-source-filesystem": "^4.9.0",
-    "gatsby-source-local-git": "^1.2.2",
+    "gatsby-source-local-git-modern": "^2.0.1",
     "gatsby-transformer-remark": "^5.9.1",
     "gatsby-transformer-sharp": "^4.9.0",
     "gatsby-transformer-yaml": "^4.9.0",

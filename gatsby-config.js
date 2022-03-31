@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
-    "gatsby-source-local-git",
+    "gatsby-source-local-git-modern",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
