@@ -4,6 +4,7 @@ import React from "react";
 import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
+import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
   query {
@@ -23,7 +24,7 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <div className={styles.addMargins}>
+    <Layout>
       <Header name="Військова техніка" />
       <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
@@ -32,7 +33,7 @@ let FirstPage = ({ data }) => {
           title: n.title,
         }))}
       />
-    </div>
+    </Layout>
   );
 };
 

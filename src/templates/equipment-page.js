@@ -9,6 +9,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Slider from "../components/Slider/SliderComponent/SliderComponent";
 import tg_icon from "../equipment/images/telegram-icon.png";
 import { Network } from "@capacitor/network"
+import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
     query ($slug: String, $imageDir: String, $category: String) {
@@ -63,10 +64,8 @@ const InfoPage = ({ data }) => {
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
 
     return (
-        <>
-            <div className={header.addMargins}>
+        <Layout>
                 <Header name={category.title} backPath={`/${category.name}`} />
-            </div>
             <Dropdown data={data.allMdx.nodes} currEquip={data.mdx.frontmatter.title}/>
             <div className={styles.header}>
                 <Slider images={images} />
@@ -86,7 +85,7 @@ const InfoPage = ({ data }) => {
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
                 </div>
             </div>
-        </>
+        </Layout>
     );
 }
 
