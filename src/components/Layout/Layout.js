@@ -2,10 +2,10 @@ import React from 'react';
 import '../reset.css';
 import * as styles from '../index.module.css';
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   return (
     <div className={styles.addMargins}>
-      {children}
+      {props.children}
     </div>
   )
 }
