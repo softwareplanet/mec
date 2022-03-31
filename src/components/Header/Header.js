@@ -1,6 +1,5 @@
 import { Link } from "gatsby";
 import React from "react";
-import { FaRegEdit } from 'react-icons/fa';
 import tank from "./tank.svg"
 import addContent from "./add-content.svg"
 import * as styles from "./Header.module.css"
