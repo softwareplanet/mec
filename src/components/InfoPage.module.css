@@ -103,6 +103,10 @@ li {
     font-size: 14px;
 }
 
+.wifi {
+  display: none;
+}
+
 .hide :global .remark-oembed-inline.remark-oembed-you-tube {
     padding: 0;
 }
@@ -112,12 +116,10 @@ li {
 }
 
 .hide :global .remark-oembed-inline.remark-oembed-you-tube::after {
-    content: "Відео буде доступне після підключення до мережі інтернет!";
+    content: url(../images/wifi.jpg) 'Відео буде доступне після підключення пристрою до мережі';
     display: block;
-    text-align: center;
-    font-size: 18px;
-    color: darkgrey;
-    border: 1px dashed;
-    padding: 8px;
+    text-align: left;
+    font-size: 16px;
+    padding: 20px;
     border-radius: 4px;
 }
