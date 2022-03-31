@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../Header/Header";
-// import "../reset.css";
 import * as styles from "../index.module.css";
 
 const Layout = (props) => {
