@@ -75,7 +75,7 @@ const InfoPage = ({ data }) => {
                 <div className={styles.title}>
                     <h1>{data.mdx.frontmatter.title}</h1>
                     <a className={styles.link} target="_blank" rel="noreferrer" href="https://t.me/evorog_bot">
-                        <img height="17px" src={tg_icon} /> єВорог
+                        <img style={{marginRight: 5}} height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
                 <div className={status ? "" : styles.hide}>
