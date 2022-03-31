@@ -8,7 +8,7 @@ const DropdownList = ({ styles, results, isHidden, currEquip }) => {
         <ul className={styles.resultUl} id="resultsList" style={isHidden}>
             {results.map((page, i) => (
                 <Link to={`/${page.slug}`} key={i}>
-                    <li className={clsx(styles.resultLi, { [styles.active]: currEquip === page.slug })} key={i}>
+                    <li className={clsx(styles.item, { [styles.active]: currEquip === page.slug })} key={i}>
                         {page.title}
                     </li>
                 </Link>
