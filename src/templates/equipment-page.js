@@ -55,11 +55,9 @@ const InfoPage = ({ data }) => {
 
     if (notSsr) {
         useEffect(() => {
-            const handle = Network.addListener("networkStatusChange", status => {
-                setOffline(status.connected)
-                return () => handle.then(h => h.remove())
-            }, [])
-        })
+            const handle = Network.addListener("networkStatusChange", status => setOffline(status.connected))
+            return () => handle.then(h => h.remove())
+        }, [])
     }
 
     const { category } = data.mdx.frontmatter;
