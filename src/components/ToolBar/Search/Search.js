@@ -46,7 +46,10 @@ let Search = () => {
           });
         }}
       />
-      <SearchResults styles={styles} results={searchState.results}/>
+      <SearchResults styles={styles} results={searchState.results.map((r) => ({
+          slug: `${"/" + r.slug.split("/").slice(-3, -1).join("/") + "/"}`,
+          title: r.title,
+        }))}/>
     </div>
   );
 };
