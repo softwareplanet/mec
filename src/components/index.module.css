@@ -13,5 +13,11 @@ body {
   margin: 33px 5vw 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+}
+
+@media screen and (min-width: 965px) {
+  .add-margins {
+    align-items: center;
+  }
 }

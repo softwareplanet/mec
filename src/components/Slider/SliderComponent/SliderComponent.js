@@ -46,7 +46,7 @@ const SliderComponent = (props) => {
 
   return (
     <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
-      <Slider {...mode}>
+      <Slider  {...mode}>
         {images.map((image, index) => (
           <div key={index} onClick={() => setMode(mode.slidesToShow === 1 ? settingsVertical : settingsHorizontal)}>
             <a href="#">
