@@ -5,14 +5,14 @@ import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 
 export const query = graphql`
-  query ($name: String) {
+  query($name: String) {
     categoriesYaml(name: { eq: $name }) {
       title
       equipment {
         frontmatter {
           image {
             childImageSharp {
-              gatsbyImageData (width: 240, height: 240)
+              gatsbyImageData(width: 240, height: 240)
             }
           }
           title
@@ -28,7 +28,9 @@ let CategoryPage = ({ data }) => {
 
   return (
     <div className={styles.addMargins}>
-      <Header name={category.title} backPath="/" />
+      <div style={{ maxWidth: 900, width: "100%" }}>
+        <Header name={category.title} backPath="/" />
+      </div>
       <RenderList
         data={category.equipment.map((n) => ({
           path: n.slug,

@@ -36,9 +36,10 @@ input:focus {
 }
 
 .toolbar {
-  width: 90vw;
+  max-width: 900px;
+  width: 100%;
   display: flex;
-  align-self: flex-start;
+  /* align-self: flex-start; */
   gap: 0.8rem;
 }
 

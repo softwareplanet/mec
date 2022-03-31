@@ -38,6 +38,7 @@ a {
 
 .infoPage {
   margin: 12px 20px;
+  max-width: 900px;
 }
 
 p {
