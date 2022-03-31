@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css";
 import { graphql } from "gatsby";
@@ -12,14 +11,18 @@ import { Network } from "@capacitor/network";
 import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
-  query($slug: String, $imageDir: String, $category: String) {
-    mdx(slug: { eq: $slug }) {
-      frontmatter {
-        title
-        source
-        category {
-          name
-          title
+    query ($slug: String, $imageDir: String, $category: String) {
+        mdx(slug:{eq:$slug}) {
+            frontmatter {
+                title
+                source
+                category {
+                    name
+                    title
+                }                
+            }
+            slug
+            body
         }
       }
       body
@@ -29,13 +32,16 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, breakpoints: [420])
         }
-      }
-    }
-    allMdx(filter: { frontmatter: { category: { name: { eq: $category } } } }) {
-      nodes {
-        slug
-        frontmatter {
-          title
+        allMdx(
+            filter: {frontmatter: {category: {name: {eq: $category}}}}
+            sort: {fields: frontmatter___title}
+        ) {
+            nodes {
+              slug
+              frontmatter {
+                title
+              }
+            }
         }
       }
     }

@@ -17,12 +17,17 @@ exports.onPostBootstrap = function (_ref, options) {
   const store = []
   const indexStore = []
   const fullIndex = {}
+
+  
   languages.forEach(lng => {
 
     // collect fields to store
     const fieldsToStore = fields
       .filter(field => (field.store ? field.resolver : null))
-      .map(field => ({ name: field.name, resolver: field.resolver }))
+      .map(({name, resolver}) => ({ 
+        name, 
+        resolver: (typeof resolver === 'function') ? resolver : (n) => _.get(n, resolver)
+      }))
     const nid = []
 
     // add each field to index
@@ -73,7 +78,7 @@ exports.onPostBootstrap = function (_ref, options) {
           }
           const nodeContent = {}
           fieldsToStore.forEach(field => {
-            nodeContent[field.name] = _.get(n, field.resolver)
+            nodeContent[field.name] = field.resolver(n)
           })
           if (!nid.includes(id)) {
             store.push({ id, node: nodeContent })

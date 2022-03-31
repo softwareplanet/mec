@@ -100,7 +100,7 @@ module.exports = {
           {
             name: 'slug',
             indexed: false,
-            resolver: 'fileAbsolutePath',
+            resolver: node => node.fileAbsolutePath.split("/").slice(-3, -1).join("/") + "/",
             store: true,
           }
         ]
