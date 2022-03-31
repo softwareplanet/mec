@@ -48,12 +48,14 @@ export const query = graphql`
 const InfoPage = ({ data }) => {
     let status = typeof window !== `undefined` ? status = navigator.onLine : true
 
+    let [offlineNetwork, setOfflineNetwork] = useState(status)
     let [md, setMd] = useState(<MDXRenderer>{data.mdx.body}</MDXRenderer>)
     let state = true;
     const rerender = () => state = !state;
 
     if (typeof window !== `undefined`) {
-        Network.addListener("networkStatusChange", () => {
+        Network.addListener("networkStatusChange", status => {
+            setOfflineNetwork(status.connected)
             setMd(<MDXRenderer>{data.mdx.body + rerender()}</MDXRenderer>)
         })
     }
@@ -67,7 +69,7 @@ const InfoPage = ({ data }) => {
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
-            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx.frontmatter.title}/>
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx.frontmatter.title} />
             <div className={styles.header}>
                 <Slider images={images} />
             </div>
@@ -78,7 +80,7 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                <div className={status ? "" : styles.hide}>
+                <div className={offlineNetwork ? "" : styles.hide}>
                     {md}
                 </div>
                 <div>
