@@ -11,20 +11,17 @@ import { Network } from "@capacitor/network";
 import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
-    query ($slug: String, $imageDir: String, $category: String) {
-        mdx(slug:{eq:$slug}) {
-            frontmatter {
-                title
-                source
-                category {
-                    name
-                    title
-                }                
-            }
-            slug
-            body
+  query($slug: String, $imageDir: String, $category: String) {
+    mdx(slug: { eq: $slug }) {
+      frontmatter {
+        title
+        source
+        category {
+          name
+          title
         }
       }
+      slug
       body
     }
     allFile(filter: { relativeDirectory: { eq: $imageDir } }) {
@@ -32,16 +29,16 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, breakpoints: [420])
         }
-        allMdx(
-            filter: {frontmatter: {category: {name: {eq: $category}}}}
-            sort: {fields: frontmatter___title}
-        ) {
-            nodes {
-              slug
-              frontmatter {
-                title
-              }
-            }
+      }
+    }
+    allMdx(
+      filter: { frontmatter: { category: { name: { eq: $category } } } }
+      sort: { fields: frontmatter___title }
+    ) {
+      nodes {
+        slug
+        frontmatter {
+          title
         }
       }
     }
@@ -70,7 +67,7 @@ const InfoPage = ({ data }) => {
     <Layout name={category.title} backPath={`/${category.name}`}>
       <Dropdown
         data={data.allMdx.nodes}
-        currEquip={data.mdx.frontmatter.title}
+        currEquip={data.mdx.frontmatter}
       />
       <div className={styles.header}>
         <Slider images={images} />
