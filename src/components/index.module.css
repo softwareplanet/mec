@@ -6,7 +6,7 @@
 
 body {
     background-color:  #F5F5F5;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif !important;
 }
 
 a {

@@ -1,5 +1,4 @@
 import React from "react";
-import * as styles from '../components/index.module.css';
 import RenderList from "../components/RenderList/RenderList";
 import Layout from '../components/Layout/Layout';
 import Header from "../components/Header/Header";
@@ -31,22 +30,20 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <div className={styles.addMargins}>
-      <Layout>
-        <Header name="Військова техніка" />
-        <RenderList
-          data={data.allCategoriesYaml.nodes.map((n) => ({
-            path: n.name,
-            image: n.image.childImageSharp,
-            title: n.title,
-          }))}
-        />
-        <Footer
-          commitInfo={data.gitCommit}
-          tagInfo={data.gitTag}
-        />
-      </Layout>
-    </div>
+    <Layout>
+      <Header name="Військова техніка" />
+      <RenderList
+        data={data.allCategoriesYaml.nodes.map((n) => ({
+          path: n.name,
+          image: n.image.childImageSharp,
+          title: n.title,
+        }))}
+      />
+      <Footer
+        commitInfo={data.gitCommit}
+        tagInfo={data.gitTag}
+      />
+    </Layout>
   );
 };
 
