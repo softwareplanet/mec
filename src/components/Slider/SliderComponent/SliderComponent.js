@@ -44,15 +44,8 @@ const SliderComponent = (props) => {
   const [mode, setMode] = useState(settingsHorizontal);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-      className={mode.slidesToShow > 1 ? "vertical" : ""}
-    >
-      <Slider style={{ maxWidth: 900, width: "100%" }} {...mode}>
+    <div className={mode.slidesToShow > 1 ? "vertical" : ""}>
+      <Slider {...mode}>
         {images.map((image, index) => (
           <div
             key={index}
