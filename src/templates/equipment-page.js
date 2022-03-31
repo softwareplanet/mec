@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
@@ -50,18 +50,14 @@ export const query = graphql`
 
 
 const InfoPage = ({ data }) => {
-    let status
-    if (typeof window !== `undefined`) {
-        status = navigator.onLine
-    }
+    let [online, setOnline] = useState(typeof window !== 'undefined' ? navigator.onLine : true)
 
-    let [online, setOnline] = useState(status)
-    let [markDown, setMarkDown] = useState(<MDXRenderer>{data.mdx.body}</MDXRenderer>)
-
-    if (typeof window !== `undefined`) {
-        Network.addListener("networkStatusChange", status => {
+    if (typeof window !== 'undefined') {
+        useEffect(() => {
+            const handle = Network.addListener("networkStatusChange", status => {
             setOnline(status.connected)
-            setMarkDown(<MDXRenderer>{data.mdx.body + online}</MDXRenderer>)
+            return () => handle.then(h => h.remove())
+            }, [])
         })
     }
 
@@ -84,7 +80,7 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                {markDown}
+                <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
                 <div className={styles.source}>
                     <h3>Джерело:</h3>
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>

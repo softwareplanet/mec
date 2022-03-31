@@ -118,7 +118,7 @@ li {
 .offline :global .remark-oembed-inline.remark-oembed-you-tube::after {
     height: 100%;
     margin: 76px 57px 76px 29px;
-    background-image: url(../images/wifi.svg);
+    background-image: url(../images/connectionError.svg);
     background-repeat: no-repeat;
     content: 'Відео буде доступне після підключення пристрою до мережі';
     display: block;
