@@ -8,7 +8,7 @@ const Dropdown = ({ data, currEquip }) => {
     return (
         <div className={styles.container} onClick={() => setHide(!hidden)}>
             <div className={styles.dropdown}>
-                <span>{currEquip.frontmatter.title}</span>
+                <span>{currEquip.title}</span>
                 <img src={arrow} style={hidden ? { transform: "rotate(0deg)" } : { transform: "rotate(180deg)" }} />
             </div>
             <SearchResults currEquip={currEquip.slug} isHidden={{ display: hidden ? "none" : "block" }} styles={styles} results={
