@@ -1,55 +1,39 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8ac63a56-b875-4373-a404-e5f7b23ded5c/deploy-status)](https://app.netlify.com/sites/stop-orda/deploys)
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
+<h1 style='display: flex; align-items: center; gap: 10px'>
+  <img alt="mec" src="./images/icon.png" width="80" />
+  Каталог військової техніки
 </h1>
 
-## 🚀 Quick start
+## Завантажити
 
-1.  **Create a Gatsby site.**
+<div>
+  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./images/web.png" width="60" /></a>   
+  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./images/android.png" width="60" /></a>
+  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./images/ios.png" width="60" /></a>
+</div>
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## Про додаток
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+Каталог військової техніки - це додаток, який містить опис і загальні характеристики різних одиниць техніки на озброєнні РФ.
+Його призначення - допомогти українцям якнайшвидше її ідентифікувати та повідомляти про її пересування нашим військовим.
 
-2.  **Start developing.**
+**_Як працює додаток:_**
 
-    Navigate into your new site’s directory and start it up.
+Якщо ви стали свідком пересування ворожої техніки на території України, ви можете одразу знайти її в каталозі, ознайомитись із загальними даними про неї та повідомити ЗСУ її клас і місцезнаходження за допомогою офіційного телеграм-бота Міністерства цифрової трансформації України [єВорог](https://t.me/evorog_bot).
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+**_Про безпеку:_**
 
-3.  **Open the code and start customizing!**
+1. Додаток **не** відслідковує вашу геолокацію.
+   Ми дбаємо про вашу безпеку та безпеку ваших даних. Код додатку є загальнодоступним. Ви можете переконатися, що він не взаємодіє з даними Вашого пристрою, зокрема з геолокацією. Ми використовуємо лише перевірені посилання на ресурси.
+2. Усі зовнішні посилання, які містяться в додатку, ведуть виключно на надійні ресурси, як-от Вікіпедія, телеграм-бот і YouTube. Усі ресурси є у вільному доступі й за бажанням можуть бути знайдені та переглянуті самостійно.
 
-    Your site is now running at http://localhost:8000!
+Додаток знаходиться в активній розробці та постійно доповнюється новою інформацією та додатковими можливостями.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+### Доповнення каталогу
 
-4.  **Learn more**
+Вихідний код каталогу є публічно доступним.
+Ми можете запропонувати зміни до нього через GitHub PR.
+Деталі описані в [інструкції по внесенню змін](./CONTRIBUTION.md).
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Зворотний звʼязок
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+mec@softwareplanetgroup.com
