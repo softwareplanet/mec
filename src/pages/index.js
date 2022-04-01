@@ -17,7 +17,7 @@ export const query = graphql`
         }
       }
     }
-  }
+   }
 `;
 
 let FirstPage = ({ data }) => {
