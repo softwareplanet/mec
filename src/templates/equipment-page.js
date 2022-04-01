@@ -71,9 +71,9 @@ const InfoPage = ({ data }) => {
                 <Slider images={images} />
             </div>
             <div
-                className={`${styles.infoPage} ${clsx({
+                className={clsx(styles.infoPage, {
                     [styles.offline]: !online,
-                })}`}
+                })}
             >
                 <div className={styles.title}>
                     <h1>{data.mdx.frontmatter.title}</h1>
