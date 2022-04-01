@@ -11,7 +11,7 @@ export const query = graphql`
         frontmatter {
           image {
             childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+              gatsbyImageData(width: 240, height: 240)
             }
           }
           title
