@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
-import * as styles from "../index.module.css";
+import * as styles from "./layout.module.css";
 
 const Layout = (props) => {
   return (
     <div className={styles.layout}>
       <main>
-        <Header {...[props]} />
+        <Header {...props} />
         {props.children}
       </main>
       {/* <Footer /> */}

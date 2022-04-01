@@ -1,7 +1,5 @@
-import * as styles from "../components/index.module.css";
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 import Layout from "../components/Layout/Layout";
 

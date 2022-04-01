@@ -1,7 +1,5 @@
 import "../components/reset.css";
-import * as styles from "../components/index.module.css";
 import React from "react";
-import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";

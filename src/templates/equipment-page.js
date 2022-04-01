@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import * as styles from '../components/InfoPage.module.css'
-import { graphql } from 'gatsby'
-import Dropdown from '../components/ToolBar/Dropdown/Dropdown.js'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import Slider from '../components/Slider/SliderComponent/SliderComponent'
-import tg_icon from '../equipment/images/telegram-icon.png'
-import { Network } from '@capacitor/network'
-import Layout from '../components/Layout/Layout'
-import clsx from 'clsx'
+import React, { useState, useEffect } from 'react';
+import * as styles from '../components/InfoPage.module.css';
+import { graphql } from 'gatsby';
+import Dropdown from '../components/ToolBar/Dropdown/Dropdown.js';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Slider from '../components/Slider/SliderComponent/SliderComponent';
+import tg_icon from '../equipment/images/telegram-icon.png';
+import { Network } from '@capacitor/network';
+import Layout from '../components/Layout/Layout';
+import clsx from 'clsx';
 
 export const query = graphql`
     query($slug: String, $imageDir: String, $category: String) {
@@ -42,24 +42,24 @@ export const query = graphql`
             }
         }
     }
-`
+`;
 
 const InfoPage = ({ data }) => {
-    const notSsr = typeof window !== 'undefined'
-    let [online, setOnline] = useState(notSsr ? navigator.onLine : true)
+    const notSsr = typeof window !== 'undefined';
+    let [online, setOnline] = useState(notSsr ? navigator.onLine : true);
 
     useEffect(() => {
         if (notSsr) {
             const handle = Network.addListener('networkStatusChange', status =>
                 setOnline(status.connected)
-            )
-            return () => handle.then(h => h.remove())
+            );
+            return () => handle.then(h => h.remove());
         }
-    }, [notSsr])
+    }, [notSsr]);
 
-    const { category } = data.mdx.frontmatter
-    const images = data.allFile.nodes.map(n => n.childImageSharp)
-    let decodedURI = decodeURI(data.mdx.frontmatter.source)
+    const { category } = data.mdx.frontmatter;
+    const images = data.allFile.nodes.map(n => n.childImageSharp);
+    let decodedURI = decodeURI(data.mdx.frontmatter.source);
 
     return (
         <Layout
@@ -100,7 +100,7 @@ const InfoPage = ({ data }) => {
                 </div>
             </div>
         </Layout>
-    )
-}
+    );
+};
 
-export default InfoPage
+export default InfoPage;
