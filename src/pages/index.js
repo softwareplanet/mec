@@ -16,13 +16,6 @@ export const query = graphql`
           }
         }
       }
-    },
-    gitCommit(latest: {eq: true}) {
-      hash
-      date(formatString: "YYYYMMDDHHmmss")
-    },
-    gitTag(latest: {eq: true}) {
-      name
     }
    }
 `;
