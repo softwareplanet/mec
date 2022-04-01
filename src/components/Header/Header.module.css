@@ -1,7 +1,11 @@
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.ios {
+    margin-top: 20px;
 }
 
 .head {
@@ -11,7 +15,7 @@
 }
 
 .head img {
-    margin-right: 20px;    
+    margin-right: 20px;
 }
 
 h1 {
