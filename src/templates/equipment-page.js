@@ -62,11 +62,7 @@ const InfoPage = ({ data }) => {
     let decodedURI = decodeURI(data.mdx.frontmatter.source);
 
     return (
-        <Layout
-            className={clsx({ [styles.offline]: !online })}
-            name={category.title}
-            backPath={`/${category.name}`}
-        >
+        <Layout name={category.title} backPath={`/${category.name}`}>
             <Dropdown
                 data={data.allMdx.nodes}
                 currEquip={data.mdx.frontmatter}
@@ -74,7 +70,11 @@ const InfoPage = ({ data }) => {
             <div className={styles.fullWidthItem}>
                 <Slider images={images} />
             </div>
-            <div className={styles.infoPage}>
+            <div
+                className={`${styles.infoPage} ${clsx({
+                    [styles.offline]: !online,
+                })}`}
+            >
                 <div className={styles.title}>
                     <h1>{data.mdx.frontmatter.title}</h1>
                     <a
