@@ -12,7 +12,7 @@ export const query = graphql`
         title
         image {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(width: 240, height: 240)
           }
         }
       }
