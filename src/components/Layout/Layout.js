@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header/Header";
 import * as styles from "./layout.module.css";
+import Footer from '../Footer/Footer';
 
 const Layout = (props) => {
   return (
@@ -9,7 +10,7 @@ const Layout = (props) => {
         <Header {...props} />
         {props.children}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
