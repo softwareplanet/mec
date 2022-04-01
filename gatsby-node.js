@@ -7,6 +7,11 @@ exports.createPages = async ({graphql, actions}) => {
       {
         allMdx {
           nodes {
+            frontmatter {
+              category {
+                name
+              }
+            }
             slug
           }
         }
@@ -24,7 +29,7 @@ exports.createPages = async ({graphql, actions}) => {
     createPage({
       path: item.slug,
       component: equipmentPageTemplate,
-      context: {slug: item.slug, imageDir: item.slug + 'images'}
+      context: {slug: item.slug, imageDir: item.slug + 'images', category: item.frontmatter.category.name}
     });
   }
 }

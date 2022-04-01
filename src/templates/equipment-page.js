@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as styles from "../components/InfoPage.module.css";
 import * as header from "../components/index.module.css"
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
+import Dropdown from "../components/ToolBar/Dropdown/Dropdown.js"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Slider from "../components/Slider/SliderComponent/SliderComponent";
 import tg_icon from "../equipment/images/telegram-icon.png";
 import { Network } from "@capacitor/network"
+import clsx from "clsx";
 
 export const query = graphql`
-    query ($slug: String, $imageDir: String) {
+    query ($slug: String, $imageDir: String, $category: String) {
         mdx(slug:{eq:$slug}) {
             frontmatter {
                 title
@@ -19,6 +21,7 @@ export const query = graphql`
                     title
                 }                
             }
+            slug
             body
         }
         allFile(filter: {relativeDirectory: {eq: $imageDir }}) {
@@ -31,28 +34,41 @@ export const query = graphql`
                 }
             }
         }
+        allMdx(
+            filter: {frontmatter: {category: {name: {eq: $category}}}}
+            sort: {fields: frontmatter___title}
+        ) {
+            nodes {
+              slug
+              frontmatter {
+                title
+              }
+            }
+        }
     }
 `;
 
 
 const InfoPage = ({ data }) => {
-    let status
-    if (typeof window !== `undefined`) {
-        status = navigator.onLine
+    const notSsr = typeof window !== 'undefined'
+    let [online, setOnline] = useState(notSsr ? navigator.onLine : true)
+
+    if (notSsr) {
+        useEffect(() => {
+            const handle = Network.addListener("networkStatusChange", status => setOnline(status.connected))
+            return () => handle.then(h => h.remove())
+        }, [])
     }
 
-    let [networkStatus, setNetworkStatus] = useState(status)
-
-    Network.addListener("networkStatusChange", status => setNetworkStatus(status.connected))
     const { category } = data.mdx.frontmatter;
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
-
     return (
-        <>
+        <div className={clsx({ [styles.offline]: !online })}>
             <div className={header.addMargins}>
                 <Header name={category.title} backPath={`/${category.name}`} />
             </div>
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx} />
             <div className={styles.header}>
                 <Slider images={images} />
             </div>
@@ -63,15 +79,13 @@ const InfoPage = ({ data }) => {
                         <img height="17px" src={tg_icon} /> єВорог
                     </a>
                 </div>
-                <div className={networkStatus ? "" : styles.hide}>
-                    <MDXRenderer>{data.mdx.body}</MDXRenderer>
-                </div>
-                <div>
+                <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
+                <div className={styles.source}>
                     <h3>Джерело:</h3>
                     <a className={styles.link} target="_blank" rel="noreferrer" href={data.mdx.frontmatter.source}>{decodedURI}</a>
                 </div>
-            </div >
-        </>
+            </div>
+        </div>
     );
 }
 
