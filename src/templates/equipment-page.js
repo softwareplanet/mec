@@ -83,7 +83,12 @@ const InfoPage = ({ data }) => {
                         rel="noreferrer"
                         href="https://t.me/evorog_bot"
                     >
-                        <img height="17px" src={tg_icon} /> єВорог
+                        <img
+                            style={{ marginRight: '5px' }}
+                            height="17px"
+                            src={tg_icon}
+                        />{' '}
+                        єВорог
                     </a>
                 </div>
                 <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
