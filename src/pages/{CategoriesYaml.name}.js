@@ -1,18 +1,17 @@
-import * as styles from "../components/index.module.css";
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
+import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
-  query ($name: String) {
+  query($name: String) {
     categoriesYaml(name: { eq: $name }) {
       title
       equipment {
         frontmatter {
           image {
             childImageSharp {
-              gatsbyImageData (width: 240, height: 240)
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
           title
@@ -27,8 +26,7 @@ let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
 
   return (
-    <div className={styles.addMargins}>
-      <Header name={category.title} backPath="/" />
+    <Layout name={category.title} backPath="/" >
       <RenderList
         data={category.equipment.map((n) => ({
           path: n.slug,
@@ -36,7 +34,7 @@ let CategoryPage = ({ data }) => {
           title: n.frontmatter.title,
         }))}
       />
-    </div>
+    </Layout>
   );
 };
 

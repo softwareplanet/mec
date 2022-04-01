@@ -1,7 +1,7 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
   gap: 15px;
   margin-top: 20px;
   max-width: 900px;
@@ -36,57 +36,13 @@ input:focus {
 }
 
 .toolbar {
-  width: 90vw;
   display: flex;
-  align-self: flex-start;
   gap: 0.8rem;
 }
 
 .grid :global .CardComponent-module--link-view--SmCuq {
   width: 160px;
   height: 160px;
-}
-
-@media screen and (max-width: 566px) {
-  .grid :global .CardComponent-module--link-view--SmCuq {
-    max-width: 240px;
-    max-height: 240px;
-  }
-
-  .grid {
-    justify-content: space-around;
-  }
-}
-
-@media screen and (max-width: 372px) {
-  input {
-    font-size: 1em;
-  }
-
-  input:focus {
-    font-size: 1em;
-  }
-
-  .grid :global .CardComponent-module--link-view--SmCuq {
-    width: 135px;
-    height: 135px;
-  }
-}
-
-@media screen and (max-width: 317px) {
-  .grid {
-    justify-content: center;
-  }
-
-  :global .CardComponent-module--png-img--wV-EX {
-    width: 240px;
-    height: 240px;
-  }
-
-  .grid :global .CardComponent-module--link-view--SmCuq {
-    width: 240px;
-    height: 240px;
-  }
 }
 
 .list :global .gatsby-image-wrapper img {

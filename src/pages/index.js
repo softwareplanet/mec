@@ -1,8 +1,8 @@
+import "../components/reset.css";
 import React from "react";
 import RenderList from "../components/RenderList/RenderList";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import { graphql } from "gatsby";
+import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
   query {
@@ -12,7 +12,7 @@ export const query = graphql`
         title
         image {
           childImageSharp {
-            gatsbyImageData(width: 240, height: 240)
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
@@ -22,8 +22,7 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <div>
-      <Header name="Військова техніка" />
+    <Layout name="Військова техніка">
       <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
           path: n.name,
@@ -31,8 +30,7 @@ let FirstPage = ({ data }) => {
           title: n.title,
         }))}
       />
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

@@ -1,5 +1,10 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .head {
-    width: 90vw;
     display: flex;
     align-items: center;
     margin-bottom: 14px;
