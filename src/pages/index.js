@@ -1,6 +1,5 @@
 import React from "react";
 import RenderList from "../components/RenderList/RenderList";
-import Layout from '../components/Layout/Layout';
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { graphql } from "gatsby";
@@ -30,7 +29,7 @@ export const query = graphql`
 
 let FirstPage = ({ data }) => {
   return (
-    <Layout>
+    <div>
       <Header name="Військова техніка" />
       <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
@@ -39,11 +38,8 @@ let FirstPage = ({ data }) => {
           title: n.title,
         }))}
       />
-      <Footer
-        commitInfo={data.gitCommit}
-        tagInfo={data.gitTag}
-      />
-    </Layout>
+      <Footer />
+    </div>
   );
 };
 
