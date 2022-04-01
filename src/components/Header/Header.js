@@ -6,7 +6,6 @@ import * as styles from "./Header.module.css"
 import arrow from "../../equipment/images/arrow-left.png";
 
 let Header = (props) => {
-    props = props[0];
     return (
         <div className={styles.container}>
             <Link to={props.backPath || "/"}>
