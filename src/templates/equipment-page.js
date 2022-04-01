@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as styles from '../components/InfoPage.module.css'
 import { graphql } from 'gatsby'
 import Dropdown from '../components/ToolBar/Dropdown/Dropdown.js'
@@ -7,7 +7,7 @@ import Slider from '../components/Slider/SliderComponent/SliderComponent'
 import tg_icon from '../equipment/images/telegram-icon.png'
 import { Network } from '@capacitor/network'
 import Layout from '../components/Layout/Layout'
-import clsx from "clsx";
+import clsx from 'clsx'
 
 export const query = graphql`
     query($slug: String, $imageDir: String, $category: String) {
@@ -48,19 +48,25 @@ const InfoPage = ({ data }) => {
     const notSsr = typeof window !== 'undefined'
     let [online, setOnline] = useState(notSsr ? navigator.onLine : true)
 
-    if (notSsr) {
-        useEffect(() => {
-            const handle = Network.addListener("networkStatusChange", status => setOnline(status.connected))
+    useEffect(() => {
+        if (notSsr) {
+            const handle = Network.addListener('networkStatusChange', status =>
+                setOnline(status.connected)
+            )
             return () => handle.then(h => h.remove())
-        }, [])
-    }
+        }
+    }, [notSsr])
 
     const { category } = data.mdx.frontmatter
     const images = data.allFile.nodes.map(n => n.childImageSharp)
     let decodedURI = decodeURI(data.mdx.frontmatter.source)
 
     return (
-        <Layout className={clsx({ [styles.offline]: !online })} name={category.title} backPath={`/${category.name}`}>
+        <Layout
+            className={clsx({ [styles.offline]: !online })}
+            name={category.title}
+            backPath={`/${category.name}`}
+        >
             <Dropdown
                 data={data.allMdx.nodes}
                 currEquip={data.mdx.frontmatter}
