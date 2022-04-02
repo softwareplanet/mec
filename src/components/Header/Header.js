@@ -7,20 +7,22 @@ import arrow from "../../equipment/images/arrow-left.png";
 import clsx from "clsx"
 
 let Header = (props) => {
-    const isIOS = typeof navigator !== 'undefined' ? /iPhone/.test(navigator.userAgent) && !window.MSStream : null;
+    const isIOS = setTimeout(() => {
+        typeof navigator !== 'undefined' ? /iPhone/.test(navigator.userAgent) && !window.MSStream : null
+    }, 0)
 
     return (
-        <div className={clsx(styles.container, { [styles.ios]: isIOS })}>
-            <Link to={props.backPath || "/"}>
-                <div className={styles.head}>
-                    {props.backPath ? <img height="24px" src={arrow} /> : <img src={tank} alt="" className={styles.logo} />}
-                    <h1>{props.name}</h1>
-                </div>
-            </Link>
-            <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" >
-                <img src={addContent} width="35px" alt="" />
-            </a>
-        </div>
+    <div className={clsx(styles.container, { [styles.ios]: isIOS })}>
+        <Link to={props.backPath || "/"}>
+            <div className={styles.head}>
+                {props.backPath ? <img height="24px" src={arrow} /> : <img src={tank} alt="" className={styles.logo} />}
+                <h1>{props.name}</h1>
+            </div>
+        </Link>
+        <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" >
+            <img src={addContent} width="35px" alt="" />
+        </a>
+    </div>
     )
 }
 
