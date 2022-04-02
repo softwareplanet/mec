@@ -19,15 +19,15 @@ export default function Footer() {
   const hashCommit = data.gitCommit.hash.substring(0, 7);
   const tagName = data.gitTag.name.substring(1);
   const dateCommit = data.gitCommit.date;
-  const linkCommit = `https://github.com/softwareplanet/mec/commit/${hashCommit}`;
   const tagLink = `https://github.com/softwareplanet/mec/releases/tag/${data.gitTag.name}`
+  const repository = `https://github.com/softwareplanet/mec`;
 
   return (
     <div className={styles.versionInfo}>
       Version&nbsp;
       <a href={tagLink} target='_blank' rel="noreferrer">{tagName}</a>
       +
-      <a href={linkCommit} target='_blank' rel="noreferrer">sha.{hashCommit}</a>
+      <a href={repository} target='_blank' rel="noreferrer">sha.{hashCommit}</a>
       -{dateCommit}
     </div>
   )
