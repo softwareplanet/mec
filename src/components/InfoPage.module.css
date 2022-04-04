@@ -11,7 +11,7 @@ body {
     padding: 30px;
 }
 
-.source{
+.source {
     word-break: break-all;
 }
 
@@ -121,7 +121,7 @@ li {
     align-content: center;
 }
 
-.offline :global .remark-oembed-inline.remark-oembed-you-tube iframe{
+.offline :global .remark-oembed-inline.remark-oembed-you-tube iframe {
     display: none;
 }
 
@@ -138,13 +138,13 @@ li {
 
 @media screen and (min-width: 940px) {
     .full-width-item {
-      margin: 0;
+        margin: 0;
     }
 }
 
 @media screen and (max-width: 325px) {
     .full-width-item {
-      margin: 0 -10px;
+        margin: 0 -10px;
     }
 }
 @media screen and (min-width: 500px) {
