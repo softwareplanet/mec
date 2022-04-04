@@ -57,6 +57,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
+    "react-promise": "^3.0.2",
     "react-slick": "^0.28.1",
     "remark-oembed": "^1.2.2",
     "rxjs": "^7.5.5",
