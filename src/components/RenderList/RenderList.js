@@ -22,13 +22,12 @@ let RenderList = ({ data, searchData }) => {
 
   const container = useRef();
 
-  const culcCardSize = () => {
-    let result;
+  const culcCardSize = () => {    
     let cardNumber = containerWidth >= 320 ? Math.floor(containerWidth / 160) : Math.round(containerWidth / 160);
-    result = (containerWidth - (15 * (cardNumber - 1))) / cardNumber;
-    return result;
+    let cardSize = (containerWidth - (15 * (cardNumber - 1))) / cardNumber;
+    return {cardSize, cardNumber};
   };  
-  const cardSize = culcCardSize();
+  const {cardSize, cardNumber} = culcCardSize();
 
   return (
     <>
@@ -42,6 +41,7 @@ let RenderList = ({ data, searchData }) => {
             title={element.title}
             variant={view}
             size={cardSize}
+            rightMargin={cardNumber == 1 ? 0 : (i == cardNumber - 1 ? 0 : (i == 1 && cardNumber != 2 ? 15 : ((i + 1) % cardNumber == 0 ? 0 : 15)))}
           />
         ))}        
       </div>
