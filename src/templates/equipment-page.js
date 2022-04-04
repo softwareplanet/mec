@@ -65,7 +65,7 @@ const InfoPage = ({ data }) => {
         <Layout name={category.title} backPath={`/${category.name}`}>
             <Dropdown
                 data={data.allMdx.nodes}
-                currEquip={data.mdx.frontmatter}
+                currEquip={data.mdx}
             />
             <div className={styles.fullWidthItem}>
                 <Slider images={images} />
