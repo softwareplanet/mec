@@ -24,7 +24,7 @@ let RenderList = ({ data, searchData }) => {
 
   const culcCardSize = () => {
     let result;
-    let cardNumber = Math.round(containerWidth / 160);
+    let cardNumber = containerWidth >= 320 ? Math.floor(containerWidth / 160) : Math.round(containerWidth / 160);
     result = (containerWidth - (15 * (cardNumber - 1))) / cardNumber;
     return result;
   };  
