@@ -1,5 +1,5 @@
 ---
-title: T-80
+title: Т-80
 category: tanks
 image: ./t-80.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A2-80

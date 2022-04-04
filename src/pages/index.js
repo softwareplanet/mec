@@ -1,10 +1,8 @@
 import "../components/reset.css";
-import * as styles from "../components/index.module.css";
 import React from "react";
-import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
-import { Progressbar } from "../components/Progressbar/Progressbar";
+import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
   query {
@@ -12,28 +10,27 @@ export const query = graphql`
       nodes {
         name
         title
-        grid_img {
+        image {
           childImageSharp {
-            gatsbyImageData(width: 160)
-          }
-        }
-        list_img {
-          childImageSharp {
-            gatsbyImageData(height: 160)
+            gatsbyImageData(width: 240, height: 240)
           }
         }
       }
     }
-  }
+   }
 `;
 
 let FirstPage = ({ data }) => {
   return (
-      <div className={styles.addMargins}>
-        <Progressbar />
-        <Header name="Військова техніка" />
-        <RenderList data={data.allCategoriesYaml.nodes} />
-      </div>
+    <Layout name="Військова техніка">
+      <RenderList
+        data={data.allCategoriesYaml.nodes.map((n) => ({
+          path: n.name,
+          image: n.image.childImageSharp,
+          title: n.title,
+        }))}
+      />
+    </Layout>
   );
 };
 

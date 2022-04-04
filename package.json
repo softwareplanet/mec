@@ -1,8 +1,8 @@
 {
-  "name": "stop-orda",
+  "name": "military-equipment-catalog",
   "version": "1.0.0",
   "private": true,
-  "description": "stop-orda",
+  "description": "Military-equipment-catalog",
   "author": "Alexander Kotov",
   "keywords": [
     "gatsby"
@@ -15,6 +15,15 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@capacitor/android": "^3.4.3",
+    "@capacitor/app": "^1.1.1",
+    "@capacitor/cli": "^3.4.3",
+    "@capacitor/core": "^3.4.3",
+    "@capacitor/ios": "^3.4.3",
+    "@capacitor/network": "^1.0.7",
+    "@capacitor/splash-screen": "^1.2.2",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^3.0.2",
+    "@ionic/cli": "^6.19.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "cheerio": "^1.0.0-rc.10",
@@ -22,6 +31,7 @@
     "gatsby": "^4.9.3",
     "gatsby-core-utils": "^3.11.0-next.1",
     "gatsby-image": "^3.11.0",
+    "gatsby-plugin-flexsearch": "^1.0.3",
     "gatsby-plugin-image": "^2.9.0",
     "gatsby-plugin-manifest": "^4.9.1",
     "gatsby-plugin-mdx": "^3.9.0",
@@ -31,12 +41,15 @@
     "gatsby-plugin-sw": "^1.0.1",
     "gatsby-remark-embed-youtube": "^0.0.7",
     "gatsby-source-filesystem": "^4.9.0",
+    "gatsby-source-local-git-modern": "^2.0.1",
     "gatsby-transformer-remark": "^5.9.1",
     "gatsby-transformer-sharp": "^4.9.0",
     "gatsby-transformer-yaml": "^4.9.0",
     "glob": "^7.2.0",
     "idb-keyval": "^3.2.0",
     "js-yaml": "^4.1.0",
+    "local-offline-plugin": "file:./plugins/local-offline-plugin",
+    "local-search-plugin": "file:./plugins/local-search-plugin",
     "lodash": "^4.17.21",
     "path": "^0.12.7",
     "process": "^0.11.10",
@@ -46,10 +59,9 @@
     "react-icons": "^4.3.1",
     "react-slick": "^0.28.1",
     "remark-oembed": "^1.2.2",
-    "sharp": "^0.30.3",
+    "rxjs": "^7.5.5",
     "slick-carousel": "^1.8.1",
-    "workbox-build": "^6.5.1",
-    "workbox-core": "^6.5.1"
+    "workbox-build": "^4.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

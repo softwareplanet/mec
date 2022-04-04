@@ -2,8 +2,7 @@
     border-radius: 4px;
 }
 .grid.military-equipment {
-    position: relative;
-    margin: 4px;
+    position: relative;    
 }
 
 .grid.military-equipment h2 {
@@ -30,7 +29,7 @@
     border: 1px solid #E4E4E4;
     border-radius: 4px;
     height: 73px;
-    align-items: center;
+    align-items: center;    
 }
 
 .list.military-equipment h2 {
@@ -50,7 +49,7 @@
 .list .img-container {
     display: flex;
     align-items: center;
-    width: 80px;
+    min-width: 80px;
     height: 50px;
     margin: 0px 0 0px 1px;
 }

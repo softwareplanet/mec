@@ -1,5 +1,5 @@
 ---
-title: T-90 «Владімір»
+title: Т-90 «Владімір»
 category: tanks
 image: ./t-90.jpg
 source: https://ru.wikipedia.org/wiki/%D0%A2-90

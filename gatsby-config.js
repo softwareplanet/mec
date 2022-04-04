@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Stop orda`,
@@ -6,7 +8,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
-    "gatsby-plugin-mdx",
+    "gatsby-source-local-git-modern",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -75,10 +77,35 @@ module.exports = {
         workboxConfig: {
           globPatterns: [
             'offline-plugin-app-shell-fallback/index.html',
-            'public/icons/*', '**/*.png', '**/*.jpg', "**/*.webp"
+            'flexsearch_index.json',
+            'public/icons/*', "favicon*.png", "**/*.webp"
           ]
         }
       }
     },
+    {
+      resolve: 'local-search-plugin',
+      options: {
+        languages: ['uk'],
+        type: 'Mdx',
+        fields: [
+          {
+            name: 'title',
+            indexed: true,
+            attributes: {
+              encode: false
+            },
+            resolver: 'frontmatter.title',
+            store: true
+          },
+          {
+            name: 'slug',
+            indexed: false,
+            resolver: node => node.fileAbsolutePath.split("/").slice(-3, -1).join("/") + "/",
+            store: true,
+          }
+        ]
+      }
+    }
   ]
 }

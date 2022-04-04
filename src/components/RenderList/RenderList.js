@@ -1,33 +1,54 @@
-import React, { useState } from 'react'
-import CardComponent from '../CardComponent/CardComponent'
-import lookup from "../../images/lookup.svg"
-import Switcher from "../Switcher/Switcher";
-import * as styles from "./RenderList.module.css"
+import React, { useEffect, useRef, useState } from "react";
+import CardComponent from "../CardComponent/CardComponent";
+import ToolBar from "../ToolBar/ToolBar";
+import * as styles from "./listsStyles.module.css";
+import { debounceTime, fromEvent, startWith } from "rxjs";
 
-let RenderList = ({ data }) => {
-    let [view, setView] = useState('grid')
-    
-    return (
-        <>
-            <div className={styles.toolbar}>
-                <img className={styles.lookup} src={lookup} alt="" />
-                <input type="search" placeholder="Пошук..." autoComplete="off" />
-                <Switcher onViewChange={setView} />
-            </div>
-            <div className={styles[view]}>
-                {
-                    data.map(element =>
-                        <CardComponent
-                            key={element.name}  
-                            path={element.name}                          
-                            image={element[view + '_img'].childImageSharp}
-                            title={element.title}
-                            variant={view}
-                        />)
-                }
-            </div>
-        </>
-    )
-}
+const MAX_CONTAINER_WIDTH = 900;
+const GRID_GAP = 15;
 
-export default RenderList
+let RenderList = ({ data, searchData }) => {
+  let [view, setView] = useState("grid");
+
+  let [containerWidth, setContainerWidth] = useState(MAX_CONTAINER_WIDTH);
+  useEffect(() => {
+    const subscribtion = fromEvent(window, "resize")
+      .pipe(
+        debounceTime(250),
+        startWith(MAX_CONTAINER_WIDTH) // need to path some value
+      )
+      .subscribe(() => setContainerWidth(container.current.clientWidth));
+    return () => subscribtion.unsubscribe();
+  }, []);
+
+  const container = useRef();
+
+  const culcCardSize = () => {    
+    let cardNumber = containerWidth >= 320 ? Math.floor(containerWidth / 160) : Math.round(containerWidth / 160);
+    let cardSize = (containerWidth - (GRID_GAP * (cardNumber - 1))) / cardNumber;
+    return {cardSize, cardNumber};
+  };  
+  const {cardSize, cardNumber} = culcCardSize();
+
+  return (
+    <>
+      <ToolBar setView={setView} data={searchData} />
+      <div ref={container} className={styles[view]}>
+        {data.map((element, i) => (
+          <CardComponent
+            key={i}
+            path={element.path}
+            image={element.image}
+            title={element.title}
+            variant={view}
+            size={cardSize}
+            gap={GRID_GAP}
+            rightMargin={cardNumber == 1 ? 0 : (i == cardNumber - 1 ? 0 : (i == 1 && cardNumber != 2 ? GRID_GAP : ((i + 1) % cardNumber == 0 ? 0 : GRID_GAP)))}
+          />
+        ))}        
+      </div>
+    </>
+  );
+};
+
+export default RenderList;

@@ -1,6 +1,5 @@
 .switcher {
     display: flex;
-    gap: 1em;
 }
 
 .icon {
@@ -10,6 +9,7 @@
     background-color: #F5F5F5;
     border: none;
     padding: 0;
+    margin-left: 1em;
 }
 
 .svgIcon {

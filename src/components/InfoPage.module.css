@@ -2,12 +2,33 @@ body {
     margin: 0;
 }
 
-.header {
-    background-color: #F5F5F5;
+.full-width-item {
+    background-color: #f5f5f5;
+    margin: 0 -20px;
 }
 
-.header h1 {
+.full-width-item h1 {
     padding: 30px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.title a {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #f5f5f5;
+
+    margin: 5px;
+    padding: 8px 15px;
+    background: rgb(56, 149, 255);
+    border-radius: 45px;
 }
 
 a {
@@ -16,11 +37,7 @@ a {
 }
 
 .infoPage {
-    margin: 12px 20px;
-}
-
-h1 {
-    padding-bottom: 12px;
+    margin: 12px 0px;
 }
 
 p {
@@ -41,7 +58,8 @@ h2 {
     padding: 16px 0px;
 }
 
-td:first-of-type, th:first-of-type {
+td:first-of-type,
+th:first-of-type {
     font-weight: 600;
     width: 35%;
     padding-bottom: 3.5px;
@@ -73,6 +91,7 @@ table {
 .link {
     font-size: 18px;
     text-decoration: underline;
+    display: flex;
 }
 
 h3 {
@@ -81,7 +100,47 @@ h3 {
     margin: 20px 0 5px;
 }
 
-li{
+li {
     list-style: inside;
     font-size: 14px;
+}
+
+.wifi {
+    display: none;
+}
+
+.offline :global .remark-oembed-inline.remark-oembed-you-tube {
+    padding: 0;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.offline :global .remark-oembed-inline.remark-oembed-you-tube iframe{
+    display: none;
+}
+
+.offline :global .remark-oembed-inline.remark-oembed-you-tube::after {
+    background-image: url(../images/connectionError.svg);
+    background-position-y: center;
+    background-repeat: no-repeat;
+    content: 'Відео буде доступне після підключення пристрою до мережі';
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    padding-left: 35px;
+}
+
+@media screen and (min-width: 940px) {
+    .full-width-item {
+      margin: 0;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .offline :global .remark-oembed-inline.remark-oembed-you-tube::after {
+        padding-top: 10px;
+        min-height: 25px;
+    }
 }

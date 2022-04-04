@@ -1,7 +1,7 @@
 ---
 title: ПТ-76
 category: tanks
-image: ./пт-76.jpg
+image: ./pt-76.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9F%D0%A2-76
 ---
 

@@ -1,15 +1,28 @@
-.head {
-    width: 90vw;
+.container {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ios {
+    margin-top: 20px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
     margin-bottom: 14px;
+}
+
+.head img {
+    margin-right: 20px;
 }
 
 h1 {
     font-weight: 400;
-    font-size: 1.5em;
+    font-size: 24px;
     line-height: 30px;
-    margin: 0; 
+    margin: 0;
 }
 
 .logo {

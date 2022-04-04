@@ -1,0 +1,12 @@
+a {
+    color: inherit;
+}
+
+.version-info {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    padding: 20px 0 35px 0;
+    color: #929292;
+}
