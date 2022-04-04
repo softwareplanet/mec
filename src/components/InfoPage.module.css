@@ -111,6 +111,10 @@ li {
 
 .offline :global .remark-oembed-inline.remark-oembed-you-tube {
     padding: 0;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    align-content: center;
 }
 
 .offline :global .remark-oembed-inline.remark-oembed-you-tube iframe{
@@ -118,19 +122,25 @@ li {
 }
 
 .offline :global .remark-oembed-inline.remark-oembed-you-tube::after {
-    height: 100%;
-    margin: 76px 57px 76px 29px;
     background-image: url(../images/connectionError.svg);
+    background-position-y: center;
     background-repeat: no-repeat;
     content: 'Відео буде доступне після підключення пристрою до мережі';
     display: block;
     text-align: left;
     font-size: 16px;
-    padding: 0 20px 10px 40px;
+    padding-left: 35px;
 }
 
 @media screen and (min-width: 940px) {
     .full-width-item {
       margin: 0;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .offline :global .remark-oembed-inline.remark-oembed-you-tube::after {
+        padding-top: 10px;
+        min-height: 25px;
     }
 }
