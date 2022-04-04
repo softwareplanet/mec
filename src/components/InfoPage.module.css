@@ -11,6 +11,10 @@ body {
     padding: 30px;
 }
 
+.source{
+    word-break: break-all;
+}
+
 .title {
     display: flex;
     flex-direction: row;
@@ -132,5 +136,11 @@ li {
 @media screen and (min-width: 940px) {
     .full-width-item {
       margin: 0;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .full-width-item {
+      margin: 0 -10px;
     }
 }
