@@ -5,6 +5,7 @@ import * as styles from "./listsStyles.module.css";
 import { debounceTime, fromEvent, startWith } from "rxjs";
 
 const MAX_CONTAINER_WIDTH = 900;
+const GRID_GAP = 15;
 
 let RenderList = ({ data, searchData }) => {
   let [view, setView] = useState("grid");
@@ -24,7 +25,7 @@ let RenderList = ({ data, searchData }) => {
 
   const culcCardSize = () => {    
     let cardNumber = containerWidth >= 320 ? Math.floor(containerWidth / 160) : Math.round(containerWidth / 160);
-    let cardSize = (containerWidth - (15 * (cardNumber - 1))) / cardNumber;
+    let cardSize = (containerWidth - (GRID_GAP * (cardNumber - 1))) / cardNumber;
     return {cardSize, cardNumber};
   };  
   const {cardSize, cardNumber} = culcCardSize();
@@ -41,7 +42,8 @@ let RenderList = ({ data, searchData }) => {
             title={element.title}
             variant={view}
             size={cardSize}
-            rightMargin={cardNumber == 1 ? 0 : (i == cardNumber - 1 ? 0 : (i == 1 && cardNumber != 2 ? 15 : ((i + 1) % cardNumber == 0 ? 0 : 15)))}
+            gap={GRID_GAP}
+            rightMargin={cardNumber == 1 ? 0 : (i == cardNumber - 1 ? 0 : (i == 1 && cardNumber != 2 ? GRID_GAP : ((i + 1) % cardNumber == 0 ? 0 : GRID_GAP)))}
           />
         ))}        
       </div>

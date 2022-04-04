@@ -4,8 +4,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as styles from "./CardComponent.module.css"
 import { Link } from 'gatsby'
 
-let CardComponent = ({path, title, image, variant, size, rightMargin}) => {    
-    const linkStyles = variant === 'grid' ? {width: `${size}px`, height: `${size}px`, marginBottom: "15px", marginRight: `${rightMargin}px` } : {};
+let CardComponent = ({path, title, image, variant, size, gap, rightMargin}) => {    
+    const linkStyles = variant === 'grid' ? {width: `${size}px`, height: `${size}px`, marginBottom: `${gap}px`, marginRight: `${rightMargin}px` } : {};
     return (
         <Link to={`/${path}`} className={styles.linkView} style={linkStyles}>
             <div className={clsx(styles[variant], styles.militaryEquipment)}>
