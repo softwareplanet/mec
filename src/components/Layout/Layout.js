@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Header from '../Header/Header';
 import * as styles from './layout.module.css';
 import Footer from '../Footer/Footer';
-import StateContext from '../../context/context';
+import StateContext from './layoutContext';
 
 const Layout = ({children}) => {
     let [view, setView] = useState('grid');

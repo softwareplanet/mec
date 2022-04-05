@@ -2,7 +2,7 @@ import "../components/reset.css";
 import React, { useContext, useEffect } from "react";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
-import StateContext from "../context/context";
+import StateContext from '../components/Layout/layoutContext';
 
 export const query = graphql`
   query {

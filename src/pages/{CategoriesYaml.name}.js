@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { graphql } from "gatsby";
 import RenderList from "../components/RenderList/RenderList";
-import StateContext from "../context/context";
+import StateContext from '../components/Layout/layoutContext';
 
 export const query = graphql`
   query($name: String) {

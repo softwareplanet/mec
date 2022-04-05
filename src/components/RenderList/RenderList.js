@@ -3,7 +3,7 @@ import CardComponent from '../CardComponent/CardComponent';
 import ToolBar from '../ToolBar/ToolBar';
 import * as styles from './listsStyles.module.css';
 import { debounceTime, fromEvent, startWith } from 'rxjs';
-import ViewContext from '../../context/context';
+import ViewContext from '../Layout/layoutContext';
 
 const MAX_CONTAINER_WIDTH = 900;
 const GRID_GAP = 15;

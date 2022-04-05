@@ -7,7 +7,7 @@ import Slider from '../components/Slider/SliderComponent/SliderComponent';
 import tg_icon from '../equipment/images/telegram-icon.png';
 import { Network } from '@capacitor/network';
 import clsx from 'clsx';
-import StateContext from '../context/context';
+import StateContext from '../components/Layout/layoutContext';
 
 export const query = graphql`
     query($slug: String, $imageDir: String, $category: String) {
