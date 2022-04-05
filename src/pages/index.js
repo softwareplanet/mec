@@ -2,7 +2,7 @@ import "../components/reset.css";
 import React, { useContext, useEffect } from "react";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
-import ViewContext from "../context/context";
+import StateContext from "../context/context";
 
 export const query = graphql`
   query {
@@ -21,7 +21,7 @@ export const query = graphql`
 `;
 
 let FirstPage = ({ data }) => {
-  const {setName, setBackPath} = useContext(ViewContext)
+  const {setName, setBackPath} = useContext(StateContext)
   useEffect(() => { 
     setName('Військова техніка');
     setBackPath(null);
