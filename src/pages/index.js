@@ -20,7 +20,9 @@ export const query = graphql`
    }
 `;
 
-let FirstPage = ({ data }) => {
+let FirstPage = (props) => {
+  console.log(props);
+  let data = props.data
   return (
     <Layout name="Військова техніка">
       <RenderList
