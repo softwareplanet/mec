@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import CardComponent from '../CardComponent/CardComponent';
 import ToolBar from '../ToolBar/ToolBar';
 import * as styles from './listsStyles.module.css';
 import { debounceTime, fromEvent, startWith } from 'rxjs';
+import ViewContext from '../../context/context';
 
 const MAX_CONTAINER_WIDTH = 900;
 const GRID_GAP = 15;
 
-let RenderList = ({ data, searchData, view, setView }) => {
+let RenderList = ({ data, searchData}) => {
+    const {view, setView} = useContext(ViewContext)
+
     let [containerWidth, setContainerWidth] = useState(MAX_CONTAINER_WIDTH);
     useEffect(() => {
         const subscribtion = fromEvent(window, 'resize')

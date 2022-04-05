@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import * as styles from "./Switcher.module.css"
 import { CgMenuGridR } from "react-icons/cg"
 import { VscListFlat } from "react-icons/vsc"
 import clsx from "clsx"
+import ViewContext from "../../context/context";
 
 
 let Switcher = (props) => {
 
-    const [view, setView] = useState('grid');
+    const {view, setView} = useContext(ViewContext)
 
     let iconClickHandler = (v) => {
         setView(v);

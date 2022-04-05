@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import ViewContext from '../../context/context';
+import Layout from '../Layout/Layout';
 
 export const Wrapper = ({ children }) => {
     let [view, setView] = useState('grid');
 
-    return <div>{children}</div>;
+    return (
+        <ViewContext.Provider value={{ view, setView }}>
+            {children}
+        </ViewContext.Provider>
+    );
 };
