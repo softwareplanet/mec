@@ -4,7 +4,7 @@ import * as styles from './layout.module.css';
 import Footer from '../Footer/Footer';
 import StateContext from '../../context/context';
 
-const Layout = (props) => {
+const Layout = ({children}) => {
     let [view, setView] = useState('grid');
     let [name, setName] = useState('');
     let [backPath, setBackPath] = useState(null);
@@ -14,7 +14,7 @@ const Layout = (props) => {
         <div className={styles.layout}>
             <main>
                 <Header params={{name, backPath}} />
-                {props.children}
+                {children}
             </main>
             <Footer />
         </div>
