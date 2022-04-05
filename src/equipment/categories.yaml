@@ -14,10 +14,10 @@
   title: Зенітно ракетні комплекси
   image: ./images/buk.jpg
 - name: otrk
-  title: Оперативно-тактичний ракетний комплекс
+  title: Оперативно-тактичні ракетні комплекси
   image: ./images/iskander.jpg
 - name: rszv
-  title: Реактивна система залпового вогню
+  title: Реактивні системи залпового вогню
   image: ./images/rszv.jpg
 - name: rls
   title: Розвідувально-локаційні системи
