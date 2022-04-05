@@ -1,6 +1,6 @@
 {
 	"appId": "in.ua",
-	"appName": "Military equipment directory",
+	"appName": "MEQD",
 	"webDir": "public",
 	"bundledWebRuntime": false,
 	"plugins": {

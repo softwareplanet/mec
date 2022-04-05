@@ -1,8 +1,8 @@
 {
-  "name": "military-equipment-directory",
+  "name": "MEQD",
   "version": "1.0.0",
   "private": true,
-  "description": "Military-equipment-directory",
+  "description": "Equipment info",
   "author": "Alexander Kotov",
   "keywords": [
     "gatsby"
