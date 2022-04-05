@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ViewContext from '../../context/context';
-import Layout from '../Layout/Layout';
 
 export const Wrapper = ({ children }) => {
     let [view, setView] = useState('grid');
