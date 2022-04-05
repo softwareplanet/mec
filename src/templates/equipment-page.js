@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as styles from '../components/InfoPage.module.css';
 import { graphql } from 'gatsby';
 import Dropdown from '../components/ToolBar/Dropdown/Dropdown.js';
@@ -6,8 +6,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Slider from '../components/Slider/SliderComponent/SliderComponent';
 import tg_icon from '../equipment/images/telegram-icon.png';
 import { Network } from '@capacitor/network';
-import Layout from '../components/Layout/Layout';
 import clsx from 'clsx';
+import ViewContext from '../context/context';
 
 export const query = graphql`
     query($slug: String, $imageDir: String, $category: String) {
@@ -61,12 +61,15 @@ const InfoPage = ({ data }) => {
     const images = data.allFile.nodes.map(n => n.childImageSharp);
     let decodedURI = decodeURI(data.mdx.frontmatter.source);
 
+    const { setName, setBackPath } = useContext(ViewContext);
+    useEffect(() => {
+        setName(category.title);
+        setBackPath('/' + category.name);
+    });
+    
     return (
-        <Layout name={category.title} backPath={`/${category.name}`}>
-            <Dropdown
-                data={data.allMdx.nodes}
-                currEquip={data.mdx}
-            />
+        <>
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx} />
             <div className={styles.fullWidthItem}>
                 <Slider images={images} />
             </div>
@@ -104,7 +107,7 @@ const InfoPage = ({ data }) => {
                     </a>
                 </div>
             </div>
-        </Layout>
+        </>
     );
 };
 

@@ -11,10 +11,10 @@ let Header = (props) => {
 
     return (
         <div className={clsx(styles.container, { [styles.ios]: isIOS })}>
-            <Link to={props.backPath || "/"}>
+            <Link to={props.params.backPath || "/"}>
                 <div className={styles.head}>
-                    {props.backPath ? <img height="24px" src={arrow} /> : <img src={tank} alt="" className={styles.logo} />}
-                    <h1>{props.name}</h1>
+                    {props.params.backPath ? <img height="24px" src={arrow} /> : <img src={tank} alt="" className={styles.logo} />}
+                    <h1>{props.params.name}</h1>
                 </div>
             </Link>
             <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" >

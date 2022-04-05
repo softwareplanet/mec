@@ -1,6 +1,6 @@
 import React from 'react';
-import { Wrapper } from './src/components/Wrapper/Wrapper';
+import Layout from './src/components/Layout/Layout';
 
 export const wrapRootElement = ({ element }) => {
-    return <Wrapper>{element}</Wrapper>;
+    return <Layout>{element}</Layout>;
 };

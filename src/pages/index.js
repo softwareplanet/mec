@@ -1,8 +1,8 @@
 import "../components/reset.css";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout/Layout";
+import ViewContext from "../context/context";
 
 export const query = graphql`
   query {
@@ -21,16 +21,20 @@ export const query = graphql`
 `;
 
 let FirstPage = ({ data }) => {
-  return (
-    <Layout name="Військова техніка">
+  const {setName, setBackPath} = useContext(ViewContext)
+  useEffect(() => { 
+    setName('Військова техніка');
+    setBackPath(null);
+  });
+
+  return (    
       <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
           path: n.name,
           image: n.image.childImageSharp,
           title: n.title,
         }))}
-      />
-    </Layout>
+      />  
   );
 };
 
