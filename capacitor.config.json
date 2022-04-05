@@ -1,12 +1,12 @@
 {
   "appId": "in.ua",
-  "appName": "military equipment catalog",
+  "appName": "Military equipment directory",
   "webDir": "public",
   "bundledWebRuntime": false,
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 600,
-			"androidScaleType": "CENTER_CROP"
+      "androidScaleType": "CENTER_CROP"
     }
   }
 }

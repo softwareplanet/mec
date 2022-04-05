@@ -1,8 +1,8 @@
 {
-  "name": "military-equipment-catalog",
+  "name": "military-equipment-directory",
   "version": "1.0.0",
   "private": true,
-  "description": "Military-equipment-catalog",
+  "description": "Military-equipment-directory",
   "author": "Alexander Kotov",
   "keywords": [
     "gatsby"

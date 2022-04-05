@@ -2,7 +2,7 @@ const { resolve } = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Stop orda`,
+    title: `Military equipment directory`,
     siteUrl: `https://stop-orda.netlify.app`
   },
   plugins: [

@@ -1,6 +1,6 @@
 {
 	"appId": "in.ua",
-	"appName": "military equipment catalog",
+	"appName": "Military equipment directory",
 	"webDir": "public",
 	"bundledWebRuntime": false,
 	"plugins": {
