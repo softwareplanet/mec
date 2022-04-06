@@ -1,5 +1,5 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const version = require('./version');
+const versionCode = require('./version');
 
 const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
@@ -48,6 +48,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       type CategoriesYaml implements Node {
         equipment: [Mdx] @link(by: "frontmatter.category.name", from: "name")
       }
+      type NodeVersion implements Node @infer {
+        version: String!
+      }
     `
   createTypes(typeDefs)
 }
@@ -57,7 +60,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
 
   const versionInfo = {
     key: 'versionInfo',
-    versionCode: version
+    version: versionCode
   }
 
   const nodeContent = JSON.stringify(versionInfo);
