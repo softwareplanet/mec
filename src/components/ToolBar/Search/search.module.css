@@ -9,6 +9,12 @@
   width: 100%;
 }
 
+.container a {
+  margin-top: 4.5px;
+  margin-left: 15px;
+}
+
+
 .result-ul {
   position: absolute;
 
