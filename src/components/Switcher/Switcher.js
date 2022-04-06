@@ -3,7 +3,7 @@ import * as styles from "./Switcher.module.css"
 import { CgMenuGridR } from "react-icons/cg"
 import { VscListFlat } from "react-icons/vsc"
 import clsx from "clsx"
-import ViewContext from "../../context/context";
+import ViewContext from "../RenderList/Context";
 
 
 let Switcher = (props) => {
