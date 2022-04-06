@@ -39,8 +39,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `stop-orda`,
-        short_name: `stop-orda`,
+        name: `MEQD`,
+        short_name: `MEQD`,
         start_url: `/`,
         background_color: `#F5F5F5`,
         theme_color: `#F5F5F5`,
