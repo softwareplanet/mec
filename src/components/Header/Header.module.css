@@ -11,10 +11,9 @@
     top: 0;
     left: 0;
     z-index: 2;
-    padding: 33px 20px;
+    padding: 33px 20px 25px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.6s;
-    transition: position 0.6s;
 }
 
 .content{
@@ -26,7 +25,7 @@
 }
 
 .ios {
-    padding-top: 60px;
+    padding-top: 40px;
 }
 
 .head {

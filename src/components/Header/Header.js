@@ -27,8 +27,8 @@ let Header = props => {
     return (
         <div
             className={clsx(styles.container, {
-                [styles.ios]: isIOS,
                 [styles.scroll]: offset > 0,
+                [styles.ios]: isIOS,
             })}
         >
             <div className={styles.content}>
