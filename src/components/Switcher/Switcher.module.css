@@ -10,14 +10,11 @@
     border: none;
     padding: 0;
     margin-left: 1em;
+    margin-right: 8px;
 }
 
 .svgIcon {
     width: 120%;
     height: 120%;
-    color: gray;
-}
-
-.active {
-    color: black;  
+    color: black;
 }
