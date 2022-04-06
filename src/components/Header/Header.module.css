@@ -1,12 +1,20 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ios {
+    margin-top: 20px;
+}
+
 .head {
-    width: 90vw;
     display: flex;
     align-items: center;
     margin-bottom: 14px;
 }
 
 .head img {
-    margin-right: 20px;    
+    margin-right: 20px;
 }
 
 h1 {

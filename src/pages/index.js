@@ -1,9 +1,8 @@
 import "../components/reset.css";
-import * as styles from "../components/index.module.css";
 import React from "react";
-import Header from "../components/Header/Header";
 import RenderList from "../components/RenderList/RenderList";
 import { graphql } from "gatsby";
+import Layout from "../components/Layout/Layout";
 
 export const query = graphql`
   query {
@@ -18,13 +17,12 @@ export const query = graphql`
         }
       }
     }
-  }
+   }
 `;
 
 let FirstPage = ({ data }) => {
   return (
-    <div className={styles.addMargins}>
-      <Header name="Військова техніка" />
+    <Layout name="Військова техніка">
       <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
           path: n.name,
@@ -32,7 +30,7 @@ let FirstPage = ({ data }) => {
           title: n.title,
         }))}
       />
-    </div>
+    </Layout>
   );
 };
 

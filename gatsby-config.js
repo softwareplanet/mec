@@ -2,12 +2,13 @@ const { resolve } = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Stop orda`,
+    title: `MEQD`,
     siteUrl: `https://stop-orda.netlify.app`
   },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
+    "gatsby-source-local-git-modern",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -75,7 +76,7 @@ module.exports = {
         precachePages: ["/*", "/**/**/index.html"],
         workboxConfig: {
           globPatterns: [
-            'offline-plugin-app-shell-fallback/index.html', 
+            'offline-plugin-app-shell-fallback/index.html',
             'flexsearch_index.json',
             'public/icons/*', "favicon*.png", "**/*.webp"
           ]
@@ -100,7 +101,7 @@ module.exports = {
           {
             name: 'slug',
             indexed: false,
-            resolver: 'fileAbsolutePath',
+            resolver: node => node.fileAbsolutePath.split("/").slice(-3, -1).join("/") + "/",
             store: true,
           }
         ]

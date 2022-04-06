@@ -1,5 +1,5 @@
 ---
-title: T-64
+title: Т-64
 category: tanks
 image: ./t-64.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A2-64
