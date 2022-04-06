@@ -1,4 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const version = require('./version');
+
 const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -53,24 +55,25 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
 
-  const myData = {
-    version: 'v1.0.0-beta1'
+  const versionInfo = {
+    key: 'versionInfo',
+    versionCode: version
   }
 
-  const nodeContent = JSON.stringify(myData);
+  const nodeContent = JSON.stringify(versionInfo);
 
   const nodeMeta = {
-    id: createNodeId(`my-data-${myData.key}`),
+    id: createNodeId(`${versionInfo.key}`),
     parent: null,
     children: [],
     internal: {
-      type: 'versionInfo',
-      mediaType: 'text/html',
+      type: 'NodeVersion',
+      mediaType: 'text/plain',
       content: nodeContent,
-      contentDigest: createContentDigest(myData)
+      contentDigest: createContentDigest(versionInfo)
     }
   }
 
-  const node = Object.assign({}, myData, nodeMeta);
+  const node = Object.assign({}, versionInfo, nodeMeta);
   createNode(node);
 }
