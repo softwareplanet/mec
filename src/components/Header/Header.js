@@ -7,15 +7,6 @@ import arrow from '../../equipment/images/arrow-left.png';
 import clsx from 'clsx';
 
 let Header = props => {
-    let [isIOS, setIsIOS] = useState(false);
-    useEffect(() => {
-        setIsIOS(
-            typeof navigator !== 'undefined'
-                ? /iPhone/.test(navigator.userAgent) && !window.MSStream
-                : false
-        );
-    }, []);
-
     const [offset, setOffset] = useState(0);
 
     useEffect(() => {
@@ -27,8 +18,7 @@ let Header = props => {
     return (
         <div
             className={clsx(styles.container, {
-                [styles.scroll]: offset > 0,
-                [styles.ios]: isIOS,
+                [styles.scroll]: offset > 0
             })}
         >
             <div className={styles.content}>
