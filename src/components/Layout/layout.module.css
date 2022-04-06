@@ -12,14 +12,14 @@ body {
 .layout {
     max-width: 900px;
     min-height: 100vh;
-    padding: 33px 20px 0;
+    margin: 33px 20px 0;
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
 main {
-    margin-top: 55px;
+    margin-top: 50px;
     margin-bottom: 70px;
 }
 

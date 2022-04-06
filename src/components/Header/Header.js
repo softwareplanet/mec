@@ -20,13 +20,17 @@ let Header = props => {
 
     useEffect(() => {
         const onScroll = () => setOffset(window.pageYOffset);
-        window.removeEventListener('scroll', onScroll);
-        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     return (
-        <div className={clsx(styles.container, { [styles.ios]: isIOS, [styles.scroll]: offset > 0 })}>
+        <div
+            className={clsx(styles.container, {
+                [styles.ios]: isIOS,
+                [styles.scroll]: offset > 0,
+            })}
+        >
             <div className={styles.content}>
                 <Link to={props.backPath || '/'}>
                     <div className={styles.head}>
