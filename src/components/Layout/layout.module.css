@@ -19,12 +19,8 @@ body {
 }
 
 main {
-    margin-top: 30px;
+    margin-top: 55px;
     margin-bottom: 70px;
-}
-
-html:not([data-scroll='0']) main{
-    margin-top: 60px;
 }
 
 @media screen and (min-width: 940px) {

@@ -16,27 +16,17 @@ let Header = props => {
         );
     }, []);
 
-    const debounce = func => {
-        let frame;
-        return (...params) => {
-            if (frame) {
-                cancelAnimationFrame(frame);
-            }
-            frame = requestAnimationFrame(() => {
-                func(...params);
-            });
-        };
-    };
+    const [offset, setOffset] = useState(0);
 
-    const storeScroll = () => {
-        document.documentElement.dataset.scroll = window.scrollY;
-    };
-    document.addEventListener('scroll', debounce(storeScroll));
-
-    storeScroll();
+    useEffect(() => {
+        const onScroll = () => setOffset(window.pageYOffset);
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
-        <div className={clsx(styles.container, { [styles.ios]: isIOS })}>
+        <div className={clsx(styles.container, { [styles.ios]: isIOS, [styles.scroll]: offset > 0 })}>
             <div className={styles.content}>
                 <Link to={props.backPath || '/'}>
                     <div className={styles.head}>
