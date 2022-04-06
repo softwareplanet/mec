@@ -1,12 +1,11 @@
 import { Link } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createRef } from 'react';
 import tank from './tank.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import clsx from 'clsx';
 
 let Header = props => {
-
     let iPhoneVersion = () => {
         if (typeof window !== 'undefined') {
             let iHeight = window.screen.height;
@@ -15,6 +14,15 @@ let Header = props => {
             if (iWidth >= 375 && iHeight >= 812) return true
         }
     }
+
+    const refComponent = createRef();
+
+
+    useEffect(() => {
+    props.setHeight(refComponent.current.getBoundingClientRect().height);
+    }, [refComponent]);
+
+
 
     const [offset, setOffset] = useState(0);
     let [IOSVersion, setIOSVersion] = useState(false)
@@ -34,6 +42,7 @@ let Header = props => {
             className={clsx(styles.container, {
                 [styles.scroll]: offset > 0
             })}
+            ref={refComponent}
         >
             <div className={clsx(styles.content, { [styles.ios]: IOSVersion })}>
                 <Link to={props.backPath || '/'}>

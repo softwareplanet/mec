@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/Header';
 import * as styles from './layout.module.css';
-import * as headerStyles from '../Header/Header.module.css';
 import Footer from '../Footer/Footer';
 
 const Layout = props => {
+    const [height, setHeight] = useState(30);
+    console.log(height);
+
     return (
         <div className={styles.layout}>
-            <Header {...props} />
-            <main>
+            <Header setHeight={setHeight} {...props} />
+            <main style={{ marginTop: height - 25 }}>
                 {props.children}
             </main>
             <Footer />

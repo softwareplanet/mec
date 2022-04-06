@@ -19,9 +19,7 @@ body {
 }
 
 main {
-    margin-top: 20px;
     margin-bottom: 70px;
-    transition: margin-top 0.6s;
 }
 
 @media screen and (min-width: 940px) {
