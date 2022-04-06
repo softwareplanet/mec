@@ -11,10 +11,16 @@
   title: Бойові броньовані машини
   image: ./images/bbm.jpg
 - name: zrk
-  title: ЗРК
+  title: Зенітно ракетні комплекси
   image: ./images/buk.jpg
+- name: otrk
+  title: Оперативно-тактичні ракетні комплекси
+  image: ./images/iskander.jpg
+- name: rszv
+  title: Реактивні системи залпового вогню
+  image: ./images/rszv.jpg
 - name: rls
-  title: РЛС
+  title: Розвідувально-локаційні системи
   image: ./images/rls.jpg
 - name: projectiles
   title: Снаряди
