@@ -7,7 +7,7 @@ import Slider from '../components/Slider/SliderComponent/SliderComponent';
 import tg_icon from '../equipment/images/telegram-icon.png';
 import { Network } from '@capacitor/network';
 import clsx from 'clsx';
-import StateContext from '../components/Layout/layoutContext';
+import context from '../components/Layout/layoutContext';
 
 export const query = graphql`
     query($slug: String, $imageDir: String, $category: String) {
@@ -61,7 +61,7 @@ const InfoPage = ({ data }) => {
     const images = data.allFile.nodes.map(n => n.childImageSharp);
     let decodedURI = decodeURI(data.mdx.frontmatter.source);
 
-    const { setName, setBackPath } = useContext(StateContext);
+    const { setName, setBackPath } = useContext(context.HeaderContext);
     useEffect(() => {
         setName(category.title);
         setBackPath('/' + category.name);

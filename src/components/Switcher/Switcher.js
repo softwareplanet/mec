@@ -3,12 +3,12 @@ import * as styles from "./Switcher.module.css"
 import { CgMenuGridR } from "react-icons/cg"
 import { VscListFlat } from "react-icons/vsc"
 import clsx from "clsx"
-import ViewContext from "../Layout/layoutContext";
+import context from "../Layout/layoutContext";
 
 
 let Switcher = (props) => {
 
-    const {view, setView} = useContext(ViewContext)
+    const {view, setView} = useContext(context.ViewContext)
 
     let iconClickHandler = (v) => {
         setView(v);

@@ -3,13 +3,13 @@ import CardComponent from '../CardComponent/CardComponent';
 import ToolBar from '../ToolBar/ToolBar';
 import * as styles from './listsStyles.module.css';
 import { debounceTime, fromEvent, startWith } from 'rxjs';
-import ViewContext from '../Layout/layoutContext';
+import context from '../Layout/layoutContext';
 
 const MAX_CONTAINER_WIDTH = 900;
 const GRID_GAP = 15;
 
 let RenderList = ({ data, searchData}) => {
-    const {view, setView} = useContext(ViewContext)
+    const {view, setView} = useContext(context.ViewContext)
 
     let [containerWidth, setContainerWidth] = useState(MAX_CONTAINER_WIDTH);
     useEffect(() => {

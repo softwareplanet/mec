@@ -1,5 +1,6 @@
 import React from 'react';
 
-const ViewContext = React.createContext('');
+const ViewContext = React.createContext({});
+const HeaderContext = React.createContext({});
 
-export default ViewContext;
+export default {ViewContext, HeaderContext};

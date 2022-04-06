@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { graphql } from "gatsby";
 import RenderList from "../components/RenderList/RenderList";
-import StateContext from '../components/Layout/layoutContext';
+import context from '../components/Layout/layoutContext';
 
 export const query = graphql`
   query($name: String) {
@@ -24,7 +24,7 @@ export const query = graphql`
 
 let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
-  const {setName, setBackPath} = useContext(StateContext)
+  const {setName, setBackPath} = useContext(context.HeaderContext)
   useEffect(() => { 
       setName(category.title);
       setBackPath("/");
