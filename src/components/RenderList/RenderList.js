@@ -24,46 +24,32 @@ let RenderList = ({ data, searchData}) => {
 
     const container = useRef();
 
-    const culcCardSize = () => {
-        let cardNumber =
-            containerWidth >= 320
-                ? Math.floor(containerWidth / 160)
-                : Math.round(containerWidth / 160);
-        let cardSize =
-            (containerWidth - GRID_GAP * (cardNumber - 1)) / cardNumber;
-        return { cardSize, cardNumber };
-    };
-    const { cardSize, cardNumber } = culcCardSize();
+  const culcCardSize = () => {    
+    let cardsInRow = containerWidth >= 320 ? Math.floor(containerWidth / 160) : Math.round(containerWidth / 160);
+    let cardSize = (containerWidth - (GRID_GAP * (cardsInRow - 1))) / cardsInRow;
+    return {cardSize, cardsInRow};
+  };  
+  const {cardSize, cardsInRow} = culcCardSize();
 
-    return (
-        <>
-            <ToolBar setView={setView} data={searchData} />
-            <div ref={container} className={styles[view]}>
-                {data.map((element, i) => (
-                    <CardComponent
-                        key={i}
-                        path={element.path}
-                        image={element.image}
-                        title={element.title}
-                        variant={view}
-                        size={cardSize}
-                        gap={GRID_GAP}
-                        rightMargin={
-                            cardNumber == 1
-                                ? 0
-                                : i == cardNumber - 1
-                                ? 0
-                                : i == 1 && cardNumber != 2
-                                ? GRID_GAP
-                                : (i + 1) % cardNumber == 0
-                                ? 0
-                                : GRID_GAP
-                        }
-                    />
-                ))}
-            </div>
-        </>
-    );
+  return (
+    <>
+      <ToolBar setView={setView} data={searchData} />
+      <div ref={container} className={styles[view]}>
+        {data.map((element, i) => (
+          <CardComponent
+            key={i}
+            path={element.path}
+            image={element.image}
+            title={element.title}
+            variant={view}
+            size={cardSize}
+            gap={GRID_GAP}
+            lastInRow={ (i + 1) % cardsInRow === 0 }
+          />
+        ))}        
+      </div>
+    </>
+  );
 };
 
 export default RenderList;
