@@ -107,3 +107,19 @@ exports.onRouteUpdate = ({ location, getResourceURLsForPathname }) => {
 exports.onPostPrefetchPathname = ({ pathname, getResourceURLsForPathname }) => {
   setPathResources(pathname, getResourceURLsForPathname)
 }
+window.addEventListener("load", async () => {
+  if ("serviceWorker" in navigator) {
+    try {
+      navigator.serviceWorker.addEventListener('message', event => {
+          // event is a MessageEvent object
+          console.log(`The service worker sent me a message`, event.data);
+          window.__PROGRESS__ = event.data;
+          
+      });
+      const reg = await navigator.serviceWorker.register('/sw.js');
+      console.log(reg);
+    } catch (e) {
+        console.log('sw register fail');
+    }
+  }
+})
