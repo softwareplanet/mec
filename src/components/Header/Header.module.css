@@ -16,6 +16,14 @@
     transition: box-shadow 0.6s;
 }
 
+.ios {
+    margin-top: 20px;
+}
+
+.scroll .ios {
+    margin-top: 20px;
+}
+
 .content{
     display: flex;
     align-items: center;

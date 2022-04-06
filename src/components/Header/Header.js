@@ -7,7 +7,18 @@ import arrow from '../../equipment/images/arrow-left.png';
 import clsx from 'clsx';
 
 let Header = props => {
+
+    let iPhoneVersion = () => {
+        if (typeof window !== 'undefined') {
+            let iHeight = window.screen.height;
+            let iWidth = window.screen.width;
+
+            if (iWidth >= 375 && iHeight >= 812) return true
+        }
+    }
+
     const [offset, setOffset] = useState(0);
+    let [IOSVersion, setIOSVersion] = useState(false)
 
     useEffect(() => {
         const onScroll = () => setOffset(window.pageYOffset);
@@ -15,13 +26,18 @@ let Header = props => {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
+    useEffect(() => {
+        setIOSVersion(typeof navigator !== 'undefined' ? /iPhone/.test(navigator.userAgent) && !window.MSStream && iPhoneVersion() : false)
+    }, [])
+
     return (
         <div
             className={clsx(styles.container, {
-                [styles.scroll]: offset > 0
+                [styles.scroll]: offset > 0,
+
             })}
         >
-            <div className={styles.content}>
+            <div className={clsx(styles.content, { [styles.ios]: IOSVersion })}>
                 <Link to={props.backPath || '/'}>
                     <div className={styles.head}>
                         {props.backPath ? (
