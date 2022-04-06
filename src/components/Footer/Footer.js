@@ -11,15 +11,15 @@ export default function Footer() {
         date(formatString: "YYYYMMDDHHmmss")
       }
       nodeVersion {
-        versionCode
+        version
       }
     }
 `)
 
   const hashCommit = data.gitCommit.hash.substring(0, 7);
-  const tagName = data.nodeVersion.versionCode.substring(1);
+  const tagName = data.nodeVersion.version.substring(1);
   const dateCommit = data.gitCommit.date;
-  const tagLink = `https://github.com/softwareplanet/mec/releases/tag/${data.nodeVersion.versionCode}`
+  const tagLink = `https://github.com/softwareplanet/mec/releases/tag/${data.nodeVersion.version}`
   const repository = `https://github.com/softwareplanet/mec`;
 
   return (
