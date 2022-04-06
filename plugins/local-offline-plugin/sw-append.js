@@ -1,3 +1,4 @@
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js')
 /* global importScripts, workbox, idbKeyval */
 importScripts(`%idbKeyValVersioned%`)
 
@@ -121,3 +122,4 @@ workbox.routing.registerRoute(navigationRoute)
 
 // this route is used when performing a non-navigation request (e.g. fetch)
 workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)
+
