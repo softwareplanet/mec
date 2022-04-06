@@ -2,12 +2,12 @@
 
 BREAKING CHANGES:
 
--   Add swipe events for iphone application
+-   Додав можливість за допомогою свайпу повернутись на попередню сторінку(історія)
 
 FEATURES:
 
 IMPROVMENTS:
 
--   Get version info from sourseNodes in gatsby-node.js instead gitTag
+-   Створив файл для контроля версії додатку та отримую інформацію з нього за допомогою sourceNodes та graphQl замість gitTag
 
 BUG FIXES:
