@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import * as styles from "./Switcher.module.css"
 import { CgMenuGridR } from "react-icons/cg"
 import { VscListFlat } from "react-icons/vsc"
-import clsx from "clsx"
 import ViewContext from "../RenderList/Context";
 
 
@@ -19,16 +18,20 @@ let Switcher = (props) => {
 
     return (
         <div className={styles.switcher}>
-            <SwitcherIcon onClick={iconClickHandler} currentView={view} view="grid" icon={CgMenuGridR} /> 
-            <SwitcherIcon onClick={iconClickHandler} currentView={view} view="list" icon={VscListFlat} /> 
+            <SwitcherIcon
+                onClick={iconClickHandler}
+                currentView={view}
+                view={view == 'grid' ? 'list' : 'grid'}
+                icon={view == 'grid' ? VscListFlat : CgMenuGridR}
+            />
         </div>
-    )
-}
+    );
+};
 
-function SwitcherIcon({onClick, view, currentView, icon}) {
+function SwitcherIcon({ onClick, view, icon }) {
     return (
-        <div className={styles.icon} onClick={() => onClick(view)} >
-            {React.createElement(icon, {className: clsx(styles.svgIcon, { [styles.active]: view === currentView })})}
+        <div className={styles.icon} onClick={() => onClick(view)}>
+            {React.createElement(icon, { className: styles.svgIcon })}
         </div>
     )
 }

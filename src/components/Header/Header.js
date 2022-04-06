@@ -33,8 +33,7 @@ let Header = props => {
     return (
         <div
             className={clsx(styles.container, {
-                [styles.scroll]: offset > 0,
-
+                [styles.scroll]: offset > 0
             })}
         >
             <div className={clsx(styles.content, { [styles.ios]: IOSVersion })}>
