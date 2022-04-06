@@ -17,18 +17,15 @@ let Header = props => {
 
     const refComponent = createRef();
 
-
     useEffect(() => {
     props.setHeight(refComponent.current.getBoundingClientRect().height);
     }, [refComponent]);
 
-
-
-    const [offset, setOffset] = useState(0);
+    const [offset, setOffset] = useState(false);
     let [IOSVersion, setIOSVersion] = useState(false)
 
     useEffect(() => {
-        const onScroll = () => setOffset(window.pageYOffset);
+        const onScroll = () => setOffset(window.pageYOffset !=0);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
@@ -40,7 +37,7 @@ let Header = props => {
     return (
         <div
             className={clsx(styles.container, {
-                [styles.scroll]: offset > 0
+                [styles.scroll]: offset
             })}
             ref={refComponent}
         >

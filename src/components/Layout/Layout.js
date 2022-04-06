@@ -5,8 +5,6 @@ import Footer from '../Footer/Footer';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);
-    console.log(height);
-
     return (
         <div className={styles.layout}>
             <Header setHeight={setHeight} {...props} />
