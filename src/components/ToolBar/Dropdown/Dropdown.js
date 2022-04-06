@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import SearchResults from "../Search/DropdownList.js"
 import * as styles from "../Search/search.module.css";
+import addContent from "../add-content.svg"
 import arrow from "../../../images/hideIcon.png";
 
 const Dropdown = ({ data, currEquip }) => {
     const [hidden, setHide] = useState(true);
     return (
+        <div className={styles.container}>
         <div className={styles.container} onClick={() => setHide(!hidden)}>
             <div className={styles.dropdown}>
                 <span>{currEquip.frontmatter.title}</span>
@@ -17,6 +19,10 @@ const Dropdown = ({ data, currEquip }) => {
                     title: node.frontmatter.title
                 }))
             } />
+        </div>
+        <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" >
+                <img src={addContent} width="35px" alt="" />
+        </a>
         </div>
     )
 }
