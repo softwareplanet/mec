@@ -11,18 +11,26 @@ body {
 
 .layout {
     max-width: 900px;
-    height: 100vh;
+    min-height: 100vh;
     padding: 33px 20px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    position: relative;
+}
+
+main {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+html:not([data-scroll='0']) main{
+    margin-top: 60px;
 }
 
 @media screen and (min-width: 940px) {
     .layout {
         width: 900px;
-        margin-left: 50%;
-        transform: translateX(-50%);
+        margin: 0 auto;
     }
 }
 

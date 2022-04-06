@@ -9,4 +9,10 @@ a {
     text-align: center;
     padding: 20px 0 35px 0;
     color: #929292;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    clear: both;
 }

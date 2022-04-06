@@ -1,16 +1,36 @@
 .container {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    
+    background-color: #f5f5f5;
+}
+
+html:not([data-scroll='0']) .container {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 33px 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.6s;
+}
+
+.content{
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
+    max-width: 860px;
 }
 
 .ios {
-    margin-top: 20px;
+    padding-top: 0px;
 }
 
 .head {
     display: flex;
     align-items: center;
-    margin-bottom: 14px;
 }
 
 .head img {
