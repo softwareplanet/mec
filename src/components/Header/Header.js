@@ -3,6 +3,7 @@ import React, { useEffect, useState, createRef } from 'react';
 import tank from './tank.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
+import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
 
 let Header = props => {
@@ -18,14 +19,20 @@ let Header = props => {
     const refComponent = createRef();
 
     useEffect(() => {
-    props.setHeight(refComponent.current.getBoundingClientRect().height);
+        props.setHeight(refComponent.current.getBoundingClientRect().height)
+        const subscribtion = fromEvent(window, 'resize')
+            .pipe(
+                debounceTime(0),
+            )
+            .subscribe(() => props.setHeight(refComponent.current.getBoundingClientRect().height));
+        return () => subscribtion.unsubscribe();
     }, [refComponent]);
 
     const [offset, setOffset] = useState(false);
     let [IOSVersion, setIOSVersion] = useState(false)
 
     useEffect(() => {
-        const onScroll = () => setOffset(window.pageYOffset !=0);
+        const onScroll = () => setOffset(window.pageYOffset != 0);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
