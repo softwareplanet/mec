@@ -1,5 +1,5 @@
 .switcher {
-    display: flex;
+    margin: 7.5px 0.8rem 0 0.8rem;
 }
 
 .icon {
@@ -9,15 +9,11 @@
     background-color: #F5F5F5;
     border: none;
     padding: 0;
-    margin-left: 1em;
+    cursor: pointer;
 }
 
 .svgIcon {
     width: 120%;
     height: 120%;
-    color: gray;
-}
-
-.active {
-    color: black;  
+    color: black;
 }

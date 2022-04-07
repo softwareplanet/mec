@@ -36,7 +36,10 @@ input:focus {
 
 .toolbar {
   display: flex;
-  gap: 0.8rem;
+}
+
+.toolbar a {
+  margin-top: 4.5px;
 }
 
 .grid :global .CardComponent-module--link-view--SmCuq {

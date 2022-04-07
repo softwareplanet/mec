@@ -1,27 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-import CardComponent from "../CardComponent/CardComponent";
-import ToolBar from "../ToolBar/ToolBar";
-import * as styles from "./listsStyles.module.css";
-import { debounceTime, fromEvent, startWith } from "rxjs";
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import CardComponent from '../CardComponent/CardComponent';
+import ToolBar from '../ToolBar/ToolBar';
+import * as styles from './listsStyles.module.css';
+import { debounceTime, fromEvent, startWith } from 'rxjs';
+import ViewContext from './Context';
 
 const MAX_CONTAINER_WIDTH = 900;
 const GRID_GAP = 15;
 
-let RenderList = ({ data, searchData }) => {
-  let [view, setView] = useState("grid");
+let RenderList = ({ data, searchData}) => {
+    const {view, setView} = useContext(ViewContext)
 
-  let [containerWidth, setContainerWidth] = useState(MAX_CONTAINER_WIDTH);
-  useEffect(() => {
-    const subscribtion = fromEvent(window, "resize")
-      .pipe(
-        debounceTime(250),
-        startWith(MAX_CONTAINER_WIDTH) // need to path some value
-      )
-      .subscribe(() => setContainerWidth(container.current.clientWidth));
-    return () => subscribtion.unsubscribe();
-  }, []);
+    let [containerWidth, setContainerWidth] = useState(MAX_CONTAINER_WIDTH);
+    useEffect(() => {
+        const subscribtion = fromEvent(window, 'resize')
+            .pipe(
+                debounceTime(250),
+                startWith(MAX_CONTAINER_WIDTH) // need to path some value
+            )
+            .subscribe(() => setContainerWidth(container.current.clientWidth));
+        return () => subscribtion.unsubscribe();
+    }, []);
 
-  const container = useRef();
+    const container = useRef();
 
   const culcCardSize = () => {    
     let cardsInRow = containerWidth >= 320 ? Math.floor(containerWidth / 160) : Math.round(containerWidth / 160);
