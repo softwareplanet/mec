@@ -8,7 +8,7 @@ const Layout = props => {
     return (
         <div className={styles.layout}>
             <Header setHeight={setHeight} {...props} />
-            <main style={{ marginTop: height - 25 }}>
+            <main style={{ marginTop: height - 20 }}>
                 {props.children}
             </main>
             <Footer />
