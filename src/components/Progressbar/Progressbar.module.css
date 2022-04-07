@@ -1,7 +1,7 @@
 .progressbar {
   position: fixed;
   bottom: 0;
-  left: 0;
+  max-width: 900px;
   width: 100%;
 }
 .progressbar-content {
@@ -22,7 +22,7 @@
 }
 
 .hide-element {
-  position: fixed;
+  position: absolute;
   right: 0;
   height: 25px;
   width: 100px;
@@ -54,4 +54,11 @@
 
 .done .bar .progress {
   background-color: #11a945;
+}
+
+@media screen and (max-width: 940px) {
+  .progressbar {
+    max-width: 940px;
+    left: 0;
+  }
 }
