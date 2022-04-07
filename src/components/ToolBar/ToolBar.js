@@ -9,8 +9,8 @@ let ToolBar = ({ setView }) => {
         <div className={styles.toolbar}>
             <Search />
             <Switcher onViewChange={setView} />
-            <a href="https://forms.gle/JkwZaui4AjKtvZDe6" target="_blank" rel="noreferrer" >
-                <img src={addContent} width="35px" alt="" />
+            <a href="https://forms.gle/duzBeUo43YXPPDDe7" target="_blank" rel="noreferrer" >
+                <img className={styles.add} src={addContent} width="27.5px" alt="" />
             </a>
         </div> 
     )

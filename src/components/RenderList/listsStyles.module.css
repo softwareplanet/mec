@@ -53,3 +53,7 @@ input:focus {
   margin-top: 10.5px !important;
   width: 80px !important;
 }
+
+.add {
+  margin: 6px 0 0 5px;
+}
