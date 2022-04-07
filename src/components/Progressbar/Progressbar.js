@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import * as styles from "./Progressbar.module.css";
 import doneIcon from "../../images/progressDone.png";
 import hideIcon from "../../images/hideIcon.png";
+import ProgressContext from "../Layout/Context";
 
 export const Progressbar = () => {
   const [progress, setProgress] = useState(0);
 
-  const [hideStyle, setHideStyle] = useState({ display: "none" });
+  const {progressState, setProgressState} = useContext(ProgressContext)
 
   const caclProgress = (cached, total) => {
     if (total != 0) {
@@ -24,11 +25,11 @@ export const Progressbar = () => {
           console.log(`The service worker sent me a message`, event.data);
           setProgress(caclProgress(event.data.cached, event.data.total))
           if (event.data.type === "INSTALLING") {
-            setHideStyle({ display: "block" })
+            setProgressState(true)
           }
           if (event.data.type === "DONE") {
             setTimeout(function () {
-              setHideStyle({ display: "none" });
+              setProgressState(false);
             }, 5000);
           }
         });
@@ -45,7 +46,7 @@ export const Progressbar = () => {
   return (
     <>
       <div
-        style={hideStyle}
+        style={{ display: progressState ? 'block' : 'none'}}
         className={`${styles.progressbar} ${progress === 100 ? styles.done : ""
           }`}
       >

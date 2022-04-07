@@ -63,7 +63,6 @@ self.addEventListener('install', async (event) => {
   let keys = new Set((await cache.keys()).map(r => {
     return r.url
   }))
-  console.log(keys);
 
   let total = manifest.filter(entries => !keys.has(precacheController.getCacheKeyForURL(entries.url)))
   totalSize = total.length;
