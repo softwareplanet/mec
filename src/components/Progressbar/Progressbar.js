@@ -6,14 +6,37 @@ import hideIcon from "../../images/hideIcon.png";
 export const Progressbar = () => {
   const [progress, setProgress] = useState(0);
 
-  const [hideStyle, setHideStyle] = useState({ display: "block" });
+  const [hideStyle, setHideStyle] = useState({ display: "none" });
+
+  const caclProgress = (cached, total) => {
+    if (total != 0) {
+      return Math.round((cached / total) * 100);
+    } else {
+      return 100;
+    }
+  }
 
   useEffect(() => {
-    if (progress === 100) {
-      setTimeout(function () {
-        setHideStyle({ display: "none" });
-      }, 5000);
+    if ("serviceWorker" in navigator) {
+      try {
+        navigator.serviceWorker.addEventListener('message', event => {
+          // event is a MessageEvent object
+          console.log(`The service worker sent me a message`, event.data);
+          setProgress(caclProgress(event.data.cached, event.data.total))
+          if (event.data.type === "INSTALLING") {
+            setHideStyle({ display: "block" })
+          }
+          if (event.data.type === "DONE") {
+            setTimeout(function () {
+              setHideStyle({ display: "none" });
+            }, 5000);
+          }
+        });
+      } catch (e) {
+        console.log('sw register fail');
+      }
     }
+
   }, []);
 
   const [show, setShow] = useState(false);
@@ -23,9 +46,8 @@ export const Progressbar = () => {
     <>
       <div
         style={hideStyle}
-        className={`${styles.progressbar} ${
-          progress === 100 ? styles.done : ""
-        }`}
+        className={`${styles.progressbar} ${progress === 100 ? styles.done : ""
+          }`}
       >
         <div
           style={show ? { bottom: "0px" } : { bottom: "70px" }}

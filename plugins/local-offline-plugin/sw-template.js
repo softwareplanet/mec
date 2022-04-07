@@ -2,35 +2,29 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox
 
 workbox.core.setCacheNameDetails({ prefix: "gatsby-plugin-offline" });
 
-workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\/page-data\/.*\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-
+/* global importScripts, workbox, idbKeyval */
 importScripts(`idb-keyval-3.2.0-iife.min.js`)
 
-/* global importScripts, workbox, idbKeyval */
 let { NavigationRoute, registerRoute } = workbox.routing
-let { cleanupOutdatedCaches, matchPrecache, precacheAndRoute, PrecacheController } = workbox.precaching
+let { cleanupOutdatedCaches, matchPrecache, PrecacheRoute, PrecacheController } = workbox.precaching
 let { clientsClaim } = workbox.core
 
 self.skipWaiting()
 clientsClaim()
 
 const postMessageOnCacheDidUpdate = {
-  name: 'our plugin',
-  // cachedResponseWillBeUsed: (e) => {
-  //   notifyClients({
-  //     type: 'CACHE_DID_UPDATE',
-  //     cached: ++cached,
-  //     total: manifest.length
-  //   })
+  // cachedResponseWillBeUsed: async (e) => {
+  //     notifyClients({
+  //       type: 'Cached_Response_Will_Be_Used',
+  //       cached: ++cached,
+  //       total: manifest.length
+  //     })
   // },
   cacheDidUpdate: async (e) => {
     notifyClients({
       type: 'CACHE_DID_UPDATE',
       cached: ++cached,
-      total: manifest.length
+      total: totalSize
     })
   }
 }
@@ -41,12 +35,9 @@ async function notifyClients(message) {
 }
 
 let cached = 0;
+let totalSize = 0;
 let manifest = self.__WB_MANIFEST;
-notifyClients({
-  type: 'INSTALLING',
-  cached: cached,
-  total: manifest.length
-})
+
 const precacheController = new PrecacheController(
   {
     plugins: [postMessageOnCacheDidUpdate]
@@ -55,24 +46,50 @@ const precacheController = new PrecacheController(
 
 
 precacheController.addToCacheList(manifest)
-self.addEventListener('install', async (event) => {
-  await event.waitUntil(precacheController.install(event));
+registerRoute(new PrecacheRoute(precacheController));
+registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
+registerRoute(/^https?:.*\/page-data\/.*\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET'); // ?
+registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
+registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 
+self.addEventListener('install', async (event) => {
+  /*  To Do:
+   *  compare installed cache with manifest and subtract (Manifest - Cache)
+   *  total = (Manifest / Cache)
+   *  
+   */
+  await event.waitUntil(precacheController.install(event));
+  let cache = await caches.open('gatsby-plugin-offline-precache-v2-http://localhost:9080/');
+  let keys = new Set((await cache.keys()).map(r => {
+    return r.url
+  }))
+  console.log(keys);
+
+  let total = manifest.filter(entries => !keys.has(precacheController.getCacheKeyForURL(entries.url)))
+  totalSize = total.length;
+  notifyClients({
+    type: 'INSTALLING',
+    cached: cached,
+    total: totalSize
+  })
 })
 self.addEventListener('activate', async (event) => {
   await event.waitUntil(precacheController.activate(event));
-
+  
   notifyClients({
     type: 'DONE',
-    cached: manifest.length,
-    total: manifest.length
+    cached: cached,
+    total: totalSize
   })
 })
 self.addEventListener('fetch', async (event) => {
   const cacheKey = precacheController.getCacheKeyForURL(event.request.url);
   event.respondWith(caches.match(cacheKey))
-
-  notifyClients({ type: 'FETCH' })
+  notifyClients({
+    type: 'FETCH',
+    cached: cached,
+    total: totalSize
+  })
 })
 let lastNavigationRequest = null
 let offlineShellEnabled = true

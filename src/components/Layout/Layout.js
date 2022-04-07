@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import * as styles from "./layout.module.css";
 import Footer from '../Footer/Footer';
+import { Progressbar } from "../Progressbar/Progressbar";
 
 const Layout = (props) => {
   return (
@@ -11,6 +12,7 @@ const Layout = (props) => {
         {props.children}
       </main>
       <Footer />
+      <Progressbar />
     </div>
   );
 };
