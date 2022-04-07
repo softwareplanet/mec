@@ -22,7 +22,7 @@ let Header = props => {
         props.setHeight(refComponent.current.getBoundingClientRect().height)
         const subscribtion = fromEvent(window, 'resize')
             .pipe(
-                debounceTime(0),
+                debounceTime(100),
             )
             .subscribe(() => props.setHeight(refComponent.current.getBoundingClientRect().height));
         return () => subscribtion.unsubscribe();
