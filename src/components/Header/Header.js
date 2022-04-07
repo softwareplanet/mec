@@ -7,14 +7,21 @@ import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
 
 let Header = props => {
-    let iPhoneVersion = () => {
-        if (typeof window !== 'undefined') {
+    const [offset, setOffset] = useState(false);
+    let [iosWithNotch, setIosWithNotch] = useState(false)
+
+    let isIPhoneWithNotch = () => {
+        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
             let iHeight = window.screen.height;
             let iWidth = window.screen.width;
 
-            if (iWidth >= 375 && iHeight >= 812) return true
+            if (iWidth >= 375 && iHeight >= 812 && /iPhone/.test(navigator.userAgent) && !window.MSStream) return true
         }
     }
+
+    useEffect(() => {
+        setIosWithNotch(isIPhoneWithNotch())
+    }, [])
 
     const refComponent = createRef();
 
@@ -28,18 +35,11 @@ let Header = props => {
         return () => subscribtion.unsubscribe();
     }, [refComponent]);
 
-    const [offset, setOffset] = useState(false);
-    let [IOSVersion, setIOSVersion] = useState(false)
-
     useEffect(() => {
         const onScroll = () => setOffset(window.pageYOffset != 0);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
-
-    useEffect(() => {
-        setIOSVersion(typeof navigator !== 'undefined' ? /iPhone/.test(navigator.userAgent) && !window.MSStream && iPhoneVersion() : false)
-    }, [])
 
     return (
         <div
@@ -48,7 +48,7 @@ let Header = props => {
             })}
             ref={refComponent}
         >
-            <div className={clsx(styles.content, { [styles.ios]: IOSVersion })}>
+            <div className={clsx(styles.content, { [styles.ios]: iosWithNotch })}>
                 <Link to={props.backPath || '/'}>
                     <div className={styles.head}>
                         {props.backPath ? (
