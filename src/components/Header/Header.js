@@ -23,17 +23,17 @@ let Header = props => {
         setIosWithNotch(isIPhoneWithNotch())
     }, [])
 
-    const refComponent = createRef();
+    const refElement = createRef();
 
     useEffect(() => {
-        props.setHeight(refComponent.current.getBoundingClientRect().height)
+        props.setHeight(refElement.current.getBoundingClientRect().height)
         const subscribtion = fromEvent(window, 'resize')
             .pipe(
                 debounceTime(100),
             )
-            .subscribe(() => props.setHeight(refComponent.current.getBoundingClientRect().height));
+            .subscribe(() => props.setHeight(refElement.current.getBoundingClientRect().height));
         return () => subscribtion.unsubscribe();
-    }, [refComponent]);
+    }, [refElement]);
 
     useEffect(() => {
         const onScroll = () => setOffset(window.pageYOffset != 0);
@@ -46,7 +46,7 @@ let Header = props => {
             className={clsx(styles.container, {
                 [styles.scroll]: offset
             })}
-            ref={refComponent}
+            ref={refElement}
         >
             <div className={clsx(styles.content, { [styles.ios]: iosWithNotch })}>
                 <Link to={props.backPath || '/'}>
