@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchResults from '../Search/DropdownList.js';
 import * as styles from '../Search/search.module.css';
-import addContent from '../add-content.svg';
+import AddEquipment from '../../AddEquipment/AddEquipment';
 import arrow from '../../../images/hideIcon.png';
 
 const Dropdown = ({ data, currEquip }) => {
@@ -30,13 +30,7 @@ const Dropdown = ({ data, currEquip }) => {
                     }))}
                 />
             </div>
-            <a
-                href="https://forms.gle/duzBeUo43YXPPDDe7"
-                target="_blank"
-                rel="noreferrer"
-            >
-                <img className={styles.add} src={addContent} width="27.5px" alt="" />
-            </a>
+            <AddEquipment />
         </div>
     );
 };
