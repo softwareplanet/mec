@@ -2,7 +2,7 @@ import React from 'react';
 
 const ViewContext = React.createContext({
     view: 'grid',
-    setView: () => {},
+    setView: () => {}
 });
 
 export default ViewContext;

@@ -1,78 +1,9 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js')
-
-workbox.core.setCacheNameDetails({ prefix: "gatsby-plugin-offline" });
-
 /* global importScripts, workbox, idbKeyval */
 importScripts(`%idbKeyValVersioned%`)
 
-let { NavigationRoute, registerRoute } = workbox.routing
-let { cleanupOutdatedCaches, matchPrecache, PrecacheRoute, PrecacheController, getCacheKeyForURL } = workbox.precaching
-let { clientsClaim } = workbox.core
+const { NavigationRoute } = workbox.routing
+const { getCacheKeyForURL } = workbox.precaching
 
-self.skipWaiting()
-clientsClaim()
-
-const postMessageOnCacheDidUpdate = {
-  cacheDidUpdate: async (e) => {
-    notifyClients({
-      type: 'CACHE_DID_UPDATE',
-      cached: ++cached,
-      total: totalSize
-    })
-  }
-}
-
-async function notifyClients(message) {
-  let clients = await self.clients.matchAll({ includeUncontrolled: true });
-  clients.forEach(client => client.postMessage(message))
-}
-
-let cached = 0;
-let totalSize = 0;
-let manifest = self.__WB_MANIFEST;
-
-const precacheController = new PrecacheController(
-  {
-    cacheName: 'gatsby-plugin-offline-precache-v2',
-    plugins: [postMessageOnCacheDidUpdate]
-  }
-)
-
-precacheController.addToCacheList(manifest)
-registerRoute(new PrecacheRoute(precacheController));
-registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
-registerRoute(/^https?:.*\/page-data\/.*\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET'); // ?
-registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-
-self.addEventListener('install', async (event) => {
-  await event.waitUntil((async () =>{  
-    let cache = await caches.open(precacheController.strategy.cacheName);
-    let keys = new Set((await cache.keys()).map(r => {
-      return r.url
-    }))
-
-    let total = manifest.filter(entries => !keys.has(precacheController.getCacheKeyForURL(entries.url)))
-    totalSize = total.length;
-    notifyClients({
-      type: 'INSTALLING',
-      cached: 0,
-      total: totalSize
-    })
-    return precacheController.install(event);
-  })());
-  
-})
-self.addEventListener('activate', async (event) => {
-  await event.waitUntil((async() => {
-    notifyClients({
-      type: 'DONE',
-      cached: cached,
-      total: totalSize
-    })
-    return precacheController.activate(event)
-  })());
-})
 let lastNavigationRequest = null
 let offlineShellEnabled = true
 
@@ -176,14 +107,17 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     // As soon as we detect a failed resource, fetch the entire page from
     // network - that way we won't risk being in an inconsistent state with
     // some parts of the page failing.
-    if (!(await caches.match(precacheController.getCacheKeyForURL(resource)))) { 
+    if (!(await caches.match(getCacheKeyForURL(resource)))) {
       return await fetch(event.request)
     }
   }
 
   const offlineShell = `%pathPrefix%/offline-plugin-app-shell-fallback/index.html`
-  const offlineShellWithKey = precacheController.getCacheKeyForURL(offlineShell)
+  const offlineShellWithKey = getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
 
-registerRoute(navigationRoute)
+workbox.routing.registerRoute(navigationRoute)
+
+// this route is used when performing a non-navigation request (e.g. fetch)
+workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, handleAPIRequest)

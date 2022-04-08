@@ -104,4 +104,6 @@ exports.onRouteUpdate = ({ location, getResourceURLsForPathname }) => {
   }
 }
 
-
+exports.onPostPrefetchPathname = ({ pathname, getResourceURLsForPathname }) => {
+  setPathResources(pathname, getResourceURLsForPathname)
+}

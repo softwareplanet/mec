@@ -8,7 +8,6 @@ const glob = require(`glob`)
 const _ = require(`lodash`)
 
 let getResourcesFromHTML = require(`./get-resources-from-html`)
-const { template } = require("lodash")
 
 exports.onPreBootstrap = ({ cache }) => {
   const appShellSourcePath = path.join(__dirname, `app-shell.js`)
@@ -76,6 +75,7 @@ exports.onPostBuild = (
   args,
   {
     precachePages: precachePagesGlobs = [],
+    appendScript = null,
     debug = undefined,
     workboxConfig = {},
   }
@@ -103,6 +103,7 @@ exports.onPostBuild = (
       `${process.cwd()}/${rootDir}`
     ).filter(page => page !== offlineShellPath),
   ]
+
   const criticalFilePaths = _.uniq(
     flat(precachePages.map(page => getResourcesFromHTML(page, pathPrefix)))
   )
@@ -119,6 +120,7 @@ exports.onPostBuild = (
   })
 
   const options = {
+    importWorkboxFrom: `local`,
     globDirectory: rootDir,
     globPatterns,
     modifyURLPrefix: {
@@ -126,10 +128,44 @@ exports.onPostBuild = (
       // the default prefix with `pathPrefix`.
       "/": `${pathPrefix}/`,
     },
-    
+    cacheId: `gatsby-plugin-offline`,
     // Don't cache-bust JS or CSS files, and anything in the static directory,
     // since these files have unique URLs and their contents will never change
     dontCacheBustURLsMatching: /(\.js$|\.css$|static\/)/,
+    runtimeCaching: [
+      // ignore cypress endpoints (only for testing)
+      process.env.CYPRESS_SUPPORT
+        ? {
+            urlPattern: /\/__cypress\//,
+            handler: `NetworkOnly`,
+          }
+        : false,
+      {
+        // Use cacheFirst since these don't need to be revalidated (same RegExp
+        // and same reason as above)
+        urlPattern: /(\.js$|\.css$|static\/)/,
+        handler: `CacheFirst`,
+      },
+      {
+        // page-data.json files, static query results and app-data.json
+        // are not content hashed
+        urlPattern: /^https?:.*\/page-data\/.*\.json/,
+        handler: `StaleWhileRevalidate`,
+      },
+      {
+        // Add runtime caching of various other page resources
+        urlPattern:
+          /^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|js|woff|woff2|json|css)$/,
+        handler: `StaleWhileRevalidate`,
+      },
+      {
+        // Google Fonts CSS (doesn't end in .css so we need to specify it)
+        urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+        handler: `StaleWhileRevalidate`,
+      },
+    ].filter(Boolean),
+    skipWaiting: true,
+    clientsClaim: true,
   }
 
   const combinedOptions = _.merge(options, workboxConfig)
@@ -140,17 +176,10 @@ exports.onPostBuild = (
   const idbKeyValVersioned = `idb-keyval-${idbKeyvalPackageJson.version}-iife.min.js`
   const idbKeyvalDest = `public/${idbKeyValVersioned}`
   fs.createReadStream(idbKeyvalSource).pipe(fs.createWriteStream(idbKeyvalDest))
-  const swDest = `public/sw.js`
-  const swSrc = `public/sw.js`
-  const swSrcReplace = fs
-    .readFileSync(`${__dirname}/sw-template.js`, `utf8`)
-    .replace(/%idbKeyValVersioned%/g, idbKeyValVersioned)
-    .replace(/%pathPrefix%/g, pathPrefix)
-    .replace(/%appFile%/g, appFile)
-  fs.writeFileSync(`public/sw.js`, swSrcReplace)
 
+  const swDest = `public/sw.js`
   return workboxBuild
-    .injectManifest({ swSrc, swDest, ...combinedOptions })
+    .generateSW({ swDest, ...combinedOptions })
     .then(({ count, size, warnings }) => {
       if (warnings) warnings.forEach(warning => console.warn(warning))
 
@@ -162,6 +191,24 @@ exports.onPostBuild = (
             `$1, debug: ${JSON.stringify(debug)}});`
           )
         fs.writeFileSync(swDest, swText)
+      }
+
+      const swAppend = fs
+        .readFileSync(`${__dirname}/sw-append.js`, `utf8`)
+        .replace(/%idbKeyValVersioned%/g, idbKeyValVersioned)
+        .replace(/%pathPrefix%/g, pathPrefix)
+        .replace(/%appFile%/g, appFile)
+
+      fs.appendFileSync(`public/sw.js`, `\n` + swAppend)
+
+      if (appendScript !== null) {
+        let userAppend
+        try {
+          userAppend = fs.readFileSync(appendScript, `utf8`)
+        } catch (e) {
+          throw new Error(`Couldn't find the specified offline inject script`)
+        }
+        fs.appendFileSync(`public/sw.js`, `\n` + userAppend)
       }
 
       reporter.info(
@@ -183,6 +230,9 @@ exports.pluginOptionsSchema = function ({ Joi }) {
       .description(
         `An array of pages whose resources should be precached by the service worker, using an array of globs`
       ),
+    appendScript: Joi.string().description(
+      `A file (path) to be appended at the end of the generated service worker`
+    ),
     debug: Joi.boolean().description(
       `Specifies whether Workbox should show debugging output in the browser console at runtime. When undefined, defaults to showing debug messages on localhost only`
     ),

@@ -13,7 +13,7 @@
     "glob": "^7.2.0",
     "idb-keyval": "^3.2.0",
     "lodash": "^4.17.21",
-    "workbox-build": "^6.5.2"
+    "workbox-build": "^4.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.4",
