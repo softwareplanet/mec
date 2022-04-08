@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import * as styles from './layout.module.css';
 import Footer from '../Footer/Footer';
 import { Progressbar } from "../Progressbar/Progressbar";
-import ProgressContext from './Context';
+import ProgressContext from './ProgressContext';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);

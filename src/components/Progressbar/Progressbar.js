@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import * as styles from "./Progressbar.module.css";
 import doneIcon from "../../images/progressDone.png";
 import hideIcon from "../../images/hideIcon.png";
-import ProgressContext from "../Layout/Context";
+import ProgressContext from "../Layout/ProgressContext";
 
 export const Progressbar = () => {
   const [progress, setProgress] = useState(0);
@@ -22,7 +22,6 @@ export const Progressbar = () => {
       try {
         navigator.serviceWorker.addEventListener('message', event => {
           // event is a MessageEvent object
-          console.log(`The service worker sent me a message`, event.data);
           setProgress(caclProgress(event.data.cached, event.data.total))
           if (event.data.type === "INSTALLING") {
             setProgressState(true)

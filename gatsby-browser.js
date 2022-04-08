@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ViewContext from './src/components/RenderList/Context';
-import ProgressContext from './src/components/Layout/Context';
+import ProgressContext from './src/components/Layout/ProgressContext';
 
 let Root = ({ children }) => {
     let [view, setView] = useState('grid');

@@ -76,7 +76,6 @@ exports.onPostBuild = (
   args,
   {
     precachePages: precachePagesGlobs = [],
-    appendScript = null,
     debug = undefined,
     workboxConfig = {},
   }
@@ -104,7 +103,6 @@ exports.onPostBuild = (
       `${process.cwd()}/${rootDir}`
     ).filter(page => page !== offlineShellPath),
   ]
-
   const criticalFilePaths = _.uniq(
     flat(precachePages.map(page => getResourcesFromHTML(page, pathPrefix)))
   )
@@ -143,7 +141,14 @@ exports.onPostBuild = (
   const idbKeyvalDest = `public/${idbKeyValVersioned}`
   fs.createReadStream(idbKeyvalSource).pipe(fs.createWriteStream(idbKeyvalDest))
   const swDest = `public/sw.js`
-  const swSrc = `${__dirname}/sw-template.js`
+  const swSrc = `public/sw.js`
+  const swSrcReplace = fs
+    .readFileSync(`${__dirname}/sw-template.js`, `utf8`)
+    .replace(/%idbKeyValVersioned%/g, idbKeyValVersioned)
+    .replace(/%pathPrefix%/g, pathPrefix)
+    .replace(/%appFile%/g, appFile)
+  fs.writeFileSync(`public/sw.js`, swSrcReplace)
+
   return workboxBuild
     .injectManifest({ swSrc, swDest, ...combinedOptions })
     .then(({ count, size, warnings }) => {
@@ -158,24 +163,6 @@ exports.onPostBuild = (
           )
         fs.writeFileSync(swDest, swText)
       }
-
-      // const swAppend = fs
-      //   .readFileSync(`${__dirname}/sw-append.js`, `utf8`)
-      //   .replace(/%idbKeyValVersioned%/g, idbKeyValVersioned)
-      //   .replace(/%pathPrefix%/g, pathPrefix)
-      //   .replace(/%appFile%/g, appFile)
-
-      // fs.appendFileSync(`public/sw.js`, `\n` + swAppend)
-
-      // if (appendScript !== null) {
-      //   let userAppend
-      //   try {
-      //     userAppend = fs.readFileSync(appendScript, `utf8`)
-      //   } catch (e) {
-      //     throw new Error(`Couldn't find the specified offline inject script`)
-      //   }
-      //   fs.appendFileSync(`public/sw.js`, `\n` + userAppend)
-      // }
 
       reporter.info(
         `Generated ${swDest}, which will precache ${count} files, totaling ${size} bytes.\n` +
@@ -196,9 +183,6 @@ exports.pluginOptionsSchema = function ({ Joi }) {
       .description(
         `An array of pages whose resources should be precached by the service worker, using an array of globs`
       ),
-    appendScript: Joi.string().description(
-      `A file (path) to be appended at the end of the generated service worker`
-    ),
     debug: Joi.boolean().description(
       `Specifies whether Workbox should show debugging output in the browser console at runtime. When undefined, defaults to showing debug messages on localhost only`
     ),
