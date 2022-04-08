@@ -47,7 +47,7 @@ registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.
 
 self.addEventListener('install', async (event) => {
   await event.waitUntil((async () =>{  
-    let cache = await caches.open(precacheController._strategy.cacheName);
+    let cache = await caches.open(precacheController.strategy.cacheName);
     let keys = new Set((await cache.keys()).map(r => {
       return r.url
     }))
