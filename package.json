@@ -60,8 +60,7 @@
     "react-slick": "^0.28.1",
     "remark-oembed": "^1.2.2",
     "rxjs": "^7.5.5",
-    "slick-carousel": "^1.8.1",
-    "workbox-build": "^4.3.1"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
