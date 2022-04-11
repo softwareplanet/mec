@@ -78,7 +78,7 @@ module.exports = {
           globPatterns: [
             'offline-plugin-app-shell-fallback/index.html',
             'flexsearch_index.json',
-            'public/icons/*', "favicon*.png", "**/*.webp"
+            'public/icons/*', "favicon*.png", "**/*.webp", "*.js", "**/*.png"
           ]
         }
       }
