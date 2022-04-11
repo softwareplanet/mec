@@ -63,11 +63,8 @@ const InfoPage = ({ data }) => {
 
     return (
         <Layout name={category.title} backPath={`/${category.name}`}>
-            <Dropdown
-                data={data.allMdx.nodes}
-                currEquip={data.mdx}
-            />
-            <div className={styles.fullWidthItem}>
+            <Dropdown data={data.allMdx.nodes} currEquip={data.mdx} />
+            <div className={styles.fullWidthItem} style={{ marginTop: '20px' }}>
                 <Slider images={images} />
             </div>
             <div
