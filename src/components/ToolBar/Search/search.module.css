@@ -48,10 +48,11 @@
 .result-ul:empty {
   display: none;
 }
-.dropdownContainer{
-  margin: 0 auto 0 auto;
-  width: 80%;
+
+.addEquipment {
+  margin-left: 10px;
 }
+
 .dropdown {
   display: flex;
   justify-content: space-between;
