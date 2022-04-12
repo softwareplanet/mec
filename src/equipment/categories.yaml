@@ -22,7 +22,7 @@
 - name: rls
   title: Розвідувально-локаційні системи
   image: ./images/rls.jpg
-- name: projectiles
+- name: ammunition
   title: Боєприпаси
   image: ./images/projectile.jpg
 - name: artillery
