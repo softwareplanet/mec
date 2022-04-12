@@ -14,6 +14,10 @@
   height: calc(100% - 3px);
 }
 
+.hidden {
+  display: none;
+}
+
 .prevArrow {
   position: absolute;
   top: 0;
