@@ -23,7 +23,7 @@
   title: Розвідувально-локаційні системи
   image: ./images/rls.jpg
 - name: projectiles
-  title: Снаряди
+  title: Боєприпаси
   image: ./images/projectile.jpg
 - name: artillery
   title: Гармати
@@ -40,6 +40,9 @@
 - name: mines
   title: Міни
   image: ./images/mines.jpg
+- name: grenades
+  title: Гранати
+  image: ./images/grenades.jpg
 - name: flamethrowersystem
   title: Вогнеметні системи
   image: ./images/flamethrower.jpg
@@ -48,4 +51,4 @@
   image: ./images/small arms.jpg
 - name: other
   title: Інша техніка
-  image: ./images/tanker.jpg
+  image: ./images/other.jpg
