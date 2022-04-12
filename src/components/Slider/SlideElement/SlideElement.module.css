@@ -6,21 +6,3 @@
   font-size: 14px;
   line-height: 18px;
 }
-
-.countImages {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  left: 20px;
-  bottom: 12px;
-  padding: 5px;
-  color: #fff;
-  background-color: #000;
-  border-radius: 4px;
-  opacity: 50%;
-}
-
-.img {
-  margin-right: 5px;
-}

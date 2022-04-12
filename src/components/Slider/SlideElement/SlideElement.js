@@ -12,10 +12,10 @@ export default function SlideElement({ slideImage, allImages, currentImage }) {
         // style={{ maxHeight: '70vh' }}
         alt="Slide image"
       />
-      <div className={styles.countImages}>
+      {/* <div className={styles.countImages}>
         <BiImages className={styles.img} />
         <span>{currentImage} з {allImages}</span>
-      </div>
+      </div> */}
     </div>
   )
 }

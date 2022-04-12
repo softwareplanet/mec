@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import SlideElement from '../SlideElement/SlideElement';
 import { getImage } from 'gatsby-plugin-image';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { BiImages } from 'react-icons/bi';
 
 const NextArrow = ({ currentSlide, slideCount, ...props }) => {
     const hideArrow = currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
@@ -33,6 +34,11 @@ const PrevArrow = ({ currentSlide, slideCount, ...props }) => {
 
 const SliderComponent = props => {
     const images = props.images.map(picture => getImage(picture));
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const handleAfterChange = index => {
+        setCurrentSlide(index);
+    };
 
     const settingsHorizontal = {
         speed: 500,
@@ -40,6 +46,7 @@ const SliderComponent = props => {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
+        afterChange: handleAfterChange,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
     };
@@ -53,29 +60,37 @@ const SliderComponent = props => {
     const [mode, setMode] = useState(settingsHorizontal);
 
     return (
-        <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
-            <Slider {...mode}>
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        onClick={() =>
-                            setMode(
-                                mode.slidesToShow === 1
-                                    ? settingsVertical
-                                    : settingsHorizontal
-                            )
-                        }
-                    >
-                        <a href="#">
-                            <SlideElement
-                                slideImage={image}
-                                allImages={images.length}
-                                currentImage={index + 1}
-                            />
-                        </a>
-                    </div>
-                ))}
-            </Slider>
+        <div className={styles.sliderContainer}>
+            <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
+                <Slider {...mode}>
+                    {images.map((image, index) => (
+                        <div
+                            key={index}
+                            onClick={() =>
+                                setMode(
+                                    mode.slidesToShow === 1
+                                        ? settingsVertical
+                                        : settingsHorizontal
+                                )
+                            }
+                        >
+                            <a href="#">
+                                <SlideElement
+                                    slideImage={image}
+                                    allImages={images.length}
+                                    currentImage={index + 1}
+                                />
+                            </a>
+                        </div>
+                    ))}
+                </Slider>
+            </div>
+            <div className={styles.countImages}>
+                <BiImages className={styles.img} />
+                <span>
+                    {currentSlide + 1} з {images.length}
+                </span>
+            </div>
         </div>
     );
 };
