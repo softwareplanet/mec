@@ -5,14 +5,12 @@ import Footer from '../Footer/Footer';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);
-    let marginSize = height - 20
+    let marginSize = height - 20;
 
     return (
         <div className={styles.layout}>
             <Header setHeight={setHeight} {...props} />
-            <main style={{ marginTop: marginSize}}>
-                {props.children}
-            </main>
+            <main style={{ marginTop: marginSize }}>{props.children}</main>
             <Footer />
         </div>
     );

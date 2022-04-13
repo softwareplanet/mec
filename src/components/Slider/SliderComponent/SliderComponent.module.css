@@ -1,3 +1,7 @@
+.sliderContainer {
+  position: relative;
+}
+
 .arrow {
   color: #fff;
   font-size: 2.5em;
@@ -14,6 +18,10 @@
   height: calc(100% - 3px);
 }
 
+.hidden {
+  display: none;
+}
+
 .prevArrow {
   position: absolute;
   top: 0;
@@ -21,6 +29,24 @@
   z-index: 1;
   background-color: rgba(0, 0, 0, .3);
   height: calc(100% - 3px);
+}
+
+.countImages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+  bottom: 12px;
+  padding: 5px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
+  opacity: 50%;
+}
+
+.img {
+  margin-right: 5px;
 }
 
 :global .slick-track {
