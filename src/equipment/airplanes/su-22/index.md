@@ -20,3 +20,6 @@ source: https://avia.pro/blog/suhoy-su-22-istrebitel-bombardirovshchik
 Розмах крила | 13.68 м
 Озброєння | 2 авіагармати, 2 ракети повітря-повітря, авіабомби.
 
+## Відео про техніку
+
+https://youtu.be/U9fb0Y-JuH8

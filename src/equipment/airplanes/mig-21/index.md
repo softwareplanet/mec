@@ -19,3 +19,7 @@ source: https://uk.wikipedia.org/wiki/%D0%9C%D1%96%D0%93-21
 Довжина | 14.1 м
 Висота | 4.71 м
 Розмах крила | 7.15 м
+
+## Відео про техніку
+
+https://youtu.be/YkvKzj31yN8
