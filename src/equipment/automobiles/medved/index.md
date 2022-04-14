@@ -1,5 +1,5 @@
 ---
-title: "Ведмідь" (ВПК-3924)
+title: ВПК-3924 "Ведмідь" 
 category: automobiles
 image: ./medved.jpg
 source: https://ru.wikipedia.org/wiki/%D0%92%D0%9F%D0%9A-3924
