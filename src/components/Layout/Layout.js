@@ -7,16 +7,14 @@ import ProgressContext from './ProgressContext';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);
-    let marginSize = height - 20
+    let marginSize = height - 20;
 
     const {progressState} = useContext(ProgressContext)
 
     return (
         <div className={styles.layout} style={{ marginBottom: progressState ? 70 : 0 }}>
             <Header setHeight={setHeight} {...props} />
-            <main style={{ marginTop: marginSize }}>
-                {props.children}
-            </main>
+            <main style={{ marginTop: marginSize }}>{props.children}</main>
             <Footer />
             <Progressbar />
         </div>
