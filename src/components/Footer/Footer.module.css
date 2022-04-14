@@ -2,16 +2,19 @@ a {
     color: inherit;
 }
 
+.footerContainer {
+    padding-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+
 .version-info {
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    text-align: center;
-    padding: 20px 0 35px 0;
     color: #929292;
-
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    clear: both;
 }

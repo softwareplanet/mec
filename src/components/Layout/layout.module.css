@@ -23,6 +23,8 @@ html::-webkit-scrollbar-thumb {
 
 html {
     overflow-y: overlay;
+    position: relative;
+    min-height: 100vh;
 }
 
 body {
@@ -32,15 +34,13 @@ body {
 
 .layout {
     max-width: 900px;
-    min-height: 95vh;
     margin: 33px 20px 0;
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
 main {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
 @media screen and (min-width: 940px) {
