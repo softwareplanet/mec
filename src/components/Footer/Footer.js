@@ -22,16 +22,18 @@ export default function Footer() {
     const repository = `https://github.com/softwareplanet/mec`;
 
     return (
-        <div className={styles.versionInfo}>
-            Version&nbsp;
-            <a href={tagLink} target="_blank" rel="noreferrer">
-                {version}
-            </a>
-            +
-            <a href={repository} target="_blank" rel="noreferrer">
-                sha.{hashCommit}
-            </a>
-            -{dateCommit}
+        <div className={styles.footerContainer}>
+            <div className={styles.versionInfo}>
+                Version&nbsp;
+                <a href={tagLink} target="_blank" rel="noreferrer">
+                    {version}
+                </a>
+                +
+                <a href={repository} target="_blank" rel="noreferrer">
+                    sha.{hashCommit}
+                </a>
+                -{dateCommit}
+            </div>
         </div>
     );
 }
