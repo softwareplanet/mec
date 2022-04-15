@@ -16,6 +16,10 @@ a {
     padding-bottom: 35px;
 }
 
+.browser {
+    padding-bottom: 20px;
+}
+
 .version-info {
     font-weight: 400;
     font-size: 14px;
