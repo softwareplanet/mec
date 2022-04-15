@@ -1,6 +1,6 @@
 ---
 title: Iveco LMV "Рись"
-category: bbms
+category: automobiles
 image: ./iveco_lmv.jpg
 source: https://uk.wikipedia.org/wiki/Iveco_LMV
 ---

@@ -27,7 +27,7 @@
     margin-top: 25px;
 }
 
-.content{
+.content {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,13 +57,20 @@ h1 {
     margin-right: 12px;
 }
 
+.browser {
+    margin-top: 0;
+}
+
+.scroll .browser {
+    margin-top: 0;
+}
 
 @media screen and (max-width: 325px) {
     .container {
         padding: 20px 10px 20px;
     }
     h1 {
-        font-size: 20px; 
+        font-size: 20px;
     }
     .logo {
         width: 40px;

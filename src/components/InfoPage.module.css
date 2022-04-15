@@ -20,7 +20,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 30px 0 10px 0;
 }
 
 .title a {
@@ -38,7 +38,7 @@ body {
 a {
     text-decoration: none;
     color: black;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(196, 196, 196, 0.5);
 }
 
 .infoPage {

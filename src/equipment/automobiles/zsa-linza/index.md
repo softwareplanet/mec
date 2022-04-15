@@ -1,6 +1,6 @@
 ---
 title: ЗСА "Лінза"
-category: bbms
+category: automobiles
 image: ./linza.jpg
 source: https://uk.wikipedia.org/wiki/%D0%91%D0%9C%D0%9C_%C2%AB%D0%9B%D1%96%D0%BD%D0%B7%D0%B0%C2%BB
 ---
