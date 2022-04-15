@@ -9,7 +9,7 @@ import clsx from 'clsx';
 let Header = props => {
     const [offset, setOffset] = useState(false);
     let [iosWithNotch, setIosWithNotch] = useState(false);
-    let [browser, setBrowser] = useState(false);
+    let [isBrowser, setBrowser] = useState(false);
 
     let isIPhoneWithNotch = () => {
         if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
@@ -26,16 +26,22 @@ let Header = props => {
         }
     };
 
-    let isChrome = () => {
+    let checkBrowser = () => {
         if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            if (navigator.appVersion.indexOf('Chrome/') != -1) {
+            const userAgent = navigator.userAgent;
+
+            if (userAgent.match(/chrome|chromium|crios/i)) {
+                console.log('Chrome');
+                return true;
+            } else if (userAgent.match(/safari/i)) {
+                console.log('Safari');
                 return true;
             }
         }
     };
 
     useEffect(() => {
-        setBrowser(isChrome());
+        setBrowser(checkBrowser());
     }, []);
 
     useEffect(() => {
@@ -73,7 +79,7 @@ let Header = props => {
                 className={clsx(
                     styles.content,
                     { [styles.ios]: iosWithNotch },
-                    { [styles.isChrome]: browser }
+                    { [styles.browser]: isBrowser }
                 )}
             >
                 <Link to={props.backPath || '/'}>
