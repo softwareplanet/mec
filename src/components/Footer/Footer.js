@@ -3,7 +3,7 @@ import * as styles from './Footer.module.css';
 import clsx from 'clsx';
 import { useStaticQuery, graphql } from 'gatsby';
 
-export default function Footer() {
+export default function Footer({ isIphone, isBrowser }) {
     const data = useStaticQuery(graphql`
         query {
             gitCommit(latest: { eq: true }) {
@@ -15,27 +15,6 @@ export default function Footer() {
             }
         }
     `);
-
-    const [isIphone, setIsIphone] = useState(false);
-
-    const checkIsIphone = () => {
-        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            let iHeight = window.screen.height;
-            let iWidth = window.screen.width;
-
-            if (
-                iWidth >= 375 &&
-                iHeight >= 812 &&
-                /iPhone/.test(navigator.userAgent) &&
-                !window.MSStream
-            )
-                return true;
-        }
-    };
-
-    useEffect(() => {
-        setIsIphone(checkIsIphone());
-    }, []);
 
     const hashCommit = data.gitCommit.hash.substring(0, 7);
     const version = data.versionInfo.version;

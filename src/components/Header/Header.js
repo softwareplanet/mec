@@ -8,45 +8,6 @@ import clsx from 'clsx';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
-    let [iosWithNotch, setIosWithNotch] = useState(false);
-    let [isBrowser, setBrowser] = useState(false);
-
-    let isIPhoneWithNotch = () => {
-        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            let iHeight = window.screen.height;
-            let iWidth = window.screen.width;
-
-            if (
-                iWidth >= 375 &&
-                iHeight >= 812 &&
-                /iPhone/.test(navigator.userAgent) &&
-                !window.MSStream
-            )
-                return true;
-        }
-    };
-
-    let checkBrowser = () => {
-        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            const userAgent = navigator.userAgent;
-
-            if (userAgent.match(/chrome|chromium|crios/i)) {
-                console.log('Chrome');
-                return true;
-            } else if (userAgent.match(/safari/i)) {
-                console.log('Safari');
-                return true;
-            }
-        }
-    };
-
-    useEffect(() => {
-        setBrowser(checkBrowser());
-    }, []);
-
-    useEffect(() => {
-        setIosWithNotch(isIPhoneWithNotch());
-    }, []);
 
     const refElement = createRef();
 
@@ -78,8 +39,8 @@ let Header = props => {
             <div
                 className={clsx(
                     styles.content,
-                    { [styles.ios]: iosWithNotch },
-                    { [styles.browser]: isBrowser }
+                    { [styles.ios]: props.isIphone },
+                    { [styles.browser]: props.isBrowser }
                 )}
             >
                 <Link to={props.backPath || '/'}>
