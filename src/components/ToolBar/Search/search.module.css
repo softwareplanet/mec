@@ -48,10 +48,11 @@
 .result-ul:empty {
   display: none;
 }
-.dropdownContainer{
-  margin: 0 auto 0 auto;
-  width: 80%;
+
+.addEquipment {
+  margin-left: 10px;
 }
+
 .dropdown {
   display: flex;
   justify-content: space-between;
@@ -61,7 +62,6 @@
   border-radius: 5px;
   border: 1px solid #e4e4e4;
   padding: 11px;
-  margin-bottom: 10px;
   background-color: white;
   cursor: pointer;
 }

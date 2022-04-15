@@ -8,30 +8,18 @@ import clsx from 'clsx';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
-    let [iosWithNotch, setIosWithNotch] = useState(false)
-
-    let isIPhoneWithNotch = () => {
-        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            let iHeight = window.screen.height;
-            let iWidth = window.screen.width;
-
-            if (iWidth >= 375 && iHeight >= 812 && /iPhone/.test(navigator.userAgent) && !window.MSStream) return true
-        }
-    }
-
-    useEffect(() => {
-        setIosWithNotch(isIPhoneWithNotch())
-    }, [])
 
     const refElement = createRef();
 
     useEffect(() => {
-        props.setHeight(refElement.current.getBoundingClientRect().height)
+        props.setHeight(refElement.current.getBoundingClientRect().height);
         const subscribtion = fromEvent(window, 'resize')
-            .pipe(
-                debounceTime(100),
-            )
-            .subscribe(() => props.setHeight(refElement.current.getBoundingClientRect().height));
+            .pipe(debounceTime(100))
+            .subscribe(() =>
+                props.setHeight(
+                    refElement.current.getBoundingClientRect().height
+                )
+            );
         return () => subscribtion.unsubscribe();
     }, [refElement]);
 
@@ -44,11 +32,17 @@ let Header = props => {
     return (
         <div
             className={clsx(styles.container, {
-                [styles.scroll]: offset
+                [styles.scroll]: offset,
             })}
             ref={refElement}
         >
-            <div className={clsx(styles.content, { [styles.ios]: iosWithNotch })}>
+            <div
+                className={clsx(
+                    styles.content,
+                    { [styles.ios]: props.isIphone },
+                    { [styles.browser]: props.isBrowser }
+                )}
+            >
                 <Link to={props.backPath || '/'}>
                     <div className={styles.head}>
                         {props.backPath ? (
