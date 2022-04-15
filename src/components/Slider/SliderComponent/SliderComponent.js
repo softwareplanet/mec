@@ -58,6 +58,7 @@ const SliderComponent = props => {
     };
 
     const [mode, setMode] = useState(settingsHorizontal);
+    const [isVertical, setIsVertical] = useState('');
 
     return (
         <div className={styles.sliderContainer}>
@@ -66,13 +67,18 @@ const SliderComponent = props => {
                     {images.map((image, index) => (
                         <div
                             key={index}
-                            onClick={() =>
+                            onClick={() => {
                                 setMode(
                                     mode.slidesToShow === 1
                                         ? settingsVertical
                                         : settingsHorizontal
-                                )
-                            }
+                                );
+                                setIsVertical(
+                                    mode.hasOwnProperty('vertical')
+                                        ? ''
+                                        : `${styles.counter}`
+                                );
+                            }}
                         >
                             <a href="#">
                                 <SlideElement
@@ -85,7 +91,7 @@ const SliderComponent = props => {
                     ))}
                 </Slider>
             </div>
-            <div className={styles.countImages}>
+            <div className={`${styles.countImages} ${isVertical}`}>
                 <BiImages className={styles.img} />
                 <span>
                     {currentSlide + 1} з {images.length}
