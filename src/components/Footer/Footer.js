@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as styles from './Footer.module.css';
+import clsx from 'clsx';
 import { useStaticQuery, graphql } from 'gatsby';
 
 export default function Footer() {
@@ -15,6 +16,27 @@ export default function Footer() {
         }
     `);
 
+    const [isIphone, setIsIphone] = useState(false);
+
+    const checkIsIphone = () => {
+        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+            let iHeight = window.screen.height;
+            let iWidth = window.screen.width;
+
+            if (
+                iWidth >= 375 &&
+                iHeight >= 812 &&
+                /iPhone/.test(navigator.userAgent) &&
+                !window.MSStream
+            )
+                return true;
+        }
+    };
+
+    useEffect(() => {
+        setIsIphone(checkIsIphone());
+    }, []);
+
     const hashCommit = data.gitCommit.hash.substring(0, 7);
     const version = data.versionInfo.version;
     const dateCommit = data.gitCommit.date;
@@ -22,7 +44,9 @@ export default function Footer() {
     const repository = `https://github.com/softwareplanet/mec`;
 
     return (
-        <div className={styles.footerContainer}>
+        <div
+            className={clsx(styles.footerContainer, { [styles.ios]: isIphone })}
+        >
             <div className={styles.versionInfo}>
                 Version&nbsp;
                 <a href={tagLink} target="_blank" rel="noreferrer">
