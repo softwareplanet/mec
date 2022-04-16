@@ -67,7 +67,7 @@ h1 {
 
 @media screen and (max-width: 325px) {
     .container {
-        padding: 20px 10px 20px;
+        padding: 20px 10px 0px;
     }
     h1 {
         font-size: 20px;
