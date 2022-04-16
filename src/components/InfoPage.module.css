@@ -49,7 +49,8 @@ p {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    padding-bottom: 4px;
+    margin-bottom: 40px;
+    text-align: justify;
 }
 
 em {
