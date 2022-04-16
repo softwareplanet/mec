@@ -53,6 +53,11 @@
     margin-right: 5px;
 }
 
+:global .slick-dots li {
+    margin: 0 !important;
+    width: 15px !important;
+}
+
 :global .slick-track {
     height: 100% !important;
 }
