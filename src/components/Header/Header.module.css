@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     z-index: 10;
-    padding: 25px 20px 0px;
+    padding: 10px 20px 5px;
 
     transition: padding-top 0.6s;
     transition: box-shadow 0.2s;
@@ -38,10 +38,7 @@
 .head {
     display: flex;
     align-items: center;
-}
-
-.head img {
-    margin-right: 20px;
+    height: 45px;
 }
 
 h1 {
@@ -51,10 +48,15 @@ h1 {
     margin: 0;
 }
 
+.arrow {
+    margin-right: 10px;
+    padding-bottom: 2px;
+}
+
 .logo {
-    width: 42px;
-    height: 17px;
-    margin-right: 12px;
+    width: 35px;
+    margin-right: 10px;
+    padding-bottom: 2px;
 }
 
 .browser {
@@ -65,16 +67,25 @@ h1 {
     margin-top: 0;
 }
 
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 505px) {
     .container {
-        padding: 20px 10px 0px;
+        padding: 10px 20px 5px;
     }
+
     h1 {
         font-size: 20px;
     }
+
+    .head {
+        height: 45px;
+    }
+
     .logo {
-        width: 40px;
-        height: 15px;
+        width: 35px;
+        margin-right: 10px;
+    }
+
+    .arrow {
         margin-right: 10px;
     }
 }
