@@ -14,12 +14,8 @@
     top: 0;
     right: 0;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
     height: calc(100% - 3px);
-}
-
-.hidden {
-    display: none;
 }
 
 .prevArrow {
@@ -27,8 +23,20 @@
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
     height: calc(100% - 3px);
+}
+
+.nextArrow:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.prevArrow:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    display: none;
 }
 
 .countImages {
@@ -68,4 +76,14 @@
 
 :global .slick-vertical .slick-slide {
     border: 0px !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .nextArrow {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .prevArrow {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 }
