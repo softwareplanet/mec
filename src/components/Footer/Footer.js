@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as styles from './Footer.module.css';
 import clsx from 'clsx';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -24,7 +24,11 @@ export default function Footer({ isIphone, isBrowser }) {
 
     return (
         <div
-            className={clsx(styles.footerContainer, { [styles.ios]: isIphone })}
+            className={clsx(
+                styles.footerContainer,
+                { [styles.ios]: isIphone },
+                { [styles.browser]: isBrowser }
+            )}
         >
             <div className={styles.versionInfo}>
                 Version&nbsp;
