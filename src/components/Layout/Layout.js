@@ -7,7 +7,7 @@ const Layout = props => {
     const [height, setHeight] = useState(30);
     const [iosWithNotch, setIosWithNotch] = useState(false);
     const [isBrowser, setBrowser] = useState(false);
-    let marginSize = height - 25;
+    let marginSize = height - 30;
 
     const isIPhoneWithNotch = () => {
         if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
