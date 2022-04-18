@@ -17,6 +17,7 @@
 :global input {
     -webkit-appearance: none !important;
     border-radius: 0;
+    background-color: white;
 }
 
 input {

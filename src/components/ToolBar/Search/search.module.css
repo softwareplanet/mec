@@ -69,3 +69,16 @@
     background-color: white;
     cursor: pointer;
 }
+
+.iosDropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #e4e4e4;
+    padding: 11px;
+    background-color: white;
+    cursor: pointer;
+}
