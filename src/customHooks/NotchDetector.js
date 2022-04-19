@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-export default function useNotchDetector(startValue) {
-    const [iosWithNotch, setIosWithNotch] = useState(startValue);
+export default function useNotchDetector(isNotch) {
+    const [iosWithNotch, setIosWithNotch] = useState(isNotch);
 
     const isIPhoneWithNotch = () => {
         if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
