@@ -73,15 +73,15 @@ table {
     width: 100%;
 }
 
-th:first-of-type {
+th {
     font-weight: 600;
-    width: 75%;
+    width: 20%;
     vertical-align: middle;
 }
 
-td:nth-child(2),
-th:nth-child(2) {
-    /* padding: 5px 0; */
+td:not(:first-child),
+th:not(:first-child){
+    padding-right: 5px;
     text-align: end;
 }
 
