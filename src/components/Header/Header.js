@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React, { useEffect, useState, createRef } from 'react';
-import tank from './tank.svg';
+import logo from './logo.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
@@ -46,9 +46,18 @@ let Header = props => {
                 <Link to={props.backPath || '/'}>
                     <div className={styles.head}>
                         {props.backPath ? (
-                            <img height="24px" src={arrow} />
+                            <img
+                                height="24px"
+                                src={arrow}
+                                alt="arrow"
+                                className={styles.arrow}
+                            />
                         ) : (
-                            <img src={tank} alt="" className={styles.logo} />
+                            <img
+                                src={logo}
+                                alt="logo"
+                                className={styles.logo}
+                            />
                         )}
                         <h1>{props.name}</h1>
                     </div>
