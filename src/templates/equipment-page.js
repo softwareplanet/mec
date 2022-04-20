@@ -88,10 +88,7 @@ const InfoPage = ({ data }) => {
                         єВорог
                     </a>
                 </div>
-                <div className={styles.tableWrapper}>
-                    <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
-                </div>
-
+                <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
                 <div className={styles.source}>
                     <h3>Джерело:</h3>
                     <a

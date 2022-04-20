@@ -63,10 +63,7 @@ h2 {
     line-height: 18px;
     padding: 16px 0px;
 }
-div.tableWrapper table {
-    display: block;
-    overflow-x: auto;
-}
+
 table {
     text-align: left;
     font-size: 14px;
