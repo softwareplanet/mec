@@ -90,15 +90,21 @@ const InfoPage = ({ data }) => {
                 </div>
                 <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
                 <div className={styles.source}>
-                    <h3>Джерело:</h3>
-                    <a
-                        className={styles.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        href={data.mdx.frontmatter.source}
-                    >
-                        {decodedURI}
-                    </a>
+                    {data.mdx.frontmatter.source ? 
+                    (
+                        <>
+                            <h3>Джерело:</h3>
+                            <a
+                                className={styles.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                href={data.mdx.frontmatter.source}
+                            >
+                                {decodedURI}
+                            </a>
+                        </>
+                    ) : <></>
+                    }
                 </div>
             </div>
         </Layout>
