@@ -1,6 +1,6 @@
 ---
 title: УР-77 «Метеорит»
-category: bbms
+category: other
 image: ./ur-77.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A3%D0%A0-77
 ---
