@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import addContent from './add-content.svg';
 import * as styles from './addequipment.module.css';
+import PopUp from '../Pop-up/PopUp';
 
 let AddEquipment = () => {
+    const [showPopup, setShowPopup] = useState(false);
+
+    function handlePopup(e) {
+        e.preventDefault();
+        setShowPopup(!showPopup);
+    }
+
     return (
-        <a
-            href="https://forms.gle/duzBeUo43YXPPDDe7"
-            target="_blank"
-            rel="noreferrer"
-        >
-            <img
-                className={styles.add}
-                src={addContent}
-                width="27.5px"
-                alt=""
-            />
-        </a>
+        <div>
+            <a onClick={handlePopup}>
+                <img
+                    className={styles.add}
+                    src={addContent}
+                    width="27.5px"
+                    alt=""
+                />
+            </a>
+            <PopUp show={showPopup} closePopup={handlePopup} />
+        </div>
     );
 };
 
