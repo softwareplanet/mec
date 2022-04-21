@@ -1,6 +1,6 @@
 {
 	"appId": "in.ua",
-	"appName": "MEQD",
+	"appName": "Meqd",
 	"webDir": "public",
 	"bundledWebRuntime": false,
 	"plugins": {
