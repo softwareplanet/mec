@@ -1,12 +1,12 @@
 {
-  "appId": "in.ua",
-  "appName": "MEQD",
-  "webDir": "public",
-  "bundledWebRuntime": false,
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 600,
-      "androidScaleType": "CENTER_CROP"
+    "appId": "in.ua",
+    "appName": "Meqd",
+    "webDir": "public",
+    "bundledWebRuntime": false,
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 600,
+            "androidScaleType": "CENTER_CROP"
+        }
     }
-  }
 }

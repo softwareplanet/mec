@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">MEQD</string>
-    <string name="title_activity_main">MEQD</string>
+    <string name="app_name">Meqd</string>
+    <string name="title_activity_main">Meqd</string>
     <string name="package_name">in.ua</string>
     <string name="custom_url_scheme">in.ua</string>
 </resources>
