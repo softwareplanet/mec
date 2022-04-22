@@ -39,6 +39,7 @@ button {
     align-self: flex-end;
     font-size: 18px;
     margin: 15px 15px 0 0;
+    cursor: pointer;
 }
 
 .popupInfo {
@@ -70,12 +71,15 @@ button {
 @media screen and (min-width: 325px) {
     .popup {
         padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 @media screen and (min-width: 600px) {
     .container {
         max-width: 450px;
-        margin: 300px auto 0;
+        /* margin: 0 auto; */
     }
 }
