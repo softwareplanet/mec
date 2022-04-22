@@ -7,27 +7,30 @@ button {
 }
 
 .popup {
-    position: absolute;
-    top: 300px;
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;
-    padding: 0 15px;
-    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+    transform: scale(0);
 }
 
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
+.popup.active {
+    transform: scale(1);
 }
 
 .container {
     display: flex;
     flex-direction: column;
     max-width: 900px;
+    height: auto;
     background-color: #fff;
+    margin: 0 15px;
     border-radius: 30px;
     box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.25);
 }
@@ -66,13 +69,13 @@ button {
 
 @media screen and (min-width: 325px) {
     .popup {
-        padding: 0 25px;
+        padding: 0 15px;
     }
 }
 
 @media screen and (min-width: 600px) {
     .container {
         max-width: 450px;
-        margin: 0 auto;
+        margin: 300px auto 0;
     }
 }
