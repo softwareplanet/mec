@@ -1,3 +1,11 @@
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
 .popup {
     position: absolute;
     top: 300px;
@@ -32,7 +40,7 @@
 
 .popupInfo {
     text-align: center;
-    padding: 0 10px 25px;
+    padding: 0 10px 15px;
 }
 
 .popupInfo h2 {
@@ -42,7 +50,7 @@
 .popupInfo p {
     text-align: center;
     padding: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .popupInfo span {
