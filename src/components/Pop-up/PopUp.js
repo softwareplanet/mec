@@ -26,7 +26,8 @@ export default function PopUp({ show, setFirst, closePopup }) {
                     <p>
                         Для додавання нового контенту потрібно заповнити форму.
                         Натискаючи "Додати",&nbsp; ви погоджуєтесь перейти на{' '}
-                        <span>Google Forms</span>,&nbsp; де ви можете це зробити
+                        <span>Google Forms</span>,&nbsp; щоб залишити свій
+                        коментар або запропонувати новий вид техніки до каталогу
                     </p>
 
                     <button onClick={setFirst} className={styles.addButton}>
