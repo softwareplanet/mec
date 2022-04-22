@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as styles from './PopUp.module.css';
 import { MdClose } from 'react-icons/md';
-import clsx from 'clsx';
+import noScroll from 'no-scroll';
 
 export default function PopUp({ show, setFirst, closePopup }) {
     const showPopup = show ? `${styles.active}` : '';
+
+    useEffect(() => {
+        if (show) {
+            noScroll.on();
+        }
+
+        return () => noScroll.off();
+    });
 
     return (
         <div className={`${styles.popup} ${showPopup}`} onClick={closePopup}>
