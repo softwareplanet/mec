@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as styles from './PopUp.module.css';
 import { MdClose } from 'react-icons/md';
 
-export default function PopUp({ show, first, closePopup }) {
-    const [isFirst, setIsFirst] = useState(false);
-
-    let hidePopup = show ? `${styles.show}` : `${styles.hide}`;
+export default function PopUp({ show, setFirst, first, closePopup }) {
+    const hidePopup = show ? `${styles.show}` : `${styles.hide}`;
 
     return (
         <div className={`${styles.popup} ${hidePopup}`}>
@@ -18,14 +16,10 @@ export default function PopUp({ show, first, closePopup }) {
                         Натискаючи "Додати", ви погоджуєтесь перейти на{' '}
                         <span>Google Forms</span>, де ви можете це зробити
                     </p>
-                    <a
-                        href="https://forms.gle/duzBeUo43YXPPDDe7"
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.addButton}
-                    >
+
+                    <button onClick={setFirst} className={styles.addButton}>
                         Додати
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
