@@ -63,7 +63,7 @@
 
 :global .slick-dots li {
     margin: 0 !important;
-    width: 15px !important;
+    width: 12px !important;
 }
 
 :global .slick-track {
