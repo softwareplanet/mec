@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import addContent from './add-content.svg';
 import * as styles from './addequipment.module.css';
 import PopUp from '../Pop-up/PopUp';
+import { PopUpContext } from '../Pop-up/PopUpContext';
 
 const AddEquipment = () => {
     const [showPopup, setShowPopup] = useState(false);
-    const [isFirst, setIsFirst] = useState(false);
+    const { popupState, setPopupState } = useContext(PopUpContext);
 
     function handlePopup(e) {
         e.preventDefault();
@@ -15,13 +16,13 @@ const AddEquipment = () => {
     function handleFirstClick(e) {
         e.preventDefault();
         window.open('https://forms.gle/duzBeUo43YXPPDDe7', '_blank');
-        setIsFirst(true);
+        setPopupState(true);
         handlePopup(e);
     }
 
     return (
         <div>
-            {isFirst ? (
+            {popupState ? (
                 <a
                     href="https://forms.gle/duzBeUo43YXPPDDe7"
                     target="_blank"
@@ -47,7 +48,6 @@ const AddEquipment = () => {
 
             <PopUp
                 show={showPopup}
-                first={isFirst}
                 closePopup={handlePopup}
                 setFirst={handleFirstClick}
             />

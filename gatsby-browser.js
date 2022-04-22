@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import ViewContext from './src/components/RenderList/Context';
+import { PopUpContext } from './src/components/Pop-up/PopUpContext';
 
 let Root = ({ children }) => {
     let [view, setView] = useState('grid');
+    const [popupState, setPopupState] = useState(false);
 
     return (
         <ViewContext.Provider value={{ view, setView }}>
-            {children}
+            <PopUpContext.Provider value={{ popupState, setPopupState }}>
+                {children}
+            </PopUpContext.Provider>
         </ViewContext.Provider>
     );
 };

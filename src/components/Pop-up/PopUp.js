@@ -2,7 +2,7 @@ import React from 'react';
 import * as styles from './PopUp.module.css';
 import { MdClose } from 'react-icons/md';
 
-export default function PopUp({ show, setFirst, first, closePopup }) {
+export default function PopUp({ show, setFirst, closePopup }) {
     const hidePopup = show ? `${styles.show}` : `${styles.hide}`;
 
     return (
