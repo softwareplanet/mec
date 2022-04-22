@@ -13,8 +13,8 @@ const Dropdown = ({ data, currEquip }) => {
         ? `${styles.iosDropdown}`
         : `${styles.dropdown}`;
     return (
-        <div className={styles.container} onClick={() => setHide(!hidden)}>
-            <div className={isIphone}>
+        <div className={styles.container}>
+            <div className={isIphone} onClick={() => setHide(!hidden)}>
                 <span>{currEquip.frontmatter.title}</span>
                 <img
                     src={arrow}

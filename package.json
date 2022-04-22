@@ -51,6 +51,7 @@
         "local-offline-plugin": "file:./plugins/local-offline-plugin",
         "local-search-plugin": "file:./plugins/local-search-plugin",
         "lodash": "^4.17.21",
+        "no-scroll": "^2.1.1",
         "path": "^0.12.7",
         "process": "^0.11.10",
         "react": "^17.0.1",
