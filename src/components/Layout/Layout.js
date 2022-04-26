@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/Header';
 import * as styles from './layout.module.css';
 import Footer from '../Footer/Footer';
 import useNotchDetector from '../../customHooks/NotchDetector';
 import useCheckBrowser from '../../customHooks/CheckBrowser';
+import { Helmet } from 'react-helmet';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);
@@ -13,6 +14,7 @@ const Layout = props => {
 
     return (
         <div className={styles.layout}>
+            <Helmet title="Meqd" defer={false} />
             <Header
                 setHeight={setHeight}
                 {...props}
