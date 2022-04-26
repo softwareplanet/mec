@@ -12,6 +12,7 @@ button {
     left: 0;
     width: 100vw;
     height: 100vh;
+    padding: 0 20px;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
@@ -33,7 +34,6 @@ button {
     max-width: 900px;
     height: auto;
     background-color: #fff;
-    margin: 0 15px;
     border-radius: 8px;
     box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.25);
 }
@@ -73,7 +73,7 @@ button {
 
 @media screen and (min-width: 325px) {
     .popup {
-        padding: 0 15px;
+        padding: 0 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -83,6 +83,5 @@ button {
 @media screen and (min-width: 600px) {
     .container {
         max-width: 450px;
-        /* margin: 0 auto; */
     }
 }
