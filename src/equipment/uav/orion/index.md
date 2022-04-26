@@ -1,5 +1,5 @@
 ---
-title: «Оріон»
+title: 'Оріон'
 category: uav
 image: ./orion.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%96%D0%BE%D0%BD_(%D0%91%D0%9F%D0%9B%D0%90)

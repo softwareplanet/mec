@@ -1,5 +1,5 @@
 ---
-title: СПР-2 «Ртуть-Б»
+title: СПР-2 "Ртуть-Б"
 category: rls
 image: ./spr-2.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A1%D0%9F%D0%A0-2_%C2%AB%D0%A0%D1%82%D1%83%D1%82%D1%8C-%D0%91%C2%BB

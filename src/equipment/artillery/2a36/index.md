@@ -1,5 +1,5 @@
 ---
-title: 2А36 «Гіацинт-Б»
+title: 2А36 "Гіацинт-Б"
 category: artillery
 image: ./2a36.jpg
 source: https://uk.wikipedia.org/wiki/2%D0%9036_%C2%AB%D0%93%D1%96%D0%B0%D1%86%D0%B8%D0%BD%D1%82-%D0%91%C2%BB

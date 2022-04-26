@@ -1,5 +1,5 @@
 ---
-title: РБ-341В «Леєр-3»
+title: РБ-341В "Леєр-3"
 category: rls
 image: ./rb-341b.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A0%D0%91-341%D0%92_%C2%AB%D0%9B%D0%B5%D1%94%D1%80-3%C2%BB

@@ -1,5 +1,5 @@
 ---
-title: 2С9 «Нона»
+title: 2С9 "Нона"
 category: artillery
 image: ./2c9.jpg
 source: https://uk.wikipedia.org/wiki/2%D0%A19_%C2%AB%D0%9D%D0%BE%D0%BD%D0%B0%C2%BB
