@@ -43,7 +43,7 @@ h1 {
     font-weight: 400;
     font-size: 24px;
     line-height: 1em;
-    margin: 0;
+    padding-right: 8px;
 }
 
 .arrow {
