@@ -1,5 +1,5 @@
 ---
-title: Ту-141 «Стриж»
+title: Ту-141 "Стриж"
 category: uav
 image: ./tu-141.jpg
 source: https://uk.wikipedia.org/wiki/%D0%A2%D1%83-141
@@ -21,4 +21,3 @@ source: https://uk.wikipedia.org/wiki/%D0%A2%D1%83-141
 | Шасі                          | триколісне, п'яточного типу,              |
 | Двигуни                       | 1 × ТРД КР-17А зі статичної тягою 19,6 кН |
 | Тяга (потужність)             | 2000 к.с.                                 |
-

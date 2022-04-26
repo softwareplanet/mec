@@ -1,5 +1,5 @@
 ---
-title: МТ-12 «Рапіра»
+title: МТ-12 "Рапіра"
 category: artillery
 image: ./mt-12.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D0%A2-12_%C2%AB%D0%A0%D0%B0%D0%BF%D1%96%D1%80%D0%B0%C2%BB

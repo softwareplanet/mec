@@ -1,5 +1,5 @@
 ---
-title: 2С23 «Нона-СВК»
+title: 2С23 "Нона-СВК"
 category: artillery
 image: ./2c23.jpg
 source: https://uk.wikipedia.org/wiki/2%D0%A123_%C2%AB%D0%9D%D0%BE%D0%BD%D0%B0-%D0%A1%D0%92%D0%9A%C2%BB

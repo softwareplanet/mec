@@ -1,5 +1,5 @@
 ---
-title: ДТ-10 «Витязь»
+title: ДТ-10 "Витязь"
 category: automobiles
 image: ./dt-10.jpg
 source: https://ru.wikipedia.org/wiki/%D0%94%D0%A2-10

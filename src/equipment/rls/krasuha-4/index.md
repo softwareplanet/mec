@@ -1,5 +1,5 @@
 ---
-title: 1РЛ257 «Красуха-4»
+title: 1РЛ257 "Красуха-4"
 category: rls
 image: ./krasuha-4.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9A%D1%80%D0%B0%D1%81%D1%83%D1%85%D0%B0-4

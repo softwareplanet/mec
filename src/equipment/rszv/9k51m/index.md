@@ -1,5 +1,5 @@
 ---
-title: 9К51М «Торнадо-Г»
+title: 9К51М "Торнадо-Г"
 category: rszv
 image: ./9k51m.jpg
 source: https://uk.wikipedia.org/wiki/9%D0%9A51%D0%9C_%C2%AB%D0%A2%D0%BE%D1%80%D0%BD%D0%B0%D0%B4%D0%BE-%D0%93%C2%BB

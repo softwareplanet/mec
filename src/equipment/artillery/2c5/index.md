@@ -1,5 +1,5 @@
 ---
-title: 2С5 «Гіацинт-С»
+title: 2С5 "Гіацинт-С"
 category: artillery
 image: ./2c5.jpg
 source: https://uk.wikipedia.org/wiki/2%D0%A15_%C2%AB%D0%93%D1%96%D0%B0%D1%86%D0%B8%D0%BD%D1%82-%D0%A1%C2%BB
@@ -30,4 +30,5 @@ source: https://uk.wikipedia.org/wiki/2%D0%A15_%C2%AB%D0%93%D1%96%D0%B0%D1%86%D0
 -   1 × 7,62-мм ПКТ <br/>боєкомплект: 1500
 
 ## Відео про техніку
+
 https://youtu.be/Apgi9DVLYw0
