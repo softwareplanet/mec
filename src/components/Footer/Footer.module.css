@@ -19,7 +19,9 @@ a {
 .browser {
     padding-bottom: 20px;
 }
-
+.progressbar {
+    padding-bottom: 95px;
+}
 .version-info {
     font-weight: 400;
     font-size: 14px;

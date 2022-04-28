@@ -14,12 +14,12 @@ const Layout = props => {
     const isBrowser = useCheckBrowser(false);
     let marginSize = height - 30;
 
-    const { progressState } = useContext(ProgressContext);
-
+    const { progressState, showProgress } = useContext(ProgressContext);
+    const isProgressbarActive = progressState && showProgress;
     return (
         <div
             className={styles.layout}
-            style={{ marginBottom: progressState ? 70 : 0 }}
+            style={{paddingBottom:  isProgressbarActive ? "40px" : 0}}
         >
             <Helmet title="Meqd" defer={false} />
             <Header
@@ -29,7 +29,7 @@ const Layout = props => {
                 isBrowser={isBrowser}
             />
             <main style={{ marginTop: marginSize }}>{props.children}</main>
-            <Footer isIphone={iosWithNotch} isBrowser={isBrowser} />
+            <Footer isIphone={iosWithNotch} isBrowser={isBrowser} isProgressbarActive={isProgressbarActive}/>
             <Progressbar />
         </div>
     );

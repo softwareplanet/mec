@@ -7,7 +7,7 @@ import ProgressContext from "../Layout/ProgressContext";
 export const Progressbar = () => {
   const [progress, setProgress] = useState(0);
 
-  const {progressState, setProgressState} = useContext(ProgressContext)
+  const {progressState, setProgressState, showProgress, setShowProgress} = useContext(ProgressContext)
 
   const caclProgress = (cached, total) => {
     if (total != 0) {
@@ -39,9 +39,6 @@ export const Progressbar = () => {
 
   }, []);
 
-  const [show, setShow] = useState(false);
-  const onClick = () => setShow(!show);
-
   return (
     <>
       <div
@@ -50,26 +47,22 @@ export const Progressbar = () => {
           }`}
       >
         <div
-          style={show ? { bottom: "0px" } : { bottom: "70px" }}
+          style={{ bottom: showProgress ? "70px" : "0px" } }
           className={styles.hideElement}
-          onClick={onClick}
+          onClick={() => setShowProgress(!showProgress)}
         >
-          <p>{show ? `${progress}%` : "Сховати"}</p>
+          <p>{showProgress ? "Сховати" : `${progress}%`}</p>
           <img
             src={hideIcon}
             style={
-              show
-                ? { transform: "rotate(180deg)" }
-                : { transform: "rotate(0deg)" }
+              showProgress
+                ? { transform: "rotate(0deg)" }
+                : { transform: "rotate(180deg)" }
             }
           />
         </div>
         <div
-          style={
-            show && progress !== 100
-              ? { display: "none" }
-              : { display: "block" }
-          }
+          style={{ display: showProgress && progress !== 100 ? "block" : "none" }}
           className={styles.progressbarContent}
         >
           <div className={styles.progressbarHeader}>
