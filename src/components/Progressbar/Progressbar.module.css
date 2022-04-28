@@ -10,13 +10,13 @@
   padding: 10px 20px;
 }
 
-.progressbar-header {
+.onlineContent {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
 }
 
-.progressbar-header > p {
+.progressbar-header p {
   font-size: 16px;
   line-height: 15px;
 }
@@ -52,6 +52,13 @@
   display: none;
 }
 
+.offlineContent p{
+  text-align: center;
+}
+
+.offline .hide-element, .offline .bar  {
+  display: none;
+}
 .done .bar .progress {
   background-color: #11a945;
 }

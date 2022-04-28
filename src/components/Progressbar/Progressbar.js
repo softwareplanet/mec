@@ -3,6 +3,8 @@ import * as styles from "./Progressbar.module.css";
 import doneIcon from "../../images/progressDone.png";
 import hideIcon from "../../images/hideIcon.png";
 import ProgressContext from "../Layout/ProgressContext";
+import { Network } from '@capacitor/network';
+import clsx from 'clsx';
 
 export const Progressbar = () => {
   const [progress, setProgress] = useState(0);
@@ -16,6 +18,18 @@ export const Progressbar = () => {
       return 100;
     }
   }
+
+  const notSsr = typeof window !== 'undefined';
+  let [online, setOnline] = useState(notSsr ? navigator.onLine : true);
+
+  useEffect(() => {
+      if (notSsr) {
+          const handle = Network.addListener('networkStatusChange', status =>
+              setOnline(status.connected)
+          );
+          return () => handle.then(h => h.remove());
+      }
+  }, [notSsr]);
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
@@ -43,8 +57,11 @@ export const Progressbar = () => {
     <>
       <div
         style={{ display: progressState ? 'block' : 'none'}}
-        className={`${styles.progressbar} ${progress === 100 ? styles.done : ""
-          }`}
+        className={clsx(
+          styles.progressbar, 
+          {[styles.done]: progress === 100},
+          {[styles.offline]: !online}
+        )}
       >
         <div
           style={{ bottom: showProgress ? "70px" : "0px" } }
@@ -62,16 +79,40 @@ export const Progressbar = () => {
           />
         </div>
         <div
-          style={{ display: showProgress && progress !== 100 ? "block" : "none" }}
+          style={{ display: !showProgress && progress !== 100 ? "none" : "block"  }}
           className={styles.progressbarContent}
         >
           <div className={styles.progressbarHeader}>
-            <p>
-              {progress !== 100
-                ? "Завантаження даних для роботи офлайн"
-                : "Дані завантажились"}
-            </p>
-            <p>{progress !== 100 ? `${progress}%` : <img src={doneIcon} />}</p>
+            {
+              online ? 
+              (
+                <div className={styles.onlineContent}>
+                  <p>
+                    {
+                      progress !== 100
+                        ? "Завантаження даних для роботи офлайн"
+                        : "Дані завантажились"
+                    }
+                  </p>
+                  <p>
+                    {
+                      progress !== 100 ? `${progress}%` : <img src={doneIcon} />
+                    }
+                  </p>  
+                </div>
+              ) 
+              : 
+              (
+                <div className={styles.offlineContent}>
+                  <p>
+                    Помилка завантаження даних. Зв'язок розірвано 
+                  </p>
+                  <p style={{fontSize: "12px"}}>
+                    Встановіть зв'язок та перезавантажте сторінку
+                  </p>
+                </div>
+              )
+            }
           </div>
           <div className={styles.bar}>
             <div
