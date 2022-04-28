@@ -81,6 +81,8 @@ module.exports = {
                         'public/icons/*',
                         'favicon*.png',
                         '**/*.webp',
+                        '*.js',
+                        '**/*.png'
                     ],
                 },
             },

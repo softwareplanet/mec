@@ -3,7 +3,7 @@ import * as styles from './Footer.module.css';
 import clsx from 'clsx';
 import { useStaticQuery, graphql } from 'gatsby';
 
-export default function Footer({ isIphone, isBrowser }) {
+export default function Footer({ isIphone, isBrowser, isProgressbarActive }) {
     const data = useStaticQuery(graphql`
         query {
             gitCommit(latest: { eq: true }) {
@@ -21,14 +21,16 @@ export default function Footer({ isIphone, isBrowser }) {
     const dateCommit = data.gitCommit.date;
     const tagLink = `https://github.com/softwareplanet/mec/releases/tag/v${version}`;
     const repository = `https://github.com/softwareplanet/mec`;
-
+   
     return (
         <div
             className={clsx(
                 styles.footerContainer,
                 { [styles.ios]: isIphone },
-                { [styles.browser]: isBrowser }
+                { [styles.browser]: isBrowser },
+                { [styles.progressbar]: isProgressbarActive}
             )}
+            
         >
             <div className={styles.versionInfo}>
                 Version&nbsp;
