@@ -7,6 +7,7 @@ import SlideElement from '../SlideElement/SlideElement';
 import { getImage } from 'gatsby-plugin-image';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { BiImages } from 'react-icons/bi';
+import ScrollUp from '../../../customHooks/ScrollUp';
 
 const NextArrow = ({ currentSlide, slideCount, ...props }) => {
     const hideArrow = currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
@@ -60,15 +61,6 @@ const SliderComponent = props => {
     const [mode, setMode] = useState(settingsHorizontal);
     const [isVertical, setIsVertical] = useState('');
 
-    function scrollUp() {
-        if (mode.hasOwnProperty('vertical')) {
-            window.scroll({
-                top: 0,
-                behavior: 'auto',
-            });
-        }
-    }
-
     return (
         <div className={styles.sliderContainer}>
             <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
@@ -89,7 +81,7 @@ const SliderComponent = props => {
                                 );
                             }}
                         >
-                            <div onClick={scrollUp}>
+                            <div onClick={() => ScrollUp('auto')}>
                                 <SlideElement
                                     slideImage={image}
                                     allImages={images.length}

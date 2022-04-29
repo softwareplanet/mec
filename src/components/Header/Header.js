@@ -1,10 +1,11 @@
-import { Link } from 'gatsby';
 import React, { useEffect, useState, createRef } from 'react';
 import logo from './logo.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
+import ScrollUp from '../../customHooks/ScrollUp';
+import { navigate } from 'gatsby';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
@@ -43,25 +44,28 @@ let Header = props => {
                     { [styles.browser]: props.isBrowser }
                 )}
             >
-                <Link to={props.backPath || '/'}>
-                    <div className={styles.head}>
-                        {props.backPath ? (
-                            <img
-                                height="24px"
-                                src={arrow}
-                                alt="arrow"
-                                className={styles.arrow}
-                            />
-                        ) : (
-                            <img
-                                src={logo}
-                                alt="logo"
-                                className={styles.logo}
-                            />
-                        )}
+                {props.backPath ? (
+                    <div
+                        className={styles.head}
+                        onClick={() => navigate(props.backPath)}
+                    >
+                        <img
+                            height="24px"
+                            src={arrow}
+                            alt="arrow"
+                            className={styles.arrow}
+                        />
                         <h1>{props.name}</h1>
                     </div>
-                </Link>
+                ) : (
+                    <div
+                        className={styles.head}
+                        onClick={() => ScrollUp('smooth')}
+                    >
+                        <img src={logo} alt="logo" className={styles.logo} />
+                        <h1>{props.name}</h1>
+                    </div>
+                )}
             </div>
         </div>
     );
