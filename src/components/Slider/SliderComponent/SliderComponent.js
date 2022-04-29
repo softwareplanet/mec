@@ -60,6 +60,15 @@ const SliderComponent = props => {
     const [mode, setMode] = useState(settingsHorizontal);
     const [isVertical, setIsVertical] = useState('');
 
+    function scrollUp() {
+        if (mode.hasOwnProperty('vertical')) {
+            window.scroll({
+                top: 0,
+                behavior: 'auto',
+            });
+        }
+    }
+
     return (
         <div className={styles.sliderContainer}>
             <div className={mode.slidesToShow > 1 ? 'vertical' : ''}>
@@ -80,13 +89,13 @@ const SliderComponent = props => {
                                 );
                             }}
                         >
-                            <a href="#">
+                            <div onClick={scrollUp}>
                                 <SlideElement
                                     slideImage={image}
                                     allImages={images.length}
                                     currentImage={index + 1}
                                 />
-                            </a>
+                            </div>
                         </div>
                     ))}
                 </Slider>
