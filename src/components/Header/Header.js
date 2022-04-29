@@ -5,6 +5,7 @@ import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
 import ScrollUp from '../../customHooks/ScrollUp';
+import { navigate } from 'gatsby';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
@@ -29,12 +30,6 @@ let Header = props => {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    function backButton() {
-        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            window.history.back();
-        }
-    }
-
     return (
         <div
             className={clsx(styles.container, {
@@ -50,7 +45,10 @@ let Header = props => {
                 )}
             >
                 {props.backPath ? (
-                    <div className={styles.head} onClick={backButton}>
+                    <div
+                        className={styles.head}
+                        onClick={() => navigate(props.backPath)}
+                    >
                         <img
                             height="24px"
                             src={arrow}
