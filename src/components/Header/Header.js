@@ -4,6 +4,7 @@ import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
+import ScrollUp from '../../customHooks/ScrollUp';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
@@ -34,15 +35,6 @@ let Header = props => {
         }
     }
 
-    function scrollUp() {
-        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-            window.scroll({
-                top: 0,
-                behavior: 'smooth',
-            });
-        }
-    }
-
     return (
         <div
             className={clsx(styles.container, {
@@ -68,7 +60,10 @@ let Header = props => {
                         <h1>{props.name}</h1>
                     </div>
                 ) : (
-                    <div className={styles.head} onClick={scrollUp}>
+                    <div
+                        className={styles.head}
+                        onClick={() => ScrollUp('smooth')}
+                    >
                         <img src={logo} alt="logo" className={styles.logo} />
                         <h1>{props.name}</h1>
                     </div>
