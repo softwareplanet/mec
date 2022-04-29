@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React, { useEffect, useState, createRef } from 'react';
 import logo from './logo.svg';
 import * as styles from './Header.module.css';
@@ -29,6 +28,21 @@ let Header = props => {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
+    function backButton() {
+        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+            window.history.back();
+        }
+    }
+
+    function scrollUp() {
+        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+    }
+
     return (
         <div
             className={clsx(styles.container, {
@@ -43,25 +57,22 @@ let Header = props => {
                     { [styles.browser]: props.isBrowser }
                 )}
             >
-                <Link to={props.backPath || '/'}>
-                    <div className={styles.head}>
-                        {props.backPath ? (
-                            <img
-                                height="24px"
-                                src={arrow}
-                                alt="arrow"
-                                className={styles.arrow}
-                            />
-                        ) : (
-                            <img
-                                src={logo}
-                                alt="logo"
-                                className={styles.logo}
-                            />
-                        )}
+                {props.backPath ? (
+                    <div className={styles.head} onClick={backButton}>
+                        <img
+                            height="24px"
+                            src={arrow}
+                            alt="arrow"
+                            className={styles.arrow}
+                        />
                         <h1>{props.name}</h1>
                     </div>
-                </Link>
+                ) : (
+                    <div className={styles.head} onClick={scrollUp}>
+                        <img src={logo} alt="logo" className={styles.logo} />
+                        <h1>{props.name}</h1>
+                    </div>
+                )}
             </div>
         </div>
     );
