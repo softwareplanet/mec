@@ -20,17 +20,16 @@ export default function Footer({ isIphone, isBrowser, isProgressbarActive }) {
     const version = data.versionInfo.version;
     const dateCommit = data.gitCommit.date;
     const tagLink = `https://github.com/softwareplanet/mec/releases/tag/v${version}`;
-    const repository = `https://github.com/softwareplanet/mec`;
-   
+    const commitLink = `https://github.com/softwareplanet/mec/tree/${data.gitCommit.hash}`;
+
     return (
         <div
             className={clsx(
                 styles.footerContainer,
                 { [styles.ios]: isIphone },
                 { [styles.browser]: isBrowser },
-                { [styles.progressbar]: isProgressbarActive}
+                { [styles.progressbar]: isProgressbarActive }
             )}
-            
         >
             <div className={styles.versionInfo}>
                 Version&nbsp;
@@ -38,7 +37,7 @@ export default function Footer({ isIphone, isBrowser, isProgressbarActive }) {
                     {version}
                 </a>
                 +
-                <a href={repository} target="_blank" rel="noreferrer">
+                <a href={commitLink} target="_blank" rel="noreferrer">
                     sha.{hashCommit}
                 </a>
                 -{dateCommit}
