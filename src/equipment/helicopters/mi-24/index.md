@@ -1,5 +1,5 @@
 ---
-title: МІ-24
+title: Мі-24
 category: helicopters
 image: ./mi-24.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D1%96-24
