@@ -4,7 +4,7 @@ import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
-import ScrollUp from '../../customHooks/ScrollUp';
+import ScrollUp from '../../customFunctions/ScrollUp';
 import { navigate } from 'gatsby';
 
 let Header = props => {

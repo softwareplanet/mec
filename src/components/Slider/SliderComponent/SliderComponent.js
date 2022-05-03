@@ -7,7 +7,7 @@ import SlideElement from '../SlideElement/SlideElement';
 import { getImage } from 'gatsby-plugin-image';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { BiImages } from 'react-icons/bi';
-import ScrollUp from '../../../customHooks/ScrollUp';
+import ScrollUp from '../../../customFunctions/ScrollUp';
 
 const NextArrow = ({ currentSlide, slideCount, ...props }) => {
     const hideArrow = currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
