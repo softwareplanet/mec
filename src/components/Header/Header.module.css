@@ -17,12 +17,20 @@
     transition: box-shadow 0.6s;
 }
 
-.ios {
-    margin-top: 40px;
+.iosX {
+    margin-top: 30px;
 }
 
-.scroll .ios {
-    margin-top: 40px;
+.scroll .iosX {
+    margin-top: 30px;
+}
+
+.iosSe {
+    margin-top: 12px;
+}
+
+.scroll .iosSe {
+    margin-top: 12px;
 }
 
 .content {
@@ -59,13 +67,13 @@ h1 {
     padding-bottom: 2px;
 }
 
-.browser {
+/* .browser {
     margin-top: 0;
 }
 
 .scroll .browser {
     margin-top: 0;
-}
+} */
 
 @media screen and (max-width: 505px) {
     .container {

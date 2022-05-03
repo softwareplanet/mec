@@ -25,10 +25,13 @@ let Header = props => {
     }, [refElement]);
 
     useEffect(() => {
-        const onScroll = () => setOffset(window.pageYOffset != 0);
+        const onScroll = () => setOffset(window.pageYOffset !== 0);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+
+    const iosWithNotch = props.isIphone === 10;
+    const iosWithoutNotch = props.isIphone === 5;
 
     return (
         <div
@@ -40,7 +43,8 @@ let Header = props => {
             <div
                 className={clsx(
                     styles.content,
-                    { [styles.ios]: props.isIphone },
+                    { [styles.iosX]: iosWithNotch },
+                    { [styles.iosSe]: iosWithoutNotch },
                     { [styles.browser]: props.isBrowser }
                 )}
             >
