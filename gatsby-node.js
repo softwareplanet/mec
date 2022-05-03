@@ -25,21 +25,27 @@ exports.createPages = async ({ graphql, actions }) => {
         console.log(errors);
         return;
     }
-
+    const privacyPolicyPage = path.resolve(`src/pages/privacy-policy.js`);
     const equipmentPageTemplate = path.resolve(
         `src/templates/equipment-page.js`
     );
+
     for (let item of data.data.allMdx.nodes) {
-        createPage({
-            path: item.slug,
-            component: equipmentPageTemplate,
-            context: {
-                slug: item.slug,
-                imageDir: item.slug + 'images',
-                category: item.frontmatter.category.name,
-            },
-        });
+        if (item.slug !== "privacy-policy"){
+            createPage({
+                path: item.slug,
+                component: equipmentPageTemplate,
+                context: {
+                    slug: item.slug,
+                    imageDir: item.slug + 'images',
+                    category: item.frontmatter.category.name,
+                },
+            });
+        } else {
+            return
+        }
     }
+    
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

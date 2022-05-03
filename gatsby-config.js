@@ -37,6 +37,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `./src/markdowns/`,
+                name: 'privacy-policy',
+            },
+        },
+        {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `Meqd`,
