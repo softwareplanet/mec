@@ -9,12 +9,21 @@ export default function useNotchDetector(isNotch) {
             let iWidth = window.screen.width;
 
             if (
-                iWidth >= 375 &&
-                iHeight >= 812 &&
+                (iWidth >= 375 &&
+                    iHeight >= 812 &&
+                    /iPhone/.test(navigator.userAgent) &&
+                    !window.MSStream) ||
+                (navigator.platform === 'MacIntel' &&
+                    navigator.maxTouchPoints > 1 &&
+                    !window.MSStream)
+            ) {
+                return 10;
+            } else if (
+                iHeight < 812 &&
                 /iPhone/.test(navigator.userAgent) &&
                 !window.MSStream
             ) {
-                return true;
+                return 5;
             }
         }
     };
