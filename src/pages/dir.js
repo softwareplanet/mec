@@ -23,14 +23,13 @@ export const query = graphql`
 let FirstPage = ({ data }) => {
   return (
     <Layout name="Військова техніка">
-      {/* <RenderList
+      <RenderList
         data={data.allCategoriesYaml.nodes.map((n) => ({
-          path: n.name,
+          path: 'dir/' + n.name,
           image: n.image.childImageSharp,
           title: n.title,
         }))}
-      /> */}
-      <div>IndexPage</div>
+      />
     </Layout>
   );
 };
