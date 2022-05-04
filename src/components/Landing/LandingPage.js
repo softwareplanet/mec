@@ -26,7 +26,9 @@ export default function LandingPage() {
                         <br />
                         Короткий опис, фото та відео
                     </p>
-                    <Link to="/home">Перейти до каталогу</Link>
+                    <Link to="/dir" replace>
+                        Перейти до каталогу
+                    </Link>
                     <h4>Або завантажте програму:</h4>
 
                     <div className={styles.installMobile}>
