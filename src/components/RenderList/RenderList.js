@@ -4,6 +4,7 @@ import ToolBar from '../ToolBar/ToolBar';
 import * as styles from './listsStyles.module.css';
 import { debounceTime, fromEvent, startWith } from 'rxjs';
 import ViewContext from './Context';
+import SortList from '../../customFunctions/SortList';
 
 const MAX_CONTAINER_WIDTH = 900;
 const GRID_GAP = 15;
@@ -35,15 +36,13 @@ let RenderList = ({ data, searchData }) => {
     };
     const { cardSize, cardsInRow } = culcCardSize();
 
-    data.sort((firstValue, secondValue) =>
-        firstValue.title.localeCompare(secondValue.title)
-    );
+    const sortCards = SortList(data);
 
     return (
         <>
             <ToolBar setView={setView} data={searchData} />
             <div ref={container} className={styles[view]}>
-                {data.map((element, i) => (
+                {sortCards.map((element, i) => (
                     <CardComponent
                         key={i}
                         path={element.path}
