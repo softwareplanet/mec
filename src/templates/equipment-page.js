@@ -65,7 +65,7 @@ const InfoPage = ({ data }) => {
     let decodedURI = decodeURI(data.mdx.frontmatter.source);
 
     return (
-        <Layout name={category.title} backPath={`/${category.name}`}>
+        <Layout name={category.title} backPath={`/dir/${category.name}`}>
             <Dropdown data={data.allMdx.nodes} currEquip={data.mdx} />
             <div className={styles.fullWidthItem} style={{ marginTop: '20px' }}>
                 <Slider images={images} />

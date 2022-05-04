@@ -41,7 +41,7 @@ module.exports = {
             options: {
                 name: `Meqd`,
                 short_name: `Meqd`,
-                start_url: `/`,
+                start_url: `/dir/`,
                 background_color: `#F5F5F5`,
                 theme_color: `#F5F5F5`,
                 display: `standalone`,
@@ -92,7 +92,7 @@ module.exports = {
                         resolver: node =>
                             node.fileAbsolutePath
                                 .split('/')
-                                .slice(-3, -1)
+                                .slice(-4, -1)
                                 .join('/') + '/',
                         store: true,
                     },

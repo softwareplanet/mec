@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import RenderList from "../components/RenderList/RenderList";
-import Layout from "../components/Layout/Layout";
+import RenderList from "../../components/RenderList/RenderList";
+import Layout from "../../components/Layout/Layout";
 
 export const query = graphql`
   query($name: String) {
@@ -26,7 +26,7 @@ let CategoryPage = ({ data }) => {
   const category = data.categoriesYaml;
 
   return (
-    <Layout name={category.title} backPath="/" >
+    <Layout name={category.title} backPath="/dir" >
       <RenderList
         data={category.equipment.map((n) => ({
           path: n.slug,
