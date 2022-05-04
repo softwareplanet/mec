@@ -1,0 +1,16 @@
+p {
+    padding: 8px 0;
+}
+h2 {
+    padding: 16px 0;
+}
+h3 {
+    margin: 14px 0 0;
+}
+ul {
+    padding-left: 16px;
+    padding-bottom: 8px;
+}
+strong {
+    font-weight: bold;
+}
