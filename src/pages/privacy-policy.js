@@ -2,8 +2,7 @@ import '../components/reset.css';
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/Layout';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import * as styles from '../components/PrivacyPolicy.module.css';
+import PrivacyPolicy  from '../components/Privacy-Policy/Privacy-Policy.js';
 
 export const query = graphql`
 query {
@@ -16,11 +15,11 @@ query {
 }
 `;
 
-const PrivacyPolicy = ({ data }) => {
+const PrivacyPolicyPage = ({ data }) => {
     return (
         <Layout name={data.mdx.frontmatter.title} backPath={`/`}>
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            <PrivacyPolicy data={data}/>
         </Layout>
     );
 };
-export default PrivacyPolicy;
+export default PrivacyPolicyPage;
