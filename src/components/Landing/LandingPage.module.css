@@ -1,6 +1,9 @@
 .LandingPage {
     display: flex;
     flex-direction: column;
+    background-image: url('./images/background.png');
+    background-repeat: no-repeat;
+    background-position: 90% 60%;
 }
 
 header {
@@ -48,6 +51,9 @@ header span {
 
 .title {
     margin-top: 92px;
+    background-image: url('./images/line.png');
+    background-repeat: no-repeat;
+    background-position: top 28% right;
 }
 
 .title h1 {
@@ -136,6 +142,10 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
+    .LandingPage {
+        background-position: 95% 65%;
+    }
+
     .container {
         padding: 100px 60px;
         height: 80%;
@@ -147,6 +157,10 @@ footer {
 }
 
 @media screen and (min-width: 1500px) {
+    .LandingPage {
+        background-position: 85% 65%;
+    }
+
     header {
         padding: 36px 150px 0;
     }
@@ -164,6 +178,10 @@ footer {
 }
 
 @media screen and (max-width: 1030px) {
+    .LandingPage {
+        background-position: 40% 90%;
+    }
+
     header {
         padding: 36px 40px 0;
     }
@@ -178,6 +196,7 @@ footer {
     .title {
         margin-top: 0;
         text-align: center;
+        background-position: top 28% right 30%;
     }
 
     .title p {
@@ -198,9 +217,29 @@ footer {
     }
 }
 
+@media screen and (max-width: 645px) {
+    .LandingPage {
+        background-size: contain;
+    }
+
+    header {
+        padding: 20px 20px 0;
+    }
+
+    .title {
+        background-position: top 28% right 24%;
+        background-size: 45%;
+    }
+}
+
 @media screen and (max-width: 560px) {
     header {
-        padding: 36px 20px 0;
+        padding: 20px 20px 0;
+    }
+
+    .title {
+        background-position: top 22% right 22%;
+        background-size: 48%;
     }
 
     .title h1 {
@@ -224,6 +263,15 @@ footer {
 }
 
 @media screen and (max-width: 425px) {
+    header {
+        padding: 20px 20px 0;
+    }
+
+    .title {
+        background-position: top 22% right 2%;
+        background-size: 60%;
+    }
+
     .mobileExample img {
         width: 160px;
     }
@@ -233,7 +281,15 @@ footer {
     }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 375px) {
+    .LandingPage {
+        background-position: 0% 88%;
+    }
+
+    header {
+        padding: 18px 20px 0;
+    }
+
     header span {
         font-size: 20px;
     }
