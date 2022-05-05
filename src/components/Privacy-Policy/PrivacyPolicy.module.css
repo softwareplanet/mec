@@ -1,16 +1,16 @@
-p {
+.privacyPolicy p {
     padding: 8px 0;
 }
-h2 {
+.privacyPolicy h2 {
     padding: 16px 0;
 }
-h3 {
+.privacyPolicy h3 {
     margin: 14px 0 0;
 }
-ul {
+.privacyPolicy ul {
     padding-left: 16px;
     padding-bottom: 8px;
 }
-strong {
+.privacyPolicy strong {
     font-weight: bold;
 }
