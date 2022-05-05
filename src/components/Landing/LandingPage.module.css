@@ -1,7 +1,4 @@
 .LandingPage {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -40,7 +37,6 @@ header span {
 }
 
 .container {
-    position: relative;
     display: flex;
     justify-content: space-between;
     font-family: 'Source Sans Pro';
@@ -89,11 +85,11 @@ header span {
     margin-bottom: 16px;
 }
 
-.title .installMobile {
+.installMobile {
     display: flex;
 }
 
-.title .installMobile button {
+.installMobile button {
     font-weight: 600;
     font-size: 18px;
     line-height: 23px;
@@ -104,7 +100,7 @@ header span {
     align-items: center;
 }
 
-.title .installMobile button:first-child {
+.installMobile button:first-child {
     margin-right: 24px;
 }
 
@@ -164,5 +160,101 @@ footer {
         font-family: 'Source Sans Pro';
         font-style: normal;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    header {
+        padding: 36px 40px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 36px;
+        height: fit-content;
+    }
+
+    .title {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .title p {
+        text-align: center;
+    }
+
+    .installMobile {
+        justify-content: center;
+    }
+
+    .mobileExample {
+        padding: 40px 0 70px;
+        justify-content: center;
+    }
+
+    .mobileExample img:last-child {
+        margin-top: 64px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    header {
+        padding: 36px 20px 0;
+    }
+
+    .title h1 {
+        font-size: 40px;
+        line-height: 40px;
+        padding: 0;
+    }
+
+    .title p {
+        font-size: 18px;
+        line-height: 18px;
+    }
+
+    .mobileExample img {
+        width: 200px;
+    }
+
+    .mobileExample img:first-child {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .mobileExample img {
+        width: 160px;
+    }
+
+    .installMobile button span {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    header span {
+        font-size: 20px;
+    }
+
+    .title h1 {
+        font-size: 32px;
+    }
+
+    .title p {
+        font-size: 14px;
+    }
+
+    .installMobile button span {
+        font-size: 14px;
+    }
+
+    .installMobile button {
+        padding: 4px 16px;
+    }
+
+    .mobileExample img {
+        width: 140px;
     }
 }
