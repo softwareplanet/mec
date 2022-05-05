@@ -60,14 +60,14 @@ em {
     font-weight: 600;
 }
 
-h2 {
+.mdxContent h2 {
     font-weight: 600;
     font-size: 20px;
     line-height: 18px;
     margin: 40px 0 8px;
 }
 
-table {
+.mdxContent table {
     text-align: left;
     font-size: 14px;
     font-weight: 400;
@@ -76,19 +76,19 @@ table {
     width: 100%;
 }
 
-th {
+.mdxContent th {
     font-weight: 600;
     width: 20%;
     padding: 0 0 6px;
     vertical-align: middle;
 }
 
-td {
+.mdxContent td {
     padding-top: 5px;
 }
 
-td:not(:first-child),
-th:not(:first-child) {
+.mdxContent td:not(:first-child),
+.mdxContent th:not(:first-child) {
     text-align: start;
 }
 
@@ -119,15 +119,12 @@ h3 {
     margin: 28px 0 4px;
 }
 
-h3 + table {
+.mdxContent h3 + table {
     margin-top: 8px;
 }
-.information ul {
-    padding-left: 20px;
-}
 
-ol,
-ul {
+.mdxContent ol,
+.mdxContent ul {
     padding-left: 20px;
 }
 

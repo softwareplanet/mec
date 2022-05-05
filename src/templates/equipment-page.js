@@ -91,7 +91,9 @@ const InfoPage = ({ data }) => {
                         єВорог
                     </a>
                 </div>
-                <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
+                <div className={styles.mdxContent}>
+                    <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
+                </div>
                 <div className={styles.source}>
                     {data.mdx.frontmatter.source ? (
                         <>
