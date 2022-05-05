@@ -25,7 +25,6 @@ exports.createPages = async ({ graphql, actions }) => {
         console.log(errors);
         return;
     }
-    const privacyPolicyPage = path.resolve(`src/pages/privacy-policy.js`);
     const equipmentPageTemplate = path.resolve(
         `src/templates/equipment-page.js`
     );
@@ -41,8 +40,6 @@ exports.createPages = async ({ graphql, actions }) => {
                     category: item.frontmatter.category.name,
                 },
             });
-        } else {
-            return
         }
     }
     
