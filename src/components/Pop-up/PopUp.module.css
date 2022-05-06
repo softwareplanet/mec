@@ -4,6 +4,7 @@ button {
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    -webkit-tap-highlight-color: rgba(196, 196, 196, 0.5);
 }
 
 .popup {
@@ -38,30 +39,33 @@ button {
     box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.25);
 }
 
-.closeButton {
-    align-self: flex-end;
-    font-size: 18px;
-    margin: 15px 15px 0 0;
-    cursor: pointer;
-}
-
 .popupInfo {
-    text-align: center;
-    padding: 0 10px 15px;
+    padding: 0 24px 24px;
 }
 
 .popupInfo h2 {
-    padding: 5px 0 15px 0;
+    margin: 24px 0 8px 0 !important;
+    font-weight: bold;
 }
 
 .popupInfo p {
-    text-align: center;
-    padding: 5px;
     margin-bottom: 20px;
 }
 
 .popupInfo span {
     font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: end;
+}
+
+.closeButton {
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 12px 25px;
+    margin-right: 12px;
 }
 
 .popupInfo .addButton {
@@ -82,6 +86,48 @@ button {
 
 @media screen and (min-width: 600px) {
     .container {
-        max-width: 450px;
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .popup {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+        z-index: 15;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.5s;
+    }
+
+    .container {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .popupInfo h2 {
+        text-align: center;
+    }
+
+    .popupInfo p {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .closeButton {
+        margin-bottom: 8px;
+    }
+
+    .popupInfo {
+        padding: 0 10px 60px;
     }
 }

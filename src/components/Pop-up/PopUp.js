@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as styles from './PopUp.module.css';
-import { MdClose } from 'react-icons/md';
 import noScroll from 'no-scroll';
 
 export default function PopUp({ show, setFirst, closePopup }) {
@@ -20,7 +19,6 @@ export default function PopUp({ show, setFirst, closePopup }) {
                 className={styles.container}
                 onClick={e => e.stopPropagation()}
             >
-                <MdClose className={styles.closeButton} onClick={closePopup} />
                 <div className={styles.popupInfo}>
                     <h2>Бажаєте додати новий контент?</h2>
                     <p>
@@ -29,10 +27,17 @@ export default function PopUp({ show, setFirst, closePopup }) {
                         <span>Google Forms</span>,&nbsp; щоб залишити свій
                         коментар або запропонувати новий вид техніки до каталогу
                     </p>
-
-                    <button onClick={setFirst} className={styles.addButton}>
-                        Додати
-                    </button>
+                    <div className={styles.buttons}>
+                        <button
+                            onClick={closePopup}
+                            className={styles.closeButton}
+                        >
+                            Не додавати
+                        </button>
+                        <button onClick={setFirst} className={styles.addButton}>
+                            Додати
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
