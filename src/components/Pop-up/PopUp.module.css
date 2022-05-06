@@ -125,6 +125,7 @@ button {
 
     .closeButton {
         margin-bottom: 8px;
+        margin-right: 0;
     }
 
     .popupInfo {
