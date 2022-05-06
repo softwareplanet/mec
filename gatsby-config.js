@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 
 module.exports = {
+    pathPrefix: '/dir',
     siteMetadata: {
         title: `Meqd`,
         siteUrl: `https://stop-orda.netlify.app`,
