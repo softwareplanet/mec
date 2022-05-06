@@ -4,7 +4,7 @@ module.exports = {
     pathPrefix: '/dir',
     siteMetadata: {
         title: `Meqd`,
-        siteUrl: `https://stop-orda.netlify.app`,
+        siteUrl: `https://militarydirectory.app/`,
     },
     plugins: [
         'gatsby-plugin-react-helmet',

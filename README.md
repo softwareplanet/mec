@@ -6,7 +6,7 @@
 ## Завантажити
 
 <div>
-  <a href="https://stop-orda.in.ua/"><img alt="mec" src="./images/web.png" width="60" /></a>   
+  <a href="https://militarydirectory.app/"><img alt="mec" src="./images/web.png" width="60" /></a>   
   <a href="https://github.com/softwareplanet/mec/releases/latest"><img alt="mec" src="./images/android.png" width="60" /></a>
   <a href="https://testflight.apple.com/join/XbdAyoMB"><img alt="mec" src="./images/ios.png" width="60" /></a>
 </div>
