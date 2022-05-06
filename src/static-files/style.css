@@ -22,6 +22,12 @@ button {
     -webkit-appearance: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-appearance: none;
+}
+
 .LandingPage {
     display: flex;
     flex-direction: column;
@@ -94,11 +100,10 @@ header span {
 }
 
 .title a {
-    background-color: #000;
     display: none;
     padding: 12px 53px;
     border-radius: 36px;
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
@@ -114,7 +119,7 @@ header span {
     display: flex;
 }
 
-.installMobile button {
+.installMobile a {
     font-weight: 600;
     font-size: 18px;
     line-height: 23px;
@@ -125,13 +130,13 @@ header span {
     align-items: center;
 }
 
-.installMobile button:first-child {
+.installMobile a:first-child {
     margin-right: 24px;
 }
 
 .mobileType {
     height: 24px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .mobileExample {
@@ -299,7 +304,7 @@ footer {
         width: 160px;
     }
 
-    .installMobile button span {
+    .installMobile a span {
         font-size: 16px;
     }
 }
@@ -330,11 +335,11 @@ footer {
         font-size: 14px;
     }
 
-    .installMobile button span {
+    .installMobile a span {
         font-size: 14px;
     }
 
-    .installMobile button {
+    .installMobile a {
         padding: 4px 16px;
     }
 
