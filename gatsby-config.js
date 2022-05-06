@@ -3,7 +3,7 @@ const { resolve } = require('path');
 module.exports = {
     siteMetadata: {
         title: `Meqd`,
-        siteUrl: `https://stop-orda.netlify.app`,
+        siteUrl: `https://militarydirectory.app`,
     },
     plugins: [
         'gatsby-plugin-react-helmet',
