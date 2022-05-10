@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+body {
+    font-family: 'Source Sans Pro', sans-serif !important;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-appearance: none;
+}
+
+.LandingPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-image: url('./images/background.png');
+    background-repeat: no-repeat;
+    background-position: 100% 90%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 10px 0;
+}
+
+.header span {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-right: 14px;
+}
+
+.help {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    height: 70%;
+    padding: 100px 10px 0;
+}
+
+.title {
+    margin-top: 92px;
+    background-image: url('./images/line.png');
+    background-repeat: no-repeat;
+    background-position: top 28% right;
+}
+
+.title h1 {
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 65px;
+    margin-bottom: 36px;
+}
+
+.title p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    margin-bottom: 64px;
+}
+
+.title a {
+    display: none;
+    padding: 12px 53px;
+    border-radius: 36px;
+    color: #000;
+    text-decoration: none;
+}
+
+.title h4 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 64px;
+    margin-bottom: 16px;
+}
+
+.installMobile {
+    display: flex;
+}
+
+.installMobile a {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    padding: 4px 22px;
+    border: 2px solid #000;
+    border-radius: 36px;
+    align-items: center;
+}
+
+.installMobile a:first-child {
+    margin-right: 24px;
+}
+
+.mobileType {
+    width: 30px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+.mobileExample {
+    display: flex;
+}
+
+.mobileExample img:first-child {
+    margin-right: 36px;
+    align-self: flex-start;
+}
+
+.mobileExample img:last-child {
+    align-self: flex-end;
+    padding-top: 80px;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #929292;
+}
+
+@media screen and (min-width: 1200px) {
+    .LandingPage {
+        background-position: 95% 67%;
+    }
+
+    .container {
+        padding: 100px 60px;
+        height: 80%;
+    }
+
+    .header {
+        padding: 36px 60px 0;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .LandingPage {
+        background-position: 85% 65%;
+    }
+
+    .header {
+        padding: 36px 150px 0;
+    }
+
+    .container {
+        padding: 100px 150px;
+        height: 80%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    .LandingPage {
+        background-position: 40% 90%;
+    }
+
+    .header {
+        padding: 36px 40px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 36px;
+        height: fit-content;
+    }
+
+    .title {
+        margin-top: 0;
+        text-align: center;
+        background-position: top 40% right 28%;
+    }
+
+    .title p {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .title h4 {
+        margin-top: 36px;
+    }
+
+    .installMobile {
+        justify-content: center;
+    }
+
+    .mobileExample {
+        padding: 40px 0 70px;
+        justify-content: center;
+    }
+
+    .mobileExample img:last-child {
+        margin-top: 64px;
+        padding-top: 0;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .LandingPage {
+        background-size: contain;
+    }
+
+    .header {
+        padding: 20px 20px 0;
+    }
+
+    .title {
+        background-position: top 40% right 12%;
+        background-size: 45%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .header {
+        padding: 20px 20px 0;
+    }
+
+    .title {
+        background-position: top 34% right 22%;
+        background-size: 50%;
+    }
+
+    .title h1 {
+        font-size: 40px;
+        line-height: 40px;
+        padding: 0;
+    }
+
+    .title p {
+        font-size: 18px;
+        line-height: 18px;
+    }
+
+    .mobileExample img {
+        width: 200px;
+    }
+
+    .mobileExample img:first-child {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .header {
+        padding: 20px 20px 0;
+    }
+
+    .title {
+        background-position: top 34% right 2%;
+        background-size: 60%;
+    }
+
+    .mobileExample img {
+        width: 160px;
+    }
+
+    .installMobile a span {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .LandingPage {
+        background-position: 0% 82%;
+    }
+
+    .title {
+        background-position: top 32% right 2%;
+        background-size: 60%;
+    }
+
+    .header {
+        padding: 18px 20px 0;
+    }
+
+    .header span {
+        font-size: 20px;
+    }
+
+    .title h1 {
+        font-size: 32px;
+    }
+
+    .title p {
+        font-size: 14px;
+    }
+
+    .installMobile a span {
+        font-size: 14px;
+    }
+
+    .installMobile a {
+        padding: 4px 16px;
+    }
+
+    .mobileType {
+        width: 24px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .mobileExample img {
+        width: 140px;
+    }
+
+    .mobileExample img:first-child {
+        margin-right: 10px;
+    }
+}
