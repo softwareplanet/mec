@@ -1,11 +1,12 @@
 import React, { useEffect, useState, createRef } from 'react';
-import logo from './logo.svg';
+import logo from './tank.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
 import ScrollUp from '../../customFunctions/ScrollUp';
 import { navigate } from 'gatsby';
+import { Link } from 'gatsby';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
