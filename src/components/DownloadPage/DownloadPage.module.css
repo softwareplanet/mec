@@ -348,3 +348,9 @@ footer {
         margin-right: 10px;
     }
 }
+
+@media screen and (max-width: 325px) {
+    .header {
+        padding: 15px 10px 2px;
+    }
+}

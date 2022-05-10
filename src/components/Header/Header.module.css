@@ -97,3 +97,9 @@ h1 {
         margin-right: 23px;
     }
 }
+
+@media screen and (max-width: 325px) {
+    .container {
+        padding: 10px 10px 5px;
+    }
+}
