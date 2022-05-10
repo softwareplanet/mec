@@ -39,15 +39,10 @@ a {
 
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 36px 10px 0;
-}
-
-.header span {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 25px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(196, 196, 196, 0.5);
+    padding: 15px 20px 2px;
 }
 
 .logo {
@@ -56,7 +51,9 @@ a {
 }
 
 .logo img {
-    margin-right: 14px;
+    width: 35px;
+    margin-right: 10px;
+    padding-bottom: 2px;
 }
 
 .help {
@@ -206,7 +203,7 @@ footer {
     }
 
     .header {
-        padding: 36px 40px 0;
+        padding: 15px 62px 0;
     }
 
     .container {
@@ -252,7 +249,7 @@ footer {
     }
 
     .header {
-        padding: 20px 20px 0;
+        padding: 15px 20px 0;
     }
 
     .title {
@@ -263,7 +260,7 @@ footer {
 
 @media screen and (max-width: 560px) {
     .header {
-        padding: 20px 20px 0;
+        padding: 15px 20px 0;
     }
 
     .title {
@@ -293,7 +290,7 @@ footer {
 
 @media screen and (max-width: 425px) {
     .header {
-        padding: 20px 20px 0;
+        padding: 15px 20px 0;
     }
 
     .title {
@@ -321,11 +318,7 @@ footer {
     }
 
     .header {
-        padding: 18px 20px 0;
-    }
-
-    .header span {
-        font-size: 20px;
+        padding: 15px 20px 2px;
     }
 
     .title h1 {

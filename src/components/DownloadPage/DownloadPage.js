@@ -1,18 +1,19 @@
 import React from 'react';
 import * as styles from './DownloadPage.module.css';
-import logo from './logo.svg';
+import logo from './tank.svg';
 import directoryPage from './images/directoryPage.png';
 import equipmentPage from './images/equipmentPage.png';
 import { RiGooglePlayFill, RiAppleFill } from 'react-icons/ri';
+import { Link } from 'gatsby';
 
 export default function DownloadPage() {
     return (
         <div className={styles.LandingPage}>
             <div className={styles.header}>
-                <div className={styles.logo}>
-                    <img src={logo} alt="logo" height="36px" />
-                    <span>Військова техніка</span>
-                </div>
+                <Link to="/" className={styles.logo}>
+                    <img src={logo} alt="logo" height="35px" />
+                    <h1>Військова техніка</h1>
+                </Link>
             </div>
             <div className={styles.container}>
                 <div className={styles.title}>
