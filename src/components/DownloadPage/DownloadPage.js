@@ -44,6 +44,16 @@ export default function DownloadPage() {
                             <span>Google Play</span>
                         </a>
                     </div>
+
+                    <div className={styles.gitHubLink}>
+                        Відкрити за допомогою{' '}
+                        <a
+                            href="https://github.com/softwareplanet/mec"
+                            target="_blank"
+                        >
+                            GitHub
+                        </a>
+                    </div>
                 </div>
                 <div className={styles.mobileExample}>
                     <img src={directoryPage} alt="home page" />

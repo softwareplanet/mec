@@ -93,14 +93,6 @@ a {
     margin-bottom: 64px;
 }
 
-.title a {
-    display: none;
-    padding: 12px 53px;
-    border-radius: 36px;
-    color: #000;
-    text-decoration: none;
-}
-
 .title h4 {
     font-weight: 700;
     font-size: 14px;
@@ -126,6 +118,20 @@ a {
 
 .installMobile a:first-child {
     margin-right: 24px;
+}
+
+.gitHubLink {
+    display: flex;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.gitHubLink a {
+    color: #3895ff;
+    display: block;
+    padding-left: 5px;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .mobileType {
@@ -213,7 +219,7 @@ footer {
     .title {
         margin-top: 0;
         text-align: center;
-        background-position: top 40% right 28%;
+        background-position: top 34% right 28%;
     }
 
     .title p {
@@ -226,6 +232,10 @@ footer {
     }
 
     .installMobile {
+        justify-content: center;
+    }
+
+    .gitHubLink {
         justify-content: center;
     }
 
@@ -250,7 +260,7 @@ footer {
     }
 
     .title {
-        background-position: top 40% right 12%;
+        background-position: top 34% right 12%;
         background-size: 45%;
     }
 }
@@ -261,7 +271,7 @@ footer {
     }
 
     .title {
-        background-position: top 34% right 22%;
+        background-position: top 26% right 22%;
         background-size: 50%;
     }
 
@@ -291,7 +301,7 @@ footer {
     }
 
     .title {
-        background-position: top 34% right 2%;
+        background-position: top 26% right 2%;
         background-size: 60%;
     }
 
@@ -310,7 +320,7 @@ footer {
     }
 
     .title {
-        background-position: top 32% right 2%;
+        background-position: top 28% right 2%;
         background-size: 60%;
     }
 
@@ -332,6 +342,11 @@ footer {
 
     .installMobile a {
         padding: 4px 16px;
+    }
+
+    .gitHubLink {
+        font-size: 14px;
+        margin-top: 20px;
     }
 
     .mobileType {
