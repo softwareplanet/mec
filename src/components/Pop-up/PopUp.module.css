@@ -22,6 +22,7 @@ button {
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
+    backdrop-filter: blur(1.5px);
 }
 
 .popup.active {
@@ -104,6 +105,7 @@ button {
         opacity: 0;
         pointer-events: none;
         transition: 0.5s;
+        backdrop-filter: blur(1.5px);
     }
 
     .container {
