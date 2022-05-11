@@ -5,33 +5,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SlideElement from '../SlideElement/SlideElement';
 import { getImage } from 'gatsby-plugin-image';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { BiImages } from 'react-icons/bi';
 import ScrollUp from '../../../customFunctions/ScrollUp';
-
-const NextArrow = ({ currentSlide, slideCount, ...props }) => {
-    const hideArrow = currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
-    return (
-        <div className={`${styles.arrow} ${hideArrow}`}>
-            <IoIosArrowForward
-                className={styles.nextArrow}
-                onClick={props.onClick}
-            />
-        </div>
-    );
-};
-
-const PrevArrow = ({ currentSlide, slideCount, ...props }) => {
-    const hideArrow = currentSlide === 0 ? `${styles.hidden}` : '';
-    return (
-        <div className={`${styles.arrow} ${hideArrow}`}>
-            <IoIosArrowBack
-                className={styles.prevArrow}
-                onClick={props.onClick}
-            />
-        </div>
-    );
-};
+import SlideArrow from './SlideArrow/SlideArrow';
 
 const SliderComponent = props => {
     const images = props.images.map(picture => getImage(picture));
@@ -48,8 +24,8 @@ const SliderComponent = props => {
         slidesToScroll: 1,
         dots: true,
         afterChange: handleAfterChange,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
+        nextArrow: <SlideArrow type="next" isModal={false} />,
+        prevArrow: <SlideArrow isModal={false} />,
     };
 
     const settingsVertical = {
