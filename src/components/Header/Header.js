@@ -72,14 +72,16 @@ let Header = props => {
                         <h1>{props.name}</h1>
                     </div>
                 )}
-                <Link to="/download">
-                    <div className={styles.download}>
-                        <MdOutlineFileDownload
-                            className={styles.downloadIcon}
-                        />
-                        <span>Завантажити</span>
-                    </div>
-                </Link>
+                <div className={styles.downloadConteiner}>
+                    <Link to="/download">
+                        <div className={styles.download}>
+                            <MdOutlineFileDownload
+                                className={styles.downloadIcon}
+                            />
+                            <span>Завантажити</span>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </div>
     );
