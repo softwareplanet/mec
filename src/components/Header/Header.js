@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import ScrollUp from '../../customFunctions/ScrollUp';
 import { navigate } from 'gatsby';
 import { Link } from 'gatsby';
+import { MdOutlineFileDownload } from 'react-icons/md';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
@@ -71,6 +72,14 @@ let Header = props => {
                         <h1>{props.name}</h1>
                     </div>
                 )}
+                <Link to="/download">
+                    <div className={styles.download}>
+                        <MdOutlineFileDownload
+                            className={styles.downloadIcon}
+                        />
+                        <span>Завантажити</span>
+                    </div>
+                </Link>
             </div>
         </div>
     );
