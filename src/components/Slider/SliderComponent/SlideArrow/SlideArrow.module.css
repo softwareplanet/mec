@@ -1,0 +1,46 @@
+.arrow {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nextArrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: calc(100% - 3px);
+}
+
+.prevArrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: calc(100% - 3px);
+}
+
+.nextArrow:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.prevArrow:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .nextArrow {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .prevArrow {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
