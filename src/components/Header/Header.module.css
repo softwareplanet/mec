@@ -75,6 +75,28 @@ h1 {
     margin-top: 0;
 }
 
+.downloadConteiner {
+    margin-left: 40px;
+}
+
+.download {
+    display: flex;
+    align-items: center;
+    color: #007aff;
+}
+
+.downloadIcon {
+    width: 28px;
+    height: 28px;
+}
+
+.download span {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    padding-left: 6px;
+}
+
 @media screen and (max-width: 505px) {
     .container {
         padding: 10px 20px 5px;
@@ -95,5 +117,21 @@ h1 {
 
     .arrow {
         margin-right: 23px;
+    }
+
+    .download span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .container {
+        padding: 10px 20px 8px;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .container {
+        padding: 10px 10px 8px;
     }
 }
