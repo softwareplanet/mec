@@ -15,6 +15,10 @@ export default function useCheckBrowser(isBrowser) {
                 return true;
             } else if (userAgent.match(/firefox|fxios/i)) {
                 return true;
+            } else if (userAgent.match(/opr\//i)) {
+                return true;
+            } else if (userAgent.match(/MSIE|Trident/)) {
+                return true;
             }
         }
     };
