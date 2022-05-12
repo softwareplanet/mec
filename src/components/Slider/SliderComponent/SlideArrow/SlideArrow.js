@@ -6,6 +6,16 @@ const SlideArrow = ({ currentSlide, slideCount, type, isModal, ...props }) => {
     const hideForwardArrow =
         currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
     const hideBackArrow = currentSlide === 0 ? `${styles.hidden}` : '';
+    const modalNextButton =
+        currentSlide + 1 === slideCount ? (
+            <button className={styles.modalNextArrow} onClick={props.onClick}>
+                <span>Готово</span>
+            </button>
+        ) : (
+            <button className={styles.modalNextArrow} onClick={props.onClick}>
+                <span>Далі</span>
+            </button>
+        );
     let arrow = '';
 
     if (!isModal) {
@@ -21,10 +31,22 @@ const SlideArrow = ({ currentSlide, slideCount, type, isModal, ...props }) => {
                     onClick={props.onClick}
                 />
             );
+    } else {
+        arrow =
+            type === 'next' ? (
+                modalNextButton
+            ) : (
+                <button
+                    className={`${styles.modalPrevArrow} ${hideBackArrow}`}
+                    onClick={props.onClick}
+                >
+                    <span>Назад</span>
+                </button>
+            );
     }
 
     return (
-        <div>
+        <div style={{ height: 'auto' }}>
             <div className={`${styles.arrow} `}>{arrow}</div>
         </div>
     );
