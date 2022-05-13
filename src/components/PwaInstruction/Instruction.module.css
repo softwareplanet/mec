@@ -31,7 +31,7 @@
 }
 
 .container div[data-index='2'] .slideElement {
-    padding: 30px 4px 0;
+    padding: 40px 4px 0;
     justify-content: flex-end;
     align-items: flex-start;
 }
