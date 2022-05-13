@@ -13,7 +13,14 @@ const Layout = props => {
     const [height, setHeight] = useState(30);
     const iosWithNotch = useNotchDetector(false);
     const isBrowser = useCheckBrowser(false);
+    let openInBrowserOnIphone;
     let marginSize = height - 30;
+
+    if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+        if (/iPhone/.test(navigator.userAgent)) {
+            openInBrowserOnIphone = true && isBrowser;
+        }
+    }
 
     const { progressState, showProgress } = useContext(ProgressContext);
     const isProgressbarActive = progressState && showProgress;
@@ -36,7 +43,7 @@ const Layout = props => {
                 isProgressbarActive={isProgressbarActive}
             />
             <Progressbar />
-            <Instruction />
+            {openInBrowserOnIphone ? <Instruction fewLinks={true} /> : null}
         </div>
     );
 };
