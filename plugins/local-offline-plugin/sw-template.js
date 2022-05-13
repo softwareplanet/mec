@@ -65,14 +65,20 @@ self.addEventListener('install', async (event) => {
   })());
   
 })
- 
-self.addEventListener('activate', async (event) => {
-  await event.waitUntil((async() => {
-    notifyClients({
-      type: 'DONE',
-      cached: cached,
-      total: totalSize
-    })
+const deleteOldCaches = async () => {
+  const cacheKeepList = [precacheController.strategy.cacheName];
+  
+  await caches.keys().then(async (keyList) => {
+    keyList
+    .filter(key => !cacheKeepList.includes(key))
+    .forEach(key => {
+      if (!key.includes('runtime')){
+        await (caches.delete(key));
+      } 
+    });
+  })
+}
+const lookForUpdates = (interval) => {
   const headers = {'Access-Control-Allow-Origin' : "*"}
   setInterval(() => {
     fetch('https://forked-meqd.netlify.app/version.json', {headers})
@@ -91,7 +97,17 @@ self.addEventListener('activate', async (event) => {
     .catch(error => {
         console.error('There was an error!', error);
     });
-  }, 60000)  
+  }, interval)  
+}
+self.addEventListener('activate', async (event) => {
+  await event.waitUntil((async() => {
+    notifyClients({
+      type: 'DONE',
+      cached: cached,
+      total: totalSize
+  })
+  await deleteOldCaches();
+  lookForUpdates(3600000);
     return precacheController.activate(event)
   })());
 })
