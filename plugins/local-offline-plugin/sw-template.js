@@ -82,7 +82,7 @@ self.addEventListener('activate', async (event) => {
           const error = (data && data.message) || response.statusText;
           return Promise.reject(error);
         }
-        if (data.verison !== version){
+        if (data.version !== version){
           notifyClients({
             type: 'RELOAD',
           })

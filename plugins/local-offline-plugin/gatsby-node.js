@@ -83,7 +83,7 @@ exports.onPostBuild = (
 
   const { pathPrefix, reporter, getNodesByType } = args
 
-  let version = getNodesByType('GitCommit').filter(node => node.latest).map(node => node.hash)[0];
+  let version = getNodesByType('GitCommit').find(node => node.latest).hash;
   let versionJson = JSON.stringify({
     version: version
   })
