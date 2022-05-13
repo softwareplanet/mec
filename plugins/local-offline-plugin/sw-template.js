@@ -71,16 +71,15 @@ self.addEventListener('install', async (event) => {
   
 })
 const deleteOldCaches = async () => {
+  const runtimeCaches = caches.keys().then(keyList => keyList.find(key => key.includes('runtime')))
   const cacheKeepList = [precacheController.strategy.cacheName];
-  
+  if (runtimeCaches) {
+    cacheKeepList.push(runtimeCaches);
+  } 
   await caches.keys().then(async (keyList) => {
     keyList
     .filter(key => !cacheKeepList.includes(key))
-    .forEach(key => {
-      if (!key.includes('runtime')){
-        await (caches.delete(key));
-      } 
-    });
+    .forEach(key => caches.delete(key));
   })
 }
 const lookForUpdates = (interval) => {
