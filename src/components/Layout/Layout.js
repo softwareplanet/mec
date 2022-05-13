@@ -1,12 +1,13 @@
 import useNotchDetector from '../../customHooks/NotchDetector';
 import useCheckBrowser from '../../customHooks/CheckBrowser';
 import { Helmet } from 'react-helmet';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Header from '../Header/Header';
 import * as styles from './layout.module.css';
 import Footer from '../Footer/Footer';
 import { Progressbar } from '../Progressbar/Progressbar';
 import ProgressContext from './ProgressContext';
+import Instruction from '../PwaInstruction/Instruction';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);
@@ -19,7 +20,7 @@ const Layout = props => {
     return (
         <div
             className={styles.layout}
-            style={{paddingBottom:  isProgressbarActive ? "40px" : 0}}
+            style={{ paddingBottom: isProgressbarActive ? '40px' : 0 }}
         >
             <Helmet title="Meqd" defer={false} />
             <Header
@@ -29,8 +30,13 @@ const Layout = props => {
                 isBrowser={isBrowser}
             />
             <main style={{ marginTop: marginSize }}>{props.children}</main>
-            <Footer isIphone={iosWithNotch} isBrowser={isBrowser} isProgressbarActive={isProgressbarActive}/>
+            <Footer
+                isIphone={iosWithNotch}
+                isBrowser={isBrowser}
+                isProgressbarActive={isProgressbarActive}
+            />
             <Progressbar />
+            <Instruction />
         </div>
     );
 };
