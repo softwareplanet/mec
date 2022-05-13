@@ -9,28 +9,28 @@ import firstSlide from './slideImages/slide(1).png';
 import secondSlide from './slideImages/slide(2).png';
 import thirdSlide from './slideImages/slide(3).png';
 
-export default function Instruction() {
+export default function Instruction({ fewLinks }) {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [pwa, setPwa] = useState('');
+    const [pwa, setPwa] = useState();
     const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
         setPwa(localStorage.getItem('pwa'));
-        if (pwa === 'true') {
+        if (!pwa && fewLinks) {
             noScroll.on();
         } else {
             noScroll.off();
         }
     });
 
-    const showInstructions =
-        pwa === 'true' ? `${styles.show}` : `${styles.hide}`;
+    let showInstructions =
+        !pwa && fewLinks ? `${styles.show}` : `${styles.hide}`;
 
     function hideInstructions(e) {
         e.preventDefault();
         setRerender(!rerender);
-        setPwa(false);
-        localStorage.setItem('pwa', 'false');
+        localStorage.setItem('pwa', 'true');
+        setPwa(localStorage.getItem('pwa'));
     }
 
     const handleAfterChange = index => {
