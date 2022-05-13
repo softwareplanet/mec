@@ -85,7 +85,7 @@ const deleteOldCaches = async () => {
 const lookForUpdates = (interval) => {
   const headers = {'Access-Control-Allow-Origin' : "*"}
   setInterval(() => {
-    fetch('https://forked-meqd.netlify.app/version.json', {headers})
+    fetch('https://militarydirectory.app/version.json', {headers})
       .then(async response => {
         const data = await response.json();
         if (!response.ok) {
