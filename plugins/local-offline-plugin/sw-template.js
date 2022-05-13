@@ -35,7 +35,7 @@ const postMessageOnCacheDidUpdate = {
 
 const precacheController = new PrecacheController(
   {
-    cacheName: 'gatsby-plugin-offline-precache-v4',
+    cacheName: 'gatsby-plugin-offline-precache-v3',
     plugins: [postMessageOnCacheDidUpdate]
   }
 )
