@@ -23,6 +23,11 @@ let cached = 0;
 let totalSize = 0;
 let manifest = self.__WB_MANIFEST;
 
+const appObj = manifest.find(obj => obj.url === appFile);
+const appFileIndex = manifest.indexOf(appObj);
+manifest.splice(appFileIndex, 1);
+manifest.unshift(appObj);
+
 const postMessageOnCacheDidUpdate = {
   cacheDidUpdate: async (e) => {
     notifyClients({

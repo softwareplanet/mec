@@ -77,7 +77,6 @@ module.exports = {
                 workboxConfig: {
                     globPatterns: [
                         'offline-plugin-app-shell-fallback/index.html',
-                        'app-*.js',
                         'flexsearch_index.json',
                         'public/icons/*',
                         'favicon*.png',
