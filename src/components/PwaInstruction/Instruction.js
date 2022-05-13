@@ -11,10 +11,27 @@ import thirdSlide from './slideImages/slide(3).png';
 
 export default function Instruction() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [pwa, setPwa] = useState('');
+    const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
-        noScroll.on();
+        setPwa(localStorage.getItem('pwa'));
+        if (pwa === 'true') {
+            noScroll.on();
+        } else {
+            noScroll.off();
+        }
     });
+
+    const showInstructions =
+        pwa === 'true' ? `${styles.show}` : `${styles.hide}`;
+
+    function hideInstructions(e) {
+        e.preventDefault();
+        setRerender(!rerender);
+        setPwa(false);
+        localStorage.setItem('pwa', 'false');
+    }
 
     const handleAfterChange = index => {
         setCurrentSlide(index);
@@ -27,12 +44,14 @@ export default function Instruction() {
         slidesToScroll: 1,
         swipe: false,
         afterChange: handleAfterChange,
-        nextArrow: <SlideArrow type="next" isModal={true} />,
+        nextArrow: (
+            <SlideArrow type="next" isModal={true} hide={hideInstructions} />
+        ),
         prevArrow: <SlideArrow isModal={true} />,
     };
 
     return (
-        <div className={styles.instruction}>
+        <div className={`${styles.instruction} ${showInstructions}`}>
             <div className={styles.container}>
                 <Slider {...settings}>
                     <div className={styles.slideElement}>

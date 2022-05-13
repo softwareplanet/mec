@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as styles from './SlideArrow.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const SlideArrow = ({ currentSlide, slideCount, type, isModal, ...props }) => {
+const SlideArrow = ({
+    currentSlide,
+    slideCount,
+    type,
+    isModal,
+    hide,
+    ...props
+}) => {
     const hideForwardArrow =
         currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
     const hideBackArrow = currentSlide === 0 ? `${styles.hidden}` : '';
     const modalNextButton =
         currentSlide + 1 === slideCount ? (
-            <button className={styles.modalNextArrow} onClick={props.onClick}>
+            <button className={styles.modalNextArrow} onClick={hide}>
                 <span>Готово</span>
             </button>
         ) : (
