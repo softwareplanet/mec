@@ -12,6 +12,17 @@ let { clientsClaim } = workbox.core
 self.skipWaiting()
 clientsClaim()
 
+async function notifyClients(message) {
+  let clients = await self.clients.matchAll({ includeUncontrolled: true });
+  clients.forEach(client => client.postMessage(message))
+}
+
+let version = '%version%';
+let appFile = '%appFile%';
+let cached = 0;
+let totalSize = 0;
+let manifest = self.__WB_MANIFEST;
+
 const postMessageOnCacheDidUpdate = {
   cacheDidUpdate: async (e) => {
     notifyClients({
@@ -22,18 +33,9 @@ const postMessageOnCacheDidUpdate = {
   }
 }
 
-async function notifyClients(message) {
-  let clients = await self.clients.matchAll({ includeUncontrolled: true });
-  clients.forEach(client => client.postMessage(message))
-}
-
-let cached = 0;
-let totalSize = 0;
-let manifest = self.__WB_MANIFEST;
-
 const precacheController = new PrecacheController(
   {
-    cacheName: 'gatsby-plugin-offline-precache-v2',
+    cacheName: 'gatsby-plugin-offline-precache-v4',
     plugins: [postMessageOnCacheDidUpdate]
   }
 )
@@ -63,6 +65,7 @@ self.addEventListener('install', async (event) => {
   })());
   
 })
+ 
 self.addEventListener('activate', async (event) => {
   await event.waitUntil((async() => {
     notifyClients({
@@ -70,6 +73,25 @@ self.addEventListener('activate', async (event) => {
       cached: cached,
       total: totalSize
     })
+  const headers = {'Access-Control-Allow-Origin' : "*"}
+  setInterval(() => {
+    fetch('https://forked-meqd.netlify.app/version.json', {headers})
+      .then(async response => {
+        const data = await response.json();
+        if (!response.ok) {
+          const error = (data && data.message) || response.statusText;
+          return Promise.reject(error);
+        }
+        if (data.verison !== version){
+          notifyClients({
+            type: 'RELOAD',
+          })
+        }
+    })
+    .catch(error => {
+        console.error('There was an error!', error);
+    });
+  }, 60000)  
     return precacheController.activate(event)
   })());
 })
@@ -168,7 +190,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`%pathPrefix%/%appFile%`))) {
+  if (!resources || !(await caches.match(`%pathPrefix%/${appFile}`))) {
     return await fetch(event.request)
   }
 
