@@ -12,6 +12,22 @@ let { clientsClaim } = workbox.core
 self.skipWaiting()
 clientsClaim()
 
+async function notifyClients(message) {
+  let clients = await self.clients.matchAll({ includeUncontrolled: true });
+  clients.forEach(client => client.postMessage(message))
+}
+
+let version = '%version%';
+let appFile = '%appFile%';
+let cached = 0;
+let totalSize = 0;
+let manifest = self.__WB_MANIFEST;
+
+const appObj = manifest.find(obj => obj.url === appFile);
+const appFileIndex = manifest.indexOf(appObj);
+manifest.splice(appFileIndex, 1);
+manifest.unshift(appObj);
+
 const postMessageOnCacheDidUpdate = {
   cacheDidUpdate: async (e) => {
     notifyClients({
@@ -22,18 +38,9 @@ const postMessageOnCacheDidUpdate = {
   }
 }
 
-async function notifyClients(message) {
-  let clients = await self.clients.matchAll({ includeUncontrolled: true });
-  clients.forEach(client => client.postMessage(message))
-}
-
-let cached = 0;
-let totalSize = 0;
-let manifest = self.__WB_MANIFEST;
-
 const precacheController = new PrecacheController(
   {
-    cacheName: 'gatsby-plugin-offline-precache-v2',
+    cacheName: 'gatsby-plugin-offline-precache-v3',
     plugins: [postMessageOnCacheDidUpdate]
   }
 )
@@ -63,13 +70,48 @@ self.addEventListener('install', async (event) => {
   })());
   
 })
+const deleteOldCaches = async () => {
+  const runtimeCaches = caches.keys().then(keyList => keyList.find(key => key.includes('runtime')))
+  const cacheKeepList = [precacheController.strategy.cacheName];
+  if (runtimeCaches) {
+    cacheKeepList.push(runtimeCaches);
+  } 
+  await caches.keys().then(async (keyList) => {
+    keyList
+    .filter(key => !cacheKeepList.includes(key))
+    .forEach(key => caches.delete(key));
+  })
+}
+const lookForUpdates = (interval) => {
+  const headers = {'Access-Control-Allow-Origin' : "*"}
+  setInterval(() => {
+    fetch('https://militarydirectory.app/version.json', {headers})
+      .then(async response => {
+        const data = await response.json();
+        if (!response.ok) {
+          const error = (data && data.message) || response.statusText;
+          return Promise.reject(error);
+        }
+        if (data.version !== version){
+          notifyClients({
+            type: 'RELOAD',
+          })
+        }
+    })
+    .catch(error => {
+        console.error('There was an error!', error);
+    });
+  }, interval)  
+}
 self.addEventListener('activate', async (event) => {
   await event.waitUntil((async() => {
     notifyClients({
       type: 'DONE',
       cached: cached,
       total: totalSize
-    })
+  })
+  await deleteOldCaches();
+  lookForUpdates(3600000);
     return precacheController.activate(event)
   })());
 })
@@ -168,7 +210,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`%pathPrefix%/%appFile%`))) {
+  if (!resources || !(await caches.match(`%pathPrefix%/${appFile}`))) {
     return await fetch(event.request)
   }
 

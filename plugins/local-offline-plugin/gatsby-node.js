@@ -80,9 +80,16 @@ exports.onPostBuild = (
     workboxConfig = {},
   }
 ) => {
-  const { pathPrefix, reporter } = args
-  const rootDir = `public`
 
+  const { pathPrefix, reporter, getNodesByType } = args
+
+  let version = getNodesByType('GitCommit').find(node => node.latest).hash;
+  let versionJson = JSON.stringify({
+    version: version
+  })
+  fs.writeFileSync('public/version.json', versionJson);
+
+  const rootDir = `public`
   // Get exact asset filenames for app and offline app shell chunks
   const files = getAssetsForChunks([
     `app`,
@@ -147,6 +154,7 @@ exports.onPostBuild = (
     .replace(/%idbKeyValVersioned%/g, idbKeyValVersioned)
     .replace(/%pathPrefix%/g, pathPrefix)
     .replace(/%appFile%/g, appFile)
+    .replace(/%version%/g, version)
   fs.writeFileSync(`public/sw.js`, swSrcReplace)
 
   return workboxBuild
