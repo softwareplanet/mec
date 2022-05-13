@@ -1,10 +1,13 @@
-import { Link } from 'gatsby';
 import React, { useEffect, useState, createRef } from 'react';
-import logo from './logo.svg';
+import logo from './tank.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
+import ScrollUp from '../../customFunctions/ScrollUp';
+import { navigate } from 'gatsby';
+import { Link } from 'gatsby';
+import { MdOutlineFileDownload } from 'react-icons/md';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
@@ -24,10 +27,13 @@ let Header = props => {
     }, [refElement]);
 
     useEffect(() => {
-        const onScroll = () => setOffset(window.pageYOffset != 0);
+        const onScroll = () => setOffset(window.pageYOffset !== 0);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+
+    const iosWithNotch = props.isIphone === 10;
+    const iosWithoutNotch = props.isIphone === 5;
 
     return (
         <div
@@ -39,29 +45,43 @@ let Header = props => {
             <div
                 className={clsx(
                     styles.content,
-                    { [styles.ios]: props.isIphone },
+                    { [styles.iosX]: iosWithNotch },
+                    { [styles.iosSe]: iosWithoutNotch },
                     { [styles.browser]: props.isBrowser }
                 )}
             >
-                <Link to={props.backPath || '/'}>
-                    <div className={styles.head}>
-                        {props.backPath ? (
-                            <img
-                                height="24px"
-                                src={arrow}
-                                alt="arrow"
-                                className={styles.arrow}
-                            />
-                        ) : (
-                            <img
-                                src={logo}
-                                alt="logo"
-                                className={styles.logo}
-                            />
-                        )}
+                {props.backPath ? (
+                    <div
+                        className={styles.head}
+                        onClick={() => navigate(props.backPath)}
+                    >
+                        <img
+                            height="24px"
+                            src={arrow}
+                            alt="arrow"
+                            className={styles.arrow}
+                        />
                         <h1>{props.name}</h1>
                     </div>
-                </Link>
+                ) : (
+                    <div
+                        className={styles.head}
+                        onClick={() => ScrollUp('smooth')}
+                    >
+                        <img src={logo} alt="logo" className={styles.logo} />
+                        <h1>{props.name}</h1>
+                    </div>
+                )}
+                <div className={styles.downloadConteiner}>
+                    <Link to="/download">
+                        <div className={styles.download}>
+                            <MdOutlineFileDownload
+                                className={styles.downloadIcon}
+                            />
+                            <span>Завантажити</span>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </div>
     );

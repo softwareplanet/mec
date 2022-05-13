@@ -20,4 +20,4 @@ source: https://uk.wikipedia.org/wiki/%D0%92%D0%9E%D0%93-25
 
 ## Відео про боєприпас
 
-https://youtu.be/EF14FkVluHs
+https://youtu.be/AYvimXcNP5Q

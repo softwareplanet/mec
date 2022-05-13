@@ -7,6 +7,7 @@ import SlideElement from '../SlideElement/SlideElement';
 import { getImage } from 'gatsby-plugin-image';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { BiImages } from 'react-icons/bi';
+import ScrollUp from '../../../customFunctions/ScrollUp';
 
 const NextArrow = ({ currentSlide, slideCount, ...props }) => {
     const hideArrow = currentSlide + 1 === slideCount ? `${styles.hidden}` : '';
@@ -80,13 +81,13 @@ const SliderComponent = props => {
                                 );
                             }}
                         >
-                            <a href="#">
+                            <div onClick={() => ScrollUp('auto')}>
                                 <SlideElement
                                     slideImage={image}
                                     allImages={images.length}
                                     currentImage={index + 1}
                                 />
-                            </a>
+                            </div>
                         </div>
                     ))}
                 </Slider>

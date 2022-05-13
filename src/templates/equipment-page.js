@@ -23,7 +23,10 @@ export const query = graphql`
             slug
             body
         }
-        allFile(filter: { relativeDirectory: { eq: $imageDir } }) {
+        allFile(
+            filter: { relativeDirectory: { eq: $imageDir } }
+            sort: { fields: absolutePath }
+        ) {
             nodes {
                 childImageSharp {
                     gatsbyImageData(layout: FULL_WIDTH, breakpoints: [420])
@@ -88,10 +91,11 @@ const InfoPage = ({ data }) => {
                         єВорог
                     </a>
                 </div>
-                <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
+                <div className={styles.mdxContent}>
+                    <MDXRenderer>{data.mdx.body + online}</MDXRenderer>
+                </div>
                 <div className={styles.source}>
-                    {data.mdx.frontmatter.source ? 
-                    (
+                    {data.mdx.frontmatter.source ? (
                         <>
                             <h3>Джерело:</h3>
                             <a
@@ -103,8 +107,9 @@ const InfoPage = ({ data }) => {
                                 {decodedURI}
                             </a>
                         </>
-                    ) : <></>
-                    }
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </Layout>

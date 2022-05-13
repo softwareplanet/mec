@@ -17,12 +17,20 @@
     transition: box-shadow 0.6s;
 }
 
-.ios {
-    margin-top: 40px;
+.iosX {
+    margin-top: 30px;
 }
 
-.scroll .ios {
-    margin-top: 40px;
+.scroll .iosX {
+    margin-top: 30px;
+}
+
+.iosSe {
+    margin-top: 12px;
+}
+
+.scroll .iosSe {
+    margin-top: 12px;
 }
 
 .content {
@@ -30,13 +38,15 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 860px;
+    max-width: 900px;
 }
 
 .head {
     display: flex;
     align-items: center;
     height: 45px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(196, 196, 196, 0.5);
 }
 
 h1 {
@@ -47,7 +57,7 @@ h1 {
 }
 
 .arrow {
-    margin-right: 10px;
+    margin-right: 23px;
     padding-bottom: 2px;
 }
 
@@ -63,6 +73,28 @@ h1 {
 
 .scroll .browser {
     margin-top: 0;
+}
+
+.downloadConteiner {
+    margin-left: 40px;
+}
+
+.download {
+    display: flex;
+    align-items: center;
+    color: #007aff;
+}
+
+.downloadIcon {
+    width: 28px;
+    height: 28px;
+}
+
+.download span {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    padding-left: 6px;
 }
 
 @media screen and (max-width: 505px) {
@@ -84,6 +116,22 @@ h1 {
     }
 
     .arrow {
-        margin-right: 10px;
+        margin-right: 23px;
+    }
+
+    .download span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .container {
+        padding: 10px 20px 8px;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .container {
+        padding: 10px 10px 8px;
     }
 }

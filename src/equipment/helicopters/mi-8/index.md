@@ -1,5 +1,5 @@
 ---
-title: МІ-8
+title: Мі-8
 category: helicopters
 image: ./mi-8.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D1%96-8

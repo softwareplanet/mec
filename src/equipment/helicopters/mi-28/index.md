@@ -1,5 +1,5 @@
 ---
-title: МІ-28
+title: Мі-28
 category: helicopters
 image: ./mi-28.jpg
 source: https://uk.wikipedia.org/wiki/%D0%9C%D1%96-28
