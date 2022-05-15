@@ -13,6 +13,7 @@ const Layout = props => {
     const [height, setHeight] = useState(30);
     const iosWithNotch = useNotchDetector(false);
     const isBrowser = useCheckBrowser(false);
+    let [showInstructions, setShowInstructions] = useState(false);
     let openInBrowserOnIphone;
     let marginSize = height - 30;
 
@@ -21,6 +22,13 @@ const Layout = props => {
             openInBrowserOnIphone = true && isBrowser;
         }
     }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowInstructions(true);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const { progressState, showProgress } = useContext(ProgressContext);
     const isProgressbarActive = progressState && showProgress;
@@ -43,7 +51,7 @@ const Layout = props => {
                 isProgressbarActive={isProgressbarActive}
             />
             <Progressbar />
-            {openInBrowserOnIphone ? <Instruction fewLinks={true} /> : null}
+            {openInBrowserOnIphone && showInstructions ? <Instruction /> : null}
         </div>
     );
 };

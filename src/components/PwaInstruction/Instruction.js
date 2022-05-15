@@ -9,22 +9,21 @@ import firstSlide from './slideImages/slide(1).png';
 import secondSlide from './slideImages/slide(2).png';
 import thirdSlide from './slideImages/slide(3).png';
 
-export default function Instruction({ fewLinks }) {
+export default function Instruction() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [pwa, setPwa] = useState();
     const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
         setPwa(localStorage.getItem('pwa'));
-        if (!pwa && fewLinks) {
+        if (!pwa) {
             noScroll.on();
         } else {
             noScroll.off();
         }
     });
 
-    let showInstructions =
-        !pwa && fewLinks ? `${styles.show}` : `${styles.hide}`;
+    let showInstructions = !pwa ? `${styles.show}` : `${styles.hide}`;
 
     function hideInstructions(e) {
         e.preventDefault();
