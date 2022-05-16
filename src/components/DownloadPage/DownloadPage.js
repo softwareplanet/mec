@@ -60,7 +60,7 @@ export default function DownloadPage() {
                     <img src={equipmentPage} alt="equipment page" />
                 </div>
             </div>
-            <footer>Software Group Planet Ltd.</footer>
+            <footer>Software Planet Group Ltd.</footer>
         </div>
     );
 }
