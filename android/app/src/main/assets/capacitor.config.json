@@ -1,5 +1,5 @@
 {
-	"appId": "app",
+	"appId": "com.softwareplanetgroup.militarydirectory",
 	"appName": "Meqd",
 	"webDir": "public",
 	"bundledWebRuntime": false,

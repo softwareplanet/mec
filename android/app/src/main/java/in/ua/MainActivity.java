@@ -1,4 +1,4 @@
-package in.ua;
+package com.softwareplanetgroup.militarydirectory;
 
 import com.getcapacitor.BridgeActivity;
 
