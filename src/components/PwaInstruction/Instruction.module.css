@@ -1,0 +1,58 @@
+.instruction {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 15;
+    transition: 0.5s;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.container h3 {
+    color: #fff;
+    text-align: center;
+}
+
+.container div {
+    height: 100vh;
+}
+
+.slideElement {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.container div[data-index='2'] .slideElement {
+    padding: 40px 4px 0;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.counter {
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    color: #fff;
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    pointer-events: none;
+}
