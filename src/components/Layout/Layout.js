@@ -19,7 +19,7 @@ const Layout = props => {
     return (
         <div
             className={styles.layout}
-            style={{paddingBottom:  isProgressbarActive ? "40px" : 0}}
+            style={{paddingBottom:  isProgressbarActive ? "60px" : 0}}
         >
             <Helmet title="Meqd" defer={false} />
             <Header
