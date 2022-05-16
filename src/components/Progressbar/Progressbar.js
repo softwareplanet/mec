@@ -8,7 +8,6 @@ import clsx from 'clsx';
 
 export const Progressbar = () => {
   const [progress, setProgress] = useState(0);
-
   const {progressState, setProgressState, showProgress, setShowProgress} = useContext(ProgressContext)
 
   const caclProgress = (cached, total) => {
@@ -36,14 +35,20 @@ export const Progressbar = () => {
       try {
         navigator.serviceWorker.addEventListener('message', event => {
           // event is a MessageEvent object
-          setProgress(caclProgress(event.data.cached, event.data.total))
-          if (event.data.type === "INSTALLING") {
-            setProgressState(true)
+          if (event.data.cached && event.data.total){
+            setProgress(caclProgress(event.data.cached, event.data.total))
+            if (event.data.type === "INSTALLING" || event.data.type === "CACHE_DID_UPDATE") {
+              setProgressState(true)
+            }
+            if (event.data.type === "DONE") {
+              setTimeout(function () {
+                window.location.reload();
+                setProgressState(false);
+              }, 5000);
+            }
           }
-          if (event.data.type === "DONE") {
-            setTimeout(function () {
-              setProgressState(false);
-            }, 5000);
+          if (event.data.type === "RELOAD"){
+            window.location.reload();
           }
         });
       } catch (e) {
@@ -87,18 +92,19 @@ export const Progressbar = () => {
               online ? 
               (
                 <div className={styles.onlineContent}>
-                  <p>
-                    {
-                      progress !== 100
-                        ? "Завантаження даних для роботи офлайн"
-                        : "Дані завантажились"
-                    }
-                  </p>
-                  <p>
-                    {
-                      progress !== 100 ? `${progress}%` : <img src={doneIcon} />
-                    }
-                  </p>  
+                 
+                        <p>
+                        {
+                          progress !== 100
+                            ? "Завантаження даних для роботи офлайн"
+                            : "Дані завантажились"
+                        }
+                        </p>
+                        <p>
+                          {
+                            progress !== 100 ? `${progress}%` : <img src={doneIcon} />
+                          }
+                        </p>
                 </div>
               ) 
               : 

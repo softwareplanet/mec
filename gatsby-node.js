@@ -2,6 +2,20 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const version = require('./version');
 
 const path = require('path');
+
+const webpack = require(`webpack`);
+
+exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
+  if ((process.env.NODE_ENV === 'production' && stage === 'build-javascript') || options.development) {
+    actions.setWebpackConfig({
+      plugins: [
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1
+        })
+      ]
+    });
+  }
+};
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
     const data = await graphql(

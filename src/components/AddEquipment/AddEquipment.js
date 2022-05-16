@@ -36,14 +36,14 @@ const AddEquipment = () => {
                     />
                 </a>
             ) : (
-                <a onClick={handlePopup}>
+                <button onClick={handlePopup}>
                     <img
                         className={styles.add}
                         src={addContent}
                         width="27.5px"
                         alt=""
                     />
-                </a>
+                </button>
             )}
 
             <PopUp

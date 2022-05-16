@@ -1,11 +1,13 @@
 import React, { useEffect, useState, createRef } from 'react';
-import logo from './logo.svg';
+import logo from './tank.svg';
 import * as styles from './Header.module.css';
 import arrow from '../../equipment/images/arrow-left.png';
 import { fromEvent, debounceTime } from 'rxjs';
 import clsx from 'clsx';
 import ScrollUp from '../../customFunctions/ScrollUp';
 import { navigate } from 'gatsby';
+import { Link } from 'gatsby';
+import { MdOutlineFileDownload } from 'react-icons/md';
 
 let Header = props => {
     const [offset, setOffset] = useState(false);
@@ -70,6 +72,16 @@ let Header = props => {
                         <h1>{props.name}</h1>
                     </div>
                 )}
+                <div className={styles.downloadConteiner}>
+                    <Link to="/download">
+                        <div className={styles.download}>
+                            <MdOutlineFileDownload
+                                className={styles.downloadIcon}
+                            />
+                            <span>Завантажити</span>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </div>
     );
