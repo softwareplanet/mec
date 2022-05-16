@@ -7,8 +7,7 @@ import { Network } from '@capacitor/network';
 import clsx from 'clsx';
 
 export const Progressbar = () => {
-  const [progress, setProgress] = useState(0);
-  const {progressState, setProgressState, showProgress, setShowProgress} = useContext(ProgressContext)
+  const {loadingProgress, setLoadingProgress, progressState, setProgressState, showProgress, setShowProgress} = useContext(ProgressContext)
 
   const caclProgress = (cached, total) => {
     if (total != 0) {
@@ -36,7 +35,7 @@ export const Progressbar = () => {
         navigator.serviceWorker.addEventListener('message', event => {
           // event is a MessageEvent object
           if (event.data.cached && event.data.total){
-            setProgress(caclProgress(event.data.cached, event.data.total))
+            setLoadingProgress(caclProgress(event.data.cached, event.data.total))
             if (event.data.type === "INSTALLING" || event.data.type === "CACHE_DID_UPDATE") {
               setProgressState(true)
             }
@@ -64,7 +63,7 @@ export const Progressbar = () => {
         style={{ display: progressState ? 'block' : 'none'}}
         className={clsx(
           styles.progressbar, 
-          {[styles.done]: progress === 100},
+          {[styles.done]: loadingProgress === 100},
           {[styles.offline]: !online}
         )}
       >
@@ -73,7 +72,7 @@ export const Progressbar = () => {
           className={styles.hideElement}
           onClick={() => setShowProgress(!showProgress)}
         >
-          <p>{showProgress ? "Сховати" : `${progress}%`}</p>
+          <p>{showProgress ? "Сховати" : `${loadingProgress}%`}</p>
           <img
             src={hideIcon}
             style={
@@ -84,7 +83,7 @@ export const Progressbar = () => {
           />
         </div>
         <div
-          style={{ display: !showProgress && progress !== 100 ? "none" : "block"  }}
+          style={{ display: !showProgress && loadingProgress !== 100 ? "none" : "block"  }}
           className={styles.progressbarContent}
         >
           <div className={styles.progressbarHeader}>
@@ -95,14 +94,14 @@ export const Progressbar = () => {
                  
                         <p>
                         {
-                          progress !== 100
+                          loadingProgress !== 100
                             ? "Завантаження даних для роботи офлайн"
                             : "Дані завантажились"
                         }
                         </p>
                         <p>
                           {
-                            progress !== 100 ? `${progress}%` : <img src={doneIcon} />
+                            loadingProgress !== 100 ? `${loadingProgress}%` : <img src={doneIcon} />
                           }
                         </p>
                 </div>
@@ -123,7 +122,7 @@ export const Progressbar = () => {
           <div className={styles.bar}>
             <div
               className={styles.progress}
-              style={{ width: progress + "%" }}
+              style={{ width: loadingProgress + "%" }}
             ></div>
           </div>
         </div>
