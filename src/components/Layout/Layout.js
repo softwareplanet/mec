@@ -7,13 +7,15 @@ import * as styles from './layout.module.css';
 import Footer from '../Footer/Footer';
 import { Progressbar } from '../Progressbar/Progressbar';
 import ProgressContext from './ProgressContext';
+import { VisitedPagesContext } from './VisitedPagesContext';
 import Instruction from '../PwaInstruction/Instruction';
 
 const Layout = props => {
     const [height, setHeight] = useState(30);
     const iosWithNotch = useNotchDetector(false);
     const isBrowser = useCheckBrowser(false);
-    let [showInstructions, setShowInstructions] = useState(false);
+    const { visitedPages, setVisitedPages } = useContext(VisitedPagesContext);
+    const showInstructions = visitedPages === 2 ? true : false;
     let openInBrowserOnIphone;
     let marginSize = height - 30;
 
@@ -24,10 +26,11 @@ const Layout = props => {
     }
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowInstructions(true);
-        }, 5000);
-        return () => clearTimeout(timer);
+        if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+            if (window.location.pathname === '/') {
+                setVisitedPages(visitedPages + 1);
+            }
+        }
     }, []);
 
     const { progressState, showProgress } = useContext(ProgressContext);
