@@ -5,11 +5,12 @@ import ProgressContext from './src/components/Layout/ProgressContext';
 
 let Root = ({ children }) => {
     let [view, setView] = useState('grid');
+    let [loadingProgress, setLoadingProgress] = useState(0);
     let [progressState, setProgressState] = useState(false);
     let [showProgress, setShowProgress] = useState(true);
     const [popupState, setPopupState] = useState(false);
     return (
-        <ProgressContext.Provider value={{ progressState, setProgressState, showProgress, setShowProgress }}>
+        <ProgressContext.Provider value={{ loadingProgress, setLoadingProgress, progressState, setProgressState, showProgress, setShowProgress }}>
             <ViewContext.Provider value={{ view, setView }}>
                 <PopUpContext.Provider value={{ popupState, setPopupState }}>
                     {children}
